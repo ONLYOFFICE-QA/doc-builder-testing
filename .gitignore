@@ -1,0 +1,11 @@
+# rdoc generated
+rdoc
+
+# yard generated
+doc
+.yardoc
+
+# bundler
+.bundle
+.idea
+Gemfile.lock
