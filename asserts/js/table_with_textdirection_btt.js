@@ -1,4 +1,4 @@
-builder.CreateFile("docx");
+Api.CreateFile("docx");
 
 var Api = editor;
 var oDocument     = Api.GetDocument();
@@ -15,5 +15,5 @@ oCellContent = oCell.GetContent();
 oParagraph = oCellContent.GetElement(0);
 oParagraph.AddText("bottom to top");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_textdirection_btt.docx");
-builder.CloseFile();
+Api.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_textdirection_btt.docx");
+Api.CloseFile();

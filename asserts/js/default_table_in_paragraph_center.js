@@ -1,4 +1,4 @@
-builder.CreateFile("docx");
+Api.CreateFile("docx");
 
 var Api = editor;
 var oDocument     = Api.GetDocument();
@@ -11,5 +11,5 @@ oTable = Api.CreateTable(3, 3);
 oDocument.Push(oTable);
 oTable.SetJc("center");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_paragraph_center.docx");
-builder.CloseFile();
+Api.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_paragraph_center.docx");
+Api.CloseFile();
