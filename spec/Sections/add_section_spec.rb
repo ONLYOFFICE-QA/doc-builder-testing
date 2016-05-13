@@ -14,7 +14,13 @@ describe 'Text with tabs' do
     docx = OoxmlParser::DocxParser.parse_docx('/home/pc/Documents/temp_docx/table_in_section.docx')
     expect(docx.element_by_description[1].rows.length).to eq(3)
     expect(docx.element_by_description[1].rows[0].cells.length).to eq(3)
-    expect(docx.element_by_description.last.rows.length).to eq(3)
-    expect(docx.element_by_description.last.rows[0].cells.length).to eq(3)
+    expect(docx.element_by_description[4].rows.length).to eq(3)
+    expect(docx.element_by_description[4].rows[0].cells.length).to eq(3)
+  end
+
+  it 'Page size for Section' do
+    docx = OoxmlParser::DocxParser.parse_docx('/home/pc/Documents/temp_docx/page_size_for_section.docx')
+    expect(docx.page_properties.size.name).to eq('US Letter')
+    expect(docx.elements[1].sector_properties.size.name).to eq('A4')
   end
 end
