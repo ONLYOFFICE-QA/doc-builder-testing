@@ -24,7 +24,7 @@ class DocBuilderWrapper
 
   def self.change_output_file(script_file)
     temp_output_file = Tempfile.new([File.basename(script_file), '.docx'])
-    script_file_content = File.open(script_file, "rb").read
+    script_file_content = File.open(script_file, "r").read
     script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"docx\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)

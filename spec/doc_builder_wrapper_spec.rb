@@ -43,5 +43,9 @@ describe 'My behaviour' do
     it 'check that parsing is performed' do
       expect(builder.build_doc_and_parse(simple_script)).to be_a(OoxmlParser::DocumentStructure)
     end
+
+    it 'check that build is performed with script with russian letters' do
+      expect(builder.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
+    end
   end
 end
