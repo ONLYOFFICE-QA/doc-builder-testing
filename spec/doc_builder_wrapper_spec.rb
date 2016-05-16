@@ -3,7 +3,7 @@ require_relative '../lib/doc_builder_testing'
 
 describe 'My behaviour' do
   let(:builder) { DocBuilderWrapper.new }
-  let(:simple_script) { 'asserts/js/Paragraph/Text/add_text_in_paragraph.js' }
+  let(:simple_script) { 'asserts/js/paragraph/text/add_text_in_paragraph.js' }
 
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
@@ -45,7 +45,7 @@ describe 'My behaviour' do
     end
 
     it 'check that build is performed with script with russian letters' do
-      expect(builder.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
+      expect(builder.build_doc_and_parse('asserts/js/paragraph/text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
     end
   end
 end

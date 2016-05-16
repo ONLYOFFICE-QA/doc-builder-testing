@@ -1,6 +1,6 @@
 GIT
   remote: https://onlyoffice-deploy-robot:0edf0d5c0e8cf35fb1fc24b0b5e20fe410ac0e6d@github.com/ONLYOFFICE/ooxml_parser
-  revision: bf95ca8f94316f691ccd29355be88eae8a8c71f1
+  revision: c27230b32713391bf98d345bd0e8672429d717e1
   specs:
     ooxml_parser (0.1.0)
       nokogiri (~> 1.6)
@@ -45,7 +45,7 @@ GEM
       rainbow (>= 1.99.1, < 3.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.0, >= 1.0.1)
-    ruby-progressbar (1.8.0)
+    ruby-progressbar (1.8.1)
     rubyzip (1.2.0)
     unicode-display_width (1.0.5)
     xml-simple (1.1.5)
