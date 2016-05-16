@@ -13,7 +13,8 @@ class DocBuilderWrapper
   end
 
   def build_doc(script_file)
-    `LD_LIBRARY_PATH=#{@builder_home} #{@builder_exe} #{script_file} 2>&1`
+    build_result = `LD_LIBRARY_PATH=#{@builder_home} #{@builder_exe} #{script_file} 2>&1`
+    raise DocBuilderError, build_result if build_result.include?('error')
   end
 
   def build_doc_and_parse(script_file)
