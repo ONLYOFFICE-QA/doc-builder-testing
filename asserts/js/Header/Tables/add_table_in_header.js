@@ -12,10 +12,10 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
 
 var oParagraph = Api.CreateParagraph();
 var oFinalSection   = oDocument.GetFinalSection();
-var oDocContent = oFinalSection.GetFooter("default", true);
+var oDocContent = oFinalSection.GetHeader("default", true);
 oTable = Api.CreateTable(3, 3);
 oDocContent.Push(oTable);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_footer.docx");
+builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_header.docx");
 builder.CloseFile();

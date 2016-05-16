@@ -1,17 +1,17 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'Check keeplines' do
 
   it 'Keeplines' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_keeplines.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_keeplines.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('KeepLines')
     expect(docx.elements[1].keep_lines).to eq(true)
   end
 
   it 'Keepnext' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_keepnext.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_keepnext.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('KeepNext')
     expect(docx.elements[1].keep_next).to eq(true)
   end

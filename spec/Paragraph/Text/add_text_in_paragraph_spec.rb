@@ -1,10 +1,10 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'My behaviour' do
   it 'Check Diagram offset should !=0' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/paragraph_text.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_in_paragraph.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('test')
   end
 end

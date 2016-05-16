@@ -1,7 +1,5 @@
 builder.CreateFile("docx");
 
-//Проверям ввод текста в хедер
-
 var Api = editor;
 var oDocument     = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();

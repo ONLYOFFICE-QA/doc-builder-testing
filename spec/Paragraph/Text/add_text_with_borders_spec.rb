@@ -1,11 +1,11 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'Check borders' do
 
   it 'Borders' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_borders.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_borders.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('Borders')
     expect(docx.elements[1].borders.between.color).to eq(OoxmlParser::Color.new(255,0,255))
     expect(docx.elements[1].borders.bottom.color).to eq(OoxmlParser::Color.new(0,255,0))

@@ -1,18 +1,18 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'Check firstline' do
 
   it 'Firstline should be 0.18' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_firstline_plus.docx')
-    expect(docx.elements[1].character_style_array.first.text).to eq('Firstline100')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_firstline_plus.js')
+    expect(docx.elements[1].character_style_array.first.text).to eq('First line indent is 5pt')
     expect(docx.elements[1].ind.first_line_indent).to eq(0.18)
   end
 
   it 'Firstline should be 0' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_firstline_minus.docx')
-    expect(docx.elements[1].character_style_array.first.text).to eq('Firstline-100')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_firstline_minus.js')
+    expect(docx.elements[1].character_style_array.first.text).to eq('First line indent is 5pt')
     expect(docx.elements[1].ind.first_line_indent).to eq(0)
   end
 end

@@ -1,11 +1,11 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'Check pagebreak' do
 
   it 'Pagebreak' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_pagebreakbefore.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_pagebreakbefore.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('PageBreakBefore')
     expect(docx.elements[1].page_break).to eq(true)
   end

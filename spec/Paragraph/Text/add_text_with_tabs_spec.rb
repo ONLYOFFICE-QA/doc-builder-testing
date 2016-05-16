@@ -1,11 +1,11 @@
 require 'bundler/setup'
 require 'rspec'
-require 'ooxml_parser'
+require_relative '../../../lib/doc_builder_testing'
 
 describe 'Text with tabs' do
 
   it 'Tabs' do
-    docx = OoxmlParser::DocxParser.parse_docx('/home/ilya/Documents/temp_docx/add_text_with_tabs.docx')
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/Paragraph/Text/add_text_with_tabs.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('Tabs')
     expect(docx.elements[1].tabs.first.position).to eq(1.76)
     expect(docx.elements[1].tabs.first.align).to eq(:center)
