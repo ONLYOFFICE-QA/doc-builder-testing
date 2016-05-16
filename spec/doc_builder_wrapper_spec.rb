@@ -28,9 +28,14 @@ describe 'My behaviour' do
       expect(File.open(rebuild_result[:temp_script_file], 'rb').read).to include(rebuild_result[:temp_output_file])
     end
 
-    it 'Check that temp file is same format as original file' do
+    it 'Check that temp script file is same format as original file' do
       rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
       expect(File.extname(rebuild_result[:temp_script_file])).to eq(File.extname(simple_script))
+    end
+
+    it 'Check that temp output file is docx' do
+      rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
+      expect(File.extname(rebuild_result[:temp_output_file])).to eq('.docx')
     end
   end
 
