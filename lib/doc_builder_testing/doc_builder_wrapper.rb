@@ -1,5 +1,6 @@
 # Class for Wrapping doc building
 require 'tempfile'
+require 'ooxml_parser'
 class DocBuilderWrapper
   # Path to Builder folder
   attr_accessor :builder_home
@@ -15,6 +16,12 @@ class DocBuilderWrapper
     `LD_LIBRARY_PATH=#{@builder_home} #{@builder_exe} #{script_file} 2>&1`
   end
 
+  def build_doc_and_parse(script_file)
+    temp_script_data = DocBuilderWrapper.change_output_file(script_file)
+    build_doc(temp_script_data[:temp_script_file])
+    OoxmlParser::DocxParser.parse_docx(temp_script_data[:temp_output_file])
+  end
+
   def self.change_output_file(script_file)
     temp_output_file = Tempfile.new('doc_builder_wrapper_output')
     script_file_content = File.open(script_file, "rb").read
@@ -22,6 +29,6 @@ class DocBuilderWrapper
     temp_script_file = Tempfile.new('doc_builder_wrapper_script')
     temp_script_file.write(script_file_content)
     temp_script_file.close
-    {temp_script_file: temp_script_file, temp_output_file: temp_output_file}
+    {temp_script_file: temp_script_file.path, temp_output_file: temp_output_file.path}
   end
 end
