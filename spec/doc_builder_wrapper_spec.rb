@@ -7,11 +7,11 @@ describe 'My behaviour' do
 
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
-      expect(builder.build_doc('test')).to eq("error: cannot read run file\n")
+      expect{ builder.build_doc('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
     it 'should raise error if output path is incorrect' do
-      expect(builder.build_doc(simple_script)).to eq("error: : save file error\n")
+      expect{ builder.build_doc(simple_script) }.to raise_error(DocBuilderError, /error: : save file error\n/)
     end
   end
 
