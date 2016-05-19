@@ -1,8 +1,8 @@
 GIT
-  remote: https://onlyoffice-deploy-robot:0edf0d5c0e8cf35fb1fc24b0b5e20fe410ac0e6d@github.com/ONLYOFFICE/ooxml_parser
-  revision: c27230b32713391bf98d345bd0e8672429d717e1
+  remote: https://github.com/ONLYOFFICE/ooxml_parser
+  revision: fb42a48b6e90852cb144ac4d65105a48c9be5f1c
   specs:
-    ooxml_parser (0.1.0)
+    ooxml_parser (0.1.1)
       nokogiri (~> 1.6)
       rubyzip (~> 1.1)
       xml-simple (~> 1.1)
