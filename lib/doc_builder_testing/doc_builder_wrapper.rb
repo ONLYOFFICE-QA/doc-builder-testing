@@ -2,18 +2,15 @@
 require 'tempfile'
 require 'ooxml_parser'
 class DocBuilderWrapper
-  # Path to Builder folder
-  attr_accessor :builder_home
   # Path to Builder exe
   attr_accessor :builder_exe
 
-  def initialize(builder_home: "#{ENV['HOME']}/.apps/doc-builder/")
-    @builder_home = builder_home
-    @builder_exe = "#{@builder_home}docbuilder_linux64"
+  def initialize(builder_exe: '/usr/bin/documentcreator')
+    @builder_exe = builder_exe
   end
 
   def build_doc(script_file)
-    build_result = `LD_LIBRARY_PATH=#{@builder_home} #{@builder_exe} #{script_file} 2>&1`
+    build_result = `#{@builder_exe} #{script_file} 2>&1`
     raise DocBuilderError, build_result if build_result.include?('error')
   end
 
