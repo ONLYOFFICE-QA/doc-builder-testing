@@ -4,5 +4,6 @@ Encoding.default_internal = Encoding::UTF_8
 source 'https://rubygems.org'
 gem 'ooxml_parser', git: 'https://github.com/ONLYOFFICE/ooxml_parser'
 gem 'overcommit'
+gem 'parallel_tests'
 gem 'rspec'
 gem 'rubocop'
