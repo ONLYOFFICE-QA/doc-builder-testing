@@ -21,10 +21,23 @@ class DocBuilderWrapper
     OoxmlParser::DocxParser.parse_docx(temp_script_data[:temp_output_file])
   end
 
-  def self.change_output_file(script_file)
-    temp_output_file = Tempfile.new([File.basename(script_file), '.docx'])
+  # Build xlsx and parse it
+  # @param script_file [String] path to script file
+  # @return [OoxmlParser::XLSXWorkbook] parsed file
+  def build_xlsx_and_parse(script_file)
+    temp_script_data = DocBuilderWrapper.change_output_file(script_file, :xlsx)
+    build_doc(temp_script_data[:temp_script_file])
+    OoxmlParser::XlsxParser.parse_xlsx(temp_script_data[:temp_output_file])
+  end
+
+  # Make a copy of script file, so no need to change output path on real file
+  # @param script_file [String] path to actual script file
+  # @param format [Symbol, String] type of file (docx, xlsx)
+  # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
+  def self.change_output_file(script_file, format = :docx)
+    temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
     script_file_content = File.open(script_file, "r").read
-    script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"docx\", \"#{temp_output_file.path}\");")
+    script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{format}\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
     temp_script_file.close
