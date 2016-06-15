@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Check fontstyles in header' do
-
   it 'text should be bold' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/header/text/text_with_bold_in_header.js')
     expect(docx.notes.first.elements[1].character_style_array.first.text).to eq('Bold')

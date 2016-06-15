@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Add table with style parametres' do
-
   it 'Table with parametres: false, false, true, true, false, true' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_styleparametres.js')
     expect(docx.elements[1].rows.length).to eq(3)
@@ -17,6 +16,3 @@ describe 'Add table with style parametres' do
     expect(docx.elements[1].properties.table_look.no_vertical_banding).to be_falsey
   end
 end
-
-
-

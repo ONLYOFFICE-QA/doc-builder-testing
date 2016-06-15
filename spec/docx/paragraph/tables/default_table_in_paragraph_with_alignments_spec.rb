@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Add deafult table with alignments' do
-
   it 'Table with center alignment' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/default_table_in_paragraph_center.js')
     expect(docx.elements[1].rows.length).to eq(3)
@@ -25,6 +24,3 @@ describe 'Add deafult table with alignments' do
     expect(docx.elements[1].properties.jc).to eq(:right)
   end
 end
-
-
-
