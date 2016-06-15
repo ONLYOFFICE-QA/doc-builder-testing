@@ -3,8 +3,13 @@ require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
 describe 'Api sectin tests' do
   it 'CreateBlipFill method' do
+      OoxmlParser.configure do |config|
+        config.units = :emu
+      end
       docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createblipfill.js')
-      expect(docx.nil?).to eq(false)
+      expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.type).to eq(:shape)
+      expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
+      expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.properties.object_size.x).to eq(5930900)
   end
 
   it 'CreateChart method' do
