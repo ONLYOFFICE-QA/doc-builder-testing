@@ -12,7 +12,7 @@ class DocBuilderWrapper
 
   def build_doc(script_file)
     build_result = `#{@builder_exe} #{script_file} 2>&1`
-    raise DocBuilderError, build_result if build_result.include?('error')
+    raise DocBuilderError, build_result if /[Ee]rror/ === build_result
   end
 
   def build_doc_and_parse(script_file)
