@@ -13,8 +13,8 @@ describe 'Api sectin tests' do
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.properties.object_size.x).to eq(5930900.0)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.properties.object_size.y).to eq(595605.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(5930900.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(595605.0)
   end
 
   it 'CreateChart method' do
