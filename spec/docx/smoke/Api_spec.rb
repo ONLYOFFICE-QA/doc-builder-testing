@@ -21,8 +21,12 @@ describe 'Api sectin tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createchart.js')
     expect(docx.elements.first.character_style_array[1].drawing.graphic.type).to eq(:chart)
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.type).to eq(:bar_3d)
+    docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.each do |series|
+      expect(series.categories.string.cache.points.map { |current_point| current_point.text.value }).to eq(%w(2014 2015 2016))
+    end
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.title.nil?).to be_truthy
-    expect(docx.elements.first.character_style_array[1].drawing.graphic.data.legend.position).to eq(:right)
     expect(docx.elements.first.character_style_array[1].drawing.properties.object_size.x).to eq(4051299.0)
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(102)
   end
