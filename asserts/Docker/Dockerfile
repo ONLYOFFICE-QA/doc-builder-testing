@@ -14,6 +14,7 @@ RUN \curl -L https://get.rvm.io | bash -s stable
 RUN /bin/bash -l -c "rvm requirements"
 RUN /bin/bash -l -c "rvm install 2.3"
 RUN /bin/bash -l -c "gem install bundler --no-ri --no-rdoc"
+RUN apt-get update && apt-get -y -q install libmagic-dev
 
 RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-builder-testing && /bin/bash -l -c 'source "/usr/local/rvm/scripts/rvm"' && /bin/bash -l -c 'bundle install'
 
