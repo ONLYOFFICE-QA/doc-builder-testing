@@ -49,6 +49,12 @@ describe 'Api section tests' do
     expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1260000.0)
   end
 
+  it 'Api | CreateLinearGradientFill method' do
+    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createlineargradientfill.js')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.linear_gradient.angle).to eq(54.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops.empty?).to be_falsey
+  end
+
   it 'Api | CreateNoFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createnofill.js')
     expect(docx.nil?).to eq(false)
