@@ -2,32 +2,32 @@ require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
 describe 'ApiChart sectin tests' do
-  it 'GetClassType method' do
+  it 'ApiChart | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetHorAxisTitle method' do
+  it 'ApiChart | SetHorAxisTitle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/sethoraxistitle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetLegendPos method' do
+  it 'ApiChart | SetLegendPos method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/setlegendpos.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetShowDataLabels method' do
+  it 'ApiChart | SetShowDataLabels method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/setshowdatalabels.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetTitle method' do
+  it 'ApiChart | SetTitle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/settitle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetVerAxisTitle method' do
+  it 'ApiChart | SetVerAxisTitle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/setveraxistitle.js')
     expect(docx.nil?).to eq(false)
   end
