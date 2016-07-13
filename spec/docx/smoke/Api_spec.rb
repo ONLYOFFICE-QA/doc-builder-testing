@@ -1,13 +1,13 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'Api sectin tests' do
+describe 'Api section tests' do
   before :all do
     OoxmlParser.configure do |config|
       config.units = :emu
     end
   end
-  it 'CreateBlipFill method' do
+  it 'Api | CreateBlipFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createblipfill.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
@@ -17,7 +17,7 @@ describe 'Api sectin tests' do
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(595605.0)
   end
 
-  it 'CreateChart method' do
+  it 'Api | CreateChart method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createchart.js')
     expect(docx.elements.first.character_style_array[1].drawing.graphic.type).to eq(:chart)
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.type).to eq(:bar_3d)
@@ -31,7 +31,7 @@ describe 'Api sectin tests' do
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(102)
   end
 
-  it 'CreateGradientStop method' do
+  it 'Api | CreateGradientStop method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/creategradientstop.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:gradient)
@@ -41,7 +41,7 @@ describe 'Api sectin tests' do
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
   end
 
-  it 'CreateImage method' do
+  it 'Api | CreateImage method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createimage.js')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.path_to_image.path_to_media_file.nil?).to be_falsey
@@ -49,67 +49,67 @@ describe 'Api sectin tests' do
     expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1260000.0)
   end
 
-  it 'CreateNoFill method' do
+  it 'Api | CreateNoFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createnofill.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateParagraph method' do
+  it 'Api | CreateParagraph method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createparagraph.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreatePatternFill method' do
+  it 'Api | CreatePatternFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createpatternfill.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreatePresetColor method' do
+  it 'Api | CreatePresetColor method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createpresetcolor.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateRadialGradientFill method' do
+  it 'Api | CreateRadialGradientFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createradialgradientfill.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateRGBColor method' do
+  it 'Api | CreateRGBColor method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/creatergbcolor.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateRun method' do
+  it 'Api | CreateRun method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createrun.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateSchemeColor method' do
+  it 'Api | CreateSchemeColor method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createschemecolor.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateShape method' do
+  it 'Api | CreateShape method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createshape.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateSolidFill method' do
+  it 'Api | CreateSolidFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createsolidfill.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateStroke method' do
+  it 'Api | CreateStroke method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createstroke.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateTable method' do
+  it 'Api | CreateTable method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createtable.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetDocument method' do
+  it 'Api | GetDocument method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/getdocument.js')
     expect(docx.nil?).to eq(false)
   end
