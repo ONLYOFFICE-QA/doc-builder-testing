@@ -1,68 +1,68 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiSection sectin tests' do
-  it 'GetClassType method' do
+describe 'ApiSection section tests' do
+  it 'ApiSection | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetFooter method' do
+  it 'ApiSection | GetFooter method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/getfooter.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetHeader method' do
+  it 'ApiSection | GetHeader method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/getheader.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveFooter method' do
+  it 'ApiSection | RemoveFooter method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/removefooter.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveHeader method' do
+  it 'ApiSection | RemoveHeader method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/removeheader.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetEqualColumns method' do
+  it 'ApiSection | SetEqualColumns method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setequalcolumns.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetFooterDistance method' do
+  it 'ApiSection | SetFooterDistance method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setfooterdistance.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetHeaderDistance method' do
+  it 'ApiSection | SetHeaderDistance method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setheaderdistance.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetNotEqualColumns method' do
+  it 'ApiSection | SetNotEqualColumns method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setnotequalcolumns.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetPageMargins method' do
+  it 'ApiSection | SetPageMargins method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setpagemargins.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetPageSize method' do
+  it 'ApiSection | SetPageSize method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setpagesize.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetTitlePage method' do
+  it 'ApiSection | SetTitlePage method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/settitlepage.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetType method' do
+  it 'ApiSection | SetType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/settype.js')
     expect(docx.nil?).to eq(false)
   end

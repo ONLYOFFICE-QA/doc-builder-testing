@@ -1,78 +1,78 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiTableCell sectin tests' do
-  it 'GetClassType method' do
+describe 'ApiTableCell section tests' do
+  it 'ApiTableCell | ApiTableCell | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetContent method' do
+  it 'ApiTableCell | ApiTableCell | GetContent method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/getcontent.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellBorderBottom method' do
+  it 'ApiTableCell | ApiTableCell | SetCellBorderBottom method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellborderbottom.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellBorderLeft method' do
+  it 'ApiTableCell | ApiTableCell | SetCellBorderLeft method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellborderleft.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellBorderRight method' do
+  it 'ApiTableCell | ApiTableCell | SetCellBorderRight method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellborderright.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellBorderTop method' do
+  it 'ApiTableCell | ApiTableCell | SetCellBorderTop method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellbordertop.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellMarginBottom method' do
+  it 'ApiTableCell | ApiTableCell | SetCellMarginBottom method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellmarginbottom.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellMarginLeft method' do
+  it 'ApiTableCell | ApiTableCell | SetCellMarginLeft method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellmarginleft.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellMarginRight method' do
+  it 'ApiTableCell | ApiTableCell | SetCellMarginRight method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellmarginright.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCellMarginTop method' do
+  it 'ApiTableCell | ApiTableCell | SetCellMarginTop method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setcellmargintop.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetNoWrap method' do
+  it 'ApiTableCell | ApiTableCell | SetNoWrap method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setnowrap.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetShd method' do
+  it 'ApiTableCell | ApiTableCell | SetShd method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setshd.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetTextDirection method' do
+  it 'ApiTableCell | ApiTableCell | SetTextDirection method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/settextdirection.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetVerticalAlign method' do
+  it 'ApiTableCell | ApiTableCell | SetVerticalAlign method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setverticalalign.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetWidth method' do
+  it 'ApiTableCell | ApiTableCell | SetWidth method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCell/setwidth.js')
     expect(docx.nil?).to eq(false)
   end

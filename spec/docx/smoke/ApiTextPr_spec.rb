@@ -1,93 +1,93 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiTextPr sectin tests' do
-  it 'GetClassType method' do
+describe 'ApiTextPr section tests' do
+  it 'ApiTextPr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetBold method' do
+  it 'ApiTextPr | SetBold method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setbold.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetCaps method' do
+  it 'ApiTextPr | SetCaps method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setcaps.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetColor method' do
+  it 'ApiTextPr | SetColor method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setcolor.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetDoubleStrikeout method' do
+  it 'ApiTextPr | SetDoubleStrikeout method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setdoublestrikeout.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetFontFamily method' do
+  it 'ApiTextPr | SetFontFamily method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setfontfamily.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetFontSize method' do
+  it 'ApiTextPr | SetFontSize method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setfontsize.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetHighlight method' do
+  it 'ApiTextPr | SetHighlight method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/sethighlight.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetItalic method' do
+  it 'ApiTextPr | SetItalic method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setitalic.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetLanguage method' do
+  it 'ApiTextPr | SetLanguage method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setlanguage.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetPosition method' do
+  it 'ApiTextPr | SetPosition method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setposition.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetShd method' do
+  it 'ApiTextPr | SetShd method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setshd.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSmallCaps method' do
+  it 'ApiTextPr | SetSmallCaps method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setsmallcaps.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSpacing method' do
+  it 'ApiTextPr | SetSpacing method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setspacing.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetStrikeout method' do
+  it 'ApiTextPr | SetStrikeout method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setstrikeout.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetStyle method' do
+  it 'ApiTextPr | SetStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setstyle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetUnderline method' do
+  it 'ApiTextPr | SetUnderline method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setunderline.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetVertAlign method' do
+  it 'ApiTextPr | SetVertAlign method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTextPr/setvertalign.js')
     expect(docx.nil?).to eq(false)
   end

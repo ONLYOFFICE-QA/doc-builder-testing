@@ -1,113 +1,113 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiParaPr sectin tests' do
-  it 'GetClassType method' do
+describe 'ApiParaPr section tests' do
+  it 'ApiParaPr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetBetweenBorder method' do
+  it 'ApiParaPr | SetBetweenBorder method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setbetweenborder.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetBottomBorder method' do
+  it 'ApiParaPr | SetBottomBorder method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setbottomborder.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetContextualSpacing method' do
+  it 'ApiParaPr | SetContextualSpacing method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setcontextualspacing.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetIndFirstLine method' do
+  it 'ApiParaPr | SetIndFirstLine method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindfirstline.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetIndLeft method' do
+  it 'ApiParaPr | SetIndLeft method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindleft.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetIndRight method' do
+  it 'ApiParaPr | SetIndRight method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindright.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetJc method' do
+  it 'ApiParaPr | SetJc method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setjc.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetKeepLines method' do
+  it 'ApiParaPr | SetKeepLines method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setkeeplines.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetKeepNext method' do
+  it 'ApiParaPr | SetKeepNext method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setkeepnext.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetLeftBorder method' do
+  it 'ApiParaPr | SetLeftBorder method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setleftborder.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetNumPr method' do
+  it 'ApiParaPr | SetNumPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setnumpr.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetPageBreakBefore method' do
+  it 'ApiParaPr | SetPageBreakBefore method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setpagebreakbefore.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetRightBorder method' do
+  it 'ApiParaPr | SetRightBorder method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setrightborder.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetShd method' do
+  it 'ApiParaPr | SetShd method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setshd.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSpacingAfter method' do
+  it 'ApiParaPr | SetSpacingAfter method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingafter.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSpacingBefore method' do
+  it 'ApiParaPr | SetSpacingBefore method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingbefore.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSpacingLine method' do
+  it 'ApiParaPr | SetSpacingLine method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingline.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetStyle method' do
+  it 'ApiParaPr | SetStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setstyle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetTabs method' do
+  it 'ApiParaPr | SetTabs method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/settabs.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetTopBorder method' do
+  it 'ApiParaPr | SetTopBorder method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/settopborder.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetWidowControl method' do
+  it 'ApiParaPr | SetWidowControl method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setwidowcontrol.js')
     expect(docx.nil?).to eq(false)
   end

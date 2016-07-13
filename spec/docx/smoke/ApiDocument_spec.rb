@@ -1,83 +1,83 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiDocument sectin tests' do
-  it 'AddElement method' do
+describe 'ApiDocument section tests' do
+  it 'ApiDocument | AddElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/addelement.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateNumbering method' do
+  it 'ApiDocument | CreateNumbering method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/createnumbering.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateSection method' do
+  it 'ApiDocument | CreateSection method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/createsection.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'CreateStyle method' do
+  it 'ApiDocument | CreateStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/createstyle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetClassType method' do
+  it 'ApiDocument | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetDefaultParaPr method' do
+  it 'ApiDocument | GetDefaultParaPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getdefaultparapr.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetDefaultStyle method' do
+  it 'ApiDocument | GetDefaultStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getdefaultstyle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetDefaultTextPr method' do
+  it 'ApiDocument | GetDefaultTextPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getdefaulttextpr.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetElement method' do
+  it 'ApiDocument | GetElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getelement.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetElementsCount method' do
+  it 'ApiDocument | GetElementsCount method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getelementscount.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetFinalSection method' do
+  it 'ApiDocument | GetFinalSection method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getfinalsection.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetStyle method' do
+  it 'ApiDocument | GetStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getstyle.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'Push method' do
+  it 'ApiDocument | Push method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/push.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveAllElements method' do
+  it 'ApiDocument | RemoveAllElements method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/removeallelements.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveElement method' do
+  it 'ApiDocument | RemoveElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/removeelement.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetEvenAndOddHdrFtr method' do
+  it 'ApiDocument | SetEvenAndOddHdrFtr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/setevenandoddhdrftr.js')
     expect(docx.nil?).to eq(false)
   end

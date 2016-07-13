@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiChart sectin tests' do
+describe 'ApiChart section tests' do
   it 'ApiChart | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiChart/getclasstype.js')
     expect(docx.nil?).to eq(false)

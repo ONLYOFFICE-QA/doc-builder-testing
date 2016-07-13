@@ -1,38 +1,38 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiDocumentContent sectin tests' do
-  it 'AddElement method' do
+describe 'ApiDocumentContent section tests' do
+  it 'ApiDocumentContent | AddElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/addelement.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetClassType method' do
+  it 'ApiDocumentContent | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetElement method' do
+  it 'ApiDocumentContent | GetElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/getelement.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'GetElementsCount method' do
+  it 'ApiDocumentContent | GetElementsCount method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/getelementscount.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'Push method' do
+  it 'ApiDocumentContent | Push method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/push.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveAllElements method' do
+  it 'ApiDocumentContent | RemoveAllElements method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/removeallelements.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'RemoveElement method' do
+  it 'ApiDocumentContent | RemoveElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/removeelement.js')
     expect(docx.nil?).to eq(false)
   end

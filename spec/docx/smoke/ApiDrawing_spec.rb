@@ -1,43 +1,43 @@
 require 'bundler/setup'
 require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
-describe 'ApiDrawing sectin tests' do
-  it 'GetClassType method' do
+describe 'ApiDrawing section tests' do
+  it 'ApiDrawing | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/getclasstype.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetDistances method' do
+  it 'ApiDrawing | SetDistances method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setdistances.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetHorAlign method' do
+  it 'ApiDrawing | SetHorAlign method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/sethoralign.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetHorPosition method' do
+  it 'ApiDrawing | SetHorPosition method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/sethorposition.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetSize method' do
+  it 'ApiDrawing | SetSize method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setsize.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetVerAlign method' do
+  it 'ApiDrawing | SetVerAlign method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setveralign.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetVerPosition method' do
+  it 'ApiDrawing | SetVerPosition method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setverposition.js')
     expect(docx.nil?).to eq(false)
   end
 
-  it 'SetWrappingStyle method' do
+  it 'ApiDrawing | SetWrappingStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setwrappingstyle.js')
     expect(docx.nil?).to eq(false)
   end
