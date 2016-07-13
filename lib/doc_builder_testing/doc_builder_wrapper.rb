@@ -36,12 +36,12 @@ class DocBuilderWrapper
   # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
   def self.change_output_file(script_file, format = :docx)
     temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
-    script_file_content = File.open(script_file, "r").read
+    script_file_content = File.open(script_file, 'r').read
     script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{format}\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
     temp_script_file.close
-    {temp_script_file: temp_script_file.path, temp_output_file: temp_output_file.path}
+    { temp_script_file: temp_script_file.path, temp_output_file: temp_output_file.path }
   end
 
   # Update DocBuilder config file for custom location of sdk_all
@@ -59,6 +59,6 @@ class DocBuilderWrapper
     content = content.gsub(/^.*sdkjs\/slide\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/slide/sdk-all-min.js</file>")
     content = content.gsub(/^.*sdkjs\/cell\/sdk-all.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all.js</file>")
     content = content.gsub(/^.*sdkjs\/cell\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all-min.js</file>")
-    File.open(path_to_config, "w") { |file| file << content }
+    File.open(path_to_config, 'w') { |file| file << content }
   end
 end

@@ -13,8 +13,8 @@ describe 'Api section tests' do
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(5930900.0)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(595605.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(5_930_900.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(595_605.0)
   end
 
   it 'Api | CreateChart method' do
@@ -27,7 +27,7 @@ describe 'Api section tests' do
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.title.nil?).to be_truthy
-    expect(docx.elements.first.character_style_array[1].drawing.properties.object_size.x).to eq(4051299.0)
+    expect(docx.elements.first.character_style_array[1].drawing.properties.object_size.x).to eq(4_051_299.0)
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(102)
   end
 
@@ -35,9 +35,9 @@ describe 'Api section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/creategradientstop.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:gradient)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.to_s).to eq("RGB (255, 224, 204)")
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].position).to eq(0.0)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq("RGB (255, 164, 101)")
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
   end
 
@@ -45,8 +45,8 @@ describe 'Api section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createimage.js')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.path_to_image.path_to_media_file.nil?).to be_falsey
-    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.x).to eq(2160000.0)
-    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1260000.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.x).to eq(2_160_000.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1_260_000.0)
   end
 
   it 'Api | CreateLinearGradientFill method' do
