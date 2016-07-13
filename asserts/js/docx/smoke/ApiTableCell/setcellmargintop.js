@@ -13,4 +13,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetCellMarginTop.docx");
 builder.CloseFile();
-            

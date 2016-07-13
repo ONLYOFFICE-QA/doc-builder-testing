@@ -22,4 +22,3 @@ oParagraph.AddText("The shape is aligned at the center of the page horizontally.
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetHorAlign.docx");
 builder.CloseFile();
-            

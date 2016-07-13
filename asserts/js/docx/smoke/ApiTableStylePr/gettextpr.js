@@ -18,4 +18,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "GetTextPr.docx");
 builder.CloseFile();
-            

@@ -18,4 +18,3 @@ oParagraph.AddText("This is a paragraph in a new section");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "CreateSection.docx");
 builder.CloseFile();
-            

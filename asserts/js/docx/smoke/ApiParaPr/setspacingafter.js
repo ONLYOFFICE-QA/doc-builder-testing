@@ -14,4 +14,3 @@ oParagraph.AddText("This is the second paragraph and it is one inch away from th
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetSpacingAfter.docx");
 builder.CloseFile();
-            

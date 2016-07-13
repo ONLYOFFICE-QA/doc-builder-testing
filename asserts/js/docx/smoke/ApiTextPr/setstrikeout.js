@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("A sample text struck out with a single line.");
 builder.SaveFile("docx", "SetStrikeout.docx");
 builder.CloseFile();
-            

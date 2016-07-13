@@ -9,4 +9,3 @@ oTextPr.SetFontFamily("Comic Sans MS");
 oParagraph.AddText("This is just a text.");
 builder.SaveFile("docx", "GetDefaultTextPr.docx");
 builder.CloseFile();
-            

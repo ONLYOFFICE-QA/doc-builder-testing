@@ -21,4 +21,3 @@ oParagraph.AddText("Only this footer can be seen, as the first one has been remo
 oSection.RemoveFooter("default");
 builder.SaveFile("docx", "RemoveFooter.docx");
 builder.CloseFile();
-            

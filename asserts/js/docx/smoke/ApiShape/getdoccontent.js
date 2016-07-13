@@ -14,4 +14,3 @@ oParagraph.AddText("We removed all elements from the shape and added a new parag
 oDocContent.Push(oParagraph);
 builder.SaveFile("docx", "GetDocContent.docx");
 builder.CloseFile();
-            

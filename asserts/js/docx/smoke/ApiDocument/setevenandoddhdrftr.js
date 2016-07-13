@@ -41,4 +41,3 @@ oParagraph.AddText("It has a header and a footer for even pages.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetEvenAndOddHdrFtr.docx");
 builder.CloseFile();
-            

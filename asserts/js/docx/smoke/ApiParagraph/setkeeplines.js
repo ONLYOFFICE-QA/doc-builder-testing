@@ -23,4 +23,3 @@ oParagraph.SetKeepLines(true);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetKeepLines.docx");
 builder.CloseFile();
-            

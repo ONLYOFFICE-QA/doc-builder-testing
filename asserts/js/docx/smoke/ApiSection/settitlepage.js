@@ -16,4 +16,3 @@ oParagraph.AddText("Scroll down the page to see it.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetTitlePage.docx");
 builder.CloseFile();
-            

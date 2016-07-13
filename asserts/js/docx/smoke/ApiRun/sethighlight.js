@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text highlighted with yellow color.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetHighlight.docx");
 builder.CloseFile();
-            

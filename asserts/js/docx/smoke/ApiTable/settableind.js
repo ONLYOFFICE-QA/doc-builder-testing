@@ -12,4 +12,3 @@ oTable.SetTableInd(1440);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableInd.docx");
 builder.CloseFile();
-            

@@ -8,4 +8,3 @@ oDrawing = Api.CreateShape("star10", 5930900, 595605, oFill, oStroke);
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "CreateBlipFill.docx");
 builder.CloseFile();
-            

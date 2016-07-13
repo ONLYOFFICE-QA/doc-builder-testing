@@ -14,4 +14,3 @@ oParagraph.AddText("This text starts from column #3. ");
 oParagraph.AddText("This sentence is used to add lines for demonstrative purposes.");
 builder.SaveFile("docx", "SetEqualColumns.docx");
 builder.CloseFile();
-            

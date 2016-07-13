@@ -16,4 +16,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTextDirection.docx");
 builder.CloseFile();
-            

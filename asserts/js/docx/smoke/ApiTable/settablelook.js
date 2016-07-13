@@ -13,4 +13,3 @@ oTableStyle.GetConditionalTableStyle("topLeftCell").GetTableCellPr().SetShd("cle
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableLook.docx");
 builder.CloseFile();
-            

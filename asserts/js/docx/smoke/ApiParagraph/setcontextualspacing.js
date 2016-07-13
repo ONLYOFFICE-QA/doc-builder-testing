@@ -22,4 +22,3 @@ oParagraph.SetContextualSpacing(true);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetContextualSpacing.docx");
 builder.CloseFile();
-            

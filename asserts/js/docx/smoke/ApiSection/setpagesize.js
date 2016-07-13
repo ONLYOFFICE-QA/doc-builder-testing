@@ -11,4 +11,3 @@ oSection.SetPageMargins(720, 720, 720, 720);
 oSection.SetPageSize(7200, 4320);
 builder.SaveFile("docx", "SetPageSize.docx");
 builder.CloseFile();
-            

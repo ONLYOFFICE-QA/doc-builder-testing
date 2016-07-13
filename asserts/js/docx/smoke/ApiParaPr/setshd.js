@@ -13,4 +13,3 @@ oParagraph.AddText("These sentences are used to add lines for demonstrative purp
 oParagraph.SetStyle(oMyStyle);
 builder.SaveFile("docx", "SetShd.docx");
 builder.CloseFile();
-            

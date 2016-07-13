@@ -16,4 +16,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("This is a text in a paragraph.");
 builder.SaveFile("docx", "GetFinalSection.docx");
 builder.CloseFile();
-            

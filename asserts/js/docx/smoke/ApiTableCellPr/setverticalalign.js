@@ -16,4 +16,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetVerticalAlign.docx");
 builder.CloseFile();
-            

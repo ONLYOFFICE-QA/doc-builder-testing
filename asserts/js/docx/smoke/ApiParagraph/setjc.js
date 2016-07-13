@@ -26,4 +26,3 @@ oParagraph.SetJc("both");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetJc.docx");
 builder.CloseFile();
-            

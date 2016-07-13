@@ -12,4 +12,3 @@ oParagraph.AddText("This is a page header. ");
 oParagraph.AddText("The distance from the page top to the header is 1 inch (1440 twentieths of a point).");
 builder.SaveFile("docx", "SetHeaderDistance.docx");
 builder.CloseFile();
-            

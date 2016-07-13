@@ -7,4 +7,3 @@ oParagraph = oHeader.GetElement(0);
 oParagraph.AddText("This is the text in the default header");
 builder.SaveFile("docx", "GetElement.docx");
 builder.CloseFile();
-            

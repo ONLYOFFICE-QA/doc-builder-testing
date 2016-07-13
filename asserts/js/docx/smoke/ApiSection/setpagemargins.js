@@ -11,4 +11,3 @@ var oSection = oDocument.GetFinalSection();
 oSection.SetPageMargins(7200, 2880, 1440, 5760);
 builder.SaveFile("docx", "SetPageMargins.docx");
 builder.CloseFile();
-            

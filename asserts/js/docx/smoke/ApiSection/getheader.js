@@ -10,4 +10,3 @@ oParagraph = oHeader.GetElement(0);
 oParagraph.AddText("This is a page header");
 builder.SaveFile("docx", "GetHeader.docx");
 builder.CloseFile();
-            

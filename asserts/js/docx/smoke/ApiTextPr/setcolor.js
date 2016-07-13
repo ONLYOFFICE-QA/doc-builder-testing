@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("A sample text with the color set to blue using the text properties.");
 builder.SaveFile("docx", "SetColor.docx");
 builder.CloseFile();
-            

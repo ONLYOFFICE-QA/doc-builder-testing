@@ -10,4 +10,3 @@ oParagraph = oFooter.GetElement(0);
 oParagraph.AddText("This is a page footer");
 builder.SaveFile("docx", "GetFooter.docx");
 builder.CloseFile();
-            

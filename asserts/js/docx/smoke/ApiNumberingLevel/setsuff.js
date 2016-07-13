@@ -14,4 +14,3 @@ oParagraph.AddText("This is the second element of a numbered list using custom t
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetSuff.docx");
 builder.CloseFile();
-            

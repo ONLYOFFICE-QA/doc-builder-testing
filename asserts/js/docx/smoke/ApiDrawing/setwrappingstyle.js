@@ -15,4 +15,3 @@ oDrawing.SetWrappingStyle("square");
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "SetWrappingStyle.docx");
 builder.CloseFile();
-            

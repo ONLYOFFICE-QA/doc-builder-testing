@@ -21,4 +21,3 @@ oParagraph.AddText("This is a paragraph styled as a bulleted list.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetNumPr.docx");
 builder.CloseFile();
-            

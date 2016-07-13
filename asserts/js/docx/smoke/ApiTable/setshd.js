@@ -12,4 +12,3 @@ oTable.SetShd("clear", 0xEE, 0xEE, 0xEE, false);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetShd.docx");
 builder.CloseFile();
-            

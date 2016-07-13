@@ -18,4 +18,3 @@ oParagraph.AddText("Now this table has " + oTableRowsNumber1 + " rows.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetRowsCount.docx");
 builder.CloseFile();
-            

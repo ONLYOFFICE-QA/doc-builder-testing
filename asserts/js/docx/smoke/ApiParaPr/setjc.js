@@ -42,4 +42,3 @@ oParagraph.SetStyle(oMyStyleBoth);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetJc.docx");
 builder.CloseFile();
-            

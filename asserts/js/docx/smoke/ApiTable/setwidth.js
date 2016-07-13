@@ -11,4 +11,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetWidth.docx");
 builder.CloseFile();
-            

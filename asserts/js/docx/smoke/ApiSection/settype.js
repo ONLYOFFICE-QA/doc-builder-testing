@@ -13,4 +13,3 @@ oParagraph.AddText("If this section had some other type (nextPage, oddPage, even
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetType.docx");
 builder.CloseFile();
-            

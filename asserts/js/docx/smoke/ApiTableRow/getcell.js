@@ -15,4 +15,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "GetCell.docx");
 builder.CloseFile();
-            

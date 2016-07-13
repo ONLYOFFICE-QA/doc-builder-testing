@@ -22,4 +22,3 @@ oParagraph.AddText("The shape is aligned next to the right margin horizontally."
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetHorPosition.docx");
 builder.CloseFile();
-            

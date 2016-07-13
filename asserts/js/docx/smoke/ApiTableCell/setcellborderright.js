@@ -13,4 +13,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetCellBorderRight.docx");
 builder.CloseFile();
-            

@@ -19,4 +19,3 @@ oTableStyle.GetConditionalTableStyle("bottomLeftCell").GetTableCellPr().SetShd("
 oTableStyle.GetConditionalTableStyle("bottomRightCell").GetTableCellPr().SetShd("clear", 255, 255, 0); 
 builder.SaveFile("docx", "GetTablePr.docx");
 builder.CloseFile();
-            

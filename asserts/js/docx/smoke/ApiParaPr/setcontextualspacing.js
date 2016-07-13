@@ -19,4 +19,3 @@ oParagraph.AddText("This is a paragraph with contextual spacing set to 'true' (p
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetContextualSpacing.docx");
 builder.CloseFile();
-            

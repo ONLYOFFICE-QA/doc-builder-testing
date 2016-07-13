@@ -12,4 +12,3 @@ oParaPr.SetJc("both");
 oParagraph.AddText("This is just a text.");
 builder.SaveFile("docx", "GetDefaultStyle.docx");
 builder.CloseFile();
-            

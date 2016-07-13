@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text underlined with a single line.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetUnderline.docx");
 builder.CloseFile();
-            

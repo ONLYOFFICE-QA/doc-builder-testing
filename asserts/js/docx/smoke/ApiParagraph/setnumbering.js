@@ -14,4 +14,3 @@ oDocument.Push(oParagraph);
 }
 builder.SaveFile("docx", "SetNumbering.docx");
 builder.CloseFile();
-            

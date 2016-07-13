@@ -14,4 +14,3 @@ oParagraph.AddText("This is the first element of a child numbered list which sta
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetStart.docx");
 builder.CloseFile();
-            

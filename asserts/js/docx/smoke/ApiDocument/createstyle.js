@@ -18,4 +18,3 @@ oParagraph.AddText("This is just a text.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetStyle.docx");
 builder.CloseFile();
-            

@@ -9,4 +9,3 @@ oDrawing = Api.CreateShape("curvedUpArrow", 5930900, 595605, oFill, oStroke);
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "CreateSchemeColor.docx");
 builder.CloseFile();
-                        

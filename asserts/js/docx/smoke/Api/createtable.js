@@ -12,4 +12,3 @@ oTable.SetTableBorderInsideH("single", 32, 0, 255, 0, 0);
 oTable.SetWidth("percent", 100);
 builder.SaveFile("docx", "CreateTable.docx");
 builder.CloseFile();
-                        

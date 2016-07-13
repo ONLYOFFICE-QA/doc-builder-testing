@@ -10,4 +10,3 @@ oParagraph.AddText("This is the first paragraph. ");
 oParagraph.AddText("The paragraph properties styled above set a border below it.");
 builder.SaveFile("docx", "SetBottomBorder.docx");
 builder.CloseFile();
-            

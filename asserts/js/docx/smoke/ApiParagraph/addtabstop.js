@@ -9,4 +9,3 @@ oParagraph.AddTabStop();
 oParagraph.AddText("This is the text which starts after the tab stops.");
 builder.SaveFile("docx", "AddTabStop.docx");
 builder.CloseFile();
-            

@@ -14,4 +14,3 @@ oTable.SetTableBorderInsideH("single", 32, 0, 255, 0, 0);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableBorderInsideH.docx");
 builder.CloseFile();
-            

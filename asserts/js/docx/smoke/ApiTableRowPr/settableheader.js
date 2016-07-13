@@ -14,4 +14,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableHeader.docx");
 builder.CloseFile();
-            

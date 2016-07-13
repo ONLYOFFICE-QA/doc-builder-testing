@@ -30,4 +30,3 @@ oParagraph.AddText("This is the fourth element of a child numbered list which st
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetRestart.docx");
 builder.CloseFile();
-            

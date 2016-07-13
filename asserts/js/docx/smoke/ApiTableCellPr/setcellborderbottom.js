@@ -12,4 +12,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetCellBorderBottom.docx");
 builder.CloseFile();
-            

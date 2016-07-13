@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text spacing set to 4 points (20 twent
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetSpacing.docx");
 builder.CloseFile();
-            

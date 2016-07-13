@@ -15,4 +15,3 @@ oParagraph.AddText("This is the third paragraph. The border can be displayed abo
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetBetweenBorder.docx");
 builder.CloseFile();
-            

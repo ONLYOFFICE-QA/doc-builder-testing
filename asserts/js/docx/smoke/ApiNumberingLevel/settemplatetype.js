@@ -17,4 +17,3 @@ oParagraph.AddText("This is the third element of an A.-B.-C. numbered list");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetTemplateType.docx");
 builder.CloseFile();
-            

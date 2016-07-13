@@ -22,4 +22,3 @@ oParagraph.AddText("The borders between the paragraphs have already been set.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetBetweenBorder.docx");
 builder.CloseFile();
-            

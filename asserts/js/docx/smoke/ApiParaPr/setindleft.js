@@ -21,4 +21,3 @@ oParagraph.AddText("These sentences are used to add lines for demonstrative purp
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetIndLeft.docx");
 builder.CloseFile();
-            

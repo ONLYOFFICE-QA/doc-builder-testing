@@ -16,4 +16,3 @@ oParagraph.AddText("This column is 3 inches wide (4320 twentieths of a point). "
 oParagraph.AddText("The distance between this column and column #2 is 1/3 of an inch (480 twentieths of a point).");
 builder.SaveFile("docx", "SetNotEqualColumns.docx");
 builder.CloseFile();
-            

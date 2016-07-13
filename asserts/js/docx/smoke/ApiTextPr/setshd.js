@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("A sample text with the shading set to green.");
 builder.SaveFile("docx", "SetShd.docx");
 builder.CloseFile();
-            

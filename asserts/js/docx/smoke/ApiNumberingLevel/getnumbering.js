@@ -4,4 +4,3 @@ var oParagraph, oDrawing;
 oParagraph = oDocument.GetElement(0);
 builder.SaveFile("docx", "ApiNumberingLevel.docx");
 builder.CloseFile();
-            

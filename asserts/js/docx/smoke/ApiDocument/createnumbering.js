@@ -14,4 +14,3 @@ for (var nLvl = 0; nLvl  8; ++nLvl)
 }
 builder.SaveFile("docx", "CreateNumbering.docx");
 builder.CloseFile();
-            

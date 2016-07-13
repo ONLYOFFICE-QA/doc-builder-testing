@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text shading set to green.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetShd.docx");
 builder.CloseFile();
-            

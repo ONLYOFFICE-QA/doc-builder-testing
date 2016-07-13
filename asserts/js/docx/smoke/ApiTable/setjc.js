@@ -12,4 +12,3 @@ oTable.SetJc("center");
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetJc.docx");
 builder.CloseFile();
-            

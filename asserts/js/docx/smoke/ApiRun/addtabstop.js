@@ -11,4 +11,3 @@ oRun.AddText("This is the text which starts after the tab stops.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "AddTabStop.docx");
 builder.CloseFile();
-            

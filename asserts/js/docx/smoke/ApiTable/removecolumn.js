@@ -13,4 +13,3 @@ oTable.RemoveColumn(oCell);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "RemoveColumn.docx");
 builder.CloseFile();
-            

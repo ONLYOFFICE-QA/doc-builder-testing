@@ -16,4 +16,3 @@ oParagraph.AddText("We removed paragraph #3, check that out above.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "RemoveElement.docx");
 builder.CloseFile();
-            

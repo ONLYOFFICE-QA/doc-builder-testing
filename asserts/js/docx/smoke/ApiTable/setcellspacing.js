@@ -12,4 +12,3 @@ oTable.SetCellSpacing(720);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetCellSpacing.docx");
 builder.CloseFile();
-            

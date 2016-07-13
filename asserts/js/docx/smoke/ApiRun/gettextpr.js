@@ -16,4 +16,3 @@ oRun.AddText("This is a text run with its own style.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "GetTextPr.docx");
 builder.CloseFile();
-            

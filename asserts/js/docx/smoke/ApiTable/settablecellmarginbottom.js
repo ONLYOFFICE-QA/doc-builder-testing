@@ -12,4 +12,3 @@ oTable.SetTableCellMarginBottom(720);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableCellMarginBottom.docx");
 builder.CloseFile();
-            

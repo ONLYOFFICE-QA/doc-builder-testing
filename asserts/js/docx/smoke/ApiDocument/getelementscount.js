@@ -14,4 +14,3 @@ oRun.AddText("" + oParagraph.GetElementsCount());
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetElementsCount.docx");
 builder.CloseFile();
-            

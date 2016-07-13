@@ -12,4 +12,3 @@ oTable.SetTableCellMarginLeft(720);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableCellMarginLeft.docx");
 builder.CloseFile();
-            

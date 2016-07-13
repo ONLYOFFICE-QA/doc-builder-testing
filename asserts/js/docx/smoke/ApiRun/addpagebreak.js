@@ -10,4 +10,3 @@ oRun.AddText("It is written in two text runs, you need a space at the end of the
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "AddPageBreak.docx");
 builder.CloseFile();
-            

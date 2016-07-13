@@ -16,4 +16,3 @@ oParagraph.SetContextualSpacing(true);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetNumbering.docx");
 builder.CloseFile();
-            

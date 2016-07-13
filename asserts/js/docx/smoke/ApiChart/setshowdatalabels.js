@@ -11,4 +11,3 @@ oDrawing.SetTitle("Financial Overview");
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "ApiChart.docx");
 builder.CloseFile();
-            

@@ -12,4 +12,3 @@ oTable.AddColumn(oTable.GetRow(0).GetCell(1), true);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "AddColumn.docx");
 builder.CloseFile();
-            

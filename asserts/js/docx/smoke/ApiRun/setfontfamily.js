@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the font family set to 'Calibri Light'.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetFontFamily.docx");
 builder.CloseFile();
-            

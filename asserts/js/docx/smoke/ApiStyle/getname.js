@@ -12,4 +12,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Table style name = " + oTableStyleName);
 builder.SaveFile("docx", "ApiStyle.docx");
 builder.CloseFile();
-            

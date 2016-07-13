@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text language set to English (Canada).
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetLanguage.docx");
 builder.CloseFile();
-            

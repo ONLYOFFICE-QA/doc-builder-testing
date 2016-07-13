@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Class Type = " + oClassType);
 builder.SaveFile("docx", "GetClassType.docx");
 builder.CloseFile();
-            

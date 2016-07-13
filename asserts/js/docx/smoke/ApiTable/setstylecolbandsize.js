@@ -14,4 +14,3 @@ oTableStyle.GetConditionalTableStyle("bandedColumn").GetTextPr().SetBold(true);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetStyleColBandSize.docx");
 builder.CloseFile();
-            

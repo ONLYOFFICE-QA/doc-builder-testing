@@ -9,4 +9,3 @@ oTable.SetStyle(oTableStyle);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetBasedOn.docx");
 builder.CloseFile();
-            

@@ -15,4 +15,3 @@ oParagraph.AddText("We removed all elements from the shape and added a new parag
 oDocContent.Push(oParagraph);
 builder.SaveFile("docx", "SetVerticalTextAlign.docx");
 builder.CloseFile();
-            

@@ -6,4 +6,3 @@ oParagraph.AddText("This is the first paragraph. We will add a thin red border b
 oParagraph.SetBottomBorder("single", 8, 0, 255, 0, 0);
 builder.SaveFile("docx", "SetBottomBorder.docx");
 builder.CloseFile();
-            

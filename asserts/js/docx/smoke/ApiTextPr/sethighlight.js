@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("A sample text highlighted with yellow color using the text properties.");
 builder.SaveFile("docx", "SetHighlight.docx");
 builder.CloseFile();
-            

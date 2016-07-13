@@ -13,4 +13,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Number of cells in the first row = " + oCellsCount);
 builder.SaveFile("docx", "GetCellsCount.docx");
 builder.CloseFile();
-            

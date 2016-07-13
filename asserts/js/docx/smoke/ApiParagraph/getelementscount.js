@@ -14,4 +14,3 @@ oRun.AddTabStop();
 oRun.AddText("" + oParagraph.GetElementsCount());
 builder.SaveFile("docx", "GetElementsCount.docx");
 builder.CloseFile();
-            

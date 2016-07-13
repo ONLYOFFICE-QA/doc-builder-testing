@@ -16,4 +16,3 @@ oRun = oParagraph.GetElement(1);
 oRun.SetBold(true);
 builder.SaveFile("docx", "GetElement.docx");
 builder.CloseFile();
-            

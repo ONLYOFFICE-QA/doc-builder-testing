@@ -7,4 +7,3 @@ oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("A sample text with the language set to English (Canada) using the text properties.");
 builder.SaveFile("docx", "SetLanguage.docx");
 builder.CloseFile();
-            

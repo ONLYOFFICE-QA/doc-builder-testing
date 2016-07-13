@@ -14,4 +14,3 @@ oParagraph.SetStyle(oMyStyle);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetSpacingBefore.docx");
 builder.CloseFile();
-            

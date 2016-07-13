@@ -12,4 +12,3 @@ oParagraph.AddText("We do not change the style of the paragraph itself. ");
 oParagraph.AddText("Only document-wide text styles are applied.");
 builder.SaveFile("docx", "GetTextPr.docx");
 builder.CloseFile();
-            

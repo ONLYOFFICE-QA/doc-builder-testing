@@ -11,4 +11,3 @@ oParagraph.SetPageBreakBefore(true);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetPageBreakBefore.docx");
 builder.CloseFile();
-            

@@ -22,4 +22,3 @@ oParagraph.AddText("This last line would be displayed on the next page, if we ha
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetWidowControl.docx");
 builder.CloseFile();
-            

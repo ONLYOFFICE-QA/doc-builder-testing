@@ -11,4 +11,3 @@ oCell.GetContent().GetElement(0).AddText("Merged cell");
 oDocument.Push(oTable);
 builder.SaveFile("docx", "MergeCells.docx");
 builder.CloseFile();
-            

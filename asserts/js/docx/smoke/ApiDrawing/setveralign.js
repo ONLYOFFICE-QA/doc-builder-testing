@@ -19,4 +19,3 @@ oParagraph.AddText("The shape is aligned to the top of the page.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetVerAlign.docx");
 builder.CloseFile();
-            

@@ -13,4 +13,3 @@ oRun.AddDrawing(oDrawing);
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "AddDrawing.docx");
 builder.CloseFile();
-            

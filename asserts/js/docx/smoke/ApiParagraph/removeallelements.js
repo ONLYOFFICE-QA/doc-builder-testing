@@ -15,4 +15,3 @@ oParagraph.AddElement(oRun);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "RemoveAllElements.docx");
 builder.CloseFile();
-            

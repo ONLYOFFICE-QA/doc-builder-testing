@@ -14,4 +14,3 @@ oDocument.Push(oParagraph);
 }
 builder.SaveFile("docx", "GetLevel.docx");
 builder.CloseFile();
-            

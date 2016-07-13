@@ -8,4 +8,3 @@ oDrawing = Api.CreateShape("rect", 5930900, 395605, oFill, oStroke);
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "CreatePatternFill.docx");
 builder.CloseFile();
-                        

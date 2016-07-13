@@ -23,4 +23,3 @@ oParagraph.AddElement(oRun);
 oParagraph.RemoveElement(2);
 builder.SaveFile("docx", "RemoveElement.docx");
 builder.CloseFile();
-            

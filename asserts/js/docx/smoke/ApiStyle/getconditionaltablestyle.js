@@ -28,4 +28,3 @@ oParagraph = oCellContent.GetElement(0);
 oParagraph.AddText("This set font also remains default");
 builder.SaveFile("docx", "GetConditionalTableStyle.docx");
 builder.CloseFile();
-            

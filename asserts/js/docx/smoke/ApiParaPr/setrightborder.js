@@ -10,4 +10,3 @@ oParagraph.AddText("This is the first paragraph. ");
 oParagraph.AddText("The paragraph properties styled above set a border at its right side.");
 builder.SaveFile("docx", "SetRightBorder.docx");
 builder.CloseFile();
-            

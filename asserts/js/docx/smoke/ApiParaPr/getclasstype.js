@@ -14,4 +14,3 @@ oParagraph.AddText("Class Type = " + oClassType);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "GetClassType.docx");
 builder.CloseFile();
-            

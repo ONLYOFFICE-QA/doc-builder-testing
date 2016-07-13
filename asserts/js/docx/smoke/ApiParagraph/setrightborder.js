@@ -9,4 +9,3 @@ oParagraph.AddText("These sentences are used to add lines for demonstrative purp
 oParagraph.SetRightBorder("single", 16, 8, 255, 0, 0);
 builder.SaveFile("docx", "SetRightBorder.docx");
 builder.CloseFile();
-            

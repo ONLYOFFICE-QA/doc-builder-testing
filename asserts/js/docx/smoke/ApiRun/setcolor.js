@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the font color set to blue.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetColor.docx");
 builder.CloseFile();
-            

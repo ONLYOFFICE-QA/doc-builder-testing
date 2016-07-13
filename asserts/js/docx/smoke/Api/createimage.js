@@ -6,4 +6,3 @@ oDrawing = Api.CreateImage("http://helpcenter.onlyoffice.com/images/help/video/c
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "CreateImage.docx");
 builder.CloseFile();
-                        

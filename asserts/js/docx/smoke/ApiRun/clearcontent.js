@@ -14,4 +14,3 @@ oParagraph.AddElement(oRun);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "ClearContent.docx");
 builder.CloseFile();
-            

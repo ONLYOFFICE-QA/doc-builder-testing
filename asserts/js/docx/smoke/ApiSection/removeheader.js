@@ -21,4 +21,3 @@ oParagraph.AddText("Only this header can be seen, as the first one has been remo
 oSection.RemoveHeader("default");
 builder.SaveFile("docx", "RemoveHeader.docx");
 builder.CloseFile();
-            

@@ -18,4 +18,3 @@ oParagraph.AddText("This is another paragraph.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetDistances.docx");
 builder.CloseFile();
-            

@@ -16,4 +16,3 @@ oParagraph.AddTabStop();
 oParagraph.AddText("Custom tab - 5 inches right");
 builder.SaveFile("docx", "ApiParagraph.docx");
 builder.CloseFile();
-            

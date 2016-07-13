@@ -13,4 +13,3 @@ oTable.RemoveRow(oCell);
 oDocument.Push(oTable);
 builder.SaveFile("docx", "RemoveRow.docx");
 builder.CloseFile();
-            

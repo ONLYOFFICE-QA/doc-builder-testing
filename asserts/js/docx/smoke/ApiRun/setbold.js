@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the font set to bold.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetBold.docx");
 builder.CloseFile();
-            

@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the text struck out with a single line.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetStrikeout.docx");
 builder.CloseFile();
-            

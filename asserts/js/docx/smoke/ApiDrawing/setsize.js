@@ -19,4 +19,3 @@ oParagraph.AddText("The shape was created with a size of 53x39 millimeters, then
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetSize.docx");
 builder.CloseFile();
-            

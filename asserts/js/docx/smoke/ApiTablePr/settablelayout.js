@@ -15,4 +15,3 @@ oCell.GetContent().GetElement(0).AddText("Fixed layout");
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTableLayout.docx");
 builder.CloseFile();
-            

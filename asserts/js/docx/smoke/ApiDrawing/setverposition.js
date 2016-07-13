@@ -19,4 +19,3 @@ oParagraph.AddText("The shape is aligned to the top of the page, and outstands f
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetVerPosition.docx");
 builder.CloseFile();
-            

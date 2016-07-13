@@ -11,4 +11,3 @@ oRun.AddText("This is a text run with the font set to italicized letters.");
 oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "SetItalic.docx");
 builder.CloseFile();
-            

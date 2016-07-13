@@ -6,4 +6,3 @@ oDrawing = Api.CreateChart("bar3D", [[200, 240, 280],[250, 260, 280]], ["Project
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "CreateChart.docx");
 builder.CloseFile();
-            
