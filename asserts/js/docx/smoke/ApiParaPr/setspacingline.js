@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph, oParaPr;
 var oMyStyle1 = oDocument.CreateStyle("My document style #1");

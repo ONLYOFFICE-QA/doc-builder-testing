@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph, oParaPr;
 var oMyStyleLeft = oDocument.CreateStyle("My style with left text alignment");

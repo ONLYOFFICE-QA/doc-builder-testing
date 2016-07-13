@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph, oParaPr, oTextPr, oRun;
 var oSection = oDocument.GetFinalSection();

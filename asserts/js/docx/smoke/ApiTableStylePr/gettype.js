@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();
 var oParagraph, oDrawing;

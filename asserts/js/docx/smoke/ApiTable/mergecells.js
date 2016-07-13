@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oTable, oTableStyle, oCell;
 oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");

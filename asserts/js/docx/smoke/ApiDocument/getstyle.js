@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph;
 var oNoSpacingStyle = oDocument.GetStyle("Heading 6");

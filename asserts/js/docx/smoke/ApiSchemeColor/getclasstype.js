@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oFill, oStroke, oDrawing, oParagraph, oSchemeColor;
 oParagraph = oDocument.GetElement(0);

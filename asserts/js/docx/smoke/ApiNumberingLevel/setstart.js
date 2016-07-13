@@ -1,5 +1,4 @@
-
-            builder.CreateFile("docx");
+builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph, oNumbering, oNumLvl, oNumLvl1;
 oNumbering = oDocument.CreateNumbering("numbered");
