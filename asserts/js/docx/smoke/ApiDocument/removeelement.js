@@ -4,11 +4,11 @@ var oParagraph0, oParagraph;
 oParagraph0 = oDocument.GetElement(0);
 oParagraph0.AddText("This is paragraph #1.");
 var oParaNum;
-for (var nParaIncrease = 0; nParaIncrease  4; ++nParaIncrease)
+for (var nParaIncrease = 0; nParaIncrease < 4; ++nParaIncrease)
 {
-oParagraph = Api.CreateParagraph();
-oParagraph.AddText("This is paragraph #" + (nParaIncrease + 2) + ".");
-oDocument.Push(oParagraph);
+    oParagraph = Api.CreateParagraph();
+    oParagraph.AddText("This is paragraph #" + (nParaIncrease + 2) + ".");
+    oDocument.Push(oParagraph);
 }
 oDocument.RemoveElement(2);
 oParagraph = Api.CreateParagraph();

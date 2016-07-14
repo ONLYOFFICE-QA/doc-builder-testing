@@ -3,7 +3,7 @@ var oDocument = Api.GetDocument();
 var oParagraph;
 var oNumbering = oDocument.CreateNumbering("bullet");
 var oNumLvl;
-for (var nLvl = 0; nLvl  8; ++nLvl)
+for (var nLvl = 0; nLvl < 8; ++nLvl)
 {
     oNumLvl = oNumbering.GetLevel(nLvl);
     oParagraph = Api.CreateParagraph();

@@ -1,27 +1,23 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph, oParaPr;
+var oParagraph, oParaPr, oNumbering;
 var oMyStyle = oDocument.CreateStyle("My document style");
 oParaPr = oMyStyle.GetParaPr();
-oParaPr.SetWidowControl(true);
-oParagraph = oDocument.GetElement(0);
-oParagraph.AddText("The single line of the last paragraph on this page will be prevented from being displayed on a separate page. ");
-for (var x = 0; x  5; ++x)
+oNumbering = oDocument.CreateNumbering("bullet");
+oParaPr.SetNumPr(oNumbering);
+var oNumLvl;
+for (var nLvl = 0; nLvl < 8; ++nLvl)
 {
+    oNumLvl = oNumbering.GetLevel(nLvl);
+    oParagraph = Api.CreateParagraph();
+    oParagraph.AddText("Default bullet lvl " + (nLvl + 1));
+    oParagraph.SetNumbering(oNumLvl);
+    oParagraph.SetContextualSpacing(true);
+    oDocument.Push(oParagraph);
+}
 oParagraph = Api.CreateParagraph();
-for (var i = 0; i  10; ++i)
-{
-oParagraph.AddText("These sentences are used to add lines for demonstrative purposes. ");
-}
-oDocument.Push(oParagraph);
-}
-oParagraph = Api.CreateParagraph();
-for (var i = 0; i  3; ++i)
-{
-oParagraph.AddText("These sentences are used to add lines for demonstrative purposes. ");
-}
 oParagraph.SetStyle(oMyStyle);
-oParagraph.AddText("This last line would be displayed on the next page, if we had not used the set widow control method.");
+oParagraph.AddText("This is a paragraph styled as a bulleted list.");
 oDocument.Push(oParagraph);
-builder.SaveFile("docx", "SetWidowControl.docx");
+builder.SaveFile("docx", "SetNumPr.docx");
 builder.CloseFile();
