@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
 
 describe 'Check Column' do
-
   it '[text] One Column' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/columns/add_one_column.js')
     expect(docx.page_properties.columns.count).to eq(1)

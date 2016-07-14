@@ -32,8 +32,4 @@ describe 'My behaviour' do
     expect(docx.elements[1].character_style_array.first.text).to eq('Superscript')
     expect(docx.elements[1].character_style_array.first.vertical_align).to eq(:superscript)
   end
-
 end
-
-
-

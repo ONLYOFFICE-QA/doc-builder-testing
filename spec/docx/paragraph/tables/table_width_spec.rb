@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Add tables with differnt types of width' do
-
   it 'Table with auto width' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_width_auto.js')
     expect(docx.elements[1].rows.length).to eq(3)
@@ -22,6 +21,3 @@ describe 'Add tables with differnt types of width' do
     'Not finished'
   end
 end
-
-
-

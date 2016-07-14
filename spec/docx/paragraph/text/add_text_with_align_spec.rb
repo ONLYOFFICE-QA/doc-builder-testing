@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Check aligns' do
-
   it 'Align should be left' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_with_align_left.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('paragraph align: left')

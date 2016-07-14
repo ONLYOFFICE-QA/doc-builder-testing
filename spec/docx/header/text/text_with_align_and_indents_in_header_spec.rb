@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Check indents' do
-
   it 'Align should be right' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/header/text/text_in_right_in_header.js')
     expect(docx.notes.first.elements[1].character_style_array.first.text).to eq('Right')

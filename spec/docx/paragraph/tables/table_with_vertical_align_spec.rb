@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Add tables with types of vertical align' do
-
   it 'Table with vertical align: Top' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_verticalalign_top.js')
     expect(docx.elements[1].rows.length).to eq(3)
@@ -24,7 +23,4 @@ describe 'Add tables with types of vertical align' do
     expect(docx.elements[1].rows.first.cells.first.elements.first.character_style_array[1].text).to eq('Bottom')
     expect(docx.elements[1].rows.first.cells.first.properties.vertical_align).to eq(:bottom)
   end
-  end
-
-
-
+end
