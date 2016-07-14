@@ -15,6 +15,6 @@ oTable.SetTableCellMarginLeft(400);
 oTable.SetTableCellMarginRight(200);
 oTable.SetCellSpacing(200);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_margins.docx");
+builder.SaveFile("docx", "table_with_margins.docx");
 builder.CloseFile();
 

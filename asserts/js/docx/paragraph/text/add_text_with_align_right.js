@@ -12,5 +12,5 @@ oParagraph.AddText("paragraph align: right");
 oDocument.Push(oParagraph);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_align_right.docx");
+builder.SaveFile("docx", "add_text_with_align_right.docx");
 builder.CloseFile();

@@ -11,5 +11,5 @@ oParagraph.SetSpacingLine(400, "atLeast");
 oParagraph.AddText("Atleast:20pt");
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_spacingline_atleast_in_paragraph.docx");
+builder.SaveFile("docx", "add_text_with_spacingline_atleast.docx");
 builder.CloseFile();

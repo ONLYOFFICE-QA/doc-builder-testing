@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../lib/doc_builder_testing'
 
 describe 'text with tabs' do
-
   it 'Add text in Section' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/sections/add_text_in_section.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('First Page')

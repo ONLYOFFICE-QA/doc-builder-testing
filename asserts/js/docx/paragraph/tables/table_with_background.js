@@ -10,5 +10,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oDocument.Push(oTable);
  oTable.SetShd("clear", 255, 0, 0);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_background.docx");
+builder.SaveFile("docx", "table_with_background.docx");
 builder.CloseFile();

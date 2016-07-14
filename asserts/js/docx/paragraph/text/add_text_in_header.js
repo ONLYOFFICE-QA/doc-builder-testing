@@ -12,5 +12,5 @@ var oDocContent = oFinalSection.GetHeader("default", true);
 oDocContent.Push(oParagraph);
 oParagraph.AddText("header");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_in_header.docx");
+builder.SaveFile("docx", "add_text_in_header.docx");
 builder.CloseFile();

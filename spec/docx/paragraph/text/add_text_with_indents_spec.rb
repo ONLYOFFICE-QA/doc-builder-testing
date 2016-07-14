@@ -3,7 +3,6 @@ require 'rspec'
 require_relative '../../../../lib/doc_builder_testing'
 
 describe 'Check indents' do
-
   it 'Indent should be left' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_with_indentleft.js')
     expect(docx.elements[1].character_style_array.first.text).to eq('LeftIndent')

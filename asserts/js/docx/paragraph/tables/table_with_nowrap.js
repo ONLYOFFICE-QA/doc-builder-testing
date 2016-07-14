@@ -16,6 +16,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oParagraph.AddText("No wrap");
 
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_nowrap.docx");
+builder.SaveFile("docx", "table_with_nowrap.docx");
 builder.CloseFile();
 

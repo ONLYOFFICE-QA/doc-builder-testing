@@ -10,5 +10,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oDocument.Push(oTable);
  oTable.SetWidth("auto");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_width_auto.docx");
+builder.SaveFile("docx", "table_with_width_auto.docx");
 builder.CloseFile();

@@ -15,6 +15,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oTable.SetTableBorderInsideV("single", 32, 0, 0, 0, 0);
  oTable.SetTableBorderInsideH("single", 32, 0, 0, 0, 0);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_borders.docx");
+builder.SaveFile("docx", "table_with_borders.docx");
 builder.CloseFile();
 

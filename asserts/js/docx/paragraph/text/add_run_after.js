@@ -15,6 +15,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
      oRun.AddText("StopRun");
  
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_run.docx");
+builder.SaveFile("docx", "add_run_after.docx");
 builder.CloseFile();
 
