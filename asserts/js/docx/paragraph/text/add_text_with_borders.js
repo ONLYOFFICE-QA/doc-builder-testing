@@ -20,5 +20,5 @@ for (var nIndex = 0; nIndex < 3; ++nIndex)
     }
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_borders.docx");
+builder.SaveFile("docx", "add_text_with_borders.docx");
 builder.CloseFile();

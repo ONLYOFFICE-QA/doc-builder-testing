@@ -15,6 +15,6 @@ oCellContent = oCell.GetContent();
 oParagraph = oCellContent.GetElement(0);
 oParagraph.AddText("left to right");
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_textdirection_ltr.docx");
+builder.SaveFile("docx", "table_with_textdirection_ltr.docx");
 builder.CloseFile();
 

@@ -12,5 +12,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
   oDocument.Push(oParagraph);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_keeplines.docx");
+builder.SaveFile("docx", "add_text_with_keeplines.docx");
 builder.CloseFile();

@@ -11,5 +11,5 @@ oParagraph.SetSpacingLine(200, "exact");
 oParagraph.AddText("Exact:10pt");
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_spacingline_exact_in_paragraph.docx");
+builder.SaveFile("docx", "add_text_with_spacingline_exact.docx");
 builder.CloseFile();

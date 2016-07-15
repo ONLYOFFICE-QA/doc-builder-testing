@@ -15,6 +15,6 @@ oCellContent = oCell.GetContent();
 oParagraph = oCellContent.GetElement(0);
 oParagraph.AddText("Center");
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_verticalalign_center.docx");
+builder.SaveFile("docx", "table_with_verticalalign_center.docx");
 builder.CloseFile();
 

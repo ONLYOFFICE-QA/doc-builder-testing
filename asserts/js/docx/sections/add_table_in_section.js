@@ -17,5 +17,5 @@ oTable2 = Api.CreateTable(3, 3);
 oDocument.Push(oTable2);
 oDocument.Push(oParagraph2);
 
-builder.SaveFile("docx", "/home/pc/Documents/temp_docx/table_in_section.docx");
+builder.SaveFile("docx", "add_table_in_section.docx");
 builder.CloseFile();

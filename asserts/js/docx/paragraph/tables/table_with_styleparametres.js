@@ -12,5 +12,5 @@ oDocument.Push(oTable);
 oTable.SetStyle(oTableStyle);
 oTable.SetTableLook(false, false, true, true, false, true);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_styleparametres.docx");
+builder.SaveFile("docx", "table_with_styleparametres.docx");
 builder.CloseFile();

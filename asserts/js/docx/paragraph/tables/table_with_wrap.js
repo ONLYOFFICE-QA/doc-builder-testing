@@ -15,6 +15,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oParagraph = oCellContent.GetElement(0);
  oParagraph.AddText("Wrap");
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_wrap.docx");
+builder.SaveFile("docx", "table_with_wrap.docx");
 builder.CloseFile();
 
