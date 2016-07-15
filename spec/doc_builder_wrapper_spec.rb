@@ -51,7 +51,7 @@ describe 'My behaviour' do
 
   describe 'check_support_of_xlsx' do
     it 'check that parsing is performed' do
-      expect(builder.build_xlsx_and_parse(simple_xlsx_script)).to be_a(OoxmlParser::XLSXWorkbook)
+      expect(builder.build_doc_and_parse(simple_xlsx_script)).to be_a(OoxmlParser::XLSXWorkbook)
     end
   end
 end

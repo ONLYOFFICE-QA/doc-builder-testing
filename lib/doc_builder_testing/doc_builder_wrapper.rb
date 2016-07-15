@@ -15,19 +15,13 @@ class DocBuilderWrapper
     raise DocBuilderError, build_result if /[Ee]rror/ === build_result
   end
 
+  # Build document and parse it
+  # @param script_file [String] path to script file
+  # @return [OoxmlParser::CommonDocumentStructure] parsed file
   def build_doc_and_parse(script_file)
     temp_script_data = DocBuilderWrapper.change_output_file(script_file)
     build_doc(temp_script_data[:temp_script_file])
-    OoxmlParser::DocxParser.parse_docx(temp_script_data[:temp_output_file])
-  end
-
-  # Build xlsx and parse it
-  # @param script_file [String] path to script file
-  # @return [OoxmlParser::XLSXWorkbook] parsed file
-  def build_xlsx_and_parse(script_file)
-    temp_script_data = DocBuilderWrapper.change_output_file(script_file, :xlsx)
-    build_doc(temp_script_data[:temp_script_file])
-    OoxmlParser::XlsxParser.parse_xlsx(temp_script_data[:temp_output_file])
+    OoxmlParser::Parser.parse(temp_script_data[:temp_output_file])
   end
 
   # Make a copy of script file, so no need to change output path on real file
@@ -37,6 +31,7 @@ class DocBuilderWrapper
   def self.change_output_file(script_file, format = :docx)
     temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
     script_file_content = File.open(script_file, "r").read
+    format = DocBuilderWrapper.recognize_format_from_script(script_file_content)
     script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{format}\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
@@ -60,5 +55,12 @@ class DocBuilderWrapper
     content = content.gsub(/^.*sdkjs\/cell\/sdk-all.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all.js</file>")
     content = content.gsub(/^.*sdkjs\/cell\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all-min.js</file>")
     File.open(path_to_config, "w") { |file| file << content }
+  end
+
+  # Recognize format from script file
+  # @param script [String] script content
+  # @return [String] type of file `docx`, `xlsx`, `pptx`
+  def self.recognize_format_from_script(script)
+    script.match(/builder.CreateFile\(\"(.*)\"\)\;/)[1]
   end
 end
