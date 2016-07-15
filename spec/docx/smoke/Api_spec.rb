@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../lib/doc_builder_testing'
+require 'spec_helper'
 describe 'Api section tests' do
   before :all do
     OoxmlParser.configure do |config|
