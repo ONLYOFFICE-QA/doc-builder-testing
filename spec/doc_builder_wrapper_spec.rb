@@ -3,8 +3,8 @@ require_relative '../lib/doc_builder_testing'
 
 describe 'My behaviour' do
   let(:builder) { DocBuilderWrapper.new }
-  let(:simple_script) { 'asserts/js/docx/paragraph/text/add_text_in_paragraph.js' }
-  let(:simple_xlsx_script) { 'asserts/js/xlsx/simplest_xlsx_file.js' }
+  let(:simple_script) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph.js' }
+  let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
 
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
