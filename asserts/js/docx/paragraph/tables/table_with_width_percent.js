@@ -10,5 +10,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oDocument.Push(oTable);
  oTable.SetWidth("percent", 100);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_width_percent.docx");
+builder.SaveFile("docx", "table_with_width_percent.docx");
 builder.CloseFile();

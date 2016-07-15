@@ -12,5 +12,5 @@ oParagraph.AddText("Tabs");
 oDocument.Push(oParagraph);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_tabs.docx");
+builder.SaveFile("docx", "add_text_with_tabs.docx");
 builder.CloseFile();

@@ -15,6 +15,6 @@ oCellContent = oCell.GetContent();
 oParagraph = oCellContent.GetElement(0);
 oParagraph.AddText("top to bottom");
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_textdirection_ttb.docx");
+builder.SaveFile("docx", "table_with_textdirection_ttb.docx");
 builder.CloseFile();
 

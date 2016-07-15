@@ -12,5 +12,5 @@ oFinalSection.SetEqualColumns(1, 720);
 oParagraph.AddText("First columns");
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/pc/Documents/temp_docx/one_column.docx");
+builder.SaveFile("docx", "add_one_column.docx");
 builder.CloseFile();

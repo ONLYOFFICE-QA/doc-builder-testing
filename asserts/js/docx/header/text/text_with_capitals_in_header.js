@@ -12,5 +12,5 @@ var oDocContent = oFinalSection.GetHeader("default", true);
 oDocContent.Push(oParagraph);
 oParagraph.AddText("Capitals").SetCaps(true);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/text_with_capitals_in_header.docx");
+builder.SaveFile("docx", "text_with_capitals_in_header.docx");
 builder.CloseFile();

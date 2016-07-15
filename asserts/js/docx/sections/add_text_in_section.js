@@ -15,5 +15,5 @@ oParagraph2 = Api.CreateParagraph();
 oParagraph2.AddText("Second Page");
 oDocument.Push(oParagraph2);
 
-builder.SaveFile("docx", "/home/pc/Documents/temp_docx/text_in_section.docx");
+builder.SaveFile("docx", "add_text_in_section.docx");
 builder.CloseFile();

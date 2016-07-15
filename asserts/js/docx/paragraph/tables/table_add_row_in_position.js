@@ -12,6 +12,6 @@ oTable.GetRow(0).GetCell(0).GetContent().GetElement(0).AddText("StartRows" + oTa
 oTableRow = oTable.AddRow(oTable.GetRow(1).GetCell(0), true);
 oTableRow.GetCell(0).GetContent().GetElement(0).AddText("NewRow");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_add_row_in_position.docx");
+builder.SaveFile("docx", "table_add_row_in_position.docx");
 builder.CloseFile();
 

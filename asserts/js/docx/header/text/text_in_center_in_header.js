@@ -13,5 +13,5 @@ var oDocContent = oFinalSection.GetHeader("default", true);
 oDocContent.Push(oParagraph);
 oParagraph.AddText("Center");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/text_in_center_in_header.docx");
+builder.SaveFile("docx", "text_in_center_in_header.docx");
 builder.CloseFile();

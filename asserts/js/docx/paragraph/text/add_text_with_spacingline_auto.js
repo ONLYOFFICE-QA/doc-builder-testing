@@ -11,5 +11,5 @@ oParagraph.SetSpacingLine(3 * 240, "auto");
 oParagraph.AddText("Auto:3");
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_spacingline_auto_in_paragraph.docx");
+builder.SaveFile("docx", "add_text_with_spacingline_auto.docx");
 builder.CloseFile();

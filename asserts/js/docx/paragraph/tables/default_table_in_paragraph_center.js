@@ -11,5 +11,5 @@ oTable = Api.CreateTable(3, 3);
 oDocument.Push(oTable);
 oTable.SetJc("center");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_paragraph_center.docx");
+builder.SaveFile("docx", "default_table_in_paragraph_center.docx");
 builder.CloseFile();

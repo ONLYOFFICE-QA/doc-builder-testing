@@ -11,5 +11,5 @@ oParagraph.SetKeepNext(true);
 oParagraph.AddText("KeepNext");
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_keepnext.docx");
+builder.SaveFile("docx", "add_text_with_keepnext.docx");
 builder.CloseFile();

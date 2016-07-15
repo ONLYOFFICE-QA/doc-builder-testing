@@ -15,6 +15,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
   oCell.SetCellMarginRight(null);
   oCell.SetCellMarginTop(400);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_cell_margins.docx");
+builder.SaveFile("docx", "table_with_cell_margins.docx");
 builder.CloseFile();
 

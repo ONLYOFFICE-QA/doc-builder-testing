@@ -13,5 +13,5 @@ var oDocContent = oFinalSection.GetHeader("default", true);
 oDocContent.Push(oParagraph);
 oParagraph.AddText("LeftIndent");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/text_leftindent_in_header.docx");
+builder.SaveFile("docx", "text_leftindent_in_header.docx");
 builder.CloseFile();
