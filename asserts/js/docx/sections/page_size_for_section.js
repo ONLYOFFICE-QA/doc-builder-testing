@@ -12,5 +12,5 @@ oFinalSection   = oDocument.GetFinalSection();
 oFinalSection.SetPageSize(12240, 15840);
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/pc/Documents/temp_docx/page_size_for_section.docx");
+builder.SaveFile("docx", "page_size_for_section.docx");
 builder.CloseFile();

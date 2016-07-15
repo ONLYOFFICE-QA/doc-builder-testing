@@ -8,6 +8,5 @@ oParagraph = Api.CreateParagraph();
 oDocument.Push(oParagraph);
 oParagraph.AddText("Underline").SetUnderline(true);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_setunderline_in_paragraph.docx");
-builder.CloseFile();
+builder.SaveFile("docx", "add_text_with_setunderline_in_paragraph.docx");
 builder.CloseFile();

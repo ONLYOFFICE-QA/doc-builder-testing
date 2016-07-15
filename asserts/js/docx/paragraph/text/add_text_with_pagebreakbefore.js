@@ -11,5 +11,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oParagraph.AddText("PageBreakBefore");
  oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_pagebreakbefore.docx");
+builder.SaveFile("docx", "add_text_with_pagebreakbefore.docx");
 builder.CloseFile();

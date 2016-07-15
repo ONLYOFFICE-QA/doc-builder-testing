@@ -12,5 +12,5 @@ oParagraph.AddText("paragraph align: center");
 oDocument.Push(oParagraph);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_text_with_align_center.docx");
+builder.SaveFile("docx", "add_text_with_align_center.docx");
 builder.CloseFile();

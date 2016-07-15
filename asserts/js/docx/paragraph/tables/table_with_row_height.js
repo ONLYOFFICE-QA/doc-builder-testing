@@ -15,6 +15,6 @@ oTableRow.SetHeight("atLeast", 1000);
 oTableRow = oTable.GetRow(2);
 oTableRow.SetHeight("atLeast", 2000)
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_row_height.docx");
+builder.SaveFile("docx", "table_with_row_height.docx");
 builder.CloseFile();
 

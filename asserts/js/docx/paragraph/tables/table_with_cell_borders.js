@@ -18,6 +18,6 @@ oCell.SetCellBorderBottom("single", 64, 0, 0, 255, 0);
 oCell.SetCellBorderLeft("single", 32, 0, 0, 0, 255);
 oCell.SetCellBorderRight("single", 16, 0, 0, 0, 255);
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_cell_borders.docx");
+builder.SaveFile("docx", "table_with_cell_borders.docx");
 builder.CloseFile();
 

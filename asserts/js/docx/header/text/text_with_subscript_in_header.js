@@ -12,5 +12,5 @@ var oDocContent = oFinalSection.GetHeader("default", true);
 oDocContent.Push(oParagraph);
 oParagraph.AddText("Subscript").SetVertAlign("subscript");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/text_with_subscript_in_header.docx");
+builder.SaveFile("docx", "text_with_subscript_in_header.docx");
 builder.CloseFile();

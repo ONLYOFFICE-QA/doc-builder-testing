@@ -11,6 +11,6 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
     oCell = oTable.MergeCells([oTable.GetRow(1).GetCell(1), oTable.GetRow(1).GetCell(2), oTable.GetRow(2).GetCell(1), oTable.GetRow(2).GetCell(2)]);
     oCell.GetContent().GetElement(0).AddText("Merged cell");
  
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/table_with_merge.docx");
+builder.SaveFile("docx", "table_with_merge.docx");
 builder.CloseFile();
 

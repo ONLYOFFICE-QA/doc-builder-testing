@@ -14,5 +14,5 @@ oDocument.Push(oTable);
 oParagraph.AddColumnBreak();
 oDocument.Push(oParagraph);
 
-builder.SaveFile("docx", "/home/pc/Documents/temp_docx/add_table_in_one_column.docx");
+builder.SaveFile("docx", "add_table_in_two_column.docx");
 builder.CloseFile();
