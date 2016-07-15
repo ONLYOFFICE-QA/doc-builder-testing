@@ -9,5 +9,5 @@ oParagraph = Api.CreateParagraph();
 oDocument.Push(oParagraph);
 oParagraph.AddText("test");
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/paragraph_text.docx");
+builder.SaveFile("docx", "add_text_in_paragraph.docx");
 builder.CloseFile();

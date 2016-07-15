@@ -17,5 +17,5 @@ oTable = Api.CreateTable(3, 3);
 oDocContent.Push(oTable);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/default_table_in_footer.docx");
+builder.SaveFile("docx", "add_table_in_footer.docx");
 builder.CloseFile();

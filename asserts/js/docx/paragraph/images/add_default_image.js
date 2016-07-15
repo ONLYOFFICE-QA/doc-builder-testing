@@ -13,5 +13,5 @@ var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
  oParagraph.AddDrawing(oDrawing);
 
 
-builder.SaveFile("docx", "/home/ilya/Documents/temp_docx/add_default_image.docx");
+builder.SaveFile("docx", "add_default_image.docx");
 builder.CloseFile();
