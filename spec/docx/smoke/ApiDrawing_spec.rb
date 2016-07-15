@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../lib/doc_builder_testing'
+require 'spec_helper'
 describe 'ApiDrawing section tests' do
   it 'ApiDrawing | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/getclasstype.js')

@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../../lib/doc_builder_testing'
+require 'spec_helper'
 
 describe 'Check firstline' do
   it 'Firstline should be 0.18' do

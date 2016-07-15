@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../../lib/doc_builder_testing'
+require 'spec_helper'
 
 describe 'Add table with merge' do
   it 'Table with merge: 2:3 x 2x3' do

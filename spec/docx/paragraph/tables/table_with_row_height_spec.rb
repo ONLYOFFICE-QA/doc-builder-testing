@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../../lib/doc_builder_testing'
+require 'spec_helper'
 
 describe 'Add table custom rows height' do
   it '1-st row: auto, 2-nd row: 1000, 3-rd row: 2000' do

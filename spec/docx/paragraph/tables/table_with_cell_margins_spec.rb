@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../../lib/doc_builder_testing'
+require 'spec_helper'
 
 describe 'Add table with cells margins' do
   it 'Table with cell margins: bottom, left, top' do

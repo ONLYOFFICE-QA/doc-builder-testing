@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../lib/doc_builder_testing'
+require 'spec_helper'
 
 describe 'text with tabs' do
   it 'Add text in Section' do

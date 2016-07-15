@@ -1,6 +1,4 @@
-require 'bundler/setup'
-require 'rspec'
-require_relative '../../../lib/doc_builder_testing'
+require 'spec_helper'
 describe 'ApiNumbering section tests' do
   it 'ApiNumbering | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumbering/getclasstype.js')
