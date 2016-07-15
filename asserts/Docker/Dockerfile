@@ -22,4 +22,4 @@ RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/only
     apt-get -y update && \
     apt-get --allow-unauthenticated -y install onlyoffice-documentcreator
 
-CMD /bin/bash -l -c "cd /doc-builder-testing; git pull; bundle install; parallel_rspec spec"
+CMD /bin/bash -l -c "cd /doc-builder-testing; git pull; rm Gemfile.lock; bundle install; parallel_rspec spec"
