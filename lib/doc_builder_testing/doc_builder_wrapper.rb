@@ -28,10 +28,10 @@ class DocBuilderWrapper
   # @param script_file [String] path to actual script file
   # @param format [Symbol, String] type of file (docx, xlsx)
   # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
-  def self.change_output_file(script_file, format = :docx)
-    temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
+  def self.change_output_file(script_file)
     script_file_content = File.open(script_file, "r").read
     format = DocBuilderWrapper.recognize_format_from_script(script_file_content)
+    temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
     script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{format}\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
