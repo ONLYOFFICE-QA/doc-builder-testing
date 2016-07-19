@@ -42,7 +42,7 @@ describe 'Api section tests' do
   it 'Api | CreateImage method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createimage.js')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.type).to eq(:picture)
-    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.path_to_image.path_to_media_file.nil?).to be_falsey
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.path_to_image.file_reference.content.length).to be > 1000
     expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.x).to eq(2_160_000.0)
     expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1_260_000.0)
   end
