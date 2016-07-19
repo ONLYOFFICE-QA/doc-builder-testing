@@ -53,5 +53,10 @@ describe 'My behaviour' do
     it 'check that parsing is performed' do
       expect(builder.build_doc_and_parse(simple_xlsx_script)).to be_a(OoxmlParser::XLSXWorkbook)
     end
+
+    it 'check that builded xlsx file have correct extension' do
+      xlsx = builder.build_doc_and_parse(simple_xlsx_script)
+      expect(File.extname(xlsx.file_path)).to eq('.xlsx')
+    end
   end
 end
