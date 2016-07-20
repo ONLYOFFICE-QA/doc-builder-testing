@@ -45,9 +45,11 @@ describe 'ApiRange section tests' do
     end
   end
 
-  it 'SetValue | SetFontSize' do
-    pending 'Documentation error'
+  it 'ApiRange | SetValue' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setvalue.js')
-    expect(xlsx.nil?).to eq(false)
+    expect(xlsx.worksheets.first.rows.first.cells[1].text).to eq('2')
+    expect(xlsx.worksheets.first.rows[1].cells[1].text).to eq('2')
+    expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('2x2=')
+    expect(xlsx.worksheets.first.rows[2].cells[1].text).to eq('4')
   end
 end
