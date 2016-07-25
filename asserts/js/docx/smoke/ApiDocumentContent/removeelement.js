@@ -1,18 +1,22 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph0, oParagraph;
-oParagraph0 = oDocument.GetElement(0);
-oParagraph0.AddText("This is paragraph #1.");
-var oParaNum;
-for (var nParaIncrease = 0; nParaIncrease < 4; ++nParaIncrease)
+var oParagraph, oStroke, oFill, oDocContent;
+oParagraph = oDocument.GetElement(0);
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing = Api.CreateShape("rect", 3212465, 1926590, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing);
+oDocContent = oDrawing.GetDocContent();
+oDocContent.RemoveAllElements();
+for (var nParaIncrease = 0; nParaIncrease < 5; ++nParaIncrease)
 {
     oParagraph = Api.CreateParagraph();
-    oParagraph.AddText("This is paragraph #" + (nParaIncrease + 2) + ".");
-    oDocument.Push(oParagraph);
+    oParagraph.AddText("This is paragraph #" + (nParaIncrease + 1) + ".");
+    oDocContent.Push(oParagraph);
 }
-oDocument.RemoveElement(2);
+oDocContent.RemoveElement(2);
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("We removed paragraph #3, check that out above.");
-oDocument.Push(oParagraph);
+oDocContent.Push(oParagraph);
 builder.SaveFile("docx", "RemoveElement.docx");
 builder.CloseFile();

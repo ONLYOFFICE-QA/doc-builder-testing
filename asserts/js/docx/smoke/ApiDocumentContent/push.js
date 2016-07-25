@@ -1,14 +1,16 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph0, oParagraph;
-oParagraph0 = oDocument.GetElement(0);
-oParagraph0.AddText("This is paragraph #0, you must not push it to take effect.");
-var oParaNum;
-for (var nParaIncrease = 0; nParaIncrease < 5; ++nParaIncrease)
-{
-    oParagraph = Api.CreateParagraph();
-    oParagraph.AddText("This is paragraph #" + (nParaIncrease + 1) + ", you must push it to take effect.");
-    oDocument.Push(oParagraph);
-}
+var oParagraph, oStroke, oFill, oDocContent;
+oParagraph = oDocument.GetElement(0);
+oFill = Api.CreateSolidFill(Api.CreateRGBColor(104, 155, 104));
+oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+oDrawing = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
+oParagraph.AddDrawing(oDrawing);
+oDocContent = oDrawing.GetDocContent();
+oDocContent.RemoveAllElements();
+oParagraph = Api.CreateParagraph();
+oParagraph.SetJc("left");
+oParagraph.AddText("We removed all elements from the shape and added a new paragraph inside it.");
+oDocContent.Push(oParagraph);
 builder.SaveFile("docx", "Push.docx");
 builder.CloseFile();
