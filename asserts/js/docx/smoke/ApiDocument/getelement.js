@@ -1,9 +1,9 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph;
-var oSection = oDocument.GetFinalSection();
-var oHeader = oSection.GetHeader("default", true);
-oParagraph = oHeader.GetElement(0);
-oParagraph.AddText("This is the text in the default header");
+var oParagraph, oRun;
+oParagraph = oDocument.GetElement(0);
+oRun = Api.CreateRun();
+oRun.AddText("This is just a sample text. Nothing special.");
+oParagraph.AddElement(oRun);
 builder.SaveFile("docx", "GetElement.docx");
 builder.CloseFile();
