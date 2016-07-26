@@ -11,10 +11,11 @@ describe 'ApiDrawing section tests' do
   end
 
   it 'ApiDrawing | SetDistances method' do
-    pending 'add functional to parser'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setdistances.js')
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content).to eq(false)
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.wrap.distance_from_text).to eq(false)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.bottom).to eq(0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.left).to eq(914400.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.right).to eq(914400.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.top).to eq(0)
   end
 
   it 'ApiDrawing | SetHorAlign method' do
@@ -42,7 +43,6 @@ describe 'ApiDrawing section tests' do
   end
 
   it 'ApiDrawing | SetVerPosition method' do
-    pending 'parser cant use emu metric in this value'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setverposition.js')
     expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.vertical_position.offset).to eq(914400)
     expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.vertical_position.relative_from).to eq(:page)
