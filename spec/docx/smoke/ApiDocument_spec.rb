@@ -9,9 +9,9 @@ describe 'ApiDocument section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/createnumbering.js')
     ilvl = 0
     docx.elements[1..docx.elements.size].each do |current_element|
-      expect(current_element.numbering.ilvl).to eq(ilvl.to_s)
-      current_element.numbering.numbering_properties.ilvls.each do |current_lvl|
-        expect(current_lvl.num_format).to eq('bullet')
+      expect(current_element.numbering.ilvl).to eq(ilvl)
+      current_element.numbering.abstruct_numbering.level_list.each do |current_lvl|
+        expect(current_lvl.numbering_format.value).to eq('bullet')
       end
       ilvl += 1
     end
