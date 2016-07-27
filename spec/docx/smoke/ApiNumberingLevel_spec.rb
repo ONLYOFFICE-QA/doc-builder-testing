@@ -16,31 +16,31 @@ describe 'ApiNumberingLevel section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/getnumbering.js')
 
     expect(docx.elements[0].character_style_array[1].text).to eq("This is the first element of a parent numbered list which starts with '1'")
-    expect(docx.elements[0].numbering.ilvl).to eq('0')
-    expect(docx.elements[0].numbering.numbering_properties.multilevel_type).to eq('hybridMultilevel')
+    expect(docx.elements[0].numbering.ilvl).to eq(0)
+    expect(docx.elements[0].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[1].character_style_array.first.text).to eq("This is the first element of a child numbered list which starts with 'a'")
-    expect(docx.elements[1].numbering.ilvl).to eq('1')
-    expect(docx.elements[1].numbering.numbering_properties.multilevel_type).to eq('hybridMultilevel')
+    expect(docx.elements[1].numbering.ilvl).to eq(1)
+    expect(docx.elements[1].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[2].character_style_array.first.text).to eq("This is the second element of a child numbered list which starts with 'b'")
-    expect(docx.elements[2].numbering.ilvl).to eq('1')
-    expect(docx.elements[2].numbering.numbering_properties.multilevel_type).to eq('hybridMultilevel')
+    expect(docx.elements[2].numbering.ilvl).to eq(1)
+    expect(docx.elements[2].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[3].character_style_array.first.text).to eq('This is a paragraph without a numbering. ')
     expect(docx.elements[3].numbering.nil?).to be_truthy
 
     expect(docx.elements[4].character_style_array.first.text).to eq("This is the second element of a parent numbered list which starts with '2'")
-    expect(docx.elements[4].numbering.ilvl).to eq('0')
-    expect(docx.elements[4].numbering.numbering_properties.multilevel_type).to eq('hybridMultilevel')
+    expect(docx.elements[4].numbering.ilvl).to eq(0)
+    expect(docx.elements[4].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
   end
 
   it 'ApiNumberingLevel | GetParaPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/getparapr.js')
-    expect(docx.elements.first.numbering.ilvl).to eq('0')
+    expect(docx.elements.first.numbering.ilvl).to eq(0)
     expect(docx.elements.first.character_style_array[1].text).to eq("This is the first element of a parent numbered list which starts with '1'")
     expect(docx.elements[1].character_style_array.first.text).to eq("This is the second element of a parent numbered list which starts with '2'")
-    expect(docx.elements[1].numbering.ilvl).to eq('0')
+    expect(docx.elements[1].numbering.ilvl).to eq(0)
   end
 
   it 'ApiNumberingLevel | GetTextPr method' do
@@ -54,7 +54,7 @@ describe 'ApiNumberingLevel section tests' do
     pending 'Numbering will rebuild'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setcustomtype.js')
     iterator = 0.6
-    docx.elements[1..docx.elements.size].each do |current_element|
+    docx.elements[1.docx.elements.size].each do |current_element|
       expect(current_element.character_style_array.first.text).to eq("Custom numbered lvl #{iterator.round}")
       iterator += 0.5
     end
