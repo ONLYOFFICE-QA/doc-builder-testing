@@ -5,7 +5,7 @@ class DocBuilderWrapper
   # Path to Builder exe
   attr_accessor :builder_exe
 
-  def initialize(builder_exe: '/usr/bin/documentcreator')
+  def initialize(builder_exe: '/usr/bin/documentbuilder')
     DocBuilderWrapper.update_config
     @builder_exe = builder_exe
   end
