@@ -10,8 +10,10 @@ describe 'My behaviour' do
       expect { builder.build_doc('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
-    it 'should raise error if output path is incorrect' do
-      expect { builder.build_doc(simple_script) }.to raise_error(DocBuilderError, /error: : save file error\n/)
+    it 'should not raise error if output path is incorrect' do
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
+      expect(builder.build_doc(simple_script)).to be_nil
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
   end
 

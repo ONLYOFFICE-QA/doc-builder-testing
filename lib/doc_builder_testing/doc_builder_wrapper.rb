@@ -5,14 +5,14 @@ class DocBuilderWrapper
   # Path to Builder exe
   attr_accessor :builder_exe
 
-  def initialize(builder_exe: '/usr/bin/documentcreator')
+  def initialize(builder_exe: '/usr/bin/documentbuilder')
     DocBuilderWrapper.update_config
     @builder_exe = builder_exe
   end
 
   def build_doc(script_file)
     build_result = `#{@builder_exe} #{script_file} 2>&1`
-    raise DocBuilderError, build_result if /[Ee]rror/ === build_result
+    raise DocBuilderError, build_result if /[Ee]rror|not found/ === build_result
   end
 
   # Build document and parse it
