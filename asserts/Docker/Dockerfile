@@ -2,10 +2,6 @@ FROM ruby:2.3
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US:en
-ENV LC_ALL en_US.UTF-8
-
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev
 
