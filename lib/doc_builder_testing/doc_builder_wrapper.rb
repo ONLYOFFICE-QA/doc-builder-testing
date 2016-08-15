@@ -47,7 +47,7 @@ class DocBuilderWrapper
   # @param path_to_config [String] config file to update
   # @return [Nothing]
   def self.update_config(sdk_all_path: "#{ENV['HOME']}/jenkins/workspace/onlyoffice-documentserver-enterprise-3.8.0/sdkjs",
-                         path_to_config: '/opt/onlyoffice/documentcreator/DoctRenderer.config')
+                         path_to_config: '/opt/onlyoffice/documentbuilder/DoctRenderer.config')
     return unless File.directory?(sdk_all_path)
     content = File.read(path_to_config)
     return if content.include?(sdk_all_path)
