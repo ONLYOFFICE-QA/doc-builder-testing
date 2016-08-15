@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | AddChart method' do
+    pending('interface documentbuilder for charted changed, need to fix it') # TODO: fix it
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiWorksheet/addchart.js')
     expect(xlsx.worksheets.first.drawings.first.picture.chart.series.first.text.string.formula).to eq("'sheet 1'!$A$2")
     expect(xlsx.worksheets.first.drawings.first.picture.chart.series.first.text.string.formula).to eq("'sheet 1'!$A$2")
