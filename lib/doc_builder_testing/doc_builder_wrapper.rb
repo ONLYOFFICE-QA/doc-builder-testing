@@ -6,7 +6,6 @@ class DocBuilderWrapper
   attr_accessor :builder_exe
 
   def initialize(builder_exe: '/usr/bin/documentbuilder')
-    DocBuilderWrapper.update_config
     @builder_exe = builder_exe
   end
 
@@ -40,24 +39,6 @@ class DocBuilderWrapper
     temp_script_file.write(script_file_content)
     temp_script_file.close
     {temp_script_file: temp_script_file.path, temp_output_file: temp_output_file.path}
-  end
-
-  # Update DocBuilder config file for custom location of sdk_all
-  # @param sdk_all_path [String] path to custom location
-  # @param path_to_config [String] config file to update
-  # @return [Nothing]
-  def self.update_config(sdk_all_path: "#{ENV['HOME']}/jenkins/workspace/onlyoffice-documentserver-enterprise-3.8.0/sdkjs",
-                         path_to_config: '/opt/onlyoffice/documentcreator/DoctRenderer.config')
-    return unless File.directory?(sdk_all_path)
-    content = File.read(path_to_config)
-    return if content.include?(sdk_all_path)
-    content = content.gsub(/^.*sdkjs\/word\/sdk-all.js.*$/, "<file>#{sdk_all_path}/word/sdk-all.js</file>")
-    content = content.gsub(/^.*sdkjs\/word\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/word/sdk-all-min.js</file>")
-    content = content.gsub(/^.*sdkjs\/slide\/sdk-all.js.*$/, "<file>#{sdk_all_path}/slide/sdk-all.js</file>")
-    content = content.gsub(/^.*sdkjs\/slide\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/slide/sdk-all-min.js</file>")
-    content = content.gsub(/^.*sdkjs\/cell\/sdk-all.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all.js</file>")
-    content = content.gsub(/^.*sdkjs\/cell\/sdk-all-min.js.*$/, "<file>#{sdk_all_path}/cell/sdk-all-min.js</file>")
-    File.open(path_to_config, "w") { |file| file << content }
   end
 
   # Recognize format from script file
