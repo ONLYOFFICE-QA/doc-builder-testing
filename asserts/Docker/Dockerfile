@@ -13,8 +13,7 @@ RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/only
     apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder
 RUN onlyoffice-documentbuilder
 
-CMD /bin/bash -l -c "apt-get install --only-upgrade onlyoffice-documentbuilder; \
-                     cd /doc-builder-testing; git pull; \
+CMD /bin/bash -l -c "cd /doc-builder-testing; git pull; \
                      rm Gemfile.lock; \
                      bundle install; \
                      bundle exec parallel_rspec spec"
