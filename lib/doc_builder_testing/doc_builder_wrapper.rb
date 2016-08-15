@@ -33,9 +33,9 @@ class DocBuilderWrapper
   # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
   def self.change_output_file(script_file)
     script_file_content = File.open(script_file, "r").read
-    format = DocBuilderWrapper.recognize_format_from_script(script_file_content)
-    temp_output_file = Tempfile.new([File.basename(script_file), ".#{format}"])
-    script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{format}\", \"#{temp_output_file.path}\");")
+    output_format = DocBuilderWrapper.recognize_output_format(script_file_content)
+    temp_output_file = Tempfile.new([File.basename(script_file), ".#{output_format}"])
+    script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{output_format}\", \"#{temp_output_file.path}\");")
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
     temp_script_file.close
@@ -62,8 +62,8 @@ class DocBuilderWrapper
 
   # Recognize format from script file
   # @param script [String] script content
-  # @return [String] type of file `docx`, `xlsx`, `pptx`
-  def self.recognize_format_from_script(script)
-    script.match(/builder.CreateFile\(\"(.*)\"\)\;/)[1]
+  # @return [String] type of file
+  def self.recognize_output_format(script)
+    script.match(/builder.SaveFile\(\"(.*)\",/)[1]
   end
 end
