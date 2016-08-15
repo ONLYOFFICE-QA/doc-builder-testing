@@ -12,7 +12,10 @@ class DocBuilderWrapper
 
   def build_doc(script_file)
     build_result = `#{@builder_exe} #{script_file} 2>&1`
-    raise DocBuilderError, build_result if /[Ee]rror|not found/ === build_result
+    if /[Ee]rror|not found/ === build_result
+     return if /licence error/ === build_result
+     raise DocBuilderError, build_result
+    end
   end
 
   # Build document and parse it
