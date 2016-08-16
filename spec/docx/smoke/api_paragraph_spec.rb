@@ -2,7 +2,10 @@ require 'spec_helper'
 describe 'ApiParagraph section tests' do
   it 'ApiParagraph | AddColumnBreak method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/addcolumnbreak.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.page_properties.columns.count).to eq(2)
+    expect(docx.elements.first.character_style_array[1].text).to eq('This is the text for the first column. It is written all in one text run. Nothing special.')
+    expect(docx.elements.first.character_style_array[3].text).to eq('This is the text which starts from the beginning of the second column. ')
+    expect(docx.elements.first.character_style_array[4].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
   end
 
   it 'ApiParagraph | AddDrawing method' do
