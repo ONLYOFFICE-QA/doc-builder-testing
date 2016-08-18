@@ -24,28 +24,28 @@ describe 'ApiDocumentContent section tests' do
 
   it 'ApiDocumentContent | Push method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/push.js')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.
-        first.character_style_array.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements
+        .first.character_style_array.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | RemoveAllElements method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/removeallelements.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.size).to eq(1)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.first.
-        character_style_array.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.first
+        .character_style_array.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | RemoveElement method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocumentContent/removeelement.js')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.first.
-        character_style_array.first.text).to eq('This is paragraph #1.')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[1].
-        character_style_array.first.text).to eq('This is paragraph #2.')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[2].
-        character_style_array.first.text).to eq('This is paragraph #4.')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[3].
-        character_style_array.first.text).to eq('This is paragraph #5.')
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[4].
-        character_style_array.first.text).to eq('We removed paragraph #3, check that out above.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements.first
+        .character_style_array.first.text).to eq('This is paragraph #1.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[1]
+        .character_style_array.first.text).to eq('This is paragraph #2.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[2]
+        .character_style_array.first.text).to eq('This is paragraph #4.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[3]
+        .character_style_array.first.text).to eq('This is paragraph #5.')
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.text_body.elements[4]
+        .character_style_array.first.text).to eq('We removed paragraph #3, check that out above.')
   end
 end

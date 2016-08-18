@@ -3,7 +3,6 @@ describe 'ApiNumberingLevel section tests' do
   it 'ApiNumberingLevel | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/getclasstype.js')
     expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = numberingLevel')
-
   end
 
   it 'ApiNumberingLevel | GetLevelIndex method' do

@@ -40,8 +40,3 @@ Style/DotPosition:
 Style/EmptyLinesAroundBlockBody:
   Exclude:
     - 'spec/docx/smoke/ApiNumberingLevel_spec.rb'
-
-# Offense count: 32
-# Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts.
-Style/FileName:
-  Enabled: false
