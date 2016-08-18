@@ -13,8 +13,8 @@ describe 'ApiDrawing section tests' do
   it 'ApiDrawing | SetDistances method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setdistances.js')
     expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.bottom).to eq(0)
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.left).to eq(914400.0)
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.right).to eq(914400.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.left).to eq(914_400.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.right).to eq(914_400.0)
     expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.distance_from_text.top).to eq(0)
   end
 
@@ -32,8 +32,8 @@ describe 'ApiDrawing section tests' do
 
   it 'ApiDrawing | SetSize method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setsize.js')
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.object_size.x).to eq(1828800.0)
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.object_size.y).to eq(1828800.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.object_size.x).to eq(1_828_800.0)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.object_size.y).to eq(1_828_800.0)
   end
 
   it 'ApiDrawing | SetVerAlign method' do
@@ -44,7 +44,7 @@ describe 'ApiDrawing section tests' do
 
   it 'ApiDrawing | SetVerPosition method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDrawing/setverposition.js')
-    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.vertical_position.offset).to eq(914400)
+    expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.vertical_position.offset).to eq(914_400)
     expect(docx.elements.first.character_style_array[4].alternate_content.office2010_content.properties.vertical_position.relative_from).to eq(:page)
   end
 

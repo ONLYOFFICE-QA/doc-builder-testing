@@ -2,6 +2,8 @@
 require 'tempfile'
 require 'ooxml_parser'
 require_relative 'doc_builder_helper'
+
+# Class for working with documentbuilder
 class DocBuilderWrapper
   include DocBuilderHelper
 
@@ -25,10 +27,7 @@ class DocBuilderWrapper
 
   def build_doc(script_file)
     build_result = `#{run_build_command(script_file)}`
-    if /[Ee]rror|not found/ === build_result
-      return if /licence error/ === build_result
-      raise DocBuilderError, build_result
-    end
+    raise DocBuilderError, build_result if build_result =~ /[Ee]rror|not found/
   end
 
   # Build document and parse it
