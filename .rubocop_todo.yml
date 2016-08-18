@@ -52,8 +52,3 @@ Style/FileName:
 Style/IndentationWidth:
   Exclude:
     - 'spec/docx/smoke/ApiTableRowPr_spec.rb'
-
-# Offense count: 5
-# Cop supports --auto-correct.
-Style/NumericLiterals:
-  MinDigits: 8
