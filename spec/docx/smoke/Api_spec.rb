@@ -129,11 +129,11 @@ describe 'Api section tests' do
     expect(docx.elements[1].rows[0].cells.size).to eq(3)
     expect(docx.elements[1].rows[1].cells.size).to eq(3)
     expect(docx.elements[1].rows[2].cells.size).to eq(3)
-    expect(docx.elements[1].properties.table_borders.bottom.color).to eq(OoxmlParser::Color.new(0,0,255))
-    expect(docx.elements[1].properties.table_borders.left.color).to eq(OoxmlParser::Color.new(0,0,255))
-    expect(docx.elements[1].properties.table_borders.right.color).to eq(OoxmlParser::Color.new(0,0,255))
-    expect(docx.elements[1].properties.table_borders.top.color).to eq(OoxmlParser::Color.new(0,0,255))
-    expect(docx.elements[1].properties.table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(255,0,0))
-    expect(docx.elements[1].properties.table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(255,0,0))
+    expect(docx.elements[1].properties.table_borders.bottom.color).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(docx.elements[1].properties.table_borders.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(docx.elements[1].properties.table_borders.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(docx.elements[1].properties.table_borders.top.color).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(docx.elements[1].properties.table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
 end

@@ -57,9 +57,3 @@ Style/IndentationWidth:
 # Cop supports --auto-correct.
 Style/NumericLiterals:
   MinDigits: 8
-
-# Offense count: 12
-# Cop supports --auto-correct.
-Style/SpaceAfterComma:
-  Exclude:
-    - 'spec/docx/smoke/Api_spec.rb'
