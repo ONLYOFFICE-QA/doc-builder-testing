@@ -8,8 +8,14 @@ class DocBuilderWrapper
   # Path to Builder exe
   attr_accessor :builder_exe
 
-  def initialize(builder_exe: '/usr/bin/documentbuilder')
+  def initialize(builder_exe: default_builder_location)
     @builder_exe = builder_exe
+  end
+
+  # @return [String] location of builder on different OS
+  def default_builder_location
+    return 'C:\ONLYOFFICE\DocumentBuilder\docbuilder.exe' if Gem.win_platform?
+    '/usr/bin/documentbuilder'
   end
 
   def build_doc(script_file)
