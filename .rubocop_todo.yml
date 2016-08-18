@@ -45,10 +45,3 @@ Style/EmptyLinesAroundBlockBody:
 # Configuration parameters: ExpectMatchingDefinition, Regex, IgnoreExecutableScripts.
 Style/FileName:
   Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Width.
-Style/IndentationWidth:
-  Exclude:
-    - 'spec/docx/smoke/ApiTableRowPr_spec.rb'
