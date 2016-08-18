@@ -1,4 +1,5 @@
 # docbuilder-testing
+[![](https://images.microbadger.com/badges/image/onlyofficetestingrobot/doc-builder-testing.svg)](https://microbadger.com/images/onlyofficetestingrobot/doc-builder-testing "Get your own image badge on microbadger.com")
 
 Framework for QA of `onlyoffice-documentbuilder`
 
