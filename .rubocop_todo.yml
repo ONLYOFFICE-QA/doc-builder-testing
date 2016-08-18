@@ -16,27 +16,3 @@ Metrics/LineLength:
 Style/CaseEquality:
   Exclude:
     - 'lib/doc_builder_testing/doc_builder_wrapper.rb'
-
-# Offense count: 2
-Style/Documentation:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - 'lib/doc_builder_testing/doc_builder_helper.rb'
-    - 'lib/doc_builder_testing/doc_builder_wrapper.rb'
-
-# Offense count: 7
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: leading, trailing
-Style/DotPosition:
-  Exclude:
-    - 'spec/docx/smoke/ApiDocumentContent_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: empty_lines, no_empty_lines
-Style/EmptyLinesAroundBlockBody:
-  Exclude:
-    - 'spec/docx/smoke/ApiNumberingLevel_spec.rb'

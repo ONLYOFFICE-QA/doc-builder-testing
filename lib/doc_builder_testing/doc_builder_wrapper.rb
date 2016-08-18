@@ -2,6 +2,8 @@
 require 'tempfile'
 require 'ooxml_parser'
 require_relative 'doc_builder_helper'
+
+# Class for working with documentbuilder
 class DocBuilderWrapper
   include DocBuilderHelper
 
