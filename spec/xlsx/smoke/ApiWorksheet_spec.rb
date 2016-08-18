@@ -15,7 +15,7 @@ describe 'ApiWorksheet section tests' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiWorksheet/formatastable.js')
     xlsx.worksheets.first.table_parts.first.autofilter.each do |current_autofilter|
       expect(current_autofilter.list).to eq 'Sheet1'
-      expect(%w(A B C D  E)).to include(current_autofilter.column)
+      expect(%w(A B C D E)).to include(current_autofilter.column)
       expect((1..10).to_a).to include(current_autofilter.row)
     end
   end

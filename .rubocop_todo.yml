@@ -63,9 +63,3 @@ Style/NumericLiterals:
 Style/SpaceAfterComma:
   Exclude:
     - 'spec/docx/smoke/Api_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Style/SpaceInsideArrayPercentLiteral:
-  Exclude:
-    - 'spec/xlsx/smoke/ApiWorksheet_spec.rb'
