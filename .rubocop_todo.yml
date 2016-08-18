@@ -11,8 +11,3 @@
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 249
-
-# Offense count: 2
-Style/CaseEquality:
-  Exclude:
-    - 'lib/doc_builder_testing/doc_builder_wrapper.rb'

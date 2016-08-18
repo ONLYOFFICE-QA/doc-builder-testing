@@ -27,7 +27,7 @@ class DocBuilderWrapper
 
   def build_doc(script_file)
     build_result = `#{run_build_command(script_file)}`
-    raise DocBuilderError, build_result if /[Ee]rror|not found/ === build_result
+    raise DocBuilderError, build_result if build_result =~ /[Ee]rror|not found/
   end
 
   # Build document and parse it
