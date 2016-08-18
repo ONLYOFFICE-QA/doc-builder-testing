@@ -27,10 +27,7 @@ class DocBuilderWrapper
 
   def build_doc(script_file)
     build_result = `#{run_build_command(script_file)}`
-    if /[Ee]rror|not found/ === build_result
-      return if /licence error/ === build_result
-      raise DocBuilderError, build_result
-    end
+    raise DocBuilderError, build_result if /[Ee]rror|not found/ === build_result
   end
 
   # Build document and parse it
