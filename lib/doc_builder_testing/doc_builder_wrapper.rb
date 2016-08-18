@@ -18,8 +18,13 @@ class DocBuilderWrapper
     '/usr/bin/documentbuilder'
   end
 
+  # @return [String] command to run builder for any platform
+  def run_build_command(script_file)
+    "#{@builder_exe} #{script_file} 2>&1"
+  end
+
   def build_doc(script_file)
-    build_result = `#{@builder_exe} #{script_file} 2>&1`
+    build_result = `#{run_build_command(script_file)}`
     if /[Ee]rror|not found/ === build_result
       return if /licence error/ === build_result
       raise DocBuilderError, build_result
