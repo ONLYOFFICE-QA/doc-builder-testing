@@ -69,11 +69,3 @@ Style/SpaceAfterComma:
 Style/SpaceInsideArrayPercentLiteral:
   Exclude:
     - 'spec/xlsx/smoke/ApiWorksheet_spec.rb'
-
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-# SupportedStyles: final_newline, final_blank_line
-Style/TrailingBlankLines:
-  Exclude:
-    - 'spec/spec_helper.rb'
