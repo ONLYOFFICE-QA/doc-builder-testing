@@ -39,8 +39,8 @@ describe 'Check Column' do
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.element_by_description[1].rows.length).to eq(3)
     expect(docx.element_by_description[1].rows[0].cells.length).to eq(3)
-    expect(docx.element_by_description[3].rows.length).to eq(3)
-    expect(docx.element_by_description[3].rows[0].cells.length).to eq(3)
+    expect(docx.element_by_description[4].rows.length).to eq(3)
+    expect(docx.element_by_description[4].rows[0].cells.length).to eq(3)
   end
 
   it '[text] Three columns' do
@@ -49,9 +49,9 @@ describe 'Check Column' do
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.element_by_description[1].rows.length).to eq(3)
     expect(docx.element_by_description[1].rows[0].cells.length).to eq(3)
-    expect(docx.element_by_description[3].rows.length).to eq(3)
-    expect(docx.element_by_description[3].rows[0].cells.length).to eq(3)
-    expect(docx.element_by_description[5].rows.length).to eq(3)
-    expect(docx.element_by_description[5].rows[0].cells.length).to eq(3)
+    expect(docx.element_by_description[4].rows.length).to eq(3)
+    expect(docx.element_by_description[4].rows[0].cells.length).to eq(3)
+    expect(docx.element_by_description[7].rows.length).to eq(3)
+    expect(docx.element_by_description[7].rows[0].cells.length).to eq(3)
   end
 end
