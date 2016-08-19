@@ -10,7 +10,23 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | AddDrawing method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/adddrawing.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.type).to eq(:chart)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.axises.first.title.elements.first.runs.first.text).to eq('Year')
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data.first.points.first.value).to eq(200.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data.first.points[1].value).to eq(240.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data.first.points[2].value).to eq(280.0)
+
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data[1].points.first.value).to eq(250.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data[1].points[1].value).to eq(260.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.data[1].points[2].value).to eq(280.0)
+
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series[1].text.string.cache.points.first.text.value).to eq('Estimated Costs')
+
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.categories.string.cache.points.first.text.value).to eq('2014')
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.categories.string.cache.points[1].text.value).to eq('2015')
+    expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.categories.string.cache.points[2].text.value).to eq('2016')
   end
 
   it 'ApiParagraph | AddElement method' do
