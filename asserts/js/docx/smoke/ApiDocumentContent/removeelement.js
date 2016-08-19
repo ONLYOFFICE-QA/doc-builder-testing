@@ -14,7 +14,7 @@ for (var nParaIncrease = 0; nParaIncrease < 5; ++nParaIncrease)
     oParagraph.AddText("This is paragraph #" + (nParaIncrease + 1) + ".");
     oDocContent.Push(oParagraph);
 }
-oDocContent.RemoveElement(2);
+oDocContent.RemoveElement(3);
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("We removed paragraph #3, check that out above.");
 oDocContent.Push(oParagraph);

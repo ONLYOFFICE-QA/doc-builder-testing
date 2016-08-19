@@ -98,7 +98,7 @@ describe 'ApiDocument section tests' do
 
   it 'ApiDocument | RemoveAllElements method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/removeallelements.js')
-    expect(docx.elements.first.character_style_array.first.text).to eq('This is the first paragraph. ')
+    expect(docx.elements[1].character_style_array.first.text).to eq('This is the first paragraph. ')
   end
 
   it 'ApiDocument | RemoveElement method' do
