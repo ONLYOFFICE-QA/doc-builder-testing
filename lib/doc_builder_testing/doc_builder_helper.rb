@@ -1,7 +1,6 @@
 # Helpers method for document builder
 module DocBuilderHelper
-
-  MINIMAL_FILESIZE = { '.odt' => 3656, '.rtf' => 976,'.pdf' => 734, '.txt' => 5,'.ods' => 3351, '.csv' => 1 }
+  MINIMAL_FILESIZE = { '.odt' => 3656, '.rtf' => 976, '.pdf' => 734, '.txt' => 5, '.ods' => 3351, '.csv' => 1 }.freeze
   def parse(path)
     OoxmlParser::Parser.parse(path)
   end
