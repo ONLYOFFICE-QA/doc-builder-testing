@@ -39,6 +39,12 @@ class DocBuilderWrapper
     parse(temp_script_data[:temp_output_file])
   end
 
+  def build_doc_without_parse(script_file)
+    temp_script_data = DocBuilderWrapper.change_output_file(script_file)
+    build_doc(temp_script_data[:temp_script_file])
+    temp_script_data[:temp_output_file]
+  end
+
   # Make a copy of script file, so no need to change output path on real file
   # @param script_file [String] path to actual script file
   # @param format [Symbol, String] type of file (docx, xlsx)

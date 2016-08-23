@@ -13,12 +13,12 @@ for (var x = 0; x < 5; ++x)
     oDocument.Push(oParagraph);
 }
 oParagraph = Api.CreateParagraph();
-for (var i = 0; i < 3; ++i)
+for (var i = 0; i < 4; ++i)
 {
     oParagraph.AddText("These sentences are used to add lines for demonstrative purposes. ");
 }
 oParagraph.SetWidowControl(true);
-oParagraph.AddText("This last line would be displayed on the next page, if we had not used the set widow control method.");
+oParagraph.AddText("This last line is displayed on the next page, because we used the set widow control method set to 'true'.");
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetWidowControl.docx");
 builder.CloseFile();

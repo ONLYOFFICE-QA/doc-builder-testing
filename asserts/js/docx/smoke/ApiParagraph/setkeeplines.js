@@ -22,4 +22,4 @@ for (var i = 0; i < 10; ++i)
 oParagraph.SetKeepLines(true);
 oDocument.Push(oParagraph);
 builder.SaveFile("docx", "SetKeepLines.docx");
-builder.CloseFi
+builder.CloseFile();
