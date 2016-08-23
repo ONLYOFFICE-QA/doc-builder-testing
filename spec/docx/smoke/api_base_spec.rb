@@ -1,18 +1,13 @@
 require 'spec_helper'
 describe 'Api section tests' do
-  before :all do
-    OoxmlParser.configure do |config|
-      config.units = :emu
-    end
-  end
   it 'Api | CreateBlipFill method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createblipfill.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(5_930_900.0)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(595_605.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(595_605, :emu))
   end
 
   it 'Api | CreateChart method' do
@@ -25,7 +20,7 @@ describe 'Api section tests' do
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.title.nil?).to be_truthy
-    expect(docx.elements.first.character_style_array[1].drawing.properties.object_size.x).to eq(4_051_299.0)
+    expect(docx.elements.first.character_style_array[1].drawing.properties.object_size.x).to eq(OoxmlParser::OoxmlSize.new(4_051_299, :emu))
     expect(docx.elements.first.character_style_array[1].drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(102)
   end
 
@@ -43,8 +38,8 @@ describe 'Api section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createimage.js')
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.type).to eq(:picture)
     expect(docx.elements.first.character_style_array[1].drawings.first.graphic.data.path_to_image.file_reference.content.length).to be > 1000
-    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.x).to eq(2_160_000.0)
-    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(1_260_000.0)
+    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.x).to eq(OoxmlParser::OoxmlSize.new(2_160_000, :emu))
+    expect(docx.elements.first.character_style_array[1].drawings.first.properties.object_size.y).to eq(OoxmlParser::OoxmlSize.new(1_260_000, :emu))
   end
 
   it 'Api | CreateLinearGradientFill method' do
@@ -106,8 +101,8 @@ describe 'Api section tests' do
   it 'Api | CreateShape method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createshape.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:rect)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(5_930_900.0)
-    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(395_605.0)
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
+    expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(395_605, :emu))
     expect(docx.elements.first.character_style_array[1].alternate_content.office2007_content.data.properties.stroke_color.nil?).to be_truthy
     expect(docx.elements.first.character_style_array[1].alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
   end
