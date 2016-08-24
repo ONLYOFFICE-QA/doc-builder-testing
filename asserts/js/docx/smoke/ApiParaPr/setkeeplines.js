@@ -1,12 +1,28 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph, oParaPr;
-var oHeading6Style = oDocument.GetStyle("Heading 6");
-oParaPr = oHeading6Style.GetParaPr();
-oParaPr.SetStyle(oHeading6Style);
-oParaPr.SetJc("center");
+var oMyStyle = oDocument.CreateStyle("My document style");
+oParaPr = oMyStyle.GetParaPr();
+oParaPr.SetKeepLines(true);
 oParagraph = oDocument.GetElement(0);
-oParagraph.SetStyle(oHeading6Style);
-oParagraph.AddText("This is a text in a paragraph styled with the 'Heading 6' style.");
-builder.SaveFile("docx", "SetStyle.docx");
+oParagraph.AddText("This is an example of how the paragraph tries to keep lines together. ");
+oParagraph.AddText("Scroll down to the second page to see it.");
+for (var x = 0; x < 5; ++x)
+{
+    oParagraph = Api.CreateParagraph();
+    for (var i = 0; i < 10; ++i)
+    {
+        oParagraph.AddText("These sentences are used to add lines for demonstrative purposes. ");
+    }
+    oDocument.Push(oParagraph);
+}
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("The paragraph lines are moved to the next page to keep them together. ");
+for (var i = 0; i < 10; ++i)
+{
+    oParagraph.AddText("These sentences are used to add lines for demonstrative purposes. ");
+}
+oParagraph.SetStyle(oMyStyle);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "SetKeepLines.docx");
 builder.CloseFile();

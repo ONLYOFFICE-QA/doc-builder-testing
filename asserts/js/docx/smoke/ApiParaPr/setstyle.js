@@ -3,7 +3,6 @@ var oDocument = Api.GetDocument();
 var oParagraph, oParaPr;
 var oHeading6Style = oDocument.GetStyle("Heading 6");
 oParaPr = oHeading6Style.GetParaPr();
-oParaPr.SetStyle(oHeading6Style);
 oParaPr.SetJc("center");
 oParagraph = oDocument.GetElement(0);
 oParagraph.SetStyle(oHeading6Style);
