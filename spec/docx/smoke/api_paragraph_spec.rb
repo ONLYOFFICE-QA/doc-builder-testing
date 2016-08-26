@@ -118,11 +118,11 @@ describe 'ApiParagraph section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setbetweenborder.js')
     expect(docx.elements.first.borders.between.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.between.space).to eq(0)
-    expect(docx.elements.first.borders.between.sz).to eq(24)
+    expect(docx.elements.first.borders.between.sz).to eq(OoxmlParser::OoxmlSize.new(24, :point))
 
     expect(docx.elements[1].borders.between.color).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].borders.between.space).to eq(10)
-    expect(docx.elements[1].borders.between.sz).to eq(12)
+    expect(docx.elements[1].borders.between.sz).to eq(OoxmlParser::OoxmlSize.new(12, :point))
   end
 
   it 'ApiParagraph | SetBottomBorder method' do
@@ -130,7 +130,7 @@ describe 'ApiParagraph section tests' do
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setbottomborder.js')
     expect(docx.elements.first.borders.bottom.color).to eq(OoxmlParser::Color.new(255, 0, 0))
-    expect(docx.elements.first.borders.bottom.sz).to eq(8)
+    expect(docx.elements.first.borders.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(8, :point))
     expect(docx.elements.first.borders.bottom.space).to eq(0)
   end
 
@@ -198,7 +198,7 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.borders.left.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.left.val).to eq(:single)
     expect(docx.elements.first.borders.left.space).to eq(8)
-    expect(docx.elements.first.borders.left.sz).to eq(16)
+    expect(docx.elements.first.borders.left.sz).to eq(OoxmlParser::OoxmlSize.new(16, :point))
   end
 
   it 'ApiParagraph | SetNumbering method' do
@@ -227,7 +227,7 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.borders.right.color).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements.first.borders.right.val).to eq(:single)
     expect(docx.elements.first.borders.right.space).to eq(8)
-    expect(docx.elements.first.borders.right.sz).to eq(16)
+    expect(docx.elements.first.borders.right.sz).to eq(OoxmlParser::OoxmlSize.new(16, :point))
   end
 
   it 'ApiParagraph | SetShd method' do
@@ -288,7 +288,7 @@ describe 'ApiParagraph section tests' do
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/settopborder.js')
     expect(docx.elements.first.borders.top.color).to eq(OoxmlParser::Color.new(255, 0, 0))
-    expect(docx.elements.first.borders.top.sz).to eq(24)
+    expect(docx.elements.first.borders.top.sz).to eq(OoxmlParser::OoxmlSize.new(24, :point))
     expect(docx.elements.first.borders.top.space).to eq(0)
   end
 
