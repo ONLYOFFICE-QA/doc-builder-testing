@@ -1,6 +1,6 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph, oHeader;
+var oParagraph;
 oParagraph = oDocument.GetElement(0);
 var oSection = oDocument.GetFinalSection();
 oSection.SetPageMargins(720, 720, 720, 720);

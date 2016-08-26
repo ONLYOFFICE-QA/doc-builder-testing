@@ -1,6 +1,6 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph, oHeader;
+var oParagraph;
 oParagraph = oDocument.GetElement(0);
 var oSection = oDocument.GetFinalSection();
 oSection.SetEqualColumns(3, 720);

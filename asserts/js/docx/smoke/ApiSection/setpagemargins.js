@@ -1,6 +1,6 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph, oHeader;
+var oParagraph;
 oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("This is a page with margins set. ");
 oParagraph.AddText("The left margin is 5 inches wide (7200 twentieths of a point). ");
