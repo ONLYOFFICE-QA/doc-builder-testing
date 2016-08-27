@@ -14,7 +14,7 @@ RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/only
 CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      git pull; \
-                     git checkout $BRANCH; \
+                     git checkout $DOCKER_BRANCH; \
                      rm Gemfile.lock; \
                      bundle install; \
                      bundle exec parallel_rspec spec"
