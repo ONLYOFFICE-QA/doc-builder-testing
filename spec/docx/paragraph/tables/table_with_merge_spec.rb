@@ -7,6 +7,6 @@ describe 'Add table with merge' do
     expect(docx.elements[1].rows[1].cells[1].elements.first.character_style_array[1].text).to eq('Merged cell')
     expect(docx.elements[1].rows[1].cells[1].properties.merge.count_of_merged_cells).to eq(2)
     expect(docx.elements[1].rows[1].cells[1].properties.merge.type).to eq('horizontal')
-    expect(docx.elements[1].rows[1].cells[1].properties.merge.value).to eq('2')
+    expect(docx.elements[1].rows[1].cells[1].properties.merge.value).to eq(2)
   end
 end
