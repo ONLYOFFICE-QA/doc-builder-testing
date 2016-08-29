@@ -98,7 +98,7 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | GetParaPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/getparapr.js')
     expect(docx.elements.first.spacing.line).to eq(2)
-    expect(docx.elements.first.ind.first_line_indent).to eq(1.27)
+    expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1.27, :centimeter))
   end
 
   it 'ApiParagraph | RemoveAllElements method' do
@@ -149,14 +149,14 @@ describe 'ApiParagraph section tests' do
     pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setindfirstline.js')
-    expect(docx.elements.first.ind.first_line_indent).to eq(1440)
+    expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
   end
 
   it 'ApiParagraph | SetIndLeft method' do
     pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setindleft.js')
-    expect(docx.elements.first.ind.left_indent).to eq(2880)
+    expect(docx.elements.first.ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twips))
   end
 
   it 'ApiParagraph | SetIndRight method' do
