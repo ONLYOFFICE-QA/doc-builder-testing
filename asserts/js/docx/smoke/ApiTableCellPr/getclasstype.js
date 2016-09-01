@@ -11,5 +11,5 @@ oDocument.Push(oTable);
 var oClassType = oTableCellPr.GetClassType();
 oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Class Type = " + oClassType);
-builder.SaveFile("docx", "D:/TESTFILES/GetClassType.docx");
+builder.SaveFile("docx", "GetClassType.docx");
 builder.CloseFile();
