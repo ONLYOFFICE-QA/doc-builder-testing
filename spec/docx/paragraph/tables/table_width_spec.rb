@@ -4,13 +4,13 @@ describe 'Add tables with differnt types of width' do
   it 'Table with auto width' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_width_auto.js')
     expect(docx.elements[1].rows.length).to eq(3)
-    expect(docx.elements[1].properties.table_width).to eq(0.0)
+    expect(docx.elements[1].properties.table_width).to be_zero
   end
 
   it 'Table with width in percent' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_width_percent.js')
     expect(docx.elements[1].rows.length).to eq(3)
-    expect(docx.elements[1].properties.table_width).to eq(8.818342151675486)
+    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(50, :percent))
   end
 
   it 'Table with fixed layout' do
