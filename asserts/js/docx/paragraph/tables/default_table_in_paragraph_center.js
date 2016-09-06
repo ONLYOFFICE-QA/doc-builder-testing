@@ -1,15 +1,9 @@
 builder.CreateFile("docx");
-
-var Api = editor;
-var oDocument     = Api.GetDocument();
+var oDocument = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();
-
-var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
-
-
+var oTable;
 oTable = Api.CreateTable(3, 3);
 oDocument.Push(oTable);
 oTable.SetJc("center");
-
 builder.SaveFile("docx", "default_table_in_paragraph_center.docx");
 builder.CloseFile();
