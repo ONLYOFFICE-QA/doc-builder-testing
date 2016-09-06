@@ -113,7 +113,6 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateStroke method' do
-    pending 'Documentation error'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/Api/createstroke.js')
     expect(docx.elements.first.character_style_array[1].alternate_content.office2007_content.data.properties.stroke_color).to eq(OoxmlParser::Color.new(255, 224, 204))
   end

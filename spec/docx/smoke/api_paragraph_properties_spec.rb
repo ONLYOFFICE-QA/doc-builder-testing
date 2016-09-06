@@ -6,21 +6,17 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetBetweenBorder method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setbetweenborder.js')
     expect(docx.elements.first.borders.between.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.borders.between.sz).to eq(OoxmlParser::OoxmlSize.new(24, :pt_8))
-    expect(docx.elements.first.borders.between.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
+    expect(docx.elements.first.borders.between.sz).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
+    expect(docx.elements.first.borders.between.space).to eq(OoxmlParser::OoxmlSize.new(0.0, :point))
   end
 
   it 'ApiParaPr | SetBottomBorder method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setbottomborder.js')
     expect(docx.elements.first.borders.bottom.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.borders.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :pt_8))
-    expect(docx.elements.first.borders.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(24, :point))
+    expect(docx.elements.first.borders.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
+    expect(docx.elements.first.borders.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
   end
 
   it 'ApiParaPr | SetContextualSpacing method' do
@@ -32,27 +28,21 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetIndFirstLine method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindfirstline.js')
-    expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
-    expect(docx.elements[1].ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
+    expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440.0, :twip))
+    expect(docx.elements[1].ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440.0, :twip))
   end
 
   it 'ApiParaPr | SetIndLeft method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindleft.js')
-    expect(docx.elements.first.ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twips))
-    expect(docx.elements[1].ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twips))
+    expect(docx.elements.first.ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
+    expect(docx.elements[1].ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
   end
 
   it 'ApiParaPr | SetIndRight method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setindright.js')
-    expect(docx.elements.first.ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twips))
-    expect(docx.elements[1].ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twips))
+    expect(docx.elements.first.ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
+    expect(docx.elements[1].ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
   end
 
   it 'ApiParaPr | SetJc method' do
@@ -86,12 +76,10 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetLeftBorder method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setleftborder.js')
     expect(docx.elements.first.borders.left.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
-    expect(docx.elements.first.borders.left.sz).to eq(OoxmlParser::OoxmlSize.new(24, :pt_8))
+    expect(docx.elements.first.borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0.0, :point))
+    expect(docx.elements.first.borders.left.sz).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
   end
 
   it 'ApiParaPr | SetNumPr method' do
@@ -110,12 +98,10 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetRightBorder method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setrightborder.js')
     expect(docx.elements.first.borders.right.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
-    expect(docx.elements.first.borders.right.sz).to eq(OoxmlParser::OoxmlSize.new(24, :pt_8))
+    expect(docx.elements.first.borders.right.sz).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
   end
 
   it 'ApiParaPr | SetShd method' do
@@ -129,28 +115,28 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetSpacingAfter method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingafter.js')
-    expect(docx.elements.first.spacing.after).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
+    expect(docx.elements.first.spacing.after).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiParaPr | SetSpacingBefore method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingbefore.js')
-    expect(docx.elements.first.spacing.before).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
+    expect(docx.elements.first.spacing.before).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiParaPr | SetSpacingLine method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingline.js')
-    expect(docx.elements.first.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twips))
+    expect(docx.elements.first.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
     expect(docx.elements.first.spacing.line_rule).to eq(:auto)
-    expect(docx.elements[1].spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :twips))
+    expect(docx.elements[1].spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :twip))
     expect(docx.elements[1].spacing.line_rule).to eq(:exact)
-    expect(docx.elements[2].spacing.line).to eq(OoxmlParser::OoxmlSize.new(400, :twips))
+    expect(docx.elements[2].spacing.line).to eq(OoxmlParser::OoxmlSize.new(400, :twip))
     expect(docx.elements[2].spacing.line_rule).to eq(:at_least)
   end
 
@@ -161,7 +147,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetTabs method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/settabs.js')
     expect(docx.elements.first.tabs.first.position).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
@@ -173,11 +159,9 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetTopBorder method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/settopborder.js')
     expect(docx.elements.first.borders.top.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.borders.top.sz).to eq(OoxmlParser::OoxmlSize.new(24, :pt_8))
+    expect(docx.elements.first.borders.top.sz).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
     expect(docx.elements.first.borders.top.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
