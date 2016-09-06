@@ -236,7 +236,7 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | SetSpacingLine method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setspacingline.js')
-    expect(docx.elements.first.paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
+    expect(docx.elements.first.paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(3, :centimeter))
     expect(docx.elements.first.spacing.line_rule).to eq(:auto)
     expect(docx.elements[1].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :twip))
     expect(docx.elements[1].paragraph_properties.spacing.line_rule).to eq(:exact)
