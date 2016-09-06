@@ -1,7 +1,6 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph;
-oParagraph = oDocument.GetElement(0);
+var oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("This is just a sample text. Nothing special.");
 builder.SaveFile("pdf", "AddText.pdf");
 builder.CloseFile();
