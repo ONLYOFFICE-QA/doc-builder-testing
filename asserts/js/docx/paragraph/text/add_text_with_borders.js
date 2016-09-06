@@ -1,14 +1,9 @@
 builder.CreateFile("docx");
-
-var Api = editor;
-var oDocument     = Api.GetDocument();
+var oDocument = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();
-
-var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
-
 for (var nIndex = 0; nIndex < 3; ++nIndex)
     {
-        oParagraph = Api.CreateParagraph();
+        var oParagraph = Api.CreateParagraph();
         oDocument.Push(oParagraph);
         oParagraph.AddText("Borders");
 
@@ -18,7 +13,5 @@ for (var nIndex = 0; nIndex < 3; ++nIndex)
         oParagraph.SetRightBorder("single", 48, 0, 255, 255, 0);
         oParagraph.SetBetweenBorder("single", 36, 0, 255, 0, 255);
     }
-
-
 builder.SaveFile("docx", "add_text_with_borders.docx");
 builder.CloseFile();

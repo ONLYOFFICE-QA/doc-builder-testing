@@ -1,12 +1,7 @@
 builder.CreateFile("docx");
-
-var Api = editor;
 var oDocument     = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();
-
-var oParagraph, oTable, oTableRow, oCell, oCellContent, oRun, oDrawing;
-
-oTable = Api.CreateTable(3, 3);
+var oTable = Api.CreateTable(3, 3);
 oDocument.Push(oTable);
 oTable.SetTableInd(1000);
 oTable.SetTableCellMarginBottom(200);
