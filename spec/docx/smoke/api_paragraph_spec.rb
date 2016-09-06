@@ -97,7 +97,7 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | GetParaPr method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/getparapr.js')
-    expect(docx.elements.first.spacing.line).to eq(2)
+    expect(docx.elements.first.paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(2, :centimeter))
     expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1.27, :centimeter))
   end
 
@@ -237,7 +237,7 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | SetSpacingLine method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setspacingline.js')
     expect(docx.elements.first.paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
-    expect(docx.elements.first.spacing.line_rule).to eq(:auto)
+    expect(docx.elements.first.paragarph_properties.spacing.line_rule).to eq(:auto)
     expect(docx.elements[1].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :twip))
     expect(docx.elements[1].paragraph_properties.spacing.line_rule).to eq(:exact)
     expect(docx.elements[2].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(400, :twip))
