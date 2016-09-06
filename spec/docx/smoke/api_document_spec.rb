@@ -47,7 +47,7 @@ describe 'ApiDocument section tests' do
   it 'ApiDocument | GetDefaultStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/getdefaultstyle.js')
     expect(docx.elements.first.character_style_array[1].text).to eq('This is just a text.')
-    expect(docx.elements.first.spacing.line).to eq(1.0)
+    expect(docx.elements.first.paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(1, :centimeter))
   end
 
   it 'ApiDocument | GetDefaultTextPr method' do
