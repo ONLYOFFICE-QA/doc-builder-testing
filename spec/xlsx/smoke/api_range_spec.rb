@@ -1,7 +1,17 @@
 require 'spec_helper'
 describe 'ApiRange section tests' do
+  it 'ApiRange | GetCol method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_col.js')
+    expect(xlsx).to be_with_data
+  end
+
+  it 'ApiRange | GetRow method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_row.js')
+    expect(xlsx).to be_with_data
+  end
+
   it 'ApiRange | SetAlignHorizontal method' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setalignhorizontal.js')
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_align_horizontal.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.alignment.horizontal).to eq(:center)
@@ -10,7 +20,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetAlignVertical method' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setalignvertical.js')
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_align_vertical.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.alignment.vertical).to eq(:top)
@@ -19,7 +29,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetFontColor method' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setfontcolor.js')
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_color.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.font.color).to eq(OoxmlParser::Color.new(0, 255, 0))
@@ -27,8 +37,8 @@ describe 'ApiRange section tests' do
     end
   end
 
-  it 'ApiRange | SetFontName' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setfontname.js')
+  it 'ApiRange | SetFontName method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_name.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.font.name).to eq('Arial')
@@ -36,8 +46,8 @@ describe 'ApiRange section tests' do
     end
   end
 
-  it 'ApiRange | SetFontSize' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setfontsize.js')
+  it 'ApiRange | SetFontSize method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_size.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.font.size).to eq(20)
@@ -45,8 +55,8 @@ describe 'ApiRange section tests' do
     end
   end
 
-  it 'SetValue | SetFontSize' do
-    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/ApiRange/setvalue.js')
+  it 'ApiRange | SetValue method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_value.js')
     expect(xlsx.worksheets.first.rows.first.cells[1].text).to eq('2')
     expect(xlsx.worksheets.first.rows[1].cells[1].text).to eq('2')
     expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('2x2=')
