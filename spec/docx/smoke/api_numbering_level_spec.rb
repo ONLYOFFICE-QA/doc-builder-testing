@@ -43,44 +43,42 @@ describe 'ApiNumberingLevel section tests' do
   end
 
   it 'ApiNumberingLevel | GetTextPr method' do
-    pending 'Cant get font size from docx object ()'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/gettextpr.js')
-    expect(docx.elements.first.numbering.numbering_properties.ilvls.first.font).to eq('Calibri')
-    expect(docx.elements.first.numbering.numbering_properties.ilvls.first.font_size).to eq(28)
+    expect(docx.elements.first.numbering.abstruct_numbering.level_list.first.run_properties.font_name).to eq('Calibri')
+    expect(docx.elements.first.numbering.abstruct_numbering.level_list.first.run_properties.size.value).to eq(28)
   end
 
   it 'ApiNumberingLevel | SetCustomType method' do
-    pending 'Numbering will rebuild'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setcustomtype.js')
     iterator = 0.6
-    docx.elements[1.docx.elements.size].each do |current_element|
+    docx.elements[1..docx.elements.size].each do |current_element|
       expect(current_element.character_style_array.first.text).to eq("Custom numbered lvl #{iterator.round}")
+      expect(current_element.numbering.abstruct_numbering.level_list.first.numbering_format.value).to eq('lowerRoman')
+      expect(current_element.numbering.abstruct_numbering.level_list.first.justification.value).to eq('left')
       iterator += 0.5
     end
-    expect(docx.numbering_fixed?).to be_truthy
   end
 
   it 'ApiNumberingLevel | SetRestart method' do
-    pending 'Numbering will rebuild'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setrestart.js')
-    expect(docx.numbering_fixed?).to be_truthy
+    expect(docx.elements.first.numbering.ilvl).to eq(0)
+    expect(docx.elements[1].numbering.ilvl).to eq(1)
+    expect(docx.elements[4].numbering.ilvl).to eq(1)
   end
 
   it 'ApiNumberingLevel | SetStart method' do
-    pending 'Numbering will rebuild'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setstart.js')
-    expect(docx.numbering_fixed?).to be_truthy
+    expect(docx.elements[0].numbering.abstruct_numbering.level_list[1].start.value).to eq(5)
   end
 
   it 'ApiNumberingLevel | SetSuff method' do
-    pending 'Sergey Konovalov will fix this method, because now it dont work'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/220'
+    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setsuff.js')
-    expect(docx.konovalov_have_fixded_all).to be_truthy
   end
 
   it 'ApiNumberingLevel | SetTemplateType method' do
-    pending 'Numbering will rebuild'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/settemplatetype.js')
-    expect(docx.numbering_fixed?).to be_truthy
+    expect(docx.elements[0].numbering.abstruct_numbering.level_list.first.numbering_format.value).to eq('upperLetter')
   end
 end
