@@ -64,7 +64,7 @@ describe 'ApiTableCellPr section tests' do
 
   it 'ApiTableCellPr | SetShd method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCellPr/setshd.js')
-    expect(docx.elements[1].properties.table_style.table_cell_properties.shd).to eq(OoxmlParser::Color.new(255, 104, 0))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.shade.fill).to eq(OoxmlParser::Color.new(255, 104, 0))
   end
 
   it 'ApiTableCellPr | SetTextDirection method' do
