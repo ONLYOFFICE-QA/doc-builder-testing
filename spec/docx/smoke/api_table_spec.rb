@@ -61,11 +61,9 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetShd method' do
-    pending 'https://github.com/ONLYOFFICE/ooxml_parser/issues/174'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setshd.js')
-    expect(docx.elements[1].properties.shd.color).to eq(OoxmlParser::Color.new(238, 238, 238))
-    expect(docx.elements[1].properties.shd.type).to eq('clear')
+    expect(docx.elements[1].properties.shade.fill).to eq(OoxmlParser::Color.new(238, 238, 238))
+    expect(docx.elements[1].properties.shade.value).to eq(:clear)
   end
 
   it 'ApiTable | SetStyle method' do
