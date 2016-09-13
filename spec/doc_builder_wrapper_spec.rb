@@ -11,6 +11,7 @@ describe 'My behaviour' do
     end
 
     it 'should not raise error if output path is incorrect' do
+      pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=32965') if Gem.win_platform?
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       expect(builder.build_doc(simple_script)).to be_nil
       FileUtils.rm_rf('/tmp/docbuilder-testing')
