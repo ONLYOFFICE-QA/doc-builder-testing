@@ -156,10 +156,8 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableLayout method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/183'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settablelayout.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].table_properties.table_layout.type).to eq(:fixed)
   end
 
   it 'ApiTable | SetTableLook method' do
