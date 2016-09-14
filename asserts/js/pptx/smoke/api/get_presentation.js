@@ -1,0 +1,1 @@
+var oPresentation = Api.GetPresentation();
