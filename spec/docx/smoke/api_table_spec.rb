@@ -161,16 +161,14 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableLook method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/188'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settablelook.js')
     expect(docx.elements[1].properties.table_look.first_column).to be_truthy
-    expect(docx.elements[1].rows.first.cells.first.properties.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shd).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
     expect(docx.elements[1].properties.table_look.last_column).to be_truthy
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
-    expect(docx.elements[1].properties.table_look.no_horizontal_banding).to be_truthy
-    expect(docx.elements[1].properties.table_look.no_vertical_banding).to be_truthy
+    expect(docx.elements[1].properties.table_look.no_horizontal_banding).to be_falsey
+    expect(docx.elements[1].properties.table_look.no_vertical_banding).to be_falsey
   end
 
   it 'ApiTable | SetWidth method' do
