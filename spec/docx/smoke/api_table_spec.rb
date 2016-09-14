@@ -71,17 +71,13 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetStyleColBandSize method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/179'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setstylecolbandsize.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style_column_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetStyleRowBandSize method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/179'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setstylerowbandsize.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style_row_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetTableBorderBottom method' do
