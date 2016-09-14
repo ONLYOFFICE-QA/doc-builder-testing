@@ -138,7 +138,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetSpacing method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/136'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/249'
     expect('fixed?').to be_truthy
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setspacing.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text spacing set to 4 points (20 twentieths of a point).')

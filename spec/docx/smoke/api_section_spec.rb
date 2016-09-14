@@ -18,24 +18,18 @@ describe 'ApiSection section tests' do
   end
 
   it 'ApiSection | RemoveFooter method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/151'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/removefooter.js')
-    expect(docx.notes.first.elements.first.nonempty_runs.first.text).to eq('This is page footer #2. ')
+    expect(docx.elements.first.paragraph_properties.section_properties.notes.first.elements.first.nonempty_runs.first.text).to eq('This is page footer #2. ')
     expect(docx.notes.first.elements.size).to eq(1)
   end
 
   it 'ApiSection | RemoveHeader method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/151'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/removeheader.js')
     expect(docx.notes.first.elements.first.nonempty_runs.first.text).to eq('This is page header #2. ')
     expect(docx.notes.first.elements.size).to eq(1)
   end
 
   it 'ApiSection | SetEqualColumns method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/152'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setequalcolumns.js')
     expect(docx.page_properties.columns.count).to eq(3)
   end
