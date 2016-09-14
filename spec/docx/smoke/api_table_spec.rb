@@ -49,10 +49,9 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    pending ' Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/173'
-    expect('fixed?').to eq('true')
+    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setcellspacing.js')
-    expect(docx.elements[1]).to eq(false)
+    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize(720, :twip))
   end
 
   it 'ApiTable | SetJc method' do
