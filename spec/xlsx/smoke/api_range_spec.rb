@@ -2,12 +2,12 @@ require 'spec_helper'
 describe 'ApiRange section tests' do
   it 'ApiRange | GetCol method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_col.js')
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
   end
 
   it 'ApiRange | GetRow method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_row.js')
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
   end
 
   it 'ApiRange | SetAlignHorizontal method' do
