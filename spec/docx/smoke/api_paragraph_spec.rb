@@ -130,13 +130,12 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | SetContextualSpacing method' do
-    pending 'ContextualSpacing is not work in parser https://github.com/ONLYOFFICE/ooxml_parser/issues/203'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setcontextualspacing.js')
-    expect(docx.elements.first.contextual_spacing).to eq(false)
-    expect(docx.elements[1].contextual_spacing).to eq(false)
-    expect(docx.elements[2].contextual_spacing).to eq(false)
-    expect(docx.elements[3].contextual_spacing).to eq(true)
-    expect(docx.elements[4].contextual_spacing).to eq(true)
+    expect(docx.elements.first.paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[1].paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[2].paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[3].paragraph_properties.contextual_spacing).to be_truthy
+    expect(docx.elements[4].paragraph_properties.contextual_spacing).to be_truthy
   end
 
   it 'ApiParagraph | SetIndFirstLine method' do
