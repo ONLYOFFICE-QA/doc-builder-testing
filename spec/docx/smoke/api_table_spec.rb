@@ -172,9 +172,9 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetWidth method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/176'
+    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/253'
     expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setwidth.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(5000, :pct))
   end
 end
