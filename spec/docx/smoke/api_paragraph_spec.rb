@@ -249,15 +249,13 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | SetTabs method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/206'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/settabs.js')
-    expect(docx.elements.first.tabs.first.position).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
-    expect(docx.elements.first.tabs.first.align).to eq(:left)
-    expect(docx.elements.first.tabs[1].position).to eq(OoxmlParser::OoxmlSize.new(4320, :twip))
-    expect(docx.elements.first.tabs[1].align).to eq(:center)
-    expect(docx.elements.first.tabs[2].position).to eq(OoxmlParser::OoxmlSize.new(7200, :twip))
-    expect(docx.elements.first.tabs[2].align).to eq(:right)
+    expect(docx.elements.first.paragraph_properties.tabs[0].position).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[0].value).to eq(:left)
+    expect(docx.elements.first.paragraph_properties.tabs[1].position).to eq(OoxmlParser::OoxmlSize.new(4320, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[1].value).to eq(:center)
+    expect(docx.elements.first.paragraph_properties.tabs[2].position).to eq(OoxmlParser::OoxmlSize.new(7200, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[2].value).to eq(:right)
   end
 
   it 'ApiParagraph | SetTopBorder method' do
