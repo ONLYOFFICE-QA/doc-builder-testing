@@ -49,7 +49,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
+    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setcellspacing.js')
     expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize(720, :twip))
   end
@@ -149,8 +149,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableInd method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/182'
-    expect('fixed?').to eq('true')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/182'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settableind.js')
     expect(docx.elements[1].properties.table_indent).to eq(false)
   end
@@ -163,7 +162,7 @@ describe 'ApiTable section tests' do
   it 'ApiTable | SetTableLook method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settablelook.js')
     expect(docx.elements[1].properties.table_look.first_column).to be_truthy
-    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shd).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
     expect(docx.elements[1].properties.table_look.last_column).to be_truthy
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
@@ -172,8 +171,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetWidth method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/253'
-    expect('fixed?').to eq('true')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/253'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setwidth.js')
     expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(5000, :pct))
   end

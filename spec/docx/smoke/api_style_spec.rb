@@ -7,7 +7,7 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetConditionalTableStyle method' do
-    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
+    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getconditionaltablestyle.js')
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
@@ -39,7 +39,7 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetTableCellPr method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablecellpr.js')
     expect(docx.elements[1].rows.first.cells.first.properties.color.class).to eq(OoxmlParser::Color)
   end

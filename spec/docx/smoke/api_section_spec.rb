@@ -19,7 +19,7 @@ describe 'ApiSection section tests' do
 
   it 'ApiSection | RemoveFooter method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/removefooter.js')
-    expect(docx.elements.first.paragraph_properties.section_properties.notes.first.elements.first.nonempty_runs.first.text).to eq('This is page footer #2. ')
+    expect(docx.notes.first.elements.first.nonempty_runs.first.text).to eq('This is page footer #2. ')
     expect(docx.notes.first.elements.size).to eq(1)
   end
 
@@ -70,8 +70,7 @@ describe 'ApiSection section tests' do
   end
 
   it 'ApiSection | SetTitlePage method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/151'
-    expect('fixed?').to eq('true')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/151'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/settitlepage.js')
     expect(docx.nil?).to eq(false)
   end

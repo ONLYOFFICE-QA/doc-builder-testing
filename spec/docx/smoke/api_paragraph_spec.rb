@@ -131,7 +131,7 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | SetContextualSpacing method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setcontextualspacing.js')
-    expect(docx.elements.first.paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[0].paragraph_properties.contextual_spacing).to be_falsey
     expect(docx.elements[1].paragraph_properties.contextual_spacing).to be_falsey
     expect(docx.elements[2].paragraph_properties.contextual_spacing).to be_falsey
     expect(docx.elements[3].paragraph_properties.contextual_spacing).to be_truthy

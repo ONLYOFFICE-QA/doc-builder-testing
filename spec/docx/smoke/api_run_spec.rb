@@ -54,7 +54,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | GetTextPr method' do
-    pending '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
+    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/gettextpr.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is just a sample text. The text properties are changed and the style is added to the paragraph. ')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
@@ -124,7 +124,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetShd method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/144'
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/144'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setshd.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text shading set to green.')
     expect(docx.elements.first.nonempty_runs[1].background_color.color).to eq(OoxmlParser::Color.new(0, 255, 0))
@@ -138,8 +138,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetSpacing method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/249'
-    expect('fixed?').to be_truthy
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/249'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setspacing.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text spacing set to 4 points (20 twentieths of a point).')
     expect(docx.elements.first.nonempty_runs[1].spacing).to eq(OoxmlParser::OoxmlSize.new(80, :twips))
@@ -152,7 +151,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetStyle method' do
-    pending '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
+    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setstyle.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
     expect(docx.elements.first.nonempty_runs[1].font).to eq('Calibri Light')
