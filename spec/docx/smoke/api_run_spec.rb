@@ -110,10 +110,9 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetLanguage method' do
-    pending 'Parser error Add language option for run object https://github.com/ONLYOFFICE/ooxml_parser/issues/142'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setlanguage.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text language set to English (Canada).')
-    expect(docx.elements.first.nonempty_runs[1].language).to eq('en-CA')
+    expect(docx.elements.first.nonempty_runs[1].run_properties.language.value).to eq('en-CA')
   end
 
   it 'ApiRun | SetPosition method' do
