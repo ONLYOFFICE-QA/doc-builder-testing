@@ -2,22 +2,46 @@ require 'spec_helper'
 describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | AddChart method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_chart.js')
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.series.first.text.string.formula).to eq("'sheet 1'!$A$2")
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.series.first.text.string.formula).to eq("'sheet 1'!$A$2")
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.series.last.text.string.formula).to eq("'sheet 1'!$A$5")
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.series.last.categories.string.formula).to eq("'sheet 1'!$B$1:$D$1")
+    xlsx.worksheets.first.drawings.first.picture.chart.series.each_with_index do |series, index|
+      expect(series.text.string.formula).to eq("'sheet 1'!$A$#{index + 2}")
+      expect(series.categories.string.formula).to eq("'sheet 1'!$B$1:$D$1")
+    end
     expect(xlsx.worksheets.first.drawings.first.picture.chart.type).to eq(:column)
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.type).to eq(:column)
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(100 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(70 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.alternate_content.office2007_content.style_number).to eq(2)
+    expect(xlsx.worksheets.first.drawings.first.from.column).to eq('F')
+    expect(xlsx.worksheets.first.drawings.first.from.column_offset).to eq(OoxmlParser::OoxmlSize.new(2 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.from.row).to eq(2)
+    expect(xlsx.worksheets.first.drawings.first.from.row_offset).to eq(OoxmlParser::OoxmlSize.new(3 * 36000, :emu))
   end
 
   it 'ApiWorksheet | AddImage method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_image.js')
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.drawings.first.picture.path_to_image.file_reference.content.length).to be >= 1_000
+    expect(xlsx.worksheets.first.drawings.first.picture.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(60 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.picture.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(35 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.from.column).to eq('A')
+    expect(xlsx.worksheets.first.drawings.first.from.column_offset).to eq(OoxmlParser::OoxmlSize.new(2 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.from.row).to eq(1)
+    expect(xlsx.worksheets.first.drawings.first.from.row_offset).to eq(OoxmlParser::OoxmlSize.new(3 * 36000, :emu))
   end
 
   it 'ApiWorksheet | AddShape method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_shape.js')
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.preset_geometry.name).to eq(:flowChartOnlineStorage)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(60 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(35 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.type).to eq(:gradient)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.position).to eq(0)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.linear_gradient.angle).to eq(5400000 / 100_000.0)
+    expect(xlsx.worksheets.first.drawings.first.from.column).to eq('A')
+    expect(xlsx.worksheets.first.drawings.first.from.column_offset).to eq(OoxmlParser::OoxmlSize.new(2 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.from.row).to eq(1)
+    expect(xlsx.worksheets.first.drawings.first.from.row_offset).to eq(OoxmlParser::OoxmlSize.new(3 * 36000, :emu))
   end
 
   it 'ApiWorksheet | FormatAsTable method' do
@@ -40,15 +64,13 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | GetRangeByNumber method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_range_by_number.js')
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.rows[1].cells[2].text).to eq('42')
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
-    pending 'SE Editor give uncorrect data. Sasha Tr. will fix it'
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width).to eq(10)
-    expect(xlsx.worksheets.first.columns[1].width).to eq(10)
-    expect(xlsx).to be_with_data
+    expect(xlsx.worksheets.first.columns[1].width).to eq(20)
   end
 
   it 'ApiWorksheet | SetName method' do
