@@ -1,67 +1,67 @@
 require 'spec_helper'
 describe 'ApiTextPr section tests' do
   it 'ApiTextPr | GetClassType method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/getclasstype.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/get_class_type.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetBold method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setbold.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_bold.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetCaps method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setcaps.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_caps.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetDoubleStrikeout method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setdoublestrikeout.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_double_strikeout.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setfill.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_fill.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetFontFamily method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setfontfamily.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_font_family.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetFontSize method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setfontsize.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_font_size.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetItalic method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setitalic.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_italic.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetSmallCaps method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setsmallcaps.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_small_caps.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetSpacing method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setspacing.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_spacing.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetStrikeout method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setstrikeout.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_strikeout.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetUnderline method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setunderline.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_underline.js')
+    expect(pptx).to be_with_data
   end
 
   it 'ApiTextPr | SetVertAlign method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/ApiTextPr/setvertalign.js')
-    expect(pptx.nil?).to eq(false)
+    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_text_pr/set_vert_align.js')
+    expect(pptx).to be_with_data
   end
 end
