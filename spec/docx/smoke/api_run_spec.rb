@@ -25,9 +25,8 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | AddPageBreak method' do
-    pending 'Parser error'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/addpagebreak.js')
-    expect(docx.elements.first.page_break).to be_truthy
+    expect(docx.elements.first.nonempty_runs.first.break).to eq(:page)
   end
 
   it 'ApiRun | AddTabStop method' do
@@ -118,13 +117,11 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetPosition method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/143'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiRun/setposition.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text raised 5 points (10 half-points).')
-    expect(docx.elements.first.nonempty_runs[1].position).to eq(OoxmlParser::OoxmlSize.new(10, :hps))
-
+    expect(docx.elements.first.nonempty_runs[1].run_properties.position.value).to eq(OoxmlParser::OoxmlSize.new(10, :half_point))
     expect(docx.elements.first.nonempty_runs[2].text).to eq('This is a text run with the text lowered 8 points (16 half-points).')
-    expect(docx.elements.first.nonempty_runs[2].position).to eq(OoxmlParser::OoxmlSize.new(-16, :hps))
+    expect(docx.elements.first.nonempty_runs[2].run_properties.position.value).to eq(OoxmlParser::OoxmlSize.new(-16, :half_point))
   end
 
   it 'ApiRun | SetShd method' do
