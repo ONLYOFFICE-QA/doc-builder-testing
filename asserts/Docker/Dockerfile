@@ -11,7 +11,8 @@ RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-build
 RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/onlyoffice-documentbuilder/origin/develop/latest/ repo/" >> /etc/apt/sources.list && \
     apt-get -y update && \
     apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder
-CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder \
+                     onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      git pull; \
                      git checkout $DOCKER_BRANCH; \

@@ -11,7 +11,8 @@ baseurl         = http://repo-doc-onlyoffice-com.s3.amazonaws.com/centos/7/onlyo
 enabled         = 1 \n\
 gpgcheck        = 0' > /etc/yum.repos.d/documentbuilder.repo
 RUN yum -y install onlyoffice-documentbuilder
-CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && yum update onlyoffice-documentbuilder; \
+                     onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      git pull; \
                      git checkout $DOCKER_BRANCH; \
