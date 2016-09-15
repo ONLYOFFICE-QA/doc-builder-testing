@@ -68,6 +68,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
+    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33113'
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width).to eq(10)
     expect(xlsx.worksheets.first.columns[1].width).to eq(20)
