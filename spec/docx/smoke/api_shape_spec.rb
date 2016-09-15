@@ -6,10 +6,8 @@ describe 'ApiShape section tests' do
   end
 
   it 'ApiShape | GetDocContent method' do
-    pending 'Documentation error http://192.168.4.102/developers/document-builder/ApiShape/GetDocContent.aspx'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiShape/getdoccontent.js')
-    expect(docx.elements.first.nonempty_runs.size).to eq(1)
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements.first.character_style_array.size).to eq(1)
   end
 
   it 'ApiShape | SetVerticalTextAlign method' do

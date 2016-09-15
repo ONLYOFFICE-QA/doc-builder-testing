@@ -130,13 +130,12 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | SetContextualSpacing method' do
-    pending 'ContextualSpacing is not work in parser https://github.com/ONLYOFFICE/ooxml_parser/issues/203'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/setcontextualspacing.js')
-    expect(docx.elements.first.contextual_spacing).to eq(false)
-    expect(docx.elements[1].contextual_spacing).to eq(false)
-    expect(docx.elements[2].contextual_spacing).to eq(false)
-    expect(docx.elements[3].contextual_spacing).to eq(true)
-    expect(docx.elements[4].contextual_spacing).to eq(true)
+    expect(docx.elements[0].paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[1].paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[2].paragraph_properties.contextual_spacing).to be_falsey
+    expect(docx.elements[3].paragraph_properties.contextual_spacing).to be_truthy
+    expect(docx.elements[4].paragraph_properties.contextual_spacing).to be_truthy
   end
 
   it 'ApiParagraph | SetIndFirstLine method' do
@@ -250,15 +249,13 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | SetTabs method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/206'
-    expect('parser error fixed?').to eq('yes')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParagraph/settabs.js')
-    expect(docx.elements.first.tabs.first.position).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
-    expect(docx.elements.first.tabs.first.align).to eq(:left)
-    expect(docx.elements.first.tabs[1].position).to eq(OoxmlParser::OoxmlSize.new(4320, :twip))
-    expect(docx.elements.first.tabs[1].align).to eq(:center)
-    expect(docx.elements.first.tabs[2].position).to eq(OoxmlParser::OoxmlSize.new(7200, :twip))
-    expect(docx.elements.first.tabs[2].align).to eq(:right)
+    expect(docx.elements.first.paragraph_properties.tabs[0].position).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[0].value).to eq(:left)
+    expect(docx.elements.first.paragraph_properties.tabs[1].position).to eq(OoxmlParser::OoxmlSize.new(4320, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[1].value).to eq(:center)
+    expect(docx.elements.first.paragraph_properties.tabs[2].position).to eq(OoxmlParser::OoxmlSize.new(7200, :twip))
+    expect(docx.elements.first.paragraph_properties.tabs[2].value).to eq(:right)
   end
 
   it 'ApiParagraph | SetTopBorder method' do

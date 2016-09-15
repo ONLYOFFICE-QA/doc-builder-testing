@@ -49,10 +49,9 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    pending ' Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/173'
-    expect('fixed?').to eq('true')
+    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setcellspacing.js')
-    expect(docx.elements[1]).to eq(false)
+    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize(720, :twip))
   end
 
   it 'ApiTable | SetJc method' do
@@ -72,17 +71,13 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetStyleColBandSize method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/179'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setstylecolbandsize.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style_column_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetStyleRowBandSize method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/179'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setstylerowbandsize.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style_row_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetTableBorderBottom method' do
@@ -154,36 +149,30 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableInd method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/182'
-    expect('fixed?').to eq('true')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/182'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settableind.js')
     expect(docx.elements[1].properties.table_indent).to eq(false)
   end
 
   it 'ApiTable | SetTableLayout method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/183'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settablelayout.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].table_properties.table_layout.type).to eq(:fixed)
   end
 
   it 'ApiTable | SetTableLook method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/188'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/settablelook.js')
     expect(docx.elements[1].properties.table_look.first_column).to be_truthy
-    expect(docx.elements[1].rows.first.cells.first.properties.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
     expect(docx.elements[1].properties.table_look.last_column).to be_truthy
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
-    expect(docx.elements[1].properties.table_look.no_horizontal_banding).to be_truthy
-    expect(docx.elements[1].properties.table_look.no_vertical_banding).to be_truthy
+    expect(docx.elements[1].properties.table_look.no_horizontal_banding).to be_falsey
+    expect(docx.elements[1].properties.table_look.no_vertical_banding).to be_falsey
   end
 
   it 'ApiTable | SetWidth method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/176'
-    expect('fixed?').to eq('true')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/253'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTable/setwidth.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(5000, :pct))
   end
 end

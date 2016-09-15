@@ -68,9 +68,8 @@ describe 'ApiTableCellPr section tests' do
   end
 
   it 'ApiTableCellPr | SetTextDirection method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/228'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCellPr/settextdirection.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].rows.first.cells.first.properties.text_direction).to eq(:bottom_to_top_left_to_right)
   end
 
   it 'ApiTableCellPr | SetVerticalAlign method' do

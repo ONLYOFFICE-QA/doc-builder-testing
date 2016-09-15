@@ -115,22 +115,19 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetSpacingAfter method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
-    expect('parser error fixed?').to eq('yes')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingafter.js')
     expect(docx.elements.first.spacing.after).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiParaPr | SetSpacingBefore method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
-    expect('parser error fixed?').to eq('yes')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingbefore.js')
     expect(docx.elements.first.spacing.before).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiParaPr | SetSpacingLine method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
-    expect('parser error fixed?').to eq('yes')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setspacingline.js')
     expect(docx.elements.first.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
     expect(docx.elements.first.spacing.line_rule).to eq(:auto)
@@ -147,8 +144,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetTabs method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
-    expect('parser error fixed?').to eq('yes')
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/settabs.js')
     expect(docx.elements.first.tabs.first.position).to eq(OoxmlParser::OoxmlSize.new(1440, :twips))
     expect(docx.elements.first.tabs.first.align).to eq(:left)

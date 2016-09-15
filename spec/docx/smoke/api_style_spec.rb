@@ -7,7 +7,7 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetConditionalTableStyle method' do
-    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
+    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getconditionaltablestyle.js')
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
@@ -32,29 +32,24 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetParaPr method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/156'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getparapr.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is a paragraph with the line spacing, text justification and indent set using the paragraph style. ')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('We do not change the style of the paragraph itself. ')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('Only document-wide paragraph styles are applied.')
-    expect(docx.elements.first.spacing.line).to eq(OoxmlParser::OoxmlSize.new(480, :twip))
+    expect(docx.elements.first.spacing.line).to eq(2)
     expect(docx.elements.first.spacing.line_rule).to eq(:auto)
     expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiStyle | GetTableCellPr method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablecellpr.js')
     expect(docx.elements[1].rows.first.cells.first.properties.color.class).to eq(OoxmlParser::Color)
   end
 
   it 'ApiStyle | GetTablePr method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/160'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablepr.js')
-    expect(docx.elements[1].rows.first.cells.first.properties.margins.top).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
-    expect(docx.elements[1].rows.first.cells.first.properties.margins.left).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
-    expect(docx.elements[1].rows.first.cells.first.properties.margins.right).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
-    expect(docx.elements[1].rows.first.cells.first.properties.margins.bottom).to eq(OoxmlParser::OoxmlSize.new(0, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.top).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.left).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.right).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.bottom).to eq(OoxmlParser::OoxmlSize.new(0, :twip))
   end
 
   it 'ApiStyle | GetTableRowPr method' do
@@ -81,12 +76,10 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | SetBasedOn method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/168'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/setbasedon.js')
-    expect(docx.elements[1].properties.table_style.name).to eq('CustomTableStyle')
-    expect(docx.elements[1].properties.table_style.type).to eq(:table)
-    expect(docx.elements[1].properties.table_borders).to eq(:table)
+    style_name = docx.elements[1].properties.table_style.name
+    expect(style_name).to eq('CustomTableStyle')
+    expect(docx.document_style_by_name(style_name).based_on_style.name).to eq('Bordered - Accent 5')
   end
 
   it 'ApiStyle | SetName method' do

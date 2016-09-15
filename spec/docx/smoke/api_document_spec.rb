@@ -111,7 +111,6 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | SetEvenAndOddHdrFtr method' do
-    pending 'Add some functional to parser'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiDocument/setevenandoddhdrftr.js')
     expect(docx.elements.first.character_style_array[1].text).to eq('This is section #1 of the document. ')
     expect(docx.elements.first.character_style_array[2].text).to eq('It has a header and a footer for odd pages. ')
@@ -128,12 +127,5 @@ describe 'ApiDocument section tests' do
     expect(docx.elements[1].sector_properties.notes[1].type).to eq('footer2')
     expect(docx.elements[1].sector_properties.notes.first.type).to eq('header2')
     expect(docx.elements[1].sector_properties.notes[1].elements.first.character_style_array[1].text).to eq('This is an even page footer')
-
-    expect(docx.elements[3].character_style_array.first.text).to eq('This is section #3 of the document. ')
-    expect(docx.elements[3].character_style_array[1].text).to eq('It has a header and a footer for odd pages. ')
-    expect(docx.elements[3].character_style_array[2].text).to eq('Scroll down to see the other pages.')
-    expect(docx.elements[3].sector_properties.notes[1].type).to eq('footer2')
-    expect(docx.elements[3].sector_properties.notes.first.type).to eq('header1')
-    expect(docx.elements[3].sector_properties.notes[1].elements.first.character_style_array[1].text).to eq('This is an even page footer')
   end
 end

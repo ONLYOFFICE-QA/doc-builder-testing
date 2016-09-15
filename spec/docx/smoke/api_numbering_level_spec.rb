@@ -72,9 +72,8 @@ describe 'ApiNumberingLevel section tests' do
   end
 
   it 'ApiNumberingLevel | SetSuff method' do
-    pending 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/220'
-    expect('fixed?').to eq('true')
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiNumberingLevel/setsuff.js')
+    expect(docx.element_by_description.first.numbering.abstruct_numbering.level_list.first.suffix.value).to eq(:space)
   end
 
   it 'ApiNumberingLevel | SetTemplateType method' do
