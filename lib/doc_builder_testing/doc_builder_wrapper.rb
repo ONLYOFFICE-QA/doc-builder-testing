@@ -36,12 +36,14 @@ class DocBuilderWrapper
   def build_doc_and_parse(script_file)
     temp_script_data = DocBuilderWrapper.change_output_file(script_file)
     build_doc(temp_script_data[:temp_script_file])
+    wait_file_creation(temp_script_data[:temp_output_file])
     parse(temp_script_data[:temp_output_file])
   end
 
   def build_doc_without_parse(script_file)
     temp_script_data = DocBuilderWrapper.change_output_file(script_file)
     build_doc(temp_script_data[:temp_script_file])
+    wait_file_creation(temp_script_data[:temp_output_file])
     temp_script_data[:temp_output_file]
   end
 
