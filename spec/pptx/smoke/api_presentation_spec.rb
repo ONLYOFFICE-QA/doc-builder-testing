@@ -2,31 +2,43 @@ require 'spec_helper'
 describe 'ApiPresentation section tests' do
   it 'ApiPresentation | AddSlide method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/add_slide.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides.size).to eq(2)
   end
 
   it 'ApiPresentation | GetClassType method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/get_class_type.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides[0].elements.first.text_body.paragraphs.last.characters.first.text).to eq('Class Type = presentation')
   end
 
   it 'ApiPresentation | GetCurSlideIndex method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/get_cur_slide_index.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides[0].elements.first.text_body.paragraphs.last.characters.first.text).to eq("Current Slide Index = 0")
   end
 
   it 'ApiPresentation | GetCurrentSlide method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/get_current_slide.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides[0].background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(pptx.slides[0].background.fill.color.gradient_stops.first.position).to eq(0)
+    expect(pptx.slides[0].background.fill.color.gradient_stops.last.color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(pptx.slides[0].background.fill.color.gradient_stops.last.position).to eq(100)
   end
 
   it 'ApiPresentation | GetSlideByIndex method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/get_slide_by_index.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides.size).to eq(2)
+    expect(pptx.slides[0].background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(pptx.slides[0].background.fill.color.gradient_stops.first.position).to eq(0)
+    expect(pptx.slides[0].background.fill.color.gradient_stops.last.color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(pptx.slides[0].background.fill.color.gradient_stops.last.position).to eq(100)
+    expect(pptx.slides[1].background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(pptx.slides[1].background.fill.color.gradient_stops.first.position).to eq(0)
+    expect(pptx.slides[1].background.fill.color.gradient_stops.last.color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(pptx.slides[1].background.fill.color.gradient_stops.last.position).to eq(100)
   end
 
   it 'ApiPresentation | SetSizes method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/set_sizes.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slide_size.height).to eq(OoxmlParser::OoxmlSize.new(190 * 36000, :emu))
+    expect(pptx.slide_size.width).to eq(OoxmlParser::OoxmlSize.new(254 * 36000, :emu))
   end
 end
