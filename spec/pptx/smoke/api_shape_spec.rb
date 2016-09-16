@@ -16,6 +16,6 @@ describe 'ApiShape section tests' do
 
   it 'ApiShape | SetVerticalTextAlign method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_shape/set_vertical_text_align.js')
-    expect(pptx.slides[0].elements.first.text_body.properties.vertical_align).to eq(:bottom)
+    expect(pptx.slides.first.elements.first.text_body.properties.vertical_align).to eq(:bottom)
   end
 end

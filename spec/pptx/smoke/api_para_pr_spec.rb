@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiParaPr section tests' do
   it 'ApiParaPr | GetClassType method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_para_pr/get_class_type.js')
-    expect(pptx.slides[0].elements.first.text_body.paragraphs.last.characters.first.text).to eq('Class Type = paraPr')
+    expect(pptx.slides.first.elements.first.text_body.paragraphs.last.characters.first.text).to eq('Class Type = paraPr')
   end
 
   it 'ApiParaPr | SetBullet method' do
@@ -42,7 +42,7 @@ describe 'ApiParaPr section tests' do
 
   it 'ApiParaPr | SetSpacingLine method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_para_pr/set_spacing_line.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(3*240, :one_1000th_percent))
+    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(3 * 240, :one_1000th_percent))
   end
 
   it 'ApiParaPr | SetTabs method' do

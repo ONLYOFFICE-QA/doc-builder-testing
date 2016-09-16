@@ -26,8 +26,8 @@ describe 'Api section tests' do
       expect(pptx.slides.first.elements.first.graphic_data.first.series.first.categories.string.cache.points[index].text.value).to eq(value)
       expect(pptx.slides.first.elements.first.graphic_data.first.series[1].categories.string.cache.points[index].text.value).to eq(value)
     end
-    expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36000, :emu))
-    expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36000, :emu))
+    expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
+    expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.graphic_data.first.alternate_content.office2007_content.style_number).to eq(24)
   end
 
@@ -36,19 +36,19 @@ describe 'Api section tests' do
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateImage method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_image.js')
     expect(pptx.slides.first.elements.first.path_to_image.file_reference.content.length).to be >= 1_000
-    expect(pptx.slides.first.elements.first.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36000, :emu))
-    expect(pptx.slides.first.elements.first.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(150 * 36000, :emu))
+    expect(pptx.slides.first.elements.first.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
+    expect(pptx.slides.first.elements.first.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(150 * 36_000, :emu))
   end
 
   it 'Api | CreateLinearGradientFill method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_linear_gradient_fill.js')
-    expect(pptx.slides.first.background.fill.color.linear_gradient.angle).to eq(5400000 / 100_000.0)
+    expect(pptx.slides.first.background.fill.color.linear_gradient.angle).to eq(5_400_000 / 100_000.0)
   end
 
   it 'Api | CreateNoFill method' do
@@ -86,13 +86,13 @@ describe 'Api section tests' do
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateRgbColor method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_rgb_color.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateRun method' do
@@ -108,8 +108,8 @@ describe 'Api section tests' do
   it 'Api | CreateShape method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_shape.js')
     expect(pptx.slides.first.elements.first.shape_properties.preset_geometry.name).to eq(:flowChartMagneticTape)
-    expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36000, :emu))
-    expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36000, :emu))
+    expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
+    expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.shape_properties.fill_color.value).to eq(OoxmlParser::Color.new(61, 74, 107))
     expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
   end
