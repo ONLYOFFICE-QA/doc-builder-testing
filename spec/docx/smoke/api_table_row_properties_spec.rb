@@ -13,7 +13,7 @@ describe 'ApiTableRowPr section tests' do
   end
 
   it 'ApiTableRowPr | SetTableHeader method' do
-    skip 'Documentation error. Example will edit'
+    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/264'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRowPr/settableheader.js')
     expect(docx.nil?).to eq(false)
   end
