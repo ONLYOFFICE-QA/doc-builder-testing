@@ -16,14 +16,12 @@ describe 'ApiTableRow section tests' do
   end
 
   it 'ApiTableRow | SetHeight method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/263'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRow/setheight.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].rows.first.table_row_properties.height.value).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiTableRow | SetTableHeader method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/264'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRow/settableheader.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].rows.first.table_row_properties.table_header).to be_truthy
   end
 end
