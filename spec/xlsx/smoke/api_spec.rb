@@ -18,14 +18,14 @@ describe 'Api section tests' do
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.position).to eq(0)
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateLinearGradientFill method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_linear_gradient_fill.js')
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.type).to eq(:gradient)
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops).not_to be_empty
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.linear_gradient.angle).to eq(5400000 / 100_000.0)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.linear_gradient.angle).to eq(5_400_000 / 100_000.0)
   end
 
   it 'Api | CreateNoFill method' do
@@ -66,7 +66,7 @@ describe 'Api section tests' do
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.position).to eq(0)
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100000 / 1_000)
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateRgbColor method' do
@@ -97,7 +97,7 @@ describe 'Api section tests' do
   it 'Api | CreateStroke method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_stroke.js')
     expect(xlsx.worksheets.first.drawings.first.shape.properties.line.color_scheme.color).to eq(OoxmlParser::Color.new(255, 255, 0))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.line.width).to eq(OoxmlParser::OoxmlSize.new(3 * 36000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.line.width).to eq(OoxmlParser::OoxmlSize.new(3 * 36_000, :emu))
   end
 
   it 'Api | GetActiveSheet method' do
