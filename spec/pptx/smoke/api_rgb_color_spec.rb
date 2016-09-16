@@ -2,6 +2,6 @@ require 'spec_helper'
 describe 'ApiRgbColor section tests' do
   it 'ApiRgbColor | GetClassType method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_rgb_color/get_class_type.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Class Type = rgbColor')
   end
 end
