@@ -2,7 +2,7 @@ FROM centos:latest
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
-RUN yum -y install ruby ruby-devel git gcc make file-devel zlib-devel
+RUN yum -y install ruby ruby-devel git gcc make file-devel zlib-devel google-crosextra-carlito-fonts
 RUN gem install bundler
 RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-builder-testing && /bin/bash -l -c 'bundle install'
 RUN echo $'[documentbuilder] \n\
