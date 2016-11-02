@@ -35,16 +35,16 @@ class DocBuilderWrapper
   # @return [OoxmlParser::CommonDocumentStructure] parsed file
   def build_doc_and_parse(script_file)
     temp_script_data = DocBuilderWrapper.change_output_file(script_file)
-    build_doc(temp_script_data[:temp_script_file])
-    wait_file_creation(temp_script_data[:temp_output_file])
-    parse(temp_script_data[:temp_output_file])
+    build_doc(temp_script_data[:temp_script_file].path)
+    wait_file_creation(temp_script_data[:temp_output_file].path)
+    parse(temp_script_data[:temp_output_file].path)
   end
 
   def build_doc_without_parse(script_file)
     temp_script_data = DocBuilderWrapper.change_output_file(script_file)
-    build_doc(temp_script_data[:temp_script_file])
-    wait_file_creation(temp_script_data[:temp_output_file])
-    temp_script_data[:temp_output_file]
+    build_doc(temp_script_data[:temp_script_file].path)
+    wait_file_creation(temp_script_data[:temp_output_file].path)
+    temp_script_data[:temp_output_file].path
   end
 
   # Make a copy of script file, so no need to change output path on real file
@@ -59,7 +59,7 @@ class DocBuilderWrapper
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
     temp_script_file.close
-    { temp_script_file: temp_script_file.path, temp_output_file: temp_output_file.path }
+    { temp_script_file: temp_script_file, temp_output_file: temp_output_file }
   end
 
   # Recognize format from script file

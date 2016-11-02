@@ -28,7 +28,7 @@ describe 'My behaviour' do
 
     it 'check that changed file contain returned values' do
       rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
-      expect(File.open(rebuild_result[:temp_script_file], 'rb').read).to include(rebuild_result[:temp_output_file])
+      expect(File.open(rebuild_result[:temp_script_file].path, 'rb').read).to include(rebuild_result[:temp_output_file].path)
     end
 
     it 'Check that temp script file is same format as original file' do
