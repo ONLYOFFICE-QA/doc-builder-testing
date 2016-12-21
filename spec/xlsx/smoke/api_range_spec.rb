@@ -28,7 +28,8 @@ describe 'ApiRange section tests' do
     end
   end
 
-  it 'ApiRange | SetFontColor method' do
+  xit 'ApiRange | SetFontColor method' do
+    pending('Interface for font color is changed is sdk-all 4.3.0')
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_color.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
