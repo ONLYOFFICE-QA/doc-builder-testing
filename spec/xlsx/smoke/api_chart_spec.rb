@@ -34,4 +34,11 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
     expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
   end
+
+  it 'Api | SetVerAxisOrientation method' do
+    pending 'https://github.com/ONLYOFFICE/ooxml_parser/issues/316'
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_veraxis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
+  end
 end
