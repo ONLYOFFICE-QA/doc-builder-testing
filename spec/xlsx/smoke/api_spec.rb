@@ -107,4 +107,25 @@ describe 'Api section tests' do
     expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('2x2=')
     expect(xlsx.worksheets.first.rows[2].cells[1].text).to eq('4')
   end
+
+  it 'Api | CreateColorByName method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_by_name.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(176, 196, 222))
+  end
+
+  it 'Api | CreateColorFromRGB method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_RGB.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(49, 133, 154))
+  end
+
+  it 'Api | GetThemesColors and SetThemeColors method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
+    %w(Office Grayscale Apex Aspect Civic Concourse Equity Flow
+       Foundry Median Metro Module Opulent Oriel Origin Paper Solstice
+       Technic Trek Urban Verve).each_with_index do |current_color, index|
+      expect(xlsx.worksheets.first.rows[index].cells[0].text).to eq(current_color)
+    end
+  end
 end
