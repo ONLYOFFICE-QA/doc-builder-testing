@@ -77,4 +77,14 @@ describe 'ApiWorksheet section tests' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
+
+  it 'ApiWorksheet | SetDisplayGridlines method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_gridlines.js')
+    expect(xlsx.worksheets.first.sheet_views.first.show_gridlines).to be_falsey
+  end
+
+  it 'ApiWorksheet | SetDisplayHeadings method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_headings.js')
+    expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
+  end
 end
