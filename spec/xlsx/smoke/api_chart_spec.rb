@@ -34,4 +34,17 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
     expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
   end
+
+  it 'Api | SetVerAxisOrientation method' do
+    skip 'https://github.com/ONLYOFFICE/ooxml_parser/issues/316'
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_veraxis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
+    expect(xlsx.worksheets.first.drawings.first.picture.chart.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
+  end
+
+  it 'ApiChart | GetClassType method' do
+    xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_color/get_color_type.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
+    expect(xlsx.worksheets.first.rows[3].cells[0].text).to eq('Class type = color')
+  end
 end

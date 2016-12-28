@@ -66,7 +66,6 @@ describe 'ApiSection section tests' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiSection/setpagesize.js')
     expect(docx.page_properties.size.height).to eq(OoxmlParser::OoxmlSize.new(4320, :twip))
     expect(docx.page_properties.size.width).to eq(OoxmlParser::OoxmlSize.new(7200, :twip))
-
   end
 
   it 'ApiSection | SetTitlePage method' do
