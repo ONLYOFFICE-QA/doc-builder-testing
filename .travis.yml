@@ -1,8 +1,6 @@
 sudo: required
 
-addons:
-  apt_packages:
-    libmagic-dev
+language: generic
 services:
   - docker
 script:
