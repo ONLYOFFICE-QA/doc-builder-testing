@@ -6,11 +6,12 @@ RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0
 RUN yum -y install git gcc make file-devel zlib-devel google-crosextra-carlito-fonts
 RUN gem install bundler
 RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-builder-testing && /bin/bash -l -c 'bundle install'
+RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x8320CA65CB2DE8E5"
 RUN echo $'[documentbuilder] \n\
 name            = onlyoffice-documentbuilder \n\
-baseurl         = http://repo-doc-onlyoffice-com.s3.amazonaws.com/centos/7/onlyoffice-documentbuilder/origin/develop/latest/ \n\
+baseurl         = http://download.onlyoffice.com/repo/centos/main/noarch/ \n\
 enabled         = 1 \n\
-gpgcheck        = 0' > /etc/yum.repos.d/documentbuilder.repo
+gpgcheck        = 1' > /etc/yum.repos.d/documentbuilder.repo
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && yum clean all && yum -y update onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
