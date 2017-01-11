@@ -8,9 +8,10 @@ RUN apt-get update && apt-get -y -q install libmagic-dev
 RUN gem install bundler
 RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-builder-testing && /bin/bash -l -c 'bundle install'
 
-RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/onlyoffice-documentbuilder/origin/develop/latest/ repo/" >> /etc/apt/sources.list && \
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+RUN echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
-    apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder
+    apt-get -y install onlyoffice-documentbuilder
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
