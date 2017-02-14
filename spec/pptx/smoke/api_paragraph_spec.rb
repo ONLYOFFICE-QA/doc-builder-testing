@@ -97,7 +97,7 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | SetSpacingLine method' do
     pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api_paragraph/set_spacing_line.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(3 * 240, :one_1000th_percent))
+    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :percent))
   end
 
   it 'ApiParagraph | SetTabs method' do
