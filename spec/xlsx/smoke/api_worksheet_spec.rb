@@ -2,14 +2,14 @@ require 'spec_helper'
 describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | AddChart method' do
     xlsx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_chart.js')
-    xlsx.worksheets.first.drawings.first.picture.chart.series.each_with_index do |series, index|
+    xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.series.each_with_index do |series, index|
       expect(series.text.string.formula).to eq("'sheet 1'!$A$#{index + 2}")
       expect(series.categories.string.formula).to eq("'sheet 1'!$B$1:$D$1")
     end
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.type).to eq(:column)
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(100 * 36_000, :emu))
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(70 * 36_000, :emu))
-    expect(xlsx.worksheets.first.drawings.first.picture.chart.alternate_content.office2007_content.style_number).to eq(2)
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.type).to eq(:column)
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(100 * 36_000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(70 * 36_000, :emu))
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.alternate_content.office2007_content.style_number).to eq(2)
     expect(xlsx.worksheets.first.drawings.first.from.column).to eq('F')
     expect(xlsx.worksheets.first.drawings.first.from.column_offset).to eq(OoxmlParser::OoxmlSize.new(2 * 36_000, :emu))
     expect(xlsx.worksheets.first.drawings.first.from.row).to eq(2)
