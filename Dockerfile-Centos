@@ -5,7 +5,9 @@ MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0/ruby-2.4.0-1.el7.centos.x86_64.rpm
 RUN yum -y install git gcc make file-devel zlib-devel google-crosextra-carlito-fonts
 RUN gem install bundler
-RUN git clone https://github.com/ONLYOFFICE/doc-builder-testing && cd /doc-builder-testing && /bin/bash -l -c 'bundle install'
+COPY . /doc-builder-testing
+WORKDIR /doc-builder-testing
+RUN /bin/bash -l -c 'bundle install'
 RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x8320CA65CB2DE8E5"
 RUN echo $'[documentbuilder] \n\
 name            = onlyoffice-documentbuilder \n\
