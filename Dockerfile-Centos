@@ -18,7 +18,5 @@ RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && yum clean all && yum -y update onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
-                     git pull; \
-                     git checkout $DOCKER_BRANCH; \
                      bundle update; \
                      bundle exec parallel_rspec spec"

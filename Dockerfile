@@ -16,7 +16,5 @@ RUN echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/a
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
-                     git pull; \
-                     git checkout $DOCKER_BRANCH; \
                      bundle update; \
                      bundle exec parallel_rspec spec"
