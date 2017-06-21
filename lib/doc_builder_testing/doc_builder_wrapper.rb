@@ -30,6 +30,11 @@ class DocBuilderWrapper
     raise DocBuilderError, build_result if build_result =~ /[Ee]rror|not found/
   end
 
+  # @return [String] command of version
+  def version
+    system("#{@builder_exe} -v")
+  end
+
   # Build document and parse it
   # @param script_file [String] path to script file
   # @return [OoxmlParser::CommonDocumentStructure] parsed file
