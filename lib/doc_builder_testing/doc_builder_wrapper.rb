@@ -35,6 +35,11 @@ class DocBuilderWrapper
     system("#{@builder_exe} -v")
   end
 
+  # @return [String] defualt path to license
+  def license_path
+    '/opt/onlyoffice/documentbuilder/license'
+  end
+
   # Build document and parse it
   # @param script_file [String] path to script file
   # @return [OoxmlParser::CommonDocumentStructure] parsed file
