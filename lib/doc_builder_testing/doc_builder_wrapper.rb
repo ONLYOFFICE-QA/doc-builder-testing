@@ -37,6 +37,7 @@ class DocBuilderWrapper
 
   # @return [String] defualt path to license
   def license_path
+    return 'C:/ONLYOFFICE/DocumentBuilder/license' if Gem.win_platform?
     '/opt/onlyoffice/documentbuilder/license'
   end
 
