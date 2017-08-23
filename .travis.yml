@@ -3,6 +3,15 @@ sudo: required
 language: generic
 services:
   - docker
-script:
-  - docker build -t doc-builder-testing .
-  - docker run doc-builder-testing
+jobs:
+  include:
+    - stage: Dockerfiles Test
+      script:
+        - docker build .
+        - docker build -f Dockerfile-archive .
+        - docker build -f Dockerfile-Centos .
+        - docker build -f Dockerfile-Debian-Develop .
+    - stage: Running test inside doc-builder-testing
+      script:
+        - docker build -t doc-builder-testing .
+        - docker run doc-builder-testing
