@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiTableCellPr section tests' do
   it 'ApiTableCellPr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableCellPr/getclasstype.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = tableCellPr')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = tableCellPr')
   end
 
   it 'ApiTableCellPr | SetCellBorderBottom method' do

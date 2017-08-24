@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiTableStylePr section tests' do
   it 'ApiTableStylePr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableStylePr/getclasstype.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = tableStylePr')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = tableStylePr')
   end
 
   it 'ApiTableStylePr | GetParaPr method' do
@@ -32,7 +32,7 @@ describe 'ApiTableStylePr section tests' do
   it 'ApiTableStylePr | GetTextPr method' do
     skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/244'
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableStylePr/gettextpr.js')
-    expect(docx.elements[1].rows.first.cells.first.elements.first.character_style_array[1].font_style.bold).to be_truthy
+    expect(docx.elements[1].rows.first.cells.first.elements.first.nonempty_runs.first.font_style.bold).to be_truthy
   end
 
   it 'ApiTableStylePr | GetType method' do

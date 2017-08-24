@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'text with tabs' do
   it 'Tabs' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_with_tabs.js')
-    expect(docx.elements[1].character_style_array.first.text).to eq('Tabs')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Tabs')
     expect(docx.elements[1].paragraph_properties.tabs[0].position).to eq(OoxmlParser::OoxmlSize.new(1.76, :centimeter))
     expect(docx.elements[1].paragraph_properties.tabs[0].align).to eq(:center)
     expect(docx.elements[1].paragraph_properties.tabs[1].position).to eq(OoxmlParser::OoxmlSize.new(2.65, :centimeter))

@@ -3,8 +3,8 @@ require 'spec_helper'
 describe 'text with tabs' do
   it 'Add text in Section' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/sections/add_text_in_section.js')
-    expect(docx.elements[1].character_style_array.first.text).to eq('First Page')
-    expect(docx.elements.last.character_style_array.first.text).to eq('Second Page')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('First Page')
+    expect(docx.elements.last.nonempty_runs.first.text).to eq('Second Page')
   end
 
   it 'Add Table in Section' do
