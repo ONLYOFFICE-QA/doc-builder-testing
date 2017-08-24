@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiTableRowPr section tests' do
   it 'ApiTableRowPr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRowPr/getclasstype.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = tableRowPr')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = tableRowPr')
   end
 
   it 'ApiTableRowPr | SetHeight method' do

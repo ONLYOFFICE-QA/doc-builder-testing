@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiParaPr section tests' do
   it 'ApiParaPr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/getclasstype.js')
-    expect(docx.elements[1].character_style_array.first.text).to eq('Class Type = paraPr')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Class Type = paraPr')
   end
 
   it 'ApiParaPr | SetBetweenBorder method' do
@@ -107,11 +107,11 @@ describe 'ApiParaPr section tests' do
   it 'ApiParaPr | SetShd method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setshd.js')
     expect(docx.elements.first.background_color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.character_style_array[1].text).to eq('This is an example of setting a shading to a paragraph. ')
-    expect(docx.elements.first.character_style_array[2].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
-    expect(docx.elements.first.character_style_array[3].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
-    expect(docx.elements.first.character_style_array[4].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
-    expect(docx.elements.first.character_style_array[5].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is an example of setting a shading to a paragraph. ')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
+    expect(docx.elements.first.nonempty_runs[3].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
+    expect(docx.elements.first.nonempty_runs[4].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
   end
 
   it 'ApiParaPr | SetSpacingAfter method' do
@@ -139,7 +139,7 @@ describe 'ApiParaPr section tests' do
 
   it 'ApiParaPr | SetStyle method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiParaPr/setstyle.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('This is a text in a paragraph styled with the \'Heading 6\' style.')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('This is a text in a paragraph styled with the \'Heading 6\' style.')
     expect(docx.elements.first.style.name).to eq('Heading 6')
   end
 

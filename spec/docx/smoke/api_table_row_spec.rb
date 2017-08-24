@@ -7,12 +7,12 @@ describe 'ApiTableRow section tests' do
 
   it 'ApiTableRow | GetCellsCount method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRow/getcellscount.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Number of cells in the first row = 3')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Number of cells in the first row = 3')
   end
 
   it 'ApiTableRow | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTableRow/getclasstype.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = tableRow')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = tableRow')
   end
 
   it 'ApiTableRow | SetHeight method' do

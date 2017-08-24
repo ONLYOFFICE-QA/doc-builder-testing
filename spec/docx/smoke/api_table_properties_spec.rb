@@ -2,7 +2,7 @@ require 'spec_helper'
 describe 'ApiTablePr section tests' do
   it 'ApiTablePr | GetClassType method' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/smoke/ApiTablePr/getclasstype.js')
-    expect(docx.elements.first.character_style_array[1].text).to eq('Class Type = tablePr')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = tablePr')
   end
 
   it 'ApiTablePr | SetCellSpacing method' do
