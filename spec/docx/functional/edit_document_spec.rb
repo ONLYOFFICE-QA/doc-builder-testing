@@ -1,10 +1,5 @@
 require 'spec_helper'
 describe 'Edit existing document' do
-  before do
-    pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/13')
-    raise
-  end
-
   it 'Edit document | only_paragraph.docx | add paragraph' do
     docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/functional/edit_document_only_paragraph.js')
     expect(docx.elements.first.nonempty_runs.last.text).to eq('Center')
