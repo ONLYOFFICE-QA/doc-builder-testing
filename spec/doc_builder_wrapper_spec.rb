@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  let(:builder) { DocBuilderWrapper.new }
   let(:simple_script) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph.js' }
   let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
 
