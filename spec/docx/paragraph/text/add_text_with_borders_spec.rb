@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Check borders' do
   it 'Borders' do
-    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_with_borders.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_with_borders.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Borders')
     expect(docx.elements[1].borders.between.color).to eq(OoxmlParser::Color.new(255, 0, 255))
     expect(docx.elements[1].borders.bottom.color).to eq(OoxmlParser::Color.new(0, 255, 0))

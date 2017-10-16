@@ -1,18 +1,18 @@
 require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_blip_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_blip_fill.js')
     expect(pptx.slides.first.background.fill.image.file_reference.content.length).to be >= 1_000
     expect(pptx.slides.first.background.fill.image.tile).to be_a_kind_of(OoxmlParser::Tile)
   end
 
   it 'Api | CreateBullet method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_bullet.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_bullet.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.numbering.symbol).to eq('-')
   end
 
   it 'Api | CreateChart method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_chart.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_chart.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.type).to eq(:bar_3d)
     [200, 240, 280].each_with_index do |value, index|
       expect(pptx.slides.first.elements.first.graphic_data.first.data.first.points[index].value).to eq(value)
@@ -32,7 +32,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateGradientStop method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_gradient_stop.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_gradient_stop.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
@@ -40,35 +40,35 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateImage method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_image.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_image.js')
     expect(pptx.slides.first.elements.first.path_to_image.file_reference.content.length).to be >= 1_000
     expect(pptx.slides.first.elements.first.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(150 * 36_000, :emu))
   end
 
   it 'Api | CreateLinearGradientFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_linear_gradient_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_linear_gradient_fill.js')
     expect(pptx.slides.first.background.fill.color.linear_gradient.angle).to eq(5_400_000 / 100_000.0)
   end
 
   it 'Api | CreateNoFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_no_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_no_fill.js')
     expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
   end
 
   it 'Api | CreateNumbering method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_numbering.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_numbering.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.numbering.type).to eq(:arabicParenR)
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.properties.numbering.start_at).to eq('1')
   end
 
   it 'Api | CreateParagraph method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_paragraph.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_paragraph.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.size).to eq(2)
   end
 
   it 'Api | CreatePatternFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_pattern_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_pattern_fill.js')
     expect(pptx.slides.first.background.fill.type).to eq(:pattern)
     expect(pptx.slides.first.background.fill.pattern.preset).to eq(:dashDnDiag)
     expect(pptx.slides.first.background.fill.pattern.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
@@ -76,13 +76,13 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreatePresetColor method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_preset_color.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_preset_color.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color.value).to eq('lightYellow')
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
   end
 
   it 'Api | CreateRadialGradientFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_radial_gradient_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_radial_gradient_fill.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
@@ -90,23 +90,23 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateRgbColor method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_rgb_color.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_rgb_color.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
     expect(pptx.slides.first.background.fill.color.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateRun method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_run.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_run.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs.size).to eq(2)
   end
 
   it 'Api | CreateSchemeColor method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_scheme_color.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_scheme_color.js')
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color.converted_color.scheme).to eq('accent6')
   end
 
   it 'Api | CreateShape method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_shape.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_shape.js')
     expect(pptx.slides.first.elements.first.shape_properties.preset_geometry.name).to eq(:flowChartMagneticTape)
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
@@ -115,24 +115,24 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateSlide method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_slide.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_slide.js')
     expect(pptx.slides.size).to eq(2)
   end
 
   it 'Api | CreateSolidFill method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_solid_fill.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_solid_fill.js')
     expect(pptx.slides.first.background.fill.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(pptx.slides.first.background.fill.type).to eq(:solid)
   end
 
   it 'Api | CreateStroke method' do
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/create_stroke.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_stroke.js')
     expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
   end
 
   it 'Api | GetPresentation method' do
     pending('Example is not complete')
-    pptx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/pptx/smoke/api/get_presentation.js')
+    pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/get_presentation.js')
     expect(pptx).to be_with_data
   end
 end

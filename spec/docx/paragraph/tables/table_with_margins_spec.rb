@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe 'Add table with margins' do
   it 'Table with margins: bottom, top, left, right' do
-    docx = DocBuilderWrapper.new.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_margins.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_margins.js')
     expect(docx.elements[1].rows.length).to eq(3)
     expect(docx.elements[1].rows.first.cells.length).to eq(3)
     expect(docx.elements[1].properties.table_cell_margin.bottom).to eq(OoxmlParser::OoxmlSize.new(0.35, :centimeter))
