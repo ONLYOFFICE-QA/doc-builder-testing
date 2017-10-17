@@ -6,12 +6,26 @@ describe 'My behaviour' do
 
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
+      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       expect { builder.build_doc('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
+    it '[WEB] should raise correct error if input file is incorrect' do
+      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
+    end
+
     it 'should not raise error if output path is incorrect' do
+      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       expect(builder.build_doc(simple_script)).to be_nil
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
+    end
+
+    it '[WEB] should not raise error if output path is incorrect' do
+      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
+      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
       FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
   end
@@ -19,23 +33,23 @@ describe 'My behaviour' do
   describe 'change_output_file' do
     it 'check that change output file do not change original file' do
       before_change = File.open(simple_script, 'rb').read
-      DocBuilderWrapper.change_output_file(simple_script)
+      builder.change_output_file(simple_script)
       after_change = File.open(simple_script, 'rb').read
       expect(before_change).to eq(after_change)
     end
 
     it 'check that changed file contain returned values' do
-      rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
+      rebuild_result = builder.change_output_file(simple_script)
       expect(File.open(rebuild_result[:temp_script_file].path, 'rb').read).to include(rebuild_result[:output_file])
     end
 
     it 'Check that temp script file is same format as original file' do
-      rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
+      rebuild_result = builder.change_output_file(simple_script)
       expect(File.extname(rebuild_result[:temp_script_file])).to eq(File.extname(simple_script))
     end
 
     it 'Check that temp output file is docx' do
-      rebuild_result = DocBuilderWrapper.change_output_file(simple_script)
+      rebuild_result = builder.change_output_file(simple_script)
       expect(File.extname(rebuild_result[:output_file])).to eq('.docx')
     end
   end

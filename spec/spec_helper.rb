@@ -4,5 +4,9 @@ require 'rspec'
 require_relative '../lib/doc_builder_testing.rb'
 
 def builder
-  @builder ||= DocBuilderWrapper.new
+  @builder ||= if ENV['BUILDER_PLATFORM'] == 'WEB'
+                 WebDocBuilderWrapper.new
+               else
+                 DocBuilderWrapper.new
+               end
 end

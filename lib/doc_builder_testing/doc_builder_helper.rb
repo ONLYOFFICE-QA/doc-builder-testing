@@ -20,4 +20,27 @@ module DocBuilderHelper
     end
     raise DocBuilderFileCreationError, "File #{file_name} was not creating for #{creation_timeout} seconds"
   end
+
+  # Make a copy of script file, so no need to change output path on real file
+  # @param script_file [String] path to actual script file
+  # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
+  def change_output_file(script_file)
+    script_file_content = File.open(script_file, 'r').read
+    output_format = recognize_output_format(script_file_content)
+    temp_output_file = Tempfile.new([File.basename(script_file), ".#{output_format}"])
+    output_path = temp_output_file.path
+    script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{output_format}\", \"#{output_path}\");")
+    temp_output_file.close!
+    temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
+    temp_script_file.write(script_file_content)
+    temp_script_file.close
+    { temp_script_file: temp_script_file, output_file: output_path }
+  end
+
+  # Recognize format from script file
+  # @param script [String] script content
+  # @return [String] type of file
+  def recognize_output_format(script)
+    script.match(/builder.SaveFile\(\"(.*)\",/)[1]
+  end
 end
