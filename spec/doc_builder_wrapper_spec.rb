@@ -6,12 +6,26 @@ describe 'My behaviour' do
 
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
+      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       expect { builder.build_doc('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
+    it '[WEB] should raise correct error if input file is incorrect' do
+      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
+    end
+
     it 'should not raise error if output path is incorrect' do
+      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       expect(builder.build_doc(simple_script)).to be_nil
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
+    end
+
+    it '[WEB] should not raise error if output path is incorrect' do
+      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      FileUtils.rm_rf('/tmp/docbuilder-testing')
+      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
       FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
   end

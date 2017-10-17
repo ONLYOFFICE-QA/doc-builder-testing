@@ -1,2 +1,3 @@
 require_relative 'doc_builder_testing/doc_builder_wrapper'
+require_relative 'doc_builder_testing/web_doc_builder_wrapper'
 require_relative 'doc_builder_testing/exceptions'

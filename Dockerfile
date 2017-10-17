@@ -17,4 +17,4 @@ CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update &
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      bundle update; \
-                     bundle exec parallel_rspec spec"
+                     rake"
