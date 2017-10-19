@@ -131,8 +131,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetPresentation method' do
-    pending('Example is not complete')
     pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/get_presentation.js')
-    expect(pptx).to be_with_data
+    expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.text).to eq('Financial Overview')
   end
 end
