@@ -24,7 +24,7 @@ var oChart = oWorksheet.AddChart("'sheet 1'!$A$1:$D$5", true, "bar", 2, 100 * 36
 oChart.SetVerAxisTitle("Vertical Title", 10);
 oChart.SetHorAxisTitle("Horizontal Title", 11);
 oChart.SetLegendPos("right");
-oChart.SetShowDataLabels(false, false, true);
+oChart.SetShowDataLabels(false, false, true, false);
 oChart.SetTitle("Main Chart Title", 13);
 var oClassType = oChart.GetClassType();
 oWorksheet.SetColumnWidth(5, 15);

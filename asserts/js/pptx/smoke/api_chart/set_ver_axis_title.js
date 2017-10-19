@@ -6,7 +6,7 @@ oChart = Api.CreateChart("bar3D", [[200, 240, 280],[250, 260, 280]], ["Projected
 oChart.SetVerAxisTitle("USD In Hundred Thousands", 10);
 oChart.SetHorAxisTitle("Year", 11);
 oChart.SetLegendPos("bottom");
-oChart.SetShowDataLabels(false, false, true);
+oChart.SetShowDataLabels(false, false, true, false);
 oChart.SetTitle("Financial Overview", 13);
 oChart.SetSize(300 * 36000, 130 * 36000);
 oChart.SetPosition(608400, 1267200);

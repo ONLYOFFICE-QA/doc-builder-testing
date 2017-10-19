@@ -25,15 +25,11 @@ describe 'ApiPresentation section tests' do
 
   it 'ApiPresentation | GetSlideByIndex method' do
     pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api_presentation/get_slide_by_index.js')
-    expect(pptx.slides.size).to eq(2)
+    expect(pptx.slides.size).to eq(1)
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(pptx.slides.first.background.fill.color.gradient_stops.first.position).to eq(0)
     expect(pptx.slides.first.background.fill.color.gradient_stops.last.color).to eq(OoxmlParser::Color.new(255, 164, 101))
     expect(pptx.slides.first.background.fill.color.gradient_stops.last.position).to eq(100)
-    expect(pptx.slides[1].background.fill.color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
-    expect(pptx.slides[1].background.fill.color.gradient_stops.first.position).to eq(0)
-    expect(pptx.slides[1].background.fill.color.gradient_stops.last.color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(pptx.slides[1].background.fill.color.gradient_stops.last.position).to eq(100)
   end
 
   it 'ApiPresentation | SetSizes method' do
