@@ -16,15 +16,3 @@ Metrics/BlockLength:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 330
-
-# Offense count: 6
-# Cop supports --auto-correct.
-# Configuration parameters: PreferredDelimiters.
-Style/PercentLiteralDelimiters:
-  Exclude:
-    - 'spec/all_formats_smoke_spec_spec.rb'
-    - 'spec/docx/smoke/api_base_spec.rb'
-    - 'spec/docx/smoke/api_run_spec.rb'
-    - 'spec/pptx/smoke/api_spec.rb'
-    - 'spec/xlsx/smoke/api_spec.rb'
-    - 'spec/xlsx/smoke/api_worksheet_spec.rb'

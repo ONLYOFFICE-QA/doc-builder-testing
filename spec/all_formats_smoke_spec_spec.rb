@@ -10,7 +10,7 @@ describe 'All formats tests' do
     expect(docx).to be_with_data
   end
 
-  %w(odt rtf pdf txt).each do |current_format|
+  %w[odt rtf pdf txt].each do |current_format|
     it "All formats | #{current_format}" do
       output_file = builder.build_doc_without_parse("asserts/js/other_formats/addtext_#{current_format}.js")
       expect(builder.file_empty?(output_file)).to be_falsey

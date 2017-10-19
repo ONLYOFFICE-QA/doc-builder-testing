@@ -11,7 +11,7 @@ describe 'ApiRun section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.type).to eq(:chart)
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.type).to eq(:bar_3d)
     docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.each do |series|
-      expect(series.categories.string.cache.points.map { |current_point| current_point.text.value }).to eq(%w(2014 2015 2016))
+      expect(series.categories.string.cache.points.map { |current_point| current_point.text.value }).to eq(%w[2014 2015 2016])
     end
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
