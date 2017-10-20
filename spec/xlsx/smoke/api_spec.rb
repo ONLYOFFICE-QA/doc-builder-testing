@@ -125,9 +125,9 @@ describe 'Api section tests' do
   it 'Api | GetThemesColors and SetThemeColors method' do
     skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
-    %w(Office Grayscale Apex Aspect Civic Concourse Equity Flow
+    %w[Office Grayscale Apex Aspect Civic Concourse Equity Flow
        Foundry Median Metro Module Opulent Oriel Origin Paper Solstice
-       Technic Trek Urban Verve).each_with_index do |current_color, index|
+       Technic Trek Urban Verve].each_with_index do |current_color, index|
       expect(xlsx.worksheets.first.rows[index].cells[0].text).to eq(current_color)
     end
   end

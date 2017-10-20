@@ -22,7 +22,7 @@ describe 'Api section tests' do
     end
     expect(pptx.slides.first.elements.first.graphic_data.first.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
     expect(pptx.slides.first.elements.first.graphic_data.first.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
-    %w(2014 2015 2016).each_with_index do |value, index|
+    %w[2014 2015 2016].each_with_index do |value, index|
       expect(pptx.slides.first.elements.first.graphic_data.first.series.first.categories.string.cache.points[index].text.value).to eq(value)
       expect(pptx.slides.first.elements.first.graphic_data.first.series[1].categories.string.cache.points[index].text.value).to eq(value)
     end
