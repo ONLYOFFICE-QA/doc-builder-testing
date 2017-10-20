@@ -18,9 +18,14 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTablePr method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/243'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_table_pr.js')
-    expect(docx.elements[1]).to eq(false)
+    bottom_border = docx.document_style_by_name('CustomTableStyle')
+                        .table_style_properties_list.first.table_properties
+                        .table_borders.bottom
+    expect(bottom_border.val).to eq(:single)
+    expect(bottom_border.space).to eq(OoxmlParser::OoxmlSize.new(0))
+    expect(bottom_border.size).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
+    expect(bottom_border.color).to eq(OoxmlParser::Color.new(0, 255, 0))
   end
 
   it 'ApiTableStylePr | GetTableRowPr method' do
