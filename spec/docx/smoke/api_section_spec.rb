@@ -69,9 +69,8 @@ describe 'ApiSection section tests' do
   end
 
   it 'ApiSection | SetTitlePage method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/151'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_section/set_title_page.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements.first.paragraph_properties.section_properties.title_page).to be_truthy
   end
 
   it 'ApiSection | SetType method' do
