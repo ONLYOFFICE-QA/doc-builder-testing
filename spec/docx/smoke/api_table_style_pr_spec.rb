@@ -33,9 +33,11 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTableRowPr method' do
-    skip ' Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/239'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_table_row_pr.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.document_style_by_name('CustomTableStyle')
+               .table_style_properties_list
+               .first.table_row_properties
+               .height.value).to eq(OoxmlParser::OoxmlSize.new(720, :dxa))
   end
 
   it 'ApiTableStylePr | GetTextPr method' do
