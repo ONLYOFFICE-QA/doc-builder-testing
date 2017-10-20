@@ -79,13 +79,11 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetDisplayGridlines method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_gridlines.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_gridlines).to be_falsey
   end
 
   it 'ApiWorksheet | SetDisplayHeadings method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_headings.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
   end

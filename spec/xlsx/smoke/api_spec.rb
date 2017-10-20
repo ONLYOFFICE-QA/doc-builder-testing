@@ -109,21 +109,18 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateColorByName method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_by_name.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(176, 196, 222))
   end
 
   it 'Api | CreateColorFromRGB method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_RGB.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(49, 133, 154))
   end
 
   it 'Api | GetThemesColors and SetThemeColors method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
     %w[Office Grayscale Apex Aspect Civic Concourse Equity Flow
        Foundry Median Metro Module Opulent Oriel Origin Paper Solstice

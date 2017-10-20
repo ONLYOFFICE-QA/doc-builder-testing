@@ -43,7 +43,6 @@ describe 'ApiChart section tests' do
   end
 
   it 'ApiChart | GetClassType method' do
-    skip('sdk-js older than 4.3 not support this. Remove after release of 4.3')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_color/get_color_type.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
     expect(xlsx.worksheets.first.rows[3].cells[0].text).to eq('Class type = color')
