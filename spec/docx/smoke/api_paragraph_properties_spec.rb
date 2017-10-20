@@ -125,14 +125,13 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetSpacingLine method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_para_pr/set_spacing_line.js')
-    expect(docx.elements.first.spacing.line).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
-    expect(docx.elements.first.spacing.line_rule).to eq(:auto)
-    expect(docx.elements[1].spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :twip))
-    expect(docx.elements[1].spacing.line_rule).to eq(:exact)
-    expect(docx.elements[2].spacing.line).to eq(OoxmlParser::OoxmlSize.new(400, :twip))
-    expect(docx.elements[2].spacing.line_rule).to eq(:at_least)
+    expect(docx.document_styles[-3].paragraph_properties.spacing.line).to eq(3)
+    expect(docx.document_styles[-3].paragraph_properties.spacing.line_rule).to eq(:auto)
+    expect(docx.document_styles[-2].paragraph_properties.spacing.line).to eq(0.35)
+    expect(docx.document_styles[-2].paragraph_properties.spacing.line_rule).to eq(:exact)
+    expect(docx.document_styles[-1].paragraph_properties.spacing.line).to eq(0.71)
+    expect(docx.document_styles[-1].paragraph_properties.spacing.line_rule).to eq(:at_least)
   end
 
   it 'ApiParaPr | SetStyle method' do
