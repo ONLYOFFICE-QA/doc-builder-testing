@@ -30,9 +30,8 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTextPr method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/244'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_text_pr.js')
-    expect(docx.elements[1].rows.first.cells.first.elements.first.nonempty_runs.first.font_style.bold).to be_truthy
+    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.run_properties.font_style.bold).to be_truthy
   end
 
   it 'ApiTableStylePr | GetType method' do
