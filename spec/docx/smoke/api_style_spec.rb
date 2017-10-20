@@ -1,14 +1,14 @@
 require 'spec_helper'
 describe 'ApiStyle section tests' do
   it 'ApiStyle | GetClassType method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getclasstype.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_class_type.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = style')
     expect(docx.elements[1].class).to eq(OoxmlParser::Table)
   end
 
   it 'ApiStyle | GetConditionalTableStyle method' do
     skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getconditionaltablestyle.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_conditional_table_style.js')
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
     expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.text).to eq('This cell font is set to italic')
@@ -27,12 +27,12 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetName method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getname.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_name.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Table style name = My Custom Style')
   end
 
   it 'ApiStyle | GetParaPr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/getparapr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_para_pr.js')
     expect(docx.elements.first.spacing.line).to eq(2)
     expect(docx.elements.first.spacing.line_rule).to eq(:auto)
     expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
@@ -40,12 +40,12 @@ describe 'ApiStyle section tests' do
 
   it 'ApiStyle | GetTableCellPr method' do
     skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablecellpr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_table_cell_pr.js')
     expect(docx.elements[1].rows.first.cells.first.properties.color.class).to eq(OoxmlParser::Color)
   end
 
   it 'ApiStyle | GetTablePr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablepr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_table_pr.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.top).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
     expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.left).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
     expect(docx.elements[1].properties.table_style.table_properties.table_cell_margin.right).to eq(OoxmlParser::OoxmlSize.new(120, :twip))
@@ -53,12 +53,12 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetTableRowPr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettablerowpr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_table_row_pr.js')
     expect(docx.elements[1].properties.table_style.table_row_properties.height.value).to eq(OoxmlParser::OoxmlSize.new(1440))
   end
 
   it 'ApiStyle | GetTextPr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettextpr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_text_pr.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is a paragraph with the text color, font family and font size set using the text style. ')
     expect(docx.elements.first.nonempty_runs[0].font).to eq('Calibri Light')
     expect(docx.elements.first.nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new(38, 38, 38))
@@ -71,19 +71,19 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetType method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/gettype.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_type.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('Style type = table')
   end
 
   it 'ApiStyle | SetBasedOn method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/setbasedon.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/set_based_on.js')
     style_name = docx.elements[1].properties.table_style.name
     expect(style_name).to eq('CustomTableStyle')
     expect(docx.document_style_by_name(style_name).based_on_style.name).to eq('Bordered - Accent 5')
   end
 
   it 'ApiStyle | SetName method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/ApiStyle/setname.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/set_name.js')
     expect(docx.elements[1].properties.table_style.name).to eq('My Custom Style')
   end
 end
