@@ -6,9 +6,10 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetParaPr method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/241'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_para_pr.js')
-    expect(docx.elements[1].rows.first.cells.first.elements.first.align).to eq('This is a paragraph with the text in it aligned by the center.')
+    expect(docx.elements[1].properties
+               .table_style.table_style_properties_list
+               .first.paragraph_properties.justification).to eq(:center)
   end
 
   it 'ApiTableStylePr | GetTableCellPr method' do
