@@ -12,9 +12,12 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTableCellPr method' do
-    skip 'https://github.com/ONLYOFFICE/ooxml_parser/issues/242'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_table_cell_pr.js')
-    expect(docx.elements[1].rows.first.cells.first.properties.color).to eq(false)
+    shade = docx.elements[1].table_properties.table_style
+                .northwest_cell.cell_properties.shade
+    expect(shade.fill)
+      .to eq(OoxmlParser::Color.new(238, 238, 238))
+    expect(shade.value).to eq(:clear)
   end
 
   it 'ApiTableStylePr | GetTablePr method' do
