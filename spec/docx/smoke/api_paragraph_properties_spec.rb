@@ -115,9 +115,8 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetSpacingAfter method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/199'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_para_pr/set_spacing_after.js')
-    expect(docx.elements.first.spacing.after).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
+    expect(docx.document_styles.last.paragraph_properties.spacing.after).to eq(2.54)
   end
 
   it 'ApiParaPr | SetSpacingBefore method' do
