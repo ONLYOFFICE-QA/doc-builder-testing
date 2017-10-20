@@ -46,8 +46,7 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetType method' do
-    skip 'Documentation error http://192.168.4.102/developers/document-builder/api_table_style_pr/get_type.aspx'
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/gettype.js')
-    expect(docx.nil?).to eq(false)
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_type.js')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Style type = topLeftCell')
   end
 end
