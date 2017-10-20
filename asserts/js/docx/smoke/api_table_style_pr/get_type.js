@@ -1,7 +1,15 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-oDocument.CreateNewHistoryPoint();
-var oParagraph, oDrawing;
+var oTable, oTableStyle, oTableStylePr;
+oTableStyle = oDocument.GetStyle("Bordered - Accent 5");
+oTableStyle.SetName("My Custom Style");
+oTable = Api.CreateTable(2, 2);
+oTable.SetWidth("percent", 100);
+oTableStylePr = oTableStyle.GetConditionalTableStyle("topLeftCell");
+oTable.SetStyle(oTableStyle);
+oDocument.Push(oTable);
+var oTableStylePrType = oTableStylePr.GetType();
 oParagraph = oDocument.GetElement(0);
-builder.SaveFile("docx", "ApiTableStylePr.docx");
+oParagraph.AddText("Style type = " + oTableStylePrType);
+builder.SaveFile("docx", "GetType.docx");
 builder.CloseFile();
