@@ -46,9 +46,8 @@ describe 'ApiTextPr section tests' do
   end
 
   it 'ApiTextPr | SetLanguage method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/265'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_text_pr/set_language.js')
-    expect(docx.elements.first.nonempty_runs.first.run_properties.language.value).to eq('en-CA')
+    expect(docx.styles.document_defaults.run_properties_default.run_properties.language.value).to eq('en-CA')
   end
 
   it 'ApiTextPr | SetPosition method' do
