@@ -49,9 +49,8 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_cells_pacing.js')
-    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize(720, :twip))
+    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
 
   it 'ApiTable | SetJc method' do
