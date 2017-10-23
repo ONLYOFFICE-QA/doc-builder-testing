@@ -28,14 +28,14 @@ describe 'ApiRange section tests' do
     end
   end
 
-  xit 'ApiRange | SetFontColor method' do
-    pending('Interface for font color is changed is sdk-all 4.3.0')
+  it 'ApiRange | SetFontColor method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_color.js')
-    xlsx.worksheets.first.rows.each do |current_row|
-      current_row.cells.each do |current_cell|
-        expect(current_cell.style.font.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-      end
-    end
+    expect(xlsx.worksheets.first.rows[1]
+               .cells.first.style
+               .font.color.rgb).to eq(OoxmlParser::Color.new(49, 133, 154))
+    expect(xlsx.worksheets.first.rows[3]
+               .cells.first.style
+               .font.color.theme).to eq(1)
   end
 
   it 'ApiRange | SetFontName method' do
