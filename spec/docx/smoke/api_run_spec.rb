@@ -54,11 +54,13 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | GetTextPr method' do
-    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/get_text_pr.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is just a sample text. The text properties are changed and the style is added to the paragraph. ')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
-    expect(docx.elements.first.nonempty_runs[1].font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style.referenced
+               .run_properties.font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style.referenced
+               .run_properties.caps).to eq(:caps)
   end
 
   it 'ApiRun | SetBold method' do
