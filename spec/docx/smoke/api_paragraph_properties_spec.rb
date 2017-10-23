@@ -116,21 +116,21 @@ describe 'ApiParaPr section tests' do
 
   it 'ApiParaPr | SetSpacingAfter method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_para_pr/set_spacing_after.js')
-    expect(docx.document_styles.last.paragraph_properties.spacing.after).to eq(2.54)
+    expect(docx.document_styles.last.paragraph_properties.spacing.after).to eq(OoxmlParser::OoxmlSize.new(1440, :dxa))
   end
 
   it 'ApiParaPr | SetSpacingBefore method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_para_pr/set_spacing_before.js')
-    expect(docx.document_styles.last.paragraph_properties.spacing.before).to eq(2.54)
+    expect(docx.document_styles.last.paragraph_properties.spacing.before).to eq(OoxmlParser::OoxmlSize.new(1440, :dxa))
   end
 
   it 'ApiParaPr | SetSpacingLine method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_para_pr/set_spacing_line.js')
-    expect(docx.document_styles[-3].paragraph_properties.spacing.line).to eq(3)
+    expect(docx.document_styles[-3].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(3, :centimeter))
     expect(docx.document_styles[-3].paragraph_properties.spacing.line_rule).to eq(:auto)
-    expect(docx.document_styles[-2].paragraph_properties.spacing.line).to eq(0.35)
+    expect(docx.document_styles[-2].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(200, :dxa))
     expect(docx.document_styles[-2].paragraph_properties.spacing.line_rule).to eq(:exact)
-    expect(docx.document_styles[-1].paragraph_properties.spacing.line).to eq(0.71)
+    expect(docx.document_styles[-1].paragraph_properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(400, :dxa))
     expect(docx.document_styles[-1].paragraph_properties.spacing.line_rule).to eq(:at_least)
   end
 
