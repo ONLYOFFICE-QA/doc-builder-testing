@@ -126,11 +126,10 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetShd method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/144'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_shd.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text shading set to green.')
-    expect(docx.elements.first.nonempty_runs[1].background_color.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.nonempty_runs[1].background_color.type).to eq('clear')
+    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
+    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.value).to eq(:clear)
   end
 
   it 'ApiRun | SetSmallCaps method' do
