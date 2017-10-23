@@ -35,7 +35,7 @@ oWorksheet.GetRange("A11").SetNumberFormat("# ?/?");
 oWorksheet.GetRange("A12").SetValue("123456");
 oWorksheet.GetRange("B12").SetValue("Scientific");
 oWorksheet.GetRange("A12").SetNumberFormat("0.00E+00");
-oWorksheet.GetRange("A13").SetValue("1234567");
+oWorksheet.GetRange("A13").SetValue("123456");
 oWorksheet.GetRange("B13").SetValue("Text");
 oWorksheet.GetRange("A13").SetNumberFormat("@");
 builder.SaveFile("xlsx", "SetNumberFormat.xlsx");
