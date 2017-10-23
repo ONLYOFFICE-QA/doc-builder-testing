@@ -39,9 +39,16 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetTableCellPr method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_table_cell_pr.js')
-    expect(docx.elements[1].rows.first.cells.first.properties.color.class).to eq(OoxmlParser::Color)
+    table_style = docx.elements[1].properties.table_style
+    expect(table_style.northwest_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(table_style.northeast_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
+    expect(table_style.southwest_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(table_style.southeast_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(255, 255, 0))
   end
 
   it 'ApiStyle | GetTablePr method' do
