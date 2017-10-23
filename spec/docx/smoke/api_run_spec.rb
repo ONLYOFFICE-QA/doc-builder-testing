@@ -139,10 +139,9 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetSpacing method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/249'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_spacing.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text spacing set to 4 points (20 twentieths of a point).')
-    expect(docx.elements.first.nonempty_runs[1].spacing).to eq(OoxmlParser::OoxmlSize.new(80, :twips))
+    expect(docx.elements.first.nonempty_runs[1].run_properties.spacing.value).to eq(OoxmlParser::OoxmlSize.new(80, :dxa))
   end
 
   it 'ApiRun | SetStrikeout method' do
