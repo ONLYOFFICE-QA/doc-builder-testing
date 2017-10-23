@@ -104,7 +104,7 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetTableLayout method' do
-    skip 'Documentation error'
+    pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36131')
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_layout.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_layout.type).to eq(false)
   end
