@@ -10,7 +10,7 @@ describe 'Add tables with differnt types of width' do
   it 'Table with width in percent' do
     docx = builder.build_doc_and_parse('asserts/js/docx/paragraph/tables/table_with_width_percent.js')
     expect(docx.elements[1].rows.length).to eq(3)
-    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(50, :percent))
+    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
 
   it 'Table with fixed layout' do
