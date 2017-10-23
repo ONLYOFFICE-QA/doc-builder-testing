@@ -12,6 +12,8 @@ describe 'All formats tests' do
 
   %w[odt rtf pdf txt].each do |current_format|
     it "All formats | #{current_format}" do
+      pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=36084' if
+          current_format == 'pdf' && ENV['BUILDER_PLATFORM'] == 'WEB'
       output_file = builder.build_doc_without_parse("asserts/js/other_formats/addtext_#{current_format}.js")
       expect(builder.file_empty?(output_file)).to be_falsey
     end
