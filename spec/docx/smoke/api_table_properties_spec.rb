@@ -110,8 +110,7 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetWidth method' do
-    skip 'Documentation error'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_width.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style.table_properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
 end
