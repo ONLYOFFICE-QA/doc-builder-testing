@@ -100,9 +100,8 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetTableInd method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/262'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_ind.js')
-    expect(docx.elements[1].properties.table_style.table_properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1400.0, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiTablePr | SetTableLayout method' do
