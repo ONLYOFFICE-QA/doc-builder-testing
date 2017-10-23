@@ -51,9 +51,8 @@ describe 'ApiTextPr section tests' do
   end
 
   it 'ApiTextPr | SetPosition method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/266'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_text_pr/set_position.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.styles.document_defaults.run_properties_default.run_properties.position.value).to eq(OoxmlParser::OoxmlSize.new(10, :half_point))
   end
 
   it 'ApiTextPr | SetShd method' do
