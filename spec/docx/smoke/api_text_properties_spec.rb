@@ -66,9 +66,8 @@ describe 'ApiTextPr section tests' do
   end
 
   it 'ApiTextPr | SetSpacing method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/266'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_text_pr/set_spacing.js')
-    expect(docx.elements.first.nonempty_runs.first.spacing).to eq(false)
+    expect(docx.styles.document_defaults.run_properties_default.run_properties.spacing.value).to eq(OoxmlParser::OoxmlSize.new(80, :dxa))
   end
 
   it 'ApiTextPr | SetStrikeout method' do
