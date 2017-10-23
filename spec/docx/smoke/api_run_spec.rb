@@ -151,10 +151,10 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetStyle method' do
-    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_style.js')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
-    expect(docx.elements.first.nonempty_runs[1].font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style
+               .referenced.name).to eq('My New Run Style')
   end
 
   it 'ApiRun | SetUnderline method' do
