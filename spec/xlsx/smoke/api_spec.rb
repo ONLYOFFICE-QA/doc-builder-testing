@@ -115,7 +115,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateColorFromRGB method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_RGB.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_rgb.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(49, 133, 154))
   end
