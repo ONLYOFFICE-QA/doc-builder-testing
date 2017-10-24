@@ -1,0 +1,1 @@
+var oDocument = Api.GetDocument();

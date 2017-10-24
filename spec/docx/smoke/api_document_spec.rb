@@ -39,6 +39,12 @@ describe 'ApiDocument section tests' do
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = document')
   end
 
+  it 'ApiDocument | GetCommentsReport method' do
+    pending('https://github.com/ONLYOFFICE/api.onlyoffice.com/issues/24')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_document/get_comments_report.js')
+    expect(docx).to be_with_data
+  end
+
   it 'ApiDocument | GetDefaultParaPr method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_document/get_default_para_pr.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is just a text.')
@@ -80,6 +86,12 @@ describe 'ApiDocument section tests' do
     expect(docx.notes.first.type).to eq('header1')
     expect(docx.notes.first.assigned_to).to eq('default')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is a text in a paragraph.')
+  end
+
+  it 'ApiDocument | GetReviewReport method' do
+    pending('https://github.com/ONLYOFFICE/api.onlyoffice.com/issues/24')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_document/get_review_report.js')
+    expect(docx).to be_with_data
   end
 
   it 'ApiDocument | GetStyle method' do
