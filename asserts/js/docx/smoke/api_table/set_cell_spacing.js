@@ -6,7 +6,6 @@ oParagraph.AddText("We create a 3x3 table and set the cell spacing to half an in
 oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
 oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
 oTable = Api.CreateTable(3, 3);
-oTable.SetWidth("percent", 100);
 oTable.SetStyle(oTableStyle);
 oTable.SetCellSpacing(720);
 oDocument.Push(oTable);
