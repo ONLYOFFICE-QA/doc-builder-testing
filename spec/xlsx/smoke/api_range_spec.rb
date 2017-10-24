@@ -122,7 +122,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetBorders method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setborders.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_borders.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.color).to eq(OoxmlParser::Color.new(49, 133, 154))
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.style).to eq(:thick)
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.left.color).to eq(nil)
