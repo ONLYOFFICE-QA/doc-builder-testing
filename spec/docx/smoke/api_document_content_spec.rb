@@ -19,7 +19,7 @@ describe 'ApiDocumentContent section tests' do
 
   it 'ApiDocumentContent | GetElementsCount method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_document_content/get_elements_count.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Number of elements inside the shape: 2')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Number of elements inside the shape: 1')
   end
 
   it 'ApiDocumentContent | Push method' do
@@ -38,14 +38,12 @@ describe 'ApiDocumentContent section tests' do
   it 'ApiDocumentContent | RemoveElement method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_document_content/remove_element.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[1]
-        .nonempty_runs.first.text).to eq('This is paragraph #1.')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[2]
         .nonempty_runs.first.text).to eq('This is paragraph #2.')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[3]
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[2]
         .nonempty_runs.first.text).to eq('This is paragraph #4.')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[4]
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[3]
         .nonempty_runs.first.text).to eq('This is paragraph #5.')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[5]
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[4]
         .nonempty_runs.first.text).to eq('We removed paragraph #3, check that out above.')
   end
 end

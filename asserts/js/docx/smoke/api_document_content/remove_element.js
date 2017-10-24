@@ -8,13 +8,15 @@ oDrawing = Api.CreateShape("rect", 3212465, 1926590, oFill, oStroke);
 oParagraph.AddDrawing(oDrawing);
 oDocContent = oDrawing.GetDocContent();
 oDocContent.RemoveAllElements();
-for (var nParaIncrease = 0; nParaIncrease < 5; ++nParaIncrease)
+oParagraph = oDocContent.GetElement(0);
+oParagraph.AddText("This is paragraph #1.");
+for (var nParaIncrease = 1; nParaIncrease < 5; ++nParaIncrease)
 {
-    oParagraph = Api.CreateParagraph();
-    oParagraph.AddText("This is paragraph #" + (nParaIncrease + 1) + ".");
-    oDocContent.Push(oParagraph);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is paragraph #" + (nParaIncrease + 1) + ".");
+oDocContent.Push(oParagraph);
 }
-oDocContent.RemoveElement(3);
+oDocContent.RemoveElement(2);
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("We removed paragraph #3, check that out above.");
 oDocContent.Push(oParagraph);

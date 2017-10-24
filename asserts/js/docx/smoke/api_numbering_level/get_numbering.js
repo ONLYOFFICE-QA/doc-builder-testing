@@ -1,6 +1,6 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
-var oParagraph, oNumbering, oNumbering1, oNumLvl, oNumLvl1, oNumLvl2;
+var oParagraph, oNumbering, oNumLvl, oNumLvl1, oNumLvl2;
 oNumbering = oDocument.CreateNumbering("numbered");
 oNumLvl = oNumbering.GetLevel(0);
 oNumLvl1 = oNumbering.GetLevel(1);

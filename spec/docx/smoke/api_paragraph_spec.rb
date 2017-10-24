@@ -82,10 +82,10 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | GetElement method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_element.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
-    expect(docx.elements.first.nonempty_runs[1].font_style.bold).to be_truthy
+    expect(docx.elements.last.nonempty_runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
+    expect(docx.elements.last.nonempty_runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
+    expect(docx.elements.last.nonempty_runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
+    expect(docx.elements.last.nonempty_runs[1].font_style.bold).to be_truthy
   end
 
   it 'ApiParagraph | GetElementsCount method' do

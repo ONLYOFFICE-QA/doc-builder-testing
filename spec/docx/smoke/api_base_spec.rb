@@ -21,7 +21,7 @@ describe 'Api section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.title.nil?).to be_truthy
     expect(docx.elements.first.nonempty_runs.first.drawing.properties.object_size.x).to eq(OoxmlParser::OoxmlSize.new(4_051_299, :emu))
-    expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(102)
+    expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(124)
   end
 
   it 'Api | CreateGradientStop method' do
@@ -65,9 +65,9 @@ describe 'Api section tests' do
 
   it 'Api | CreatePresetColor method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api/create_preset_color.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.preset).to eq(:dashDnDiag)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.foreground_color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:gradient)
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.value).to eq('lightYellow')
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
   end
 
   it 'Api | CreateRadialGradientFill method' do
