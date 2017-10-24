@@ -117,7 +117,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Unmerge method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/unmerge.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/un_merge.js')
     expect(xlsx.worksheets.first.merge).to eq(['A3:E3', 'A4:E4', 'A6:E6', 'A7:E7', 'A8:E8'])
   end
 
