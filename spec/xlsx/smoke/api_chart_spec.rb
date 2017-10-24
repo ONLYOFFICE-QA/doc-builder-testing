@@ -6,6 +6,20 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first).to be_a(OoxmlParser::Chart)
   end
 
+  it 'ApiChart | SetHorAxisOrientation method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[0]
+               .scaling.orientation.value).to eq(:max_min)
+  end
+
+  it 'ApiChart | SetHorAxisTickLabelPosition method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_tick_label_position.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[0]
+               .tick_label_position.value).to eq(:high)
+  end
+
   it 'ApiChart | SetHorAxisTitle method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises.first.title.elements.first.runs.first.text).to eq('Horizontal Title')
@@ -29,15 +43,23 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.title.elements.first.runs.first.text).to eq('Main Chart Title')
   end
 
+  it 'ApiChart | SetVerAxisOrientation method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_ver_axis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[1]
+               .scaling.orientation.value).to eq(:max_min)
+  end
+
   it 'ApiChart | SetVerAxisTitle method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_ver_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
   end
 
-  it 'ApiChart | GetClassType method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_color/get_color_type.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
-    expect(xlsx.worksheets.first.rows[3].cells[0].text).to eq('Class type = color')
+  it 'ApiChart | SetVertAxisTickLabelPosition method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_vert_axis_tick_label_position.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[1]
+               .tick_label_position.value).to eq(:high)
   end
 end

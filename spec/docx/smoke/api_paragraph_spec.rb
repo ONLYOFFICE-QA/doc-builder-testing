@@ -49,6 +49,18 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.nonempty_runs[2].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
   end
 
+  it 'ApiParagraph | AddPageNumber method' do
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_page_number.js')
+    expect(docx.notes[0].elements.first.page_numbering).to be_truthy
+    expect(docx.notes[1].elements.first.page_numbering).to be_truthy
+  end
+
+  it 'ApiParagraph | AddPagesCount method' do
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_pages_count.js')
+    expect(docx.notes[0].elements.first.nonempty_runs.last
+               .instruction).to eq('NUMPAGES \* MERGEFORMAT')
+  end
+
   it 'ApiParagraph | AddTabStop method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_tab_stop.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is just a sample text. After it three tab stops will be added.')
@@ -70,10 +82,10 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | GetElement method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_element.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
-    expect(docx.elements.first.nonempty_runs[1].font_style.bold).to be_truthy
+    expect(docx.elements.last.nonempty_runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
+    expect(docx.elements.last.nonempty_runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
+    expect(docx.elements.last.nonempty_runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
+    expect(docx.elements.last.nonempty_runs[1].font_style.bold).to be_truthy
   end
 
   it 'ApiParagraph | GetElementsCount method' do
@@ -90,7 +102,7 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | GetParagraphMarkTextPr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_paragrap_h_mark_text_pr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_paragraph_mark_text_pr.js')
     expect(docx.elements.first.paragraph_properties.run_properties.size.value).to eq(52)
     expect(docx.elements.first.paragraph_properties.run_properties.color).to eq(OoxmlParser::Color.new(255, 255, 0))
   end

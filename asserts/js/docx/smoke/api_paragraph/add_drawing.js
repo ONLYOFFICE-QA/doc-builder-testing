@@ -6,7 +6,7 @@ oDrawing = Api.CreateChart("bar3D", [[200, 240, 280],[250, 260, 280]], ["Project
 oDrawing.SetVerAxisTitle("USD In Hundred Thousands", 10);
 oDrawing.SetHorAxisTitle("Year", 11);
 oDrawing.SetLegendPos("bottom");
-oDrawing.SetShowDataLabels(false, false, true);
+oDrawing.SetShowDataLabels(false, false, true, false);
 oDrawing.SetTitle("Financial Overview", 13);
 oParagraph.AddDrawing(oDrawing);
 builder.SaveFile("docx", "AddDrawing.docx");

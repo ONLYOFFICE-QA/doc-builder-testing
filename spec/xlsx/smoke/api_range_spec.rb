@@ -117,12 +117,12 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Unmerge method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/unmerge.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/un_merge.js')
     expect(xlsx.worksheets.first.merge).to eq(['A3:E3', 'A4:E4', 'A6:E6', 'A7:E7', 'A8:E8'])
   end
 
   it 'ApiRange | SetBorders method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setborders.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_borders.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.color).to eq(OoxmlParser::Color.new(49, 133, 154))
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.style).to eq(:thick)
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.left.color).to eq(nil)

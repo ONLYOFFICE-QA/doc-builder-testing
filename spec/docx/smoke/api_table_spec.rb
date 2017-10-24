@@ -49,7 +49,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_cells_pacing.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_cell_spacing.js')
     expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
 

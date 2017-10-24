@@ -115,17 +115,22 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateColorFromRGB method' do
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_RGB.js')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_color_from_rgb.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].text).to eq('Text with color')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.color).to eq(OoxmlParser::Color.new(49, 133, 154))
   end
 
-  it 'Api | GetThemesColors and SetThemeColors method' do
+  it 'Api | GetThemesColors method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
     %w[Office Grayscale Apex Aspect Civic Concourse Equity Flow
        Foundry Median Metro Module Opulent Oriel Origin Paper Solstice
        Technic Trek Urban Verve].each_with_index do |current_color, index|
       expect(xlsx.worksheets.first.rows[index].cells[0].text).to eq(current_color)
     end
+  end
+
+  it 'Api |  SetThemeColors method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/set_theme_colors.js')
+    expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(50, 50, 50))
   end
 end

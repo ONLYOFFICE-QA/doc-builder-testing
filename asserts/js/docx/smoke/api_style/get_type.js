@@ -10,5 +10,5 @@ oDocument.Push(oTable);
 var oTableStyleType = oTableStyle.GetType();
 oParagraph = oDocument.GetElement(0);
 oParagraph.AddText("Style type = " + oTableStyleType);
-builder.SaveFile("docx", "ApiStyle.docx");
+builder.SaveFile("docx", "GetType.docx");
 builder.CloseFile();
