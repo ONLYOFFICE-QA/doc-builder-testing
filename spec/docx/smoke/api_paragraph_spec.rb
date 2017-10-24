@@ -49,6 +49,12 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.nonempty_runs[2].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
   end
 
+  it 'ApiParagraph | AddPageNumber method' do
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_page_number.js')
+    expect(docx.notes[0].elements.first.page_numbering).to be_truthy
+    expect(docx.notes[1].elements.first.page_numbering).to be_truthy
+  end
+
   it 'ApiParagraph | AddTabStop method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_tab_stop.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is just a sample text. After it three tab stops will be added.')
