@@ -34,4 +34,11 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
   end
+
+  it 'ApiChart | SetVertAxisTickLabelPosition method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_vert_axis_tick_label_position.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[1]
+               .tick_label_position.value).to eq(:high)
+  end
 end
