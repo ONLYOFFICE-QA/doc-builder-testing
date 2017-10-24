@@ -130,4 +130,10 @@ describe 'Api section tests' do
     expect(docx.elements[1].properties.table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
+
+  it 'Api | GetDocument method' do
+    pending('https://github.com/ONLYOFFICE/api.onlyoffice.com/issues/25')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api/get_document.js')
+    expect(docx).to be_with_data
+  end
 end
