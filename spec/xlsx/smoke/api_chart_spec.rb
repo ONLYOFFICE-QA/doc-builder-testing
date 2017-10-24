@@ -6,6 +6,20 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first).to be_a(OoxmlParser::Chart)
   end
 
+  it 'ApiChart | SetHorAxisOrientation method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[0]
+               .scaling.orientation.value).to eq(:max_min)
+  end
+
+  it 'ApiChart | SetHorAxisTickLabelPosition method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_tick_label_position.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[0]
+               .tick_label_position.value).to eq(:high)
+  end
+
   it 'ApiChart | SetHorAxisTitle method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_hor_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises.first.title.elements.first.runs.first.text).to eq('Horizontal Title')
