@@ -29,6 +29,13 @@ describe 'ApiChart section tests' do
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.title.elements.first.runs.first.text).to eq('Main Chart Title')
   end
 
+  it 'ApiChart | SetVerAxisOrientation method' do
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_ver_axis_orientation.js')
+    expect(xlsx.worksheets.first.drawings.first.graphic_frame
+               .graphic_data.first.axises[1]
+               .scaling.orientation.value).to eq(:max_min)
+  end
+
   it 'ApiChart | SetVerAxisTitle method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_chart/set_ver_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
