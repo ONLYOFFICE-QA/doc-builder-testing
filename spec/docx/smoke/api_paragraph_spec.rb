@@ -90,7 +90,7 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | GetParagraphMarkTextPr method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_paragrap_h_mark_text_pr.js')
+    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/get_paragraph_mark_text_pr.js')
     expect(docx.elements.first.paragraph_properties.run_properties.size.value).to eq(52)
     expect(docx.elements.first.paragraph_properties.run_properties.color).to eq(OoxmlParser::Color.new(255, 255, 0))
   end
