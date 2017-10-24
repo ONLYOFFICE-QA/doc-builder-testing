@@ -28,14 +28,14 @@ describe 'ApiRange section tests' do
     end
   end
 
-  xit 'ApiRange | SetFontColor method' do
-    pending('Interface for font color is changed is sdk-all 4.3.0')
+  it 'ApiRange | SetFontColor method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_font_color.js')
-    xlsx.worksheets.first.rows.each do |current_row|
-      current_row.cells.each do |current_cell|
-        expect(current_cell.style.font.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-      end
-    end
+    expect(xlsx.worksheets.first.rows[1]
+               .cells.first.style
+               .font.color.rgb).to eq(OoxmlParser::Color.new(49, 133, 154))
+    expect(xlsx.worksheets.first.rows[3]
+               .cells.first.style
+               .font.color.theme).to eq(1)
   end
 
   it 'ApiRange | SetFontName method' do
@@ -102,13 +102,13 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetNumberFormat method' do
-    pending 'https://github.com/ONLYOFFICE/ooxml_parser/issues/317'
-    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0.00%', '# ?/?', '0.00E+00', 'Text']
+    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0.00%', '# ?/?', '0.00E+00']
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_number_format.js')
     formats.each_with_index do |current_format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].raw_text).to eq('123456')
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].style.numerical_format).to eq(current_format)
     end
+    expect(xlsx.worksheets.first.rows.last.cells[0].style.apply_number_format).to be_truthy
   end
 
   it 'ApiRange | Merge method' do

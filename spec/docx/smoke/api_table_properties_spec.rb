@@ -6,9 +6,8 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetCellSpacing method' do
-    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_cell_spacing.js')
-    expect(docx.elements[1].properties.table_style.table_properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
 
   it 'ApiTablePr | SetJc method' do
@@ -100,20 +99,18 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetTableInd method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/262'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_ind.js')
-    expect(docx.elements[1].properties.table_style.table_properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1400.0, :twip))
+    expect(docx.elements[1].properties.table_style.table_properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
   it 'ApiTablePr | SetTableLayout method' do
-    skip 'Documentation error'
+    pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36131')
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_layout.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_layout.type).to eq(false)
   end
 
   it 'ApiTablePr | SetWidth method' do
-    skip 'Documentation error'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table_pr/set_width.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.elements[1].properties.table_style.table_properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
 end

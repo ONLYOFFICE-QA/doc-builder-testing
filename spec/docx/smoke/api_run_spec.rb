@@ -54,11 +54,13 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | GetTextPr method' do
-    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/get_text_pr.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is just a sample text. The text properties are changed and the style is added to the paragraph. ')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
-    expect(docx.elements.first.nonempty_runs[1].font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style.referenced
+               .run_properties.font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style.referenced
+               .run_properties.caps).to eq(:caps)
   end
 
   it 'ApiRun | SetBold method' do
@@ -124,11 +126,10 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetShd method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/144'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_shd.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text shading set to green.')
-    expect(docx.elements.first.nonempty_runs[1].background_color.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements.first.nonempty_runs[1].background_color.type).to eq('clear')
+    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
+    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.value).to eq(:clear)
   end
 
   it 'ApiRun | SetSmallCaps method' do
@@ -138,10 +139,9 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetSpacing method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/249'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_spacing.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text spacing set to 4 points (20 twentieths of a point).')
-    expect(docx.elements.first.nonempty_runs[1].spacing).to eq(OoxmlParser::OoxmlSize.new(80, :twips))
+    expect(docx.elements.first.nonempty_runs[1].run_properties.spacing.value).to eq(OoxmlParser::OoxmlSize.new(80, :dxa))
   end
 
   it 'ApiRun | SetStrikeout method' do
@@ -151,10 +151,10 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetStyle method' do
-    skip '`rStyle` is not parsed for run properties https://github.com/ONLYOFFICE/ooxml_parser/issues/140'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_run/set_style.js')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with its own style.')
-    expect(docx.elements.first.nonempty_runs[1].font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style
+               .referenced.name).to eq('My New Run Style')
   end
 
   it 'ApiRun | SetUnderline method' do

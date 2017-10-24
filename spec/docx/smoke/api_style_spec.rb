@@ -7,23 +7,12 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetConditionalTableStyle method' do
-    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33014'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_conditional_table_style.js')
-    expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
-    expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
-    expect(docx.elements[1].rows[0].cells[0].elements.first.nonempty_runs.first.text).to eq('This cell font is set to italic')
-
-    expect(docx.elements[1].rows[1].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
-    expect(docx.elements[1].rows[1].cells[0].elements.first.nonempty_runs.first.font_style.italic).to be_truthy
-    expect(docx.elements[1].rows[1].cells[0].elements.first.nonempty_runs.first.text).to eq('This cell font is also set to italic')
-
-    expect(docx.elements[1].rows[0].cells[1].elements.first.nonempty_runs.first.font_style.italic).to be_falsey
-    expect(docx.elements[1].rows[0].cells[1].elements.first.nonempty_runs.first.font_style.italic).to be_falsey
-    expect(docx.elements[1].rows[0].cells[1].elements.first.nonempty_runs.first.text).to eq('This set font remains default')
-
-    expect(docx.elements[1].rows[1].cells[1].elements.first.nonempty_runs.first.font_style.italic).to be_falsey
-    expect(docx.elements[1].rows[1].cells[1].elements.first.nonempty_runs.first.font_style.italic).to be_falsey
-    expect(docx.elements[1].rows[1].cells[1].elements.first.nonempty_runs.first.text).to eq('This set font also remains default')
+    table_style = docx.elements[1].properties.table_style
+    expect(table_style.table_style_properties_list[0]
+               .run_properties.font_style.italic).to be_truthy
+    expect(table_style.table_style_properties_list[1]
+               .run_properties).to be_nil
   end
 
   it 'ApiStyle | GetName method' do
@@ -39,9 +28,16 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetTableCellPr method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/159'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_style/get_table_cell_pr.js')
-    expect(docx.elements[1].rows.first.cells.first.properties.color.class).to eq(OoxmlParser::Color)
+    table_style = docx.elements[1].properties.table_style
+    expect(table_style.northwest_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(table_style.northeast_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
+    expect(table_style.southwest_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(table_style.southeast_cell.table_cell_properties
+               .shade.fill).to eq(OoxmlParser::Color.new(255, 255, 0))
   end
 
   it 'ApiStyle | GetTablePr method' do

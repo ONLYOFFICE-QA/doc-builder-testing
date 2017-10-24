@@ -49,9 +49,8 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    skip 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=33103'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_cells_pacing.js')
-    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize(720, :twip))
+    expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
 
   it 'ApiTable | SetJc method' do
@@ -149,9 +148,8 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableInd method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/182'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_ind.js')
-    expect(docx.elements[1].properties.table_indent).to eq(false)
+    expect(docx.elements[1].properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :dxa))
   end
 
   it 'ApiTable | SetTableLayout method' do
@@ -171,8 +169,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetWidth method' do
-    skip 'Parser error https://github.com/ONLYOFFICE/ooxml_parser/issues/253'
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_width.js')
-    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(5000, :pct))
+    expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
 end
