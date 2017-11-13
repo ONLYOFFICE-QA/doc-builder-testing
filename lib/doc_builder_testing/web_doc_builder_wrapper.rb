@@ -9,8 +9,8 @@ class WebDocBuilderWrapper
 
   def initialize(documentserver_path = 'https://doc-linux.teamlab.info')
     uri = URI(documentserver_path)
-    @https = Net::HTTP.new(uri.host, uri.port)
-    @https.use_ssl = true
+    @http = Net::HTTP.new(uri.host, uri.port)
+    @http.use_ssl = true if uri.port == 443
     @request_data = Net::HTTP::Post.new('/docbuilder')
     @temp_script_data = nil
   end
@@ -37,7 +37,7 @@ class WebDocBuilderWrapper
   # @return [String] link to file after building
   def build_doc(script_file)
     @request_data.body = read_script_file(script_file)
-    responce = @https.request(@request_data)
+    responce = @http.request(@request_data)
     raise DocBuilderError, responce unless responce.code == '200'
     JSON.parse(responce.body)['urls'].values.first
   end
