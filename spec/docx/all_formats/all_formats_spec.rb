@@ -11,6 +11,7 @@ describe 'All formats tests from Docx' do
   end
 
   it 'All formats | From Docx to Pdf' do
+    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=36084' if ENV['BUILDER_PLATFORM'] == 'WEB'
     output_file = builder.build_doc_without_parse('asserts/js/other_formats/addtext_pdf_from_docx.js')
     expect(builder.file_empty?(output_file)).to be_falsey
   end
