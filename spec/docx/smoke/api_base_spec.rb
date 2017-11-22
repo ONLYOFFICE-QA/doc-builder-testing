@@ -132,8 +132,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetDocument method' do
-    pending('https://github.com/ONLYOFFICE/api.onlyoffice.com/issues/25')
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api/get_document.js')
-    expect(docx).to be_with_data
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('This is a new paragraph')
   end
 end
