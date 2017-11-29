@@ -1,5 +1,6 @@
 # Class for Wrapping doc building from server side
 require 'json'
+require 'jwt'
 require 'net/http'
 require_relative 'doc_builder_helper'
 
@@ -13,6 +14,9 @@ class WebDocBuilderWrapper
     @http.use_ssl = true if uri.port == 443
     @request_data = Net::HTTP::Post.new('/docbuilder')
     @temp_script_data = nil
+    @jwt_key = 'doc-linux'
+    @jwt_header = 'AuthorizationJwt'
+    @jwt_prefix = 'Bearer'
   end
 
   # Send script for building and parse it
@@ -37,9 +41,16 @@ class WebDocBuilderWrapper
   # @return [String] link to file after building
   def build_doc(script_file)
     @request_data.body = read_script_file(script_file)
+    add_jwt_data(@request_data)
     responce = @http.request(@request_data)
     raise DocBuilderError, responce unless responce.code == '200'
     JSON.parse(responce.body)['urls'].values.first
+  end
+
+  def add_jwt_data(request)
+    payload_to_encode = { 'payload' => '{}' }
+    jwt_encoded = JWT.encode payload_to_encode, @jwt_key
+    request[@jwt_header] = "#{@jwt_prefix} #{jwt_encoded}"
   end
 
   def read_script_file(script)
