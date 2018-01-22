@@ -8,6 +8,7 @@ gem 'parallel_tests'
 gem 'rake', '>= 12'
 gem 'rspec'
 gem 'ruby-filemagic', '0.7.1'
+gem 'semantic', '~> 1.6'
 
 group :development do
   gem 'overcommit', require: false

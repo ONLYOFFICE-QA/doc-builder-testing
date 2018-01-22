@@ -1,9 +1,12 @@
 # Class for Wrapping doc building
 require_relative 'doc_builder_helper'
+require_relative 'doc_builder_wrapper/doc_builder_version_helper'
 
 # Class for working with documentbuilder
 class DocBuilderWrapper
   include DocBuilderHelper
+  include DocBuilderVersionHelper
+
   # Path to Builder exe
   attr_accessor :builder_exe
 
@@ -29,7 +32,7 @@ class DocBuilderWrapper
 
   # @return [String] command of version
   def version
-    system("#{@builder_exe} -v")
+    `#{@builder_exe} -v`
   end
 
   # @return [String] defualt path to license
