@@ -5,4 +5,9 @@ describe 'DocumentBuilder version' do
     skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     expect { builder.version }.not_to output.to_stderr_from_any_process
   end
+
+  it 'ability to parse semantic version of product' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+    expect(builder.semver).to be_a(Semantic::Version)
+  end
 end
