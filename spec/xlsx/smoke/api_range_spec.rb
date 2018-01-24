@@ -269,4 +269,10 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_value.js')
     expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('Inserted text')
   end
+
+  it 'ApiRange | Value Getter' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/getter_value.js')
+    expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('Inserted text')
+  end
 end
