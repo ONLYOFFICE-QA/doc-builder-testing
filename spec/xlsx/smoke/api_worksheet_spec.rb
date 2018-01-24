@@ -87,4 +87,10 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_headings.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
   end
+
+  it 'ApiWorksheet | getter Name' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_name.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
+  end
 end
