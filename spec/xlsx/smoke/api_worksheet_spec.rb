@@ -99,4 +99,10 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/setter_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
+
+  it 'ApiWorksheet | GetCells method' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
+    expect(xlsx.worksheets.first.columns.first.to).to eq(16384)
+  end
 end
