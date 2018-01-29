@@ -5,7 +5,7 @@ module DocBuilderVersionHelper
   # @return [Semantic::Version] Semantic Version of builder
   def semver
     raw_version = version
-    version_without_last = get_semver_values(raw_version)
+    version_without_last = get_sdk_semver(raw_version)
     Semantic::Version.new(version_without_last)
   end
 
@@ -14,7 +14,7 @@ module DocBuilderVersionHelper
   # Get semantic version values
   # @param version [String] 4 digits version
   # @return [String] clear version
-  def get_semver_values(version)
-    version.match(/\d+\.\d+.\d+/)[0]
+  def get_sdk_semver(version)
+    version.lines.last.match(/\d+\.\d+.\d+/)[0]
   end
 end
