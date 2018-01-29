@@ -10,4 +10,10 @@ describe 'DocumentBuilder version' do
     skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     expect(builder.semver).to be_a(Semantic::Version)
   end
+
+  it 'version should show some x2t version' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+    pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36793')
+    expect(builder.version).to include('x2t')
+  end
 end
