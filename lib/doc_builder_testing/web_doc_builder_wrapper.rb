@@ -12,7 +12,7 @@ class WebDocBuilderWrapper
     uri = URI(documentserver_path)
     @http = Net::HTTP.new(uri.host, uri.port)
     @http.use_ssl = true if uri.port == 443
-    @request_data = Net::HTTP::Post.new('/docbuilder')
+    @request_data = Net::HTTP::Post.new('/docbuilder?async=false')
     @temp_script_data = nil
     @jwt_key = 'doc-linux'
     @jwt_header = 'AuthorizationJwt'
