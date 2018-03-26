@@ -6,6 +6,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Col method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/getter_col.js')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
@@ -17,6 +18,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Row method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/getter_row.js')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
@@ -32,6 +34,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | AlignHorizontal method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_align_horizontal.js')
     xlsx.worksheets.first.rows.each do |current_row|
@@ -51,6 +54,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | AlignVertical method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_align_vertical.js')
     xlsx.worksheets.first.rows.each do |current_row|
@@ -71,6 +75,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | FontColor method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_font_color.js')
     expect(xlsx.worksheets.first.rows[1]
@@ -82,6 +87,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetFontName method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_font_name.js')
     xlsx.worksheets.first.rows.each do |current_row|
@@ -101,6 +107,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | FontSize method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_font_size.js')
     xlsx.worksheets.first.rows.each do |current_row|
@@ -119,6 +126,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Value method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_value.js')
     expect(xlsx.worksheets.first.rows.first.cells[1].text).to eq('2')
@@ -134,6 +142,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Bold method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_bold.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Bold text')
@@ -147,6 +156,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Italic method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_italic.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Italicized text')
@@ -162,6 +172,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Underline method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_underline.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('The text underlined with a single line')
@@ -188,6 +199,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | FillColor method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_fill_color.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
@@ -208,6 +220,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | NumberFormat method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0.00%', '# ?/?', '0.00E+00']
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_number_format.js')
@@ -244,6 +257,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Wrap method' do
+    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_wrap.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
