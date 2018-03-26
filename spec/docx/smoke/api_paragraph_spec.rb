@@ -51,13 +51,13 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | AddPageNumber method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_page_number.js')
-    expect(docx.notes[0].elements.first.page_numbering).to be_truthy
-    expect(docx.notes[1].elements.first.page_numbering).to be_truthy
+    expect(docx.notes[0].elements.first.field_simple).to be_page_numbering
+    expect(docx.notes[1].elements.first.field_simple).to be_page_numbering
   end
 
   it 'ApiParagraph | AddPagesCount method' do
     docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_paragraph/add_pages_count.js')
-    expect(docx.notes[0].elements.first.nonempty_runs.last
+    expect(docx.notes[0].elements.first.field_simple
                .instruction).to eq('NUMPAGES \* MERGEFORMAT')
   end
 
