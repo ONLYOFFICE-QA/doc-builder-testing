@@ -117,4 +117,10 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_sheet.js')
     expect(xlsx.worksheets.count).to eq(2)
   end
+
+  it 'ApiWorksheet | GetCols method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
+    expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
+  end
 end
