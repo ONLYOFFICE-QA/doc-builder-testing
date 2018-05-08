@@ -1,6 +1,5 @@
 builder.CreateFile("xlsx");
-var oWorkBook = Api.GetActiveWorkbook();
-oWorkBook.AddSheet('new_sheet_name');
+Api.AddSheet('new_sheet_name');
 var sheets = Api.GetSheets();
 var sheet_name1, sheet_name2;
 var oWorksheet = Api.GetActiveSheet();
