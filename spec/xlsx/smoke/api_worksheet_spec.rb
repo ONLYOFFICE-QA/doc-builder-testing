@@ -130,4 +130,10 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('1')
   end
+
+  it 'ApiWorksheet | Get Name method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_name.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
+  end
 end
