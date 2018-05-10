@@ -123,4 +123,11 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
     expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
+
+  it 'ApiWorksheet | Index getter method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_index.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('1')
+  end
 end
