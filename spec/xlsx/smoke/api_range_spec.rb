@@ -276,9 +276,16 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('Inserted text')
   end
 
-  it 'ApiRange | Value SetColumnWidth' do
+  it 'ApiRange | SetColumnWidth method' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(15)
+  end
+
+  it 'ApiRange | ForEach' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/for_each.js')
+    expect(xlsx.worksheets.first.rows[0].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 end
