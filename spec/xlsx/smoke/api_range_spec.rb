@@ -288,6 +288,12 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
   end
 
+  it 'ApiRange | ColumnWidth getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/column_width_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
   it 'ApiRange | ForEach' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/for_each.js')
