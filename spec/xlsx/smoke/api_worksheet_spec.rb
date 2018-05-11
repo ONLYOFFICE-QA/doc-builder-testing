@@ -126,6 +126,12 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
+  it 'ApiWorksheet | GetRows method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_rows.js')
+    expect(xlsx.worksheets.first.rows.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
+  end
+
   it 'ApiWorksheet | Cols getter' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/cols_getter.js')
