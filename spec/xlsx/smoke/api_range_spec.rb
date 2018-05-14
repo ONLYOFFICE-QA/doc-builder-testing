@@ -282,6 +282,12 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(15)
   end
 
+  it 'ApiRange | SetRowHeight method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_row_height.js')
+    expect(xlsx.worksheets.first.rows.first.height).to eq(OoxmlParser::OoxmlSize.new(15, :point))
+  end
+
   it 'ApiRange | GetColumnWidth method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_column_width.js')
