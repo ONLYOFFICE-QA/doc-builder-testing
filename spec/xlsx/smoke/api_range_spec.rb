@@ -319,10 +319,16 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
-  it 'ApiRange | Width' do
+  it 'ApiRange | Width getter' do
     pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37730'
     # skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/width_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
+  it 'ApiRange | Height getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/height_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('30')
   end
 end
