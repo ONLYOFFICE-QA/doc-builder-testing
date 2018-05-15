@@ -331,4 +331,22 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/height_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('30')
   end
+
+  it 'ApiRange | SetHidden method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_hidden.js')
+    expect(xlsx.worksheets.first.columns.first.hidden).to be_truthy
+  end
+
+  it 'ApiRange | GetHidden method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_hidden.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
+  end
+
+  it 'ApiRange | Hidden getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_hidden.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
+  end
 end
