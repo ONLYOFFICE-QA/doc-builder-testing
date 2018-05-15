@@ -355,4 +355,10 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_count.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
+
+  it 'ApiRange | Count getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/count_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+  end
 end
