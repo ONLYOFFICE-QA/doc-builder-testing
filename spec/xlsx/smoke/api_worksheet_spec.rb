@@ -157,10 +157,17 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
-  it 'ApiRange | GetUsedRange method' do
+  it 'ApiWorksheet | GetUsedRange method' do
     pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
-    # skip if builder.semver < Semantic::Version.new('5.2.0')
+    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+  end
+
+  it 'ApiWorksheet | UsedRange getter' do
+    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 end
