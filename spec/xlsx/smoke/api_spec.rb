@@ -30,7 +30,7 @@ describe 'Api section tests' do
 
   it 'Api | CreateNoFill method' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api/create_no_fill.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.line).to be_nil
+    expect(xlsx.worksheets.first.drawings.first.shape.properties.line).to be_invisible
   end
 
   it 'Api | CreateNumbering method' do

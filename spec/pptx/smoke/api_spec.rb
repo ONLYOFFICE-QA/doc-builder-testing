@@ -53,7 +53,7 @@ describe 'Api section tests' do
 
   it 'Api | CreateNoFill method' do
     pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_no_fill.js')
-    expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
+    expect(pptx.slides.first.elements.first.shape_properties.line).to be_invisible
   end
 
   it 'Api | CreateNumbering method' do
@@ -111,7 +111,7 @@ describe 'Api section tests' do
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.shape_properties.fill_color.value).to eq(OoxmlParser::Color.new(61, 74, 107))
-    expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
+    expect(pptx.slides.first.elements.first.shape_properties.line).to be_invisible
   end
 
   it 'Api | CreateSlide method' do
@@ -127,7 +127,7 @@ describe 'Api section tests' do
 
   it 'Api | CreateStroke method' do
     pptx = builder.build_doc_and_parse('asserts/js/pptx/smoke/api/create_stroke.js')
-    expect(pptx.slides.first.elements.first.shape_properties.line).to be_nil
+    expect(pptx.slides.first.elements.first.shape_properties.line).to be_invisible
   end
 
   it 'Api | GetPresentation method' do
