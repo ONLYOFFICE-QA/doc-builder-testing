@@ -170,4 +170,11 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
+
+  it 'ApiWorksheet | SetVisible method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781'
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+  end
 end
