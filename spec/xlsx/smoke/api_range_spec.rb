@@ -256,10 +256,9 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
 
-  it 'ApiRange | Wrap method' do
-    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
-    skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_wrap.js')
+  it 'ApiRange | SetWrap method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/setter_wrap.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
@@ -366,5 +365,12 @@ describe 'ApiRange section tests' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/merge_area_property.js')
     expect(xlsx.worksheets.first.rows[3].cells.first.text).to eq('9')
+  end
+
+  it 'ApiRange | WrapText property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/wrap_text_property.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
+    expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
 end
