@@ -385,4 +385,10 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/get_wrap_text.js')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('Text')
   end
+
+  it 'ApiRange | SetOffset method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_range/set_offset.js')
+    expect(xlsx.worksheets.first.rows[3].cells[1].text).to eq('Text')
+  end
 end
