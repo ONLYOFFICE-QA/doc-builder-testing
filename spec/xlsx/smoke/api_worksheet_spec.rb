@@ -91,132 +91,138 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | getter Name' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_name.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | setter Name' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/setter_name.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/setter_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
 
   it 'ApiWorksheet | GetCells method' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
     expect(xlsx.worksheets.first.columns.first.to).to eq(16384)
   end
 
   it 'ApiWorksheet | Getter Cells' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
     expect(xlsx.worksheets.first.columns.count).to eq(1)
     expect(xlsx.worksheets.first.columns.first.style.alignment.wrap_text).to be_truthy
   end
 
   it 'ApiWorksheet | AddSheet method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_sheet.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_sheet.js')
     expect(xlsx.worksheets.count).to eq(2)
   end
 
   it 'ApiWorksheet | GetCols method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
     expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | GetRows method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_rows.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_rows.js')
     expect(xlsx.worksheets.first.rows.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | Cols getter' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/cols_getter.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/cols_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Rows getter' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/rows_getter.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/rows_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Index getter method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_index.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_index.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | Get Name method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_name.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | GetUsedRange method' do
     pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | UsedRange getter' do
     pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | SetVisible method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781'
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | LeftMargin property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/left_margin_property.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/left_margin_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
   it 'ApiWorksheet | SetLeftMargin and GetLeftMargin methods' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_left_margin.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_left_margin.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
   it 'ApiWorksheet | RightMargin property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/right_margin_property.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/right_margin_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
   it 'ApiWorksheet | SetRightMargin and GetRightMargin methods' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_right_margin.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_right_margin.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
-  it 'ApiWorksheet | SetTopMargin and GetTopMargin property' do
+  it 'ApiWorksheet | SetTopMargin and GetTopMargin methods' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_top_margin.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_top_margin.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
   it 'ApiWorksheet | BottomMargin property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/bottom_margin_property.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/bottom_margin_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
   end
 
-  it 'ApiWorksheet | SetBottomMargin and GetBottomMargin property' do
+  it 'ApiWorksheet | SetBottomMargin and GetBottomMargin methods' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_doc_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_bottom_margin.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_and_get_bottom_margin.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('50')
+  end
+
+  it 'ApiWorksheet | PrintHeadings property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_headings_property.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 end
