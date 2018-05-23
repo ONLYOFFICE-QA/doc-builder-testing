@@ -1,86 +1,86 @@
 require 'spec_helper'
 describe 'ApiTable section tests' do
   it 'ApiTable | AddColumn method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/add_column.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/add_column.js')
     expect(docx.elements[1].rows.count).to eq(2)
     expect(docx.elements[1].rows.first.cells.count).to eq(3)
   end
 
   it 'ApiTable | AddRow method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/add_row.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/add_row.js')
     expect(docx.elements[1].rows.count).to eq(3)
     expect(docx.elements[1].rows.first.cells.count).to eq(2)
   end
 
   it 'ApiTable | GetClassType method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/get_class_type.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/get_class_type.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Class Type = table')
   end
 
   it 'ApiTable | GetRow method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/get_row.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/get_row.js')
     expect(docx.elements[1].rows.count).to eq(3)
     expect(docx.elements[1].rows.first.cells.count).to eq(2)
   end
 
   it 'ApiTable | GetRowsCount method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/get_rows_count.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/get_rows_count.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('We create a 2x2 table and add a new row, so that it becomes 2x3:')
     expect(docx.elements[3].nonempty_runs.first.text).to eq('The table above had 2 rows before we added a new one. ')
   end
 
   it 'ApiTable | MergeCells method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/merge_cells.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/merge_cells.js')
     expect(docx.elements[1].rows[1].cells[1].properties.grid_span.count_of_merged_cells).to eq(2)
     expect(docx.elements[1].rows[1].cells.count).to eq(4)
     expect(docx.elements[1].rows[0].cells.count).to eq(5)
   end
 
   it 'ApiTable | RemoveColumn method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/remove_column.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/remove_column.js')
     expect(docx.elements[1].rows.count).to eq(3)
     expect(docx.elements[1].rows.first.cells.count).to eq(2)
   end
 
   it 'ApiTable | RemoveRow method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/remove_row.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/remove_row.js')
     expect(docx.elements[1].rows.count).to eq(2)
     expect(docx.elements[1].rows.first.cells.count).to eq(3)
   end
 
   it 'ApiTable | SetCellSpacing method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_cell_spacing.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_cell_spacing.js')
     expect(docx.elements[1].properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
 
   it 'ApiTable | SetJc method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_jc.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_jc.js')
     expect(docx.elements[1].properties.jc).to eq(:center)
   end
 
   it 'ApiTable | SetShd method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_shd.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_shd.js')
     expect(docx.elements[1].properties.shade.fill).to eq(OoxmlParser::Color.new(238, 238, 238))
     expect(docx.elements[1].properties.shade.value).to eq(:clear)
   end
 
   it 'ApiTable | SetStyle method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_style.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_style.js')
     expect(docx.elements[1].properties.table_style.name).to eq('Bordered - Accent 5')
   end
 
   it 'ApiTable | SetStyleColBandSize method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_style_col_band_size.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_style_col_band_size.js')
     expect(docx.elements[1].properties.table_style_column_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetStyleRowBandSize method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_style_row_band_size.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_style_row_band_size.js')
     expect(docx.elements[1].properties.table_style_row_band_size.value).to eq(2)
   end
 
   it 'ApiTable | SetTableBorderBottom method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_bottom.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_bottom.js')
     expect(docx.elements[1].properties.table_borders.bottom.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -88,7 +88,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderInsideH method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_inside_h.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_inside_h.js')
     expect(docx.elements[1].properties.table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_borders.inside_horizontal.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.inside_horizontal.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -96,7 +96,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderInsideV method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_inside_v.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_inside_v.js')
     expect(docx.elements[1].properties.table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_borders.inside_vertical.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.inside_vertical.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -104,7 +104,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderLeft method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_left.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_left.js')
     expect(docx.elements[1].properties.table_borders.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.left.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -112,7 +112,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderRight method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_right.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_right.js')
     expect(docx.elements[1].properties.table_borders.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.right.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -120,7 +120,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderTop method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_border_top.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_border_top.js')
     expect(docx.elements[1].properties.table_borders.top.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.top.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
     expect(docx.elements[1].properties.table_borders.top.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
@@ -128,37 +128,37 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableCellMarginBottom method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_bottom.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_bottom.js')
     expect(docx.elements[1].properties.table_cell_margin.bottom).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiTable | SetTableCellMarginLeft method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_left.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_left.js')
     expect(docx.elements[1].properties.table_cell_margin.left).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiTable | SetTableCellMarginRight method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_right.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_right.js')
     expect(docx.elements[1].properties.table_cell_margin.right).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiTable | SetTableCellMarginTop method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_top.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_cell_margin_top.js')
     expect(docx.elements[1].properties.table_cell_margin.top).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
   end
 
   it 'ApiTable | SetTableInd method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_ind.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_ind.js')
     expect(docx.elements[1].properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :dxa))
   end
 
   it 'ApiTable | SetTableLayout method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_layout.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_layout.js')
     expect(docx.elements[1].table_properties.table_layout.type).to eq(:fixed)
   end
 
   it 'ApiTable | SetTableLook method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_table_look.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_look.js')
     expect(docx.elements[1].properties.table_look.first_column).to be_truthy
     expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
@@ -169,7 +169,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetWidth method' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/smoke/api_table/set_width.js')
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_width.js')
     expect(docx.elements[1].properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
 end

@@ -25,7 +25,7 @@ class DocBuilderWrapper
     "#{@builder_exe} #{script_file} 2>&1"
   end
 
-  def build_doc(script_file)
+  def build(script_file)
     build_result = `#{run_build_command(script_file)}`
     raise DocBuilderError, build_result if build_result =~ /[Ee]rror|not found/
   end
@@ -43,17 +43,16 @@ class DocBuilderWrapper
 
   # Build document and parse it
   # @param script_file [String] path to script file
-  # @return [OoxmlParser::CommonDocumentStructure] parsed file
-  def build_doc_and_parse(script_file)
-    temp_script_data = change_output_file(script_file)
-    build_doc(temp_script_data[:temp_script_file].path)
-    wait_file_creation(temp_script_data[:output_file])
-    parse(temp_script_data[:output_file])
+  # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
+  # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
+  def build_and_parse(script_file)
+    temp_script_data = build_file(script_file)
+    parse(temp_script_data)
   end
 
-  def build_doc_without_parse(script_file)
+  def build_file(script_file)
     temp_script_data = change_output_file(script_file)
-    build_doc(temp_script_data[:temp_script_file].path)
+    build(temp_script_data[:temp_script_file].path)
     wait_file_creation(temp_script_data[:output_file])
     temp_script_data[:output_file]
   end
