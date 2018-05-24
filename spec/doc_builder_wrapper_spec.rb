@@ -7,25 +7,25 @@ describe 'My behaviour' do
   describe 'build_doc' do
     it 'should raise correct error if input file is incorrect' do
       skip if ENV['BUILDER_PLATFORM'] == 'WEB'
-      expect { builder.build_doc('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
+      expect { builder.build('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
     it '[WEB] should raise correct error if input file is incorrect' do
       skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
-      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
+      expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
     end
 
     it 'should not raise error if output path is incorrect' do
       skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
-      expect(builder.build_doc(simple_script)).to be_nil
+      expect(builder.build(simple_script)).to be_nil
       FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
 
     it '[WEB] should not raise error if output path is incorrect' do
       skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
-      expect { builder.build_doc('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
+      expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
       FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
   end
@@ -56,21 +56,21 @@ describe 'My behaviour' do
 
   describe 'build_doc_and_parse' do
     it 'check that parsing is performed' do
-      expect(builder.build_doc_and_parse(simple_script)).to be_a(OoxmlParser::DocumentStructure)
+      expect(builder.build_and_parse(simple_script)).to be_a(OoxmlParser::DocumentStructure)
     end
 
     it 'check that build is performed with script with russian letters' do
-      expect(builder.build_doc_and_parse('asserts/js/docx/paragraph/text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
+      expect(builder.build_and_parse('asserts/js/docx/paragraph/text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
     end
   end
 
   describe 'check_support_of_xlsx' do
     it 'check that parsing is performed' do
-      expect(builder.build_doc_and_parse(simple_xlsx_script)).to be_a(OoxmlParser::XLSXWorkbook)
+      expect(builder.build_and_parse(simple_xlsx_script)).to be_a(OoxmlParser::XLSXWorkbook)
     end
 
     it 'check that builded xlsx file have correct extension' do
-      xlsx = builder.build_doc_and_parse(simple_xlsx_script)
+      xlsx = builder.build_and_parse(simple_xlsx_script)
       expect(File.extname(xlsx.file_path)).to eq('.xlsx')
     end
   end

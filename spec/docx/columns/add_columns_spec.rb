@@ -2,14 +2,14 @@ require 'spec_helper'
 
 describe 'Check Column' do
   it '[text] One Column' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_one_column.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_one_column.js')
     expect(docx.page_properties.columns.count).to eq(1)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.elements[1].nonempty_runs.first.text).to eq('First columns')
   end
 
   it '[text] Two columns' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_two_columns.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_two_columns.js')
     expect(docx.page_properties.columns.count).to eq(2)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.elements[1].nonempty_runs.first.text).to eq('First columns')
@@ -17,7 +17,7 @@ describe 'Check Column' do
   end
 
   it '[text] Three columns' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_three_columns.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_three_columns.js')
     expect(docx.page_properties.columns.count).to eq(3)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.elements[1].nonempty_runs.first.text).to eq('First columns')
@@ -26,7 +26,7 @@ describe 'Check Column' do
   end
 
   it '[Table] One Column' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_table_in_one_column.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_table_in_one_column.js')
     expect(docx.page_properties.columns.count).to eq(1)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.element_by_description(location: :canvas, type: :paragraph)[1].rows.length).to eq(3)
@@ -34,7 +34,7 @@ describe 'Check Column' do
   end
 
   it '[Table] Two columns' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_table_in_two_column.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_table_in_two_column.js')
     expect(docx.page_properties.columns.count).to eq(2)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.element_by_description[1].rows.length).to eq(3)
@@ -44,7 +44,7 @@ describe 'Check Column' do
   end
 
   it '[text] Three columns' do
-    docx = builder.build_doc_and_parse('asserts/js/docx/columns/add_table_in_three_columns.js')
+    docx = builder.build_and_parse('asserts/js/docx/columns/add_table_in_three_columns.js')
     expect(docx.page_properties.columns.count).to eq(3)
     expect(docx.page_properties.columns.equal_width).to be_truthy
     expect(docx.element_by_description[1].rows.length).to eq(3)
