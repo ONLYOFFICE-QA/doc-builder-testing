@@ -225,4 +225,16 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_headings_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
+
+  it 'ApiWorksheet | GetPageOrientation method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_page_orientation.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('xlPortrait')
+  end
+
+  it 'ApiWorksheet | GetPageOrientation method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_page_orientation.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('xlPortrait')
+  end
 end
