@@ -250,6 +250,12 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
   end
 
+  it 'ApiWorksheet | GetSelection property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_selection_method.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
+  end
+
   it 'ApiWorksheet | PrintGridlines property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
