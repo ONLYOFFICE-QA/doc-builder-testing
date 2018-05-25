@@ -243,4 +243,10 @@ describe 'ApiWorksheet section tests' do
     pdf = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/page_orientation_property.js')
     expect(pdf.page_size).to eq('Landscape A4')
   end
+
+  it 'ApiWorksheet | Selection property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/selection_property.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
+  end
 end
