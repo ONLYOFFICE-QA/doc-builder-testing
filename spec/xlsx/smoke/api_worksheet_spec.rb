@@ -276,4 +276,10 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
   end
+
+  it 'ApiWorksheet | GetIndex property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_index_property.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
+  end
 end
