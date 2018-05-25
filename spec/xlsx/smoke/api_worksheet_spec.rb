@@ -178,6 +178,13 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
+  it 'ApiWorksheet | GetVisible method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781'
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('FALSE')
+  end
+
   it 'ApiWorksheet | LeftMargin property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/left_margin_property.js')
