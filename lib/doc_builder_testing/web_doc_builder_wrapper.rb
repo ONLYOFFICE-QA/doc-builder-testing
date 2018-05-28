@@ -50,7 +50,8 @@ class WebDocBuilderWrapper
     @request_data.body = read_script_file(script_file)
     add_jwt_data(@request_data)
     responce = @http.request(@request_data)
-    raise DocBuilderError, responce unless responce.code == '200'
+    raise WebDocBuilderError, responce unless responce.code == '200'
+    raise EmptyUrlsInWebBuilderResponse, responce if JSON.parse(responce.body)['urls'].empty?
     JSON.parse(responce.body)['urls'].values.first
   end
 

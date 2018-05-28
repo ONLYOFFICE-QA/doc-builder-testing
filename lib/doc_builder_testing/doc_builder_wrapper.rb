@@ -35,7 +35,7 @@ class DocBuilderWrapper
     `#{@builder_exe} -v`
   end
 
-  # @return [String] defualt path to license
+  # @return [String] default path to license
   def license_path
     return 'C:/ONLYOFFICE/DocumentBuilder/license' if Gem.win_platform?
     '/opt/onlyoffice/documentbuilder/license'

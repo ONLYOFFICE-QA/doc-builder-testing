@@ -133,4 +133,18 @@ describe 'Api section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/set_theme_colors.js')
     expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(50, 50, 50))
   end
+
+  it 'Api |  GetSheets method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_sheets.js')
+    expect(xlsx.worksheets[0].rows[0].cells.first.text).to eq('Sheet1')
+    expect(xlsx.worksheets[0].rows[1].cells.first.text).to eq('new_sheet_name')
+  end
+
+  it 'Api | Format method' do
+    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37831'
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/format_property.js')
+    expect(xlsx.worksheets[0].rows[0].cells.first.text).to eq("|05:04:23 PM |")
+  end
 end

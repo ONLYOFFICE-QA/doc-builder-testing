@@ -256,11 +256,146 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
 
-  it 'ApiRange | Wrap method' do
-    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
-    skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_wrap.js')
+  it 'ApiRange | SetWrapText method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_wrap_text.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
+  end
+
+  it 'ApiRange | Wrap property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/wrap_property.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
+    expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
+  end
+
+  it 'ApiRange | GetValue method' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_value.js')
+    expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('Inserted text')
+  end
+
+  it 'ApiRange | Value Getter' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/getter_value.js')
+    expect(xlsx.worksheets.first.rows[2].cells[0].text).to eq('Inserted text')
+  end
+
+  it 'ApiRange | SetColumnWidth method' do
+    skip if builder.semver < Semantic::Version.new('5.1.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_column_width.js')
+    expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(15)
+  end
+
+  it 'ApiRange | SetRowHeight method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_row_height.js')
+    expect(xlsx.worksheets.first.rows.first.height).to eq(OoxmlPColumnWidtharser::OoxmlSize.new(15, :point))
+  end
+
+  it 'ApiRange | GetRowHeight method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_row_height.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
+  it 'ApiRange | GetColumnWidth method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_column_width.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
+  it 'ApiRange | ColumnWidth getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/column_width_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
+  it 'ApiRange | RowHeight getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/row_height_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('30')
+  end
+
+  it 'ApiRange | ForEach' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/for_each.js')
+    expect(xlsx.worksheets.first.rows[0].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
+  end
+
+  it 'ApiRange | Width getter' do
+    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37730'
+    # skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/width_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+  end
+
+  it 'ApiRange | Height getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/height_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('30')
+  end
+
+  it 'ApiRange | SetHidden method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_hidden.js')
+    expect(xlsx.worksheets.first.columns.first.hidden).to be_truthy
+  end
+
+  it 'ApiRange | GetHidden method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_hidden.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
+  end
+
+  it 'ApiRange | Hidden getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_hidden.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
+  end
+
+  it 'ApiRange | GetCount method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_count.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+  end
+
+  it 'ApiRange | Count getter' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/count_getter.js')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+  end
+
+  it 'ApiRange | MergeArea property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/merge_area_property.js')
+    expect(xlsx.worksheets.first.rows[3].cells.first.text).to eq('9')
+  end
+
+  it 'ApiRange | WrapText property' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/wrap_text_property.js')
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
+    expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
+  end
+
+  it 'ApiRange | GetWrapText method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_wrap_text.js')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('Text')
+  end
+
+  it 'ApiRange | SetOffset method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_offset.js')
+    expect(xlsx.worksheets.first.rows[3].cells[1].text).to eq('Text')
+  end
+
+  it 'ApiRange | GetAddress method' do
+    skip if builder.semver < Semantic::Version.new('5.2.0')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_address.js')
+    expect(xlsx.worksheets.first.rows[0].cells[0].text).to eq('A1')
   end
 end
