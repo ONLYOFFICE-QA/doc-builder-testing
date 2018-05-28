@@ -210,7 +210,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetNumberFormat method' do
-    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0.00%', '# ?/?', '0.00E+00']
+    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0%', '# ?/?', '0.00E+00']
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_number_format.js')
     formats.each_with_index do |current_format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].raw_text).to eq('123456')
@@ -222,7 +222,7 @@ describe 'ApiRange section tests' do
   it 'ApiRange | NumberFormat method' do
     skip if ENV['BUILDER_PLATFORM'] == 'WEB'
     skip if builder.semver < Semantic::Version.new('5.1.0')
-    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0.00%', '# ?/?', '0.00E+00']
+    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM', '0.00%', '0%', '# ?/?', '0.00E+00']
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_number_format.js')
     formats.each_with_index do |current_format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].raw_text).to eq('123456')
