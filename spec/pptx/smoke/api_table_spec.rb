@@ -16,4 +16,9 @@ describe 'Api Table section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.text_body.paragraphs[0].runs.first.text).to eq('row1')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[1].cells.first.text_body.paragraphs[0].runs.first.text).to eq('row2')
   end
+
+  it 'Api | AddColumn method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/add_column.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].text_body.paragraphs[0].runs.first.text).to eq('added_column')
+  end
 end
