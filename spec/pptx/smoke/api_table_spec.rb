@@ -11,6 +11,12 @@ describe 'Api Table section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[2].cells.first.text_body.paragraphs[0].runs.first.text).to eq('row2')
   end
 
+  it 'Api | GetCell method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/get_cell.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows[0].cells[0].text_body.paragraphs[0].runs.first.text).to eq('cell1')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows[0].cells[1].text_body.paragraphs[0].runs.first.text).to eq('cell2')
+  end
+
   it 'Api | AddRow method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/add_row.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.text_body.paragraphs[0].runs.first.text).to eq('row1')
