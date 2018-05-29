@@ -28,6 +28,11 @@ describe 'Api Table section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].text_body.paragraphs[0].runs.first.text).to eq('added_column')
   end
 
+  it 'Api | RemoveColumn method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/remove_column.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.count).to eq(2)
+  end
+
   it 'Api | MergeCells method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/merge_cells.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[0].text_body.paragraphs[0].runs.first.text).to eq('text in merged cell')
