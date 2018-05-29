@@ -1,0 +1,11 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Slide = Presentation.GetSlideByIndex(0);
+var Table = Api.CreateTable(2,2);
+Slide.AddObject(Table);
+var cell_1 = Table.GetRow(0).GetCell(0);
+var cell_2 = Table.GetRow(0).GetCell(1);
+Table.MergeCells([cell_1, cell_2]);
+Table.GetRow(0).GetCell(0).GetContent().GetElement(0).AddText('text in merged cell');
+builder.SaveFile("pptx", "MergeCells.pptx");
+builder.CloseFile();
