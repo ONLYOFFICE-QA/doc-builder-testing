@@ -63,4 +63,10 @@ describe 'Api Table section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.no_horizontal_banding).to be_falsey
     expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.no_vertical_banding).to be_falsey
   end
+
+  it 'Api | SetShd method' do
+    pending 'https://github.com/ONLYOFFICE/ooxml_parser/issues/512'
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/set_shd.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+  end
 end
