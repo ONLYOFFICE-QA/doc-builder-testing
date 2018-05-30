@@ -54,4 +54,13 @@ describe 'Api Table section tests' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/set_height.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.height).to eq(10_000_000)
   end
+
+  it 'Api | SetTableLook method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/set_table_look.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.first_row).to be_truthy
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.last_column).to be_truthy
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.first_row).to be_truthy
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.no_horizontal_banding).to be_falsey
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.table_look.no_vertical_banding).to be_falsey
+  end
 end
