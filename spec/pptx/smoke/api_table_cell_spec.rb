@@ -30,4 +30,10 @@ describe 'Api Table Cell section tests' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_margin_top.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.margins.top).to eq(OoxmlParser::OoxmlSize.new(1000, :twip))
   end
+
+  it 'Api | SetCellBorderBottom method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_border_bottom.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.bottom.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.bottom.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
+  end
 end
