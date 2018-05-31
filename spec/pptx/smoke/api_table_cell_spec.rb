@@ -42,4 +42,10 @@ describe 'Api Table Cell section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.left.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.left.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
+
+  it 'Api | SetCellBorderRight method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_border_right.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.right.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.right.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
+  end
 end
