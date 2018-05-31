@@ -25,4 +25,9 @@ describe 'Api Table Cell section tests' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_margin_right.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.margins.right).to eq(OoxmlParser::OoxmlSize.new(1000, :twip))
   end
+
+  it 'Api | SetCellMarginTop method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_margin_top.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.margins.top).to eq(OoxmlParser::OoxmlSize.new(1000, :twip))
+  end
 end
