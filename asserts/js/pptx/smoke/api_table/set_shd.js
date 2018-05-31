@@ -7,5 +7,3 @@ Table.SetShd(Api.CreateSolidFill (Api.CreateRGBColor (0, 255, 0)));
 Slide.AddObject(Table);
 builder.SaveFile("pptx", "SetShd.pptx");
 builder.CloseFile();
-
-
