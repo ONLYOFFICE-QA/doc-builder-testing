@@ -54,4 +54,11 @@ describe 'Api Table Cell section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.top.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.top.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
+
+  it 'Api | SetVerticalAlign method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_vertical_align.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.anchor).to eq(:top)
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.anchor).to eq(:center)
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[2].properties.anchor).to eq(:bottom)
+  end
 end
