@@ -1,0 +1,10 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Slide = Presentation.GetSlideByIndex(0);
+var Table = Api.CreateTable(3,1);
+Slide.AddObject(Table);
+Table.GetRow(0).GetCell(0).SetTextDirection('lrtb');
+Table.GetRow(0).GetCell(1).SetTextDirection('tbrl');
+Table.GetRow(0).GetCell(2).SetTextDirection('btlr');
+builder.SaveFile("pptx", "SetTextDirection.pptx");
+builder.CloseFile();

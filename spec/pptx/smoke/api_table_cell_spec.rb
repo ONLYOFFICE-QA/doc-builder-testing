@@ -61,4 +61,11 @@ describe 'Api Table Cell section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.anchor).to eq(:center)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[2].properties.anchor).to eq(:bottom)
   end
+
+  it 'Api | SetTextDirection method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_text_direction.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.text_direction).to eq(:horz)
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.text_direction).to eq(:eaVert)
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[2].properties.text_direction).to eq(:vert270)
+  end
 end
