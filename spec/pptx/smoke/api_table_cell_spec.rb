@@ -10,4 +10,9 @@ describe 'Api Table Cell section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.text_body.paragraphs[0].runs.first.text).to eq('cell1')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].text_body.paragraphs[0].runs.first.text).to eq('cell2')
   end
+
+  it 'Api | SetCellMarginBottom method' do
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_cell_margin_bottom.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.margins.bottom).to eq(OoxmlParser::OoxmlSize.new(1000, :twip))
+  end
 end
