@@ -68,4 +68,11 @@ describe 'Api Table Cell section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.text_direction).to eq(:eaVert)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[2].properties.text_direction).to eq(:vert270)
   end
+
+  it 'Api | SetShd method' do
+    pending 'https://github.com/ONLYOFFICE/ooxml_parser/issues/512'
+    pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table_cell/set_shd.js')
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(pptx.slides.first.elements.last.graphic_data.first.rows[1].cells.first.properties.shade.fill).to_not eq(OoxmlParser::Color.new(255, 0, 0))
+  end
 end
