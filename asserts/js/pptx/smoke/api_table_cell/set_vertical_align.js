@@ -1,0 +1,10 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Slide = Presentation.GetSlideByIndex(0);
+var Table = Api.CreateTable(3,1);
+Slide.AddObject(Table);
+Table.GetRow(0).GetCell(0).SetVerticalAlign('top');
+Table.GetRow(0).GetCell(1).SetVerticalAlign('center');
+Table.GetRow(0).GetCell(2).SetVerticalAlign('bottom');
+builder.SaveFile("pptx", "SetVerticalAlign.pptx");
+builder.CloseFile();

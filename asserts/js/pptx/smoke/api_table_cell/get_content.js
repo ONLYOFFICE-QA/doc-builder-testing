@@ -1,0 +1,11 @@
+builder.CreateFile("pptx");
+var Presentation = Api.GetPresentation();
+var Slide = Presentation.GetSlideByIndex(0);
+var Table = Api.CreateTable(3,3);
+Slide.AddObject(Table);
+var cell1 = Table.GetRow(0).GetCell(0).GetContent();
+var cell2 = Table.GetRow(0).GetCell(1).GetContent();
+cell1.GetElement(0).AddText('cell1');
+cell2.GetElement(0).AddText('cell2');
+builder.SaveFile("pptx", "GetContent.pptx");
+builder.CloseFile();
