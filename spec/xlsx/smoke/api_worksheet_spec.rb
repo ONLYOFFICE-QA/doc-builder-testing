@@ -68,7 +68,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
+    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(10)
     expect(xlsx.worksheets.first.columns[1].width.to_i).to eq(20)
@@ -111,7 +111,7 @@ describe 'ApiWorksheet section tests' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
     expect(xlsx.worksheets.first.columns.count).to eq(1)
-    expect(xlsx.worksheets.first.columns.first.style.alignment.wrap_text).to be_truthy
+    expect(xlsx.worksheets.first.columns[0].style.fill_color).to be_nil
   end
 
   it 'ApiWorksheet | AddSheet method' do
