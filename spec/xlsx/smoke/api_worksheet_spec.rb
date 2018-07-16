@@ -108,7 +108,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | Getter Cells' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
+    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
     expect(xlsx.worksheets.first.columns.count).to eq(1)
     expect(xlsx.worksheets.first.columns.first.style.alignment.wrap_text).to be_truthy
