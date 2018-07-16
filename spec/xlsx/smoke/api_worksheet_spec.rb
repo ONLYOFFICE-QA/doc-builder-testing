@@ -68,7 +68,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
+    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(10)
     expect(xlsx.worksheets.first.columns[1].width.to_i).to eq(20)
