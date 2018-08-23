@@ -21,12 +21,12 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data[1].points[1].value).to eq(260.0)
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data[1].points[2].value).to eq(280.0)
 
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series[1].text.string.cache.points.first.text.value).to eq('Estimated Costs')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.value.value).to eq('Projected Revenue')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series[1].text.string.cache.points.first.value.value).to eq('Estimated Costs')
 
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points.first.text.value).to eq('2014')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points[1].text.value).to eq('2015')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points[2].text.value).to eq('2016')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points.first.value.value).to eq('2014')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points[1].value.value).to eq('2015')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.categories.string.cache.points[2].value.value).to eq('2016')
   end
 
   it 'ApiParagraph | AddElement method' do
