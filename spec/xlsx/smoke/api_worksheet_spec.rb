@@ -104,7 +104,7 @@ describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | GetCells method' do
     skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
-    expect(xlsx.worksheets.first.columns.first.to).to eq(16384)
+    expect(xlsx.worksheets.first.columns.first.to).to eq(16_384)
   end
 
   it 'ApiWorksheet | Getter Cells' do
