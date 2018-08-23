@@ -16,12 +16,6 @@ Metrics/AbcSize:
 Metrics/BlockLength:
   Max: 345
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: Strict.
-Style/NumericLiterals:
-  MinDigits: 6
-
 # Offense count: 1871
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
