@@ -22,14 +22,6 @@ Metrics/BlockLength:
 Style/NumericLiterals:
   MinDigits: 6
 
-# Offense count: 1
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, ConsistentQuotesInMultiline.
-# SupportedStyles: single_quotes, double_quotes
-Style/StringLiterals:
-  Exclude:
-    - 'spec/xlsx/smoke/api_spec.rb'
-
 # Offense count: 1871
 # Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
 # URISchemes: http, https
