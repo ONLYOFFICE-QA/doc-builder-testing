@@ -49,10 +49,9 @@ class WebDocBuilderWrapper
   def build(script_file)
     @request_data.body = read_script_file(script_file)
     add_jwt_data(@request_data)
-    responce = @http.request(@request_data)
-    raise WebDocBuilderError, responce unless responce.code == '200'
-    raise EmptyUrlsInWebBuilderResponse, responce if JSON.parse(responce.body)['urls'].empty?
-    JSON.parse(responce.body)['urls'].values.first
+    response = @http.request(@request_data)
+    check_response_for_errors(response)
+    JSON.parse(response.body)['urls'].values.first
   end
 
   def add_jwt_data(request)
@@ -68,5 +67,15 @@ class WebDocBuilderWrapper
 
   def download_file(url, output_file)
     `wget -qO '#{output_file}' '#{url}'`
+  end
+
+  private
+
+  # Raise errors if response somehow wrong
+  # @param response [Net::HTTPResponse] response to check error
+  # @return [nil]
+  def check_response_for_errors(response)
+    raise WebDocBuilderError, response unless response.code == '200'
+    raise EmptyUrlsInWebBuilderResponse, response if JSON.parse(response.body)['urls'].empty?
   end
 end
