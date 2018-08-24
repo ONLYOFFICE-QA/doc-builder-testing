@@ -13,13 +13,20 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.type).to eq(:chart)
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.text).to eq('Year')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11.0)
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data.first.points.first.value).to eq(200.0)
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data.first.points[1].value).to eq(240.0)
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data.first.points[2].value).to eq(280.0)
+    points = docx.elements.first.nonempty_runs.first
+                 .drawings.first.graphic.data.series[0]
+                 .values.number_reference.cache.points
+    expect(points[0].value.value).to eq('200')
+    expect(points[1].value.value).to eq('240')
+    expect(points[2].value.value).to eq('280')
 
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data[1].points.first.value).to eq(250.0)
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data[1].points[1].value).to eq(260.0)
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.data[1].points[2].value).to eq(280.0)
+    points2 = docx.elements.first.nonempty_runs.first
+                  .drawings.first.graphic.data.series[1]
+                  .values.number_reference.cache.points
+
+    expect(points2[0].value.value).to eq('250')
+    expect(points2[1].value.value).to eq('260')
+    expect(points2[2].value.value).to eq('280')
 
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.value.value).to eq('Projected Revenue')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series[1].text.string.cache.points.first.value.value).to eq('Estimated Costs')
