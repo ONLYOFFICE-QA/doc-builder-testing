@@ -11,10 +11,10 @@ describe 'ApiRun section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.type).to eq(:chart)
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.type).to eq(:bar_3d)
     docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.each do |series|
-      expect(series.categories.string.cache.points.map { |current_point| current_point.text.value }).to eq(%w[2014 2015 2016])
+      expect(series.categories.string.cache.points.map { |current_point| current_point.value.value }).to eq(%w[2014 2015 2016])
     end
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.value.value).to eq('Projected Revenue')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.last.text.string.cache.points.first.value.value).to eq('Estimated Costs')
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.title.elements.first.runs.first.text).to eq('Financial Overview')
     expect(docx.elements.first.nonempty_runs.first.drawing.properties.object_size.x).to eq(OoxmlParser::OoxmlSize.new(4_051_299, :emu))
   end

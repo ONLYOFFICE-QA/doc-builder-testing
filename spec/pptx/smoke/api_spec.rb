@@ -14,17 +14,21 @@ describe 'Api section tests' do
   it 'Api | CreateChart method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api/create_chart.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.type).to eq(:bar_3d)
-    [200, 240, 280].each_with_index do |value, index|
-      expect(pptx.slides.first.elements.first.graphic_data.first.data.first.points[index].value).to eq(value)
+    points = pptx.slides.first.elements.first.graphic_data.first.series[0]
+                 .values.number_reference.cache.points
+    %w[200 240 280].each_with_index do |value, index|
+      expect(points[index].value.value).to eq(value)
     end
-    [250, 260, 280].each_with_index do |value, index|
-      expect(pptx.slides.first.elements.first.graphic_data.first.data[1].points[index].value).to eq(value)
+    points2 = pptx.slides.first.elements.first.graphic_data.first.series[1]
+                  .values.number_reference.cache.points
+    %w[250 260 280].each_with_index do |value, index|
+      expect(points2[index].value.value).to eq(value)
     end
-    expect(pptx.slides.first.elements.first.graphic_data.first.series.first.text.string.cache.points.first.text.value).to eq('Projected Revenue')
-    expect(pptx.slides.first.elements.first.graphic_data.first.series.last.text.string.cache.points.first.text.value).to eq('Estimated Costs')
+    expect(pptx.slides.first.elements.first.graphic_data.first.series.first.text.string.cache.points.first.value.value).to eq('Projected Revenue')
+    expect(pptx.slides.first.elements.first.graphic_data.first.series.last.text.string.cache.points.first.value.value).to eq('Estimated Costs')
     %w[2014 2015 2016].each_with_index do |value, index|
-      expect(pptx.slides.first.elements.first.graphic_data.first.series.first.categories.string.cache.points[index].text.value).to eq(value)
-      expect(pptx.slides.first.elements.first.graphic_data.first.series[1].categories.string.cache.points[index].text.value).to eq(value)
+      expect(pptx.slides.first.elements.first.graphic_data.first.series.first.categories.string.cache.points[index].value.value).to eq(value)
+      expect(pptx.slides.first.elements.first.graphic_data.first.series[1].categories.string.cache.points[index].value.value).to eq(value)
     end
     expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
