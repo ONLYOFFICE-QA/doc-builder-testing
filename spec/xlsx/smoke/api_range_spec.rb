@@ -291,7 +291,7 @@ describe 'ApiRange section tests' do
   it 'ApiRange | SetRowHeight method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_row_height.js')
-    expect(xlsx.worksheets.first.rows.first.height).to eq(OoxmlPColumnWidtharser::OoxmlSize.new(15, :point))
+    expect(xlsx.worksheets.first.rows.first.height).to eq(OoxmlParser::OoxmlSize.new(15, :point))
   end
 
   it 'ApiRange | GetRowHeight method' do
