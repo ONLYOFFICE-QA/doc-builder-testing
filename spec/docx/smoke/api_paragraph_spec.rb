@@ -4,8 +4,8 @@ describe 'ApiParagraph section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/add_column_break.js')
     expect(docx.page_properties.columns.count).to eq(2)
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the text for the first column. It is written all in one text run. Nothing special.')
-    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the text which starts from the beginning of the second column. ')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('This is the text which starts from the beginning of the second column. ')
+    expect(docx.elements.first.nonempty_runs[3].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
   end
 
   it 'ApiParagraph | AddDrawing method' do
