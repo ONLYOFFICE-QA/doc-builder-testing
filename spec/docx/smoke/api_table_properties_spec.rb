@@ -34,7 +34,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_bottom.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.bottom.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.bottom.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.bottom.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
@@ -42,7 +42,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_inside_h.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_horizontal.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_horizontal.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_horizontal.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_horizontal.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
@@ -50,7 +50,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_inside_v.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_vertical.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_vertical.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_vertical.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.inside_vertical.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
@@ -58,7 +58,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_left.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.left.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.left.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.left.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
@@ -66,7 +66,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_right.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.right.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.right.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.right.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
@@ -74,7 +74,7 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_border_top.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.top.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.top.val).to eq(:single)
-    expect(docx.elements[1].properties.table_style.table_properties.table_borders.top.sz).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_properties.table_borders.top.size).to eq(OoxmlParser::OoxmlSize.new(32.0, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_properties.table_borders.top.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
 
