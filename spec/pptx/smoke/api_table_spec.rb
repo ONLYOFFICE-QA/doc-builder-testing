@@ -78,6 +78,6 @@ describe 'Api Table section tests' do
   it 'Api | SetShd method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/set_shd.js')
-    expect(pptx.slides.first.elements.last.graphic_data.first.properties.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(pptx.slides.first.elements.last.graphic_data.first.properties.fill.color).to eq(OoxmlParser::Color.new(0, 255, 0))
   end
 end
