@@ -11,12 +11,12 @@ describe 'Add table with cells with borders and background' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/tables/table_with_cell_borders.js')
     expect(docx.elements[1].rows.length).to eq(3)
     expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.bottom.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(8, :point))
+    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.bottom.size).to eq(OoxmlParser::OoxmlSize.new(8, :point))
     expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.left.sz).to eq(OoxmlParser::OoxmlSize.new(4, :point))
+    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.left.size).to eq(OoxmlParser::OoxmlSize.new(4, :point))
     expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.right.sz).to eq(OoxmlParser::OoxmlSize.new(2, :point))
+    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.right.size).to eq(OoxmlParser::OoxmlSize.new(2, :point))
     expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.top.color).to eq(OoxmlParser::Color.new(0, 255, 0))
-    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.top.sz).to eq(OoxmlParser::OoxmlSize.new(4, :point))
+    expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.top.size).to eq(OoxmlParser::OoxmlSize.new(4, :point))
   end
 end

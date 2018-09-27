@@ -8,7 +8,7 @@ describe 'ApiTableCellPr section tests' do
   it 'ApiTableCellPr | SetCellBorderBottom method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_cell_pr/set_cell_border_bottom.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.size).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.val).to eq(:single)
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
@@ -16,7 +16,7 @@ describe 'ApiTableCellPr section tests' do
   it 'ApiTableCellPr | SetCellBorderLeft method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_cell_pr/set_cell_border_left.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.left.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.left.size).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.left.val).to eq(:single)
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.left.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
@@ -24,7 +24,7 @@ describe 'ApiTableCellPr section tests' do
   it 'ApiTableCellPr | SetCellBorderRight method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_cell_pr/set_cell_border_right.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.right.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.right.size).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.right.val).to eq(:single)
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
@@ -32,7 +32,7 @@ describe 'ApiTableCellPr section tests' do
   it 'ApiTableCellPr | SetCellBorderTop method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_cell_pr/set_cell_border_top.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.top.color).to eq(OoxmlParser::Color.new(0, 0, 255))
-    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.top.sz).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.top.size).to eq(OoxmlParser::OoxmlSize.new(32, :one_eighth_point))
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.top.val).to eq(:single)
     expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.top.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
   end
