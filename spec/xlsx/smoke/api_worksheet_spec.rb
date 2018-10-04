@@ -255,6 +255,7 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | Selection property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=39226')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/selection_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
   end
