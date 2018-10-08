@@ -6,6 +6,7 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetCellSpacing method' do
+    skip('Cell Spacing not multiply any more') if builder.semver == Semantic::Version.new('0.0.0')
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_cell_spacing.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_cell_spacing).to eq(OoxmlParser::OoxmlSize.new(360, :twip))
   end
