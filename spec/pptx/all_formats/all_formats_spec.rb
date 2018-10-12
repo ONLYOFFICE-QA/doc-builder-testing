@@ -6,7 +6,7 @@ describe 'All formats tests from Pptx' do
   end
 
   it 'All formats | From Pptx to Odp' do
-    pending 'http://bugzilla.onlyoffice.com/show_bug.cgi?id=36223'
+    pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36223')
     pptx = builder.build_and_parse('asserts/js/other_formats/addtext_odp.js')
     expect(pptx).to be_with_data
   end

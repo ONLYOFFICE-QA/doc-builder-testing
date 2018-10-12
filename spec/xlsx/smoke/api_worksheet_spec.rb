@@ -158,14 +158,14 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | GetUsedRange method' do
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735')
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | UsedRange getter' do
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735')
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
@@ -173,14 +173,14 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | SetVisible method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | GetVisible method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('FALSE')
   end
@@ -269,7 +269,7 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | ActiveCell property' do
     # Active cell must be A1 by default. Check bug when it will be
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/active_cell_property.js')
     expect(xlsx.worksheets.first.rows[12].cells[3].text).to eq('60')

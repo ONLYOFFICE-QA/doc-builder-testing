@@ -60,7 +60,7 @@ describe 'Api Table section tests' do
 
   it 'Api | SetHeight method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=37859'
+    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37859')
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_table/set_height.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.height).to eq(10_000_000)
   end
