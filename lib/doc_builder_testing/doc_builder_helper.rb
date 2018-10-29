@@ -32,6 +32,8 @@ module DocBuilderHelper
   def change_output_file(script_file)
     script_file_content = File.open(script_file, 'r').read
     output_format = recognize_output_format(script_file_content)
+    return { temp_script_file: script_file } unless output_format
+
     temp_output_file = Tempfile.new([File.basename(script_file), ".#{output_format}"])
     output_path = temp_output_file.path
     script_file_content.gsub!(/^builder\.SaveFile.*$/, "builder.SaveFile(\"#{output_format}\", \"#{output_path}\");")
@@ -43,9 +45,13 @@ module DocBuilderHelper
   end
 
   # Recognize format from script file
+  # Some script files could not have any SaveFile - do not fail on it
   # @param script [String] script content
   # @return [String] type of file
   def recognize_output_format(script)
-    script.match(/builder.SaveFile\(\"(.*)\",/)[1]
+    save_file = script.match(/builder.SaveFile\(\"(.*)\",/)
+    return nil unless save_file
+
+    save_file[1]
   end
 end
