@@ -97,11 +97,7 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | GetElementsCount method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/get_elements_count.js')
-    if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
-      expect(docx.elements.first.nonempty_runs.first.text).to eq("Number of paragraph elements at this point: \t1\rNumber of paragraph elements after we added a text run: \t2")
-    else
-      expect(docx.elements.first.nonempty_runs.first.text).to eq("Number of paragraph elements at this point: \t0\rNumber of paragraph elements after we added a text run: \t1")
-    end
+    expect(docx.elements.first.nonempty_runs.first.text).to eq("Number of paragraph elements at this point: \t0\rNumber of paragraph elements after we added a text run: \t1")
   end
 
   it 'ApiParagraph | GetNumbering method' do
@@ -126,21 +122,13 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | RemoveAllElements method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_all_elements.js')
-    if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
-      expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the first document paragraph. We removed all the elements to get the number of paragraph elements at this point: 1. If we had not done that the number before this sentence would be \'1\'.")
-    else
-      expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the first document paragraph. We removed all the elements to get the number of paragraph elements at this point: 0. If we had not done that the number before this sentence would be \'1\'.")
-    end
+    expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the first document paragraph. We removed all the elements to get the number of paragraph elements at this point: 0. If we had not done that the number before this sentence would be \'1\'.")
   end
 
   it 'ApiParagraph | RemoveElement method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_element.js')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the first paragraph element. ')
-    if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
-      expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the third paragraph element (it will be removed from the paragraph and we will not see it). ')
-    else
-      expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the second paragraph element. ')
-    end
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the second paragraph element. ')
   end
 
   it 'ApiParagraph | SetBetweenBorder method' do
