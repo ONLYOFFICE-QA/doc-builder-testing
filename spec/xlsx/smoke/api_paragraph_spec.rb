@@ -34,13 +34,22 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | GetElement method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_paragraph/get_element.js')
     expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.size).to eq(3)
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].properties.font_style.bold).to be true
+    if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[0].properties.font_style.bold).to be true
+    else
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].properties.font_style.bold).to be true
+    end
   end
 
   it 'ApiParagraph | GetElementsCount method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_paragraph/get_elements_count.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq("Number of paragraph elements at this point: \t0")
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].text).to eq("Number of paragraph elements after we added a text run: \t1")
+    if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq("Number of paragraph elements at this point: \t1")
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].text).to eq("Number of paragraph elements after we added a text run: \t2")
+    else
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq("Number of paragraph elements at this point: \t0")
+      expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].text).to eq("Number of paragraph elements after we added a text run: \t1")
+    end
   end
 
   it 'ApiParagraph | GetParaPr method' do
