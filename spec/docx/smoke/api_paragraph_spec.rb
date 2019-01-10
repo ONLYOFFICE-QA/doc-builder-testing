@@ -136,8 +136,8 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | RemoveElement method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_element.js')
     if builder.semver == Semantic::Version.new('0.0.0') || builder.semver >= Semantic::Version.new('5.3.0')
-      expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the third paragraph element (it will be removed from the paragraph and we will not see it). ')
-      expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the fourth paragraph element - it became the third, because we removed the previous run from the paragraph. ')
+      expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the first paragraph element.')
+      expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the third paragraph element (it will be removed from the paragraph and we will not see it). ')
     else
       expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the first paragraph element. ')
       expect(docx.elements.first.nonempty_runs[1].text).to eq('This is the second paragraph element. ')
