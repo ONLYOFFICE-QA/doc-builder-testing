@@ -6,9 +6,9 @@ RUN apt-get update && apt-get -y -q install git curl wget
 RUN apt-get update && apt-get -y -q install libmagic-dev
 
 RUN gem install bundler
-RUN wget http://repo-doc-onlyoffice-com.s3.amazonaws.com/linux/onlyoffice-documentbuilder/origin/develop/latest/x64/documentbuilder-5.2.0-x64.tar.gz
+RUN wget http://repo-doc-onlyoffice-com.s3.amazonaws.com/linux/onlyoffice-documentbuilder/origin/develop/latest/x64/documentbuilder-5.3.0-x64.tar.gz
 RUN tar xvf documentbuilder-*.tar.gz
-RUN mv /documentbuilder-5.2.0 /documentbuilder
+RUN mv /documentbuilder-5.3.0 /documentbuilder
 RUN chmod -R 777 /documentbuilder
 COPY . /doc-builder-testing
 COPY asserts/documentbuilder /usr/bin/documentbuilder
