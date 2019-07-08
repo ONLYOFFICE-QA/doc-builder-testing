@@ -13,6 +13,13 @@ RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/only
     apt-get -y update && \
     apt-get -y --allow-unauthenticated install onlyoffice-documentbuilder
 
+# TEMP WORKAROUND problem with require of latest x2t for sdkjs
+RUN wget -P /tmp https://s3-eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/linux/core/origin/develop/latest/x64/core.tar.gz
+RUN cd /tmp && tar xvf core.tar.gz
+RUN cp /tmp/build/lib/linux_64/*.so /opt/onlyoffice/documentbuilder/
+RUN cp /tmp/build/bin/linux_64/* /opt/onlyoffice/documentbuilder/
+RUN cp /tmp/Common/3dParty/icu/linux_64/build/* /opt/onlyoffice/documentbuilder/
+
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
