@@ -8,4 +8,3 @@ doc
 # bundler
 .bundle
 .idea
-Gemfile.lock
