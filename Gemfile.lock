@@ -91,7 +91,7 @@ DEPENDENCIES
   rspec
   rubocop
   ruby-filemagic (= 0.7.2)
-  semantic (~> 1.6)
+  semantic (~> 1)
 
 BUNDLED WITH
    2.0.1
