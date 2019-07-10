@@ -8,7 +8,7 @@ gem 'ooxml_parser', git: 'https://github.com/ONLYOFFICE/ooxml_parser'
 gem 'parallel_tests'
 gem 'rake', '>= 12'
 gem 'rspec'
-gem 'ruby-filemagic', '0.7.1'
+gem 'ruby-filemagic', '0.7.2'
 gem 'semantic', '~> 1.6'
 
 group :development do
