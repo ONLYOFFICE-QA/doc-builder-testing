@@ -9,11 +9,11 @@ RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN /bin/bash -l -c 'bundle install --without development'
-RUN echo "deb http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/onlyoffice-documentbuilder/origin/develop/latest/amd64/ repo/" >> /etc/apt/sources.list.d/onlyoffice.list && \
+RUN echo "deb [trusted=yes]  http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/onlyoffice-documentbuilder/origin/develop/latest/amd64/ repo/" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
-    apt-get -y --allow-unauthenticated install onlyoffice-documentbuilder
+    apt-get -y install onlyoffice-documentbuilder
 
-CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get -y install onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      bundle update; \
