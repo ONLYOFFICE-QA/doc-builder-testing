@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ONLYOFFICE/ooxml_parser
-  revision: 08452315cde52fa94d8cb3e1eff1db4ea33abc88
+  revision: 4d78cec677b78eb72999d2bf7ff2f95618db6a45
   specs:
     ooxml_parser (0.4.1)
       nokogiri (~> 1.6)
@@ -91,7 +91,7 @@ DEPENDENCIES
   rspec
   rubocop
   ruby-filemagic (= 0.7.2)
-  semantic (~> 1)
+  semantic
 
 BUNDLED WITH
    2.0.1
