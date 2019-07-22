@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
+    pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api/create_blip_fill.js')
     expect(pptx.slides.first.background.fill.image.file_reference.content.length).to be >= 1_000
     expect(pptx.slides.first.background.fill.image.tile).to be_a_kind_of(OoxmlParser::Tile)
@@ -44,6 +45,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateImage method' do
+    pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api/create_image.js')
     expect(pptx.slides.first.elements.first.path_to_image.file_reference.content.length).to be >= 1_000
     expect(pptx.slides.first.elements.first.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))

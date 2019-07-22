@@ -35,6 +35,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateImage method' do
+    pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_image.js')
     drawing = docx.elements.first.nonempty_runs.first.drawing
     drawing ||= docx.elements.first.nonempty_runs.first.alternate_content.office2010_content
