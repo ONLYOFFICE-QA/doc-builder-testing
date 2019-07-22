@@ -1,6 +1,7 @@
 require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
+    pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_blip_fill.js')
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.stretching_type).to eq(:tile)
     expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.type).to eq(:picture)
