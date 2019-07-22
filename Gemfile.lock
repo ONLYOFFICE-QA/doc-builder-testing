@@ -9,12 +9,12 @@ GIT
 
 GIT
   remote: https://github.com/onlyoffice-testing-robot/onlyoffice_pdf_parser
-  revision: 376e46b64964f7fb4ffbff6a231d175e46ed5b11
+  revision: 2676388d74306fc4ada2b667b0ffdedde0b27af4
   specs:
     onlyoffice_pdf_parser (0.0.1)
       image_size (~> 2)
       pdf-reader (~> 2)
-      rmagick (>= 2, < 4)
+      rmagick (>= 2, < 5)
 
 GEM
   remote: https://rubygems.org/
@@ -26,7 +26,7 @@ GEM
       rake (< 13.0)
     diff-lcs (1.3)
     hashery (2.1.2)
-    image_size (2.0.1)
+    image_size (2.0.2)
     iniparse (1.4.4)
     jaro_winkler (1.5.3)
     jwt (2.2.1)
@@ -49,7 +49,7 @@ GEM
       ttfunk
     rainbow (3.0.0)
     rake (12.3.3)
-    rmagick (3.2.0)
+    rmagick (4.0.0)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
