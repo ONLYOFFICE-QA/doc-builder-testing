@@ -90,7 +90,6 @@ DEPENDENCIES
   rake (>= 12)
   rspec
   rubocop
-  ruby-filemagic (= 0.7.2)
   semantic
 
 BUNDLED WITH
