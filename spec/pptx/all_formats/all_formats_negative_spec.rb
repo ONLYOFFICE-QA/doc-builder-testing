@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'All formats tests from Pptx negative' do
   it 'All formats | From Pptx to Docx' do

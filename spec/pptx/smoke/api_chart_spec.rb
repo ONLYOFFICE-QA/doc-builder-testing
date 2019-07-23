@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiChart section tests' do
   it 'ApiChart | GetClassType method' do

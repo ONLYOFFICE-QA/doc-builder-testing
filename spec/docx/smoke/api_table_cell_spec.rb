@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiTableCell section tests' do
   it 'ApiTableCell | ApiTableCell | GetClassType method' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'Other results' do
   it 'Correct error for builder.CloseFile();' do

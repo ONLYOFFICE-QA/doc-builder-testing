@@ -1,9 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiDocumentContent section tests' do
   it 'ApiDocumentContent | AddElement method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document_content/add_element.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.type).to eq(:shape)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[1].nonempty_runs.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    expect(docx.elements.first.nonempty_runs.first
+               .alternate_content.office2010_content.graphic.type).to eq(:shape)
+    expect(docx.elements.first.nonempty_runs.first
+               .alternate_content.office2010_content.graphic
+               .data.text_body.elements[1].nonempty_runs
+               .first.text)
+      .to eq('We removed all elements from the shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | GetClassType method' do

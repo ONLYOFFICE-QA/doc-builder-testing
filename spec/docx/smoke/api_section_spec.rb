@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiSection section tests' do
   it 'ApiSection | GetClassType method' do

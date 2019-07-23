@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiPresentation section tests' do
   it 'ApiPresentation | AddSlide method' do

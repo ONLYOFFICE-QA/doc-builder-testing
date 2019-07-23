@@ -1,11 +1,16 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
     pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_blip_fill.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.stretching_type).to eq(:tile)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.type).to eq(:picture)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.file_reference.content.length).to be >= 1_000
+    fill_color = xlsx.worksheets.first.drawings
+                     .first.shape.properties
+                     .fill_color
+    expect(fill_color.stretching_type).to eq(:tile)
+    expect(fill_color.type).to eq(:picture)
+    expect(fill_color.value.file_reference.content.length).to be >= 1_000
   end
 
   it 'Api | CreateBullet method' do
@@ -15,11 +20,13 @@ describe 'Api section tests' do
 
   it 'Api | CreateGradientStop method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_gradient_stop.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.type).to eq(:gradient)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.position).to eq(0)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100_000 / 1_000)
+    fill_color = xlsx.worksheets.first.drawings.first.shape.properties.fill_color
+    gradient_stops = fill_color.value.gradient_stops
+    expect(fill_color.type).to eq(:gradient)
+    expect(gradient_stops[0].color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(gradient_stops[0].position).to eq(0)
+    expect(gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateLinearGradientFill method' do
@@ -44,8 +51,10 @@ describe 'Api section tests' do
 
   it 'Api | CreateParagraph method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_paragraph.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs).to be_empty
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs[1].runs.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    paragraphs = xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs
+    expect(paragraphs[0].runs).to be_empty
+    expect(paragraphs[1].runs.first.text).to eq('We removed all elements from the shape '\
+                                                'and added a new paragraph inside it.')
   end
 
   it 'Api | CreatePatternFill method' do
@@ -63,25 +72,29 @@ describe 'Api section tests' do
 
   it 'Api | CreateRadialGradientFill method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_radial_gradient_fill.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.path).to eq(:circle)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.position).to eq(0)
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].position).to eq(100_000 / 1_000)
+    fill_color = xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value
+    expect(fill_color.path).to eq(:circle)
+    expect(fill_color.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(fill_color.gradient_stops.first.position).to eq(0)
+    expect(fill_color.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    expect(fill_color.gradient_stops[1].position).to eq(100_000 / 1_000)
   end
 
   it 'Api | CreateRgbColor method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_rgb_color.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops.first.color).to eq(OoxmlParser::Color.new(255, 224, 204))
-    expect(xlsx.worksheets.first.drawings.first.shape.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    gradient_stops = xlsx.worksheets.first.drawings.first.shape
+                         .properties.fill_color.value.gradient_stops
+    expect(gradient_stops[0].color).to eq(OoxmlParser::Color.new(255, 224, 204))
+    expect(gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
   end
 
   it 'Api | CreateRun method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_run.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq('This is just a sample text. ')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.properties.font_name).to eq('Arial')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].text).to eq("This is a text run with the font family set to 'Comic Sans MS'.")
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].properties.font_name).to eq('Comic Sans MS')
+    runs = xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs
+    expect(runs[0].text).to eq('This is just a sample text. ')
+    expect(runs[0].properties.font_name).to eq('Arial')
+    expect(runs[1].text).to eq("This is a text run with the font family set to 'Comic Sans MS'.")
+    expect(runs[1].properties.font_name).to eq('Comic Sans MS')
   end
 
   it 'Api | CreateSchemeColor method' do

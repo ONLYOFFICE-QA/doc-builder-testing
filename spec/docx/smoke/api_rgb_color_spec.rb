@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiRGBColor section tests' do
   it 'ApiRGBColor | GetClassType method' do

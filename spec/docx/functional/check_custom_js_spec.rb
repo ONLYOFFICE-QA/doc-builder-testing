@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'javascript code injection' do
   it 'check add type of value | bold_report' do

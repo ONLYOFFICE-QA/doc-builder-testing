@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'Image in shape' do
   it 'ApiChart | GetClassType method' do

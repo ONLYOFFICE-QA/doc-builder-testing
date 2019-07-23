@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'semantic'
 
 # Methods to working with version of Document Builder

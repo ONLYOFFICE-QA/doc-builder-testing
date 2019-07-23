@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiImage section tests' do
   it 'ApiImage | GetClassType method' do

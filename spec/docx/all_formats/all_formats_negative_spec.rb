@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'All formats negative tests from Docx' do
   it 'All formats | From Docx to Xlsx' do

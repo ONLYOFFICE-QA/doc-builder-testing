@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiDrawing section tests' do
   it 'ApiDrawing | GetClassType method' do

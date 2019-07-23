@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiTable section tests' do
   it 'ApiTable | AddColumn method' do

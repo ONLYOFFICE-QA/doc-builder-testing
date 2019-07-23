@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class for Wrapping doc building from server side
 require 'json'
 require 'jwt'
@@ -62,6 +64,7 @@ class WebDocBuilderWrapper
 
   def read_script_file(script)
     raise WebDocBuilderError, 'Filepath is incorrect' unless File.exist?(script)
+
     File.open(script, 'r').read
   end
 

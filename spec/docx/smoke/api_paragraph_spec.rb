@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiParagraph section tests' do
   it 'ApiParagraph | AddColumnBreak method' do
@@ -51,9 +53,10 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | AddPageBreak method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/add_page_break.js')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('This is the text for the first page. After it a page break will be added. Scroll down to the second page to see the text there.')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('This is the text which starts from the beginning of the second page. ')
-    expect(docx.elements.first.nonempty_runs[3].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
+    nonempty_runs = docx.elements.first.nonempty_runs
+    expect(nonempty_runs[0].text).to eq('This is the text for the first page. After it a page break will be added. Scroll down to the second page to see the text there.')
+    expect(nonempty_runs[2].text).to eq('This is the text which starts from the beginning of the second page. ')
+    expect(nonempty_runs[3].text).to eq('It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
   end
 
   it 'ApiParagraph | AddPageNumber method' do
@@ -89,10 +92,11 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | GetElement method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/get_element.js')
-    expect(docx.elements.last.nonempty_runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
-    expect(docx.elements.last.nonempty_runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
-    expect(docx.elements.last.nonempty_runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
-    expect(docx.elements.last.nonempty_runs[1].font_style.bold).to be_truthy
+    runs = docx.elements.last.nonempty_runs
+    expect(runs[0].text).to eq('This is the text for the first text run. Do not forget a space at its end to separate from the second one. ')
+    expect(runs[1].text).to eq('This is the text for the second run. We will set it bold afterwards. It also needs space at its end. ')
+    expect(runs[2].text).to eq('This is the text for the third run. It ends the paragraph.')
+    expect(runs[1].font_style.bold).to be_truthy
   end
 
   it 'ApiParagraph | GetElementsCount method' do
@@ -124,7 +128,10 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | RemoveAllElements method' do
     skip if builder.semver < Semantic::Version.new('5.3.0')
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_all_elements.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the first document paragraph. We removed all the elements to get the number of paragraph elements at this point: 1. If we had not done that the number before this sentence would be \'1\'.")
+    expect(docx.elements.first.nonempty_runs.first.text)
+      .to eq('This is the first document paragraph. We removed all the elements '\
+             'to get the number of paragraph elements at this point: 1. '\
+             "If we had not done that the number before this sentence would be \'1\'.")
   end
 
   it 'ApiParagraph | RemoveElement method' do

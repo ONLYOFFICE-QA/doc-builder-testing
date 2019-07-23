@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class for Wrapping doc building
 require_relative 'doc_builder_helper'
 require_relative 'doc_builder_wrapper/doc_builder_version_helper'
@@ -17,6 +19,7 @@ class DocBuilderWrapper
   # @return [String] location of builder on different OS
   def default_builder_location
     return 'C:\ONLYOFFICE\DocumentBuilder\docbuilder.exe' if Gem.win_platform?
+
     '/usr/bin/documentbuilder'
   end
 
@@ -38,6 +41,7 @@ class DocBuilderWrapper
   # @return [String] default path to license
   def license_path
     return 'C:/ONLYOFFICE/DocumentBuilder/license' if Gem.win_platform?
+
     '/opt/onlyoffice/documentbuilder/license'
   end
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiTableRow section tests' do
   it 'ApiTableRow | GetCell method' do

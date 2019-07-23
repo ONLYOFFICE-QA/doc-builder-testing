@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Helpers method for document builder
 module DocBuilderHelper
   MINIMAL_FILESIZE = { '.odt' => 3656, '.rtf' => 976, '.pdf' => 734, '.txt' => 5, '.ods' => 3351, '.csv' => 1 }.freeze
@@ -21,6 +23,7 @@ module DocBuilderHelper
     creation_timeout = 5
     (0..creation_timeout).each do |_|
       return true if File.exist?(file_name)
+
       sleep 1
     end
     raise DocBuilderFileCreationError, "File #{file_name} was not creating for #{creation_timeout} seconds"

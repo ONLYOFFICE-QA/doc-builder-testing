@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiTextPr section tests' do
   it 'ApiTextPr | GetClassType method' do
@@ -22,8 +24,12 @@ describe 'ApiTextPr section tests' do
 
   it 'ApiTextPr | SetFill method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_text_pr/set_fill.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.properties.font_color.color).to eq(OoxmlParser::Color.new(255, 255, 0))
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.properties.font_color.type).to eq(:solid)
+    font_color = xlsx.worksheets.first.drawings.first
+                     .shape.text_body.paragraphs
+                     .first.runs.first.properties
+                     .font_color
+    expect(font_color.color).to eq(OoxmlParser::Color.new(255, 255, 0))
+    expect(font_color.type).to eq(:solid)
   end
 
   it 'ApiTextPr | SetFontFamily method' do
@@ -48,7 +54,9 @@ describe 'ApiTextPr section tests' do
 
   it 'ApiTextPr | SetSpacing method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_text_pr/set_spacing.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.properties.space).to eq(OoxmlParser::OoxmlSize.new(80, :twip))
+    expect(xlsx.worksheets.first.drawings.first.shape.text_body
+               .paragraphs.first.runs.first.properties
+               .space).to eq(OoxmlParser::OoxmlSize.new(80, :twip))
   end
 
   it 'ApiTextPr | SetStrikeout method' do

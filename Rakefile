@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task default: %w[run_tests_on_desktop]
 
 desc 'run parallel_rspec on builder in desktop'

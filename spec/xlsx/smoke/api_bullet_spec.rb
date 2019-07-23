@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiBullet section tests' do
   it 'ApiBullet | GetClassType method' do

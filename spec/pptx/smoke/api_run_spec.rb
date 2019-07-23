@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiRun section tests' do
   it 'ApiRun | AddLineBreak method' do
