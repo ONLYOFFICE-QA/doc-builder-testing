@@ -39,7 +39,10 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | AddTabStop method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/add_tab_stop.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("This is just a sample text. After it three tab stops will be added.\t\t\tThis is the text which starts after the tab stops.")
+    expect(docx.elements.first
+               .nonempty_runs.first.text).to eq('This is just a sample text. '\
+                                                "After it three tab stops will be added.\t\t\t"\
+                                                'This is the text which starts after the tab stops.')
   end
 
   it 'ApiRun | AddText method' do

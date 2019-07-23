@@ -59,7 +59,12 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | RemoveElement method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_paragraph/remove_element.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs[2].text).not_to eq('This is the third paragraph element (it will be removed from the paragraph and we will not see it). ')
+    expect(pptx.slides.first.elements.first
+               .text_body.paragraphs
+               .first.runs[2].text)
+      .not_to eq('This is the third paragraph element '\
+                   '(it will be removed from the paragraph '\
+                   'and we will not see it). ')
   end
 
   it 'ApiParagraph | SetBullet method' do

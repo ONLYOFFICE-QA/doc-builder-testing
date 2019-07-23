@@ -70,9 +70,14 @@ describe 'Api section tests' do
 
   it 'Api | CreatePresetColor method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_preset_color.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:gradient)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.value).to eq('lightYellow')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
+    fill_color = docx.elements.first.nonempty_runs
+                     .first.alternate_content
+                     .office2010_content.graphic
+                     .data.properties.fill_color
+    gradient_stops = fill_color.value.gradient_stops
+    expect(fill_color.type).to eq(:gradient)
+    expect(gradient_stops[0].color.value).to eq('lightYellow')
+    expect(gradient_stops[1].color).to eq(OoxmlParser::Color.new(255, 164, 101))
   end
 
   it 'Api | CreateRadialGradientFill method' do
