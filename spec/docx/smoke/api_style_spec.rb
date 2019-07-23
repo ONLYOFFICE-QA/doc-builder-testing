@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiStyle section tests' do
   it 'ApiStyle | GetClassType method' do

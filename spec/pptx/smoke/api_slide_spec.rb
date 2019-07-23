@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiSlide section tests' do
   it 'ApiSlide | AddObject method' do

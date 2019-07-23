@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'Edit existing document' do
   it 'Edit document | only_paragraph.docx | add paragraph' do

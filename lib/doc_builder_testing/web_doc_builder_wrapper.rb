@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class for Wrapping doc building from server side
 require 'json'
 require 'jwt'

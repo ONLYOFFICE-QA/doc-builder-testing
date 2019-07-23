@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'Add image to paragraph' do
   it 'Add default image' do

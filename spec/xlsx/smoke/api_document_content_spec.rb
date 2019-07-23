@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiDocumentContent section tests' do
   it 'ApiDocumentContent | AddElement method' do

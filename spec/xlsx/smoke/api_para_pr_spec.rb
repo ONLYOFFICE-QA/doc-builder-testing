@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiParaPr section tests' do
   it 'ApiParaPr | GetClassType method' do

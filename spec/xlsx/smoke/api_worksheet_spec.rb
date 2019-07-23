@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | AddChart method' do

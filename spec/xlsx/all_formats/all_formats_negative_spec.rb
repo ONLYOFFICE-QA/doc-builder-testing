@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'From Xlsx negative' do
   it 'All formats | From Xlsx to Docx' do

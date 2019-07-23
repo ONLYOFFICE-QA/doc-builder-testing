@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Class for Wrapping doc building
 require_relative 'doc_builder_helper'
 require_relative 'doc_builder_wrapper/doc_builder_version_helper'

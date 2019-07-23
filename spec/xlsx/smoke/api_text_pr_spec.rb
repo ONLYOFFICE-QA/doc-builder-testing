@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiTextPr section tests' do
   it 'ApiTextPr | GetClassType method' do

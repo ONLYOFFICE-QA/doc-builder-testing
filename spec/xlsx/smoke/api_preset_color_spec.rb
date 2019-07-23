@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiPresetColor section tests' do
   it 'ApiPresetColor | GetClassType method' do

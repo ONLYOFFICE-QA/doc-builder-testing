@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiNumbering section tests' do
   it 'ApiNumbering | GetClassType method' do

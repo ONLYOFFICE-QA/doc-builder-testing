@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'All formats tests from Docx' do
   it 'All formats | From Docx to Docx' do

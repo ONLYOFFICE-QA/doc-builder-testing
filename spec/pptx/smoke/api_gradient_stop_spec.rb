@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiGradientStop section tests' do
   it 'ApiGradientStop | GetClassType method' do
