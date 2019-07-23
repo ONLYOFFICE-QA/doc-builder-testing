@@ -4,7 +4,10 @@ require 'spec_helper'
 describe 'ApiRun section tests' do
   it 'ApiRun | AddColumnBreak method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/add_column_break.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq('This is the text for the first column. It is written all in one text run. Nothing special.This is the text which starts from the beginning of the second column. It is written in two text runs, you need a space at the end of the first run sentence to separate them.')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('This is the text for the first column. '\
+           'It is written all in one text run. Nothing special.This is the text which '\
+           'starts from the beginning of the second column. It is written in two text '\
+           'runs, you need a space at the end of the first run sentence to separate them.')
     expect(docx.page_properties.columns.count).to eq(2)
   end
 
@@ -23,7 +26,10 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | AddLineBreak method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/add_line_break.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the text for the first line. Nothing special.\rThis is the text which starts from the beginning of the second line. It is written in two text runs, you need a space at the end of the first run sentence to separate them.")
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('This is the text for the first line. '\
+           "Nothing special.\rThis is the text which starts from the beginning of the second line. "\
+           'It is written in two text runs, you need a space at the end of the '\
+           'first run sentence to separate them.')
   end
 
   it 'ApiRun | AddPageBreak method' do
