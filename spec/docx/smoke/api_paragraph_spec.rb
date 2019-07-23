@@ -126,7 +126,10 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | RemoveAllElements method' do
     skip if builder.semver < Semantic::Version.new('5.3.0')
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_all_elements.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("This is the first document paragraph. We removed all the elements to get the number of paragraph elements at this point: 1. If we had not done that the number before this sentence would be \'1\'.")
+    expect(docx.elements.first.nonempty_runs.first.text)
+      .to eq('This is the first document paragraph. We removed all the elements '\
+             'to get the number of paragraph elements at this point: 1. '\
+             "If we had not done that the number before this sentence would be \'1\'.")
   end
 
   it 'ApiParagraph | RemoveElement method' do

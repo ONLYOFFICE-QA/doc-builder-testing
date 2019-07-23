@@ -9,7 +9,12 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | AddTabStop method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_run/add_tab_stop.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq("This is just a sample text. After it three tab stops will be added.\t\t\tThis is the text which starts after the tab stops.")
+    expect(xlsx.worksheets.first.drawings.first.shape
+               .text_body.paragraphs.first.runs
+               .first.text)
+      .to eq('This is just a sample text. After it three tab '\
+               "stops will be added.\t\t\tThis is the text which "\
+               'starts after the tab stops.')
   end
 
   it 'ApiRun | AddText method' do
