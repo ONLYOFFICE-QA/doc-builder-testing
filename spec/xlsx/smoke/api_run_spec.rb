@@ -19,7 +19,9 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | AddText method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_run/add_text.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.first.text).to eq('This is just a sample text. Nothing special.')
+    expect(xlsx.worksheets.first.drawings.first.shape
+               .text_body.paragraphs.first.runs.first
+               .text).to eq('This is just a sample text. Nothing special.')
   end
 
   it 'ApiRun | ClearContent method' do
@@ -54,7 +56,10 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | SetFill method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_run/set_fill.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].properties.font_color.color).to eq(OoxmlParser::Color.new(0, 0, 255))
+    expect(xlsx.worksheets.first.drawings.first.shape
+               .text_body.paragraphs.first.runs[1]
+               .properties.font_color
+               .color).to eq(OoxmlParser::Color.new(0, 0, 255))
   end
 
   it 'ApiRun | SetFontFamily method' do
@@ -79,7 +84,9 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | SetSpacing method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_run/set_spacing.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[1].properties.space).to eq(OoxmlParser::OoxmlSize.new(80, :twip))
+    expect(xlsx.worksheets.first.drawings.first.shape
+               .text_body.paragraphs.first.runs[1].properties
+               .space).to eq(OoxmlParser::OoxmlSize.new(80, :twip))
   end
 
   it 'ApiRun | SetStrikeout method' do
