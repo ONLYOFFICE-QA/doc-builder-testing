@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe 'My behaviour' do
   let(:simple_script) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph.js' }
+  let(:simple_script_windows) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
   let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
 
   describe 'build_doc' do
@@ -18,7 +19,11 @@ describe 'My behaviour' do
     it 'should not raise error if output path is incorrect' do
       skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
-      expect(builder.build(simple_script)).to be_nil
+      if Gem.win_platform?
+        expect(builder.build(simple_script_windows)).to be_nil
+      else
+        expect(builder.build(simple_script)).to be_nil
+      end
       FileUtils.rm_rf('/tmp/docbuilder-testing')
     end
 
