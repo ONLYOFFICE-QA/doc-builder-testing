@@ -21,6 +21,7 @@ module DocBuilderHelper
     creation_timeout = 5
     (0..creation_timeout).each do |_|
       return true if File.exist?(file_name)
+
       sleep 1
     end
     raise DocBuilderFileCreationError, "File #{file_name} was not creating for #{creation_timeout} seconds"

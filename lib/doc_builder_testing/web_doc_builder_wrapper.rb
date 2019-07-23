@@ -62,6 +62,7 @@ class WebDocBuilderWrapper
 
   def read_script_file(script)
     raise WebDocBuilderError, 'Filepath is incorrect' unless File.exist?(script)
+
     File.open(script, 'r').read
   end
 
