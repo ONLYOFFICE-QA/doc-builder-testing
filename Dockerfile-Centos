@@ -8,12 +8,7 @@ RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN /bin/bash -l -c 'bundle install --without development'
-RUN rpm --import "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0x8320CA65CB2DE8E5"
-RUN echo $'[documentbuilder] \n\
-name            = onlyoffice-documentbuilder \n\
-baseurl         = http://download.onlyoffice.com/repo/centos/main/noarch/ \n\
-enabled         = 1 \n\
-gpgcheck        = 1' > /etc/yum.repos.d/documentbuilder.repo
+RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && yum clean all && yum -y update onlyoffice-documentbuilder; \
                      onlyoffice-documentbuilder; \
