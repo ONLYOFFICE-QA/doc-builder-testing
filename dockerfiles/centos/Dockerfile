@@ -6,11 +6,8 @@ RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0
 RUN yum -y install file-devel \
                    gcc \
                    git \
-                   google-crosextra-carlito-fonts \
                    ImageMagick-devel \
-                   make \
-                   which \
-                   zlib-devel
+                   make
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
