@@ -9,7 +9,6 @@ RUN yum -y install file-devel \
                    google-crosextra-carlito-fonts \
                    ImageMagick-devel \
                    make \
-                   which \
                    zlib-devel
 RUN gem install bundler
 COPY . /doc-builder-testing
