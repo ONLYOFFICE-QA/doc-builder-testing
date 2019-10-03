@@ -7,8 +7,7 @@ RUN yum -y install file-devel \
                    gcc \
                    git \
                    ImageMagick-devel \
-                   make \
-                   zlib-devel
+                   make
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
