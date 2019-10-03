@@ -3,7 +3,14 @@ FROM centos:7
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
 RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0/ruby-2.4.0-1.el7.centos.x86_64.rpm
-RUN yum -y install git gcc make file-devel zlib-devel google-crosextra-carlito-fonts ImageMagick-devel which
+RUN yum -y install file-devel \
+                   gcc \
+                   git \
+                   google-crosextra-carlito-fonts \
+                   ImageMagick-devel \
+                   make \
+                   which \
+                   zlib-devel
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
