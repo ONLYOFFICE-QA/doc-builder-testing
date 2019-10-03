@@ -7,10 +7,10 @@ RUN yum -y install git gcc make file-devel zlib-devel google-crosextra-carlito-f
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
-RUN /bin/bash -l -c 'bundle install --without development'
+RUN /bin/bash -c 'bundle install --without development'
 RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
-CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
-                     cd /doc-builder-testing; \
-                     bundle update; \
-                     bundle exec parallel_rspec spec"
+CMD /bin/bash -c "onlyoffice-documentbuilder; \
+                  cd /doc-builder-testing; \
+                  bundle update; \
+                  bundle exec parallel_rspec spec"
