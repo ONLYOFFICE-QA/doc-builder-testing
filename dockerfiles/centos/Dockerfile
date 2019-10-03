@@ -6,7 +6,6 @@ RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0
 RUN yum -y install file-devel \
                    gcc \
                    git \
-                   google-crosextra-carlito-fonts \
                    ImageMagick-devel \
                    make \
                    zlib-devel
