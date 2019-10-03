@@ -10,8 +10,7 @@ WORKDIR /doc-builder-testing
 RUN /bin/bash -l -c 'bundle install --without development'
 RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
-CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && yum clean all && yum -y update onlyoffice-documentbuilder; \
-                     onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      bundle update; \
                      bundle exec parallel_rspec spec"

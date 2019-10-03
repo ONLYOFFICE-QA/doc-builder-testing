@@ -13,8 +13,7 @@ RUN echo "deb [trusted=yes]  http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubu
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
 
-CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get -y install onlyoffice-documentbuilder; \
-                     onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      bundle update; \
                      bundle exec parallel_rspec spec"

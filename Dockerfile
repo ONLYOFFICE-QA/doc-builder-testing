@@ -13,8 +13,7 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
 RUN echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
-CMD /bin/bash -l -c "[ ! -z \"$UPDATE_DOCUMENTBUILDER\" ] && apt-get -y update && apt-get --allow-unauthenticated -y install onlyoffice-documentbuilder; \
-                     onlyoffice-documentbuilder; \
+CMD /bin/bash -l -c "onlyoffice-documentbuilder; \
                      cd /doc-builder-testing; \
                      bundle update; \
                      rake"
