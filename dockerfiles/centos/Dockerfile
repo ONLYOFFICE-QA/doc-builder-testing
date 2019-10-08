@@ -1,13 +1,26 @@
-FROM centos:7
+FROM centos:8
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
-RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/2.4.0/ruby-2.4.0-1.el7.centos.x86_64.rpm
+# ImageMagic only in epel repo
+RUN dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+# `PowerTools` need to correct install ImageMagic dependencies
+RUN dnf install -y 'dnf-command(config-manager)' && \
+    dnf config-manager --set-enabled PowerTools
 RUN yum -y install file-devel \
                    gcc \
                    git \
                    ImageMagick-devel \
-                   make
+                   # /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
+                   # on gems install
+                   redhat-rpm-config \
+                   ruby-devel \
+                   make \
+                   # fatal error: zlib.h: No such file or directory
+                   # on `gem install nokogiri`
+                   zlib
+# Workaround for `find_spec_for_exe': can't find gem bundler (>= 0.a) with executable bundle (Gem::GemNotFoundException)                   
+RUN gem update --system --install-dir=/usr/share/gems --bindir /usr/local/bin --no-ri --no-rdoc
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
