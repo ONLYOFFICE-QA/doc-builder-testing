@@ -151,8 +151,8 @@ describe 'Api section tests' do
   it 'Api |  GetSheets method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_sheets.js')
-    expect(xlsx.worksheets[0].rows[0].cells.first.text).to eq('Sheet1')
-    expect(xlsx.worksheets[0].rows[1].cells.first.text).to eq('new_sheet_name')
+    expect(xlsx.worksheets[1].rows[0].cells.first.text).to eq('Sheet1')
+    expect(xlsx.worksheets[1].rows[1].cells.first.text).to eq('new_sheet_name')
   end
 
   it 'Api | Format method' do
