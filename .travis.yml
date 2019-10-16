@@ -9,8 +9,10 @@ jobs:
       script: docker build .
     - stage: Archive Dockerfiles Test
       script: docker build -f dockerfiles/debian-archive/Dockerfile .
-    - stage: Centos-Based Dockerfiles Test
-      script: docker build -f dockerfiles/centos/Dockerfile .
+    - stage: Centos-7-Based Dockerfiles Test
+      script: docker build -f dockerfiles/centos-7/Dockerfile .
+    - stage: Centos-8-Based Dockerfiles Test
+      script: docker build -f dockerfiles/centos-8/Dockerfile .
     - stage: Debian develop Dockerfiles Test
       script: docker build -f dockerfiles/debian-develop/Dockerfile .
     - stage: Running test inside doc-builder-testing
