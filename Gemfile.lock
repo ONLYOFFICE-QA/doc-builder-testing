@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ONLYOFFICE/ooxml_parser
-  revision: 29a070a76732bb8e136656097e7230ca767388cd
+  revision: eafc13a511a6de69da644ca43cde44e745694f20
   specs:
     ooxml_parser (0.4.1)
       nokogiri (~> 1.6)
