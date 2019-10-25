@@ -4,6 +4,9 @@ language: generic
 services:
   - docker
 jobs:
+  allow_failures:
+    # FIXME: after fix of https://github.com/ONLYOFFICE/DocumentBuilder/issues/31
+    - script: docker build -f dockerfiles/centos-8/Dockerfile .
   include:
     - stage: Default Dockerfile Test
       script: docker build .
