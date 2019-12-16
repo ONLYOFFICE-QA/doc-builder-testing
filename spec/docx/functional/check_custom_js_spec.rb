@@ -7,7 +7,7 @@ describe 'javascript code injection' do
     expect(docx).to be_with_data
   end
 
-  it 'check add type of value | bold_report' do
+  it 'check add type of value | christmas_note_cards' do
     docx = builder.build_and_parse('asserts/js/docx/functional/custom_js/christmas_note_cards.js')
     expect(docx).to be_with_data
   end
