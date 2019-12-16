@@ -53,7 +53,7 @@ describe 'ApiRun section tests' do
   it 'ApiRun | ClearContent method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/clear_content.js')
     docx.elements.first.character_style_array.each do |current_run|
-      expect(current_run.text.empty?).to be_truthy
+      expect(current_run.text).to be_empty
     end
     expect(docx.elements[1].nonempty_runs.first.text).to eq('The text in the previous paragraph cannot be seen, as it has been cleared.')
     expect(docx.elements[1].nonempty_runs.size).to eq(1)

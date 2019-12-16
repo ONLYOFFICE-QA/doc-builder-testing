@@ -9,21 +9,21 @@ describe 'All formats tests from Docx' do
 
   it 'All formats | From Docx to Odt' do
     output_file = builder.build_file('asserts/js/other_formats/addtext_odt.js')
-    expect(builder.file_empty?(output_file)).to be_falsey
+    expect(builder).not_to be_file_empty(output_file)
   end
 
   it 'All formats | From Docx to Pdf' do
     output_file = builder.build_file('asserts/js/other_formats/addtext_pdf_from_docx.js')
-    expect(builder.file_empty?(output_file)).to be_falsey
+    expect(builder).not_to be_file_empty(output_file)
   end
 
   it 'All formats | From Docx to Rtf' do
     output_file = builder.build_file('asserts/js/other_formats/addtext_rtf.js')
-    expect(builder.file_empty?(output_file)).to be_falsey
+    expect(builder).not_to be_file_empty(output_file)
   end
 
   it 'All formats | From Docx to Txt' do
     output_file = builder.build_file('asserts/js/other_formats/addtext_txt.js')
-    expect(builder.file_empty?(output_file)).to be_falsey
+    expect(builder).not_to be_file_empty(output_file)
   end
 end

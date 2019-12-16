@@ -29,7 +29,7 @@ describe 'ApiNumberingLevel section tests' do
     expect(docx.elements[2].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[3].nonempty_runs.first.text).to eq('This is a paragraph without a numbering. ')
-    expect(docx.elements[3].numbering.nil?).to be_truthy
+    expect(docx.elements[3].numbering).to be_nil
 
     expect(docx.elements[4].nonempty_runs.first.text).to eq("This is the second element of a parent numbered list which starts with '2'")
     expect(docx.elements[4].numbering.ilvl).to eq(0)

@@ -7,7 +7,7 @@ describe 'Api section tests' do
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:picture)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(595_605, :emu))
   end
@@ -21,7 +21,7 @@ describe 'Api section tests' do
     end
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.first.text.string.cache.points.first.value.value).to eq('Projected Revenue')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.last.text.string.cache.points.first.value.value).to eq('Estimated Costs')
-    expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.title.nil?).to be_truthy
+    expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.title).to be_nil
     expect(docx.elements.first.nonempty_runs.first.drawing.properties.object_size.x).to eq(OoxmlParser::OoxmlSize.new(4_051_299, :emu))
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.alternate_content.office2010_content.style_number).to eq(124)
   end
@@ -50,12 +50,12 @@ describe 'Api section tests' do
   it 'Api | CreateLinearGradientFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_linear_gradient_fill.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.linear_gradient.angle).to eq(54.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops.empty?).to be_falsey
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops).not_to be_empty
   end
 
   it 'Api | CreateNoFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_no_fill.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color.nil?).to be_truthy
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color).to be_nil
   end
 
   it 'Api | CreateParagraph method' do
@@ -95,7 +95,7 @@ describe 'Api section tests' do
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].position).to eq(0.0)
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
   end
 
   it 'Api | CreateRun method' do
@@ -113,8 +113,8 @@ describe 'Api section tests' do
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:rect)
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(395_605, :emu))
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color.nil?).to be_truthy
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.nil?).to be_falsey
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color).to be_nil
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
   end
 
   it 'Api | CreateSolidFill method' do

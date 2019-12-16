@@ -219,7 +219,7 @@ describe 'ApiParagraph section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/set_numbering.js')
     docx.elements[1..9].each_with_index do |current_element, index|
       expect(current_element.numbering.ilvl).to eq(index)
-      expect(current_element.numbering.parent.nil?).to be_falsey
+      expect(current_element.numbering.parent).not_to be_nil
     end
   end
 
