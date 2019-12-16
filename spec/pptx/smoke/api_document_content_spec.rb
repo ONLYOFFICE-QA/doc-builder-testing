@@ -4,7 +4,11 @@ require 'spec_helper'
 describe 'ApiDocumentContent section tests' do
   it 'ApiDocumentContent | AddElement method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_document_content/add_element.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.last.runs.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    expect(pptx.slides.first.elements.first
+               .text_body.paragraphs.last.runs
+               .first.text)
+      .to eq('We removed all elements from '\
+             'the shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | GetClassType method' do
@@ -28,13 +32,21 @@ describe 'ApiDocumentContent section tests' do
 
   it 'ApiDocumentContent | Push method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_document_content/push.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.last.characters.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    expect(pptx.slides.first.elements.first
+               .text_body.paragraphs.last
+               .characters.first.text)
+      .to eq('We removed all elements from the '\
+             'shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | RemoveAllElements method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_document_content/remove_all_elements.js')
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.size).to eq(2)
-    expect(pptx.slides.first.elements.first.text_body.paragraphs.last.characters.first.text).to eq('We removed all elements from the shape and added a new paragraph inside it.')
+    paragraphs = pptx.slides.first.elements
+                     .first.text_body.paragraphs
+    expect(paragraphs.size).to eq(2)
+    expect(paragraphs.last.characters.first.text)
+      .to eq('We removed all elements from the '\
+             'shape and added a new paragraph inside it.')
   end
 
   it 'ApiDocumentContent | RemoveElement method' do
