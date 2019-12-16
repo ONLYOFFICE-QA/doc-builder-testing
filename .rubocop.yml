@@ -1,3 +1,9 @@
 require: rubocop-rspec
 inherit_from:
     - .rubocop_todo.yml
+
+# Disabled according to
+# https://github.com/rubocop-hq/rubocop/issues/4222#issuecomment-290655562
+Lint/AmbiguousBlockAssociation:
+    Exclude:
+        - "spec/**/*"
