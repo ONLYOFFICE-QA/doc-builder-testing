@@ -27,7 +27,7 @@ describe 'My behaviour' do
     expect(docx.elements[1].nonempty_runs.first.vertical_align).to eq(:subscript)
   end
 
-  it 'text should be subscript' do
+  it 'text should be superscript' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/text/add_text_with_superscript_in_paragraph.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Superscript')
     expect(docx.elements[1].nonempty_runs.first.vertical_align).to eq(:superscript)

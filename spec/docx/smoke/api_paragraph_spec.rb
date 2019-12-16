@@ -102,7 +102,10 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | GetElementsCount method' do
     skip if builder.semver < Semantic::Version.new('5.3.0')
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/get_elements_count.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("Number of paragraph elements at this point: \t1\rNumber of paragraph elements after we added a text run: \t2")
+    expect(docx.elements.first.nonempty_runs.first.text)
+      .to eq('Number of paragraph elements at '\
+             "this point: \t1\rNumber of paragraph "\
+             "elements after we added a text run: \t2")
   end
 
   it 'ApiParagraph | GetNumbering method' do
@@ -219,7 +222,7 @@ describe 'ApiParagraph section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/set_numbering.js')
     docx.elements[1..9].each_with_index do |current_element, index|
       expect(current_element.numbering.ilvl).to eq(index)
-      expect(current_element.numbering.parent.nil?).to be_falsey
+      expect(current_element.numbering.parent).not_to be_nil
     end
   end
 

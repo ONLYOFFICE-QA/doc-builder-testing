@@ -44,7 +44,11 @@ describe 'ApiParaPr section tests' do
 
   it 'ApiParaPr | SetSpacingLine method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_para_pr/set_spacing_line.js')
-    expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.properties.spacing.line).to eq(OoxmlParser::OoxmlSize.new(300_000.0, :one_1000th_percent))
+    expect(xlsx.worksheets.first.drawings.first
+               .shape.text_body.paragraphs.first
+               .properties.spacing.line)
+      .to eq(OoxmlParser::OoxmlSize.new(300_000.0,
+                                        :one_1000th_percent))
   end
 
   it 'ApiParaPr | SetTabs method' do

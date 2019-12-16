@@ -21,7 +21,7 @@ describe 'text with effects' do
     expect(docx.notes.first.elements[1].nonempty_runs.first.vertical_align).to eq(:subscript)
   end
 
-  it 'text should be subscript' do
+  it 'text should be superscript' do
     docx = builder.build_and_parse('asserts/js/docx/header/text/text_with_superscript_in_header.js')
     expect(docx.notes.first.elements[1].nonempty_runs.first.text).to eq('Superscript')
     expect(docx.notes.first.elements[1].nonempty_runs.first.vertical_align).to eq(:superscript)

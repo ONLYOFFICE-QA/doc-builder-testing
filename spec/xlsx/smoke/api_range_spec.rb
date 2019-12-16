@@ -340,7 +340,7 @@ describe 'ApiRange section tests' do
 
   it 'ApiRange | GetHidden method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/get_hidden.js')
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/hidden_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
