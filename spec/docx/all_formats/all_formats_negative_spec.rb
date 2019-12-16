@@ -7,7 +7,7 @@ describe 'All formats negative tests from Docx' do
   end
 
   it 'All formats | From Docx to Ods' do
-    expect { builder.build_and_parse('asserts/js/other_formats/negative/addtext_xlsx_from_docx.js') }.to raise_error(StandardError)
+    expect { builder.build_and_parse('asserts/js/other_formats/negative/addtext_ods_from_docx.js') }.to raise_error(StandardError)
   end
 
   it 'All formats | From Docx to Csv' do
