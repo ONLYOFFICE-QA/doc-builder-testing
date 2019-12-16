@@ -4,12 +4,16 @@ require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_blip_fill.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.type).to eq(:shape)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:star10)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:picture)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(595_605, :emu))
+    graphic = docx.elements.first.nonempty_runs
+                  .first.alternate_content
+                  .office2010_content.graphic
+    properties = graphic.data.properties
+    expect(graphic.type).to eq(:shape)
+    expect(properties.preset_geometry.name).to eq(:star10)
+    expect(properties.fill_color.type).to eq(:picture)
+    expect(properties.fill_color.value).not_to be_nil
+    expect(properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
+    expect(properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(595_605, :emu))
   end
 
   it 'Api | CreateChart method' do
@@ -28,12 +32,16 @@ describe 'Api section tests' do
 
   it 'Api | CreateGradientStop method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_gradient_stop.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.type).to eq(:shape)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.type).to eq(:gradient)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].position).to eq(0.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
+    graphic = docx.elements.first.nonempty_runs
+                  .first.alternate_content
+                  .office2010_content.graphic
+    color = graphic.data.properties.fill_color
+    expect(graphic.type).to eq(:shape)
+    expect(color.type).to eq(:gradient)
+    expect(color.value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
+    expect(color.value.gradient_stops[0].position).to eq(0.0)
+    expect(color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
+    expect(color.value.gradient_stops[1].position).to eq(100.0)
   end
 
   it 'Api | CreateImage method' do
@@ -82,20 +90,30 @@ describe 'Api section tests' do
 
   it 'Api | CreateRadialGradientFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_radial_gradient_fill.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.path).to eq(:circle)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].position).to eq(0.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
+    color_value = docx.elements.first.nonempty_runs
+                      .first.alternate_content
+                      .office2010_content.graphic
+                      .data.properties.fill_color
+                      .value
+    expect(color_value.path).to eq(:circle)
+    expect(color_value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
+    expect(color_value.gradient_stops[0].position).to eq(0.0)
+    expect(color_value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
+    expect(color_value.gradient_stops[1].position).to eq(100.0)
   end
 
   it 'Api | CreateRGBColor method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_rgb_color.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[0].position).to eq(0.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops[1].position).to eq(100.0)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
+    color_value = docx.elements.first.nonempty_runs
+                      .first.alternate_content
+                      .office2010_content.graphic
+                      .data.properties.fill_color
+                      .value
+    expect(color_value.gradient_stops[0].color.to_s).to eq('RGB (255, 224, 204)')
+    expect(color_value.gradient_stops[0].position).to eq(0.0)
+    expect(color_value.gradient_stops[1].color.to_s).to eq('RGB (255, 164, 101)')
+    expect(color_value.gradient_stops[1].position).to eq(100.0)
+    expect(color_value).not_to be_nil
   end
 
   it 'Api | CreateRun method' do
@@ -110,11 +128,15 @@ describe 'Api section tests' do
 
   it 'Api | CreateShape method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_shape.js')
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.preset_geometry.name).to eq(:rect)
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(395_605, :emu))
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color).to be_nil
-    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).not_to be_nil
+    alternate_content = docx.elements.first.nonempty_runs.first.alternate_content
+    expect(alternate_content.office2007_content.data.properties.stroke_color).to be_nil
+    properties = alternate_content.office2010_content
+                                  .graphic
+                                  .data.properties
+    expect(properties.preset_geometry.name).to eq(:rect)
+    expect(properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(5_930_900, :emu))
+    expect(properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(395_605, :emu))
+    expect(properties.fill_color.value).not_to be_nil
   end
 
   it 'Api | CreateSolidFill method' do
