@@ -21,13 +21,6 @@ RSpec/DescribeClass:
 RSpec/ExampleLength:
   Enabled: false
 
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: CustomTransform, IgnoredWords.
-RSpec/ExampleWording:
-  Exclude:
-    - 'spec/doc_builder_wrapper_spec.rb'
-
 # Offense count: 352
 # Configuration parameters: AggregateFailuresByDefault.
 RSpec/MultipleExpectations:

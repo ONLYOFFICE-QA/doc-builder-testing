@@ -8,7 +8,7 @@ describe 'My behaviour' do
   let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
 
   describe 'build_doc' do
-    it 'should raise correct error if input file is incorrect' do
+    it 'raises correct error if input file is incorrect' do
       skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       expect { builder.build('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
@@ -18,7 +18,7 @@ describe 'My behaviour' do
       expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
     end
 
-    it 'should not raise error if output path is incorrect' do
+    it 'does not raise error if output path is incorrect' do
       skip if ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       if Gem.win_platform?
