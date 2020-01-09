@@ -76,7 +76,7 @@ GEM
     ruby-rc4 (0.1.5)
     rubyzip (2.0.0)
     semantic (1.6.1)
-    ttfunk (1.6.0)
+    ttfunk (1.6.1)
     unicode-display_width (1.6.0)
 
 PLATFORMS
