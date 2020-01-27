@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ONLYOFFICE/ooxml_parser
-  revision: 417855815f6f779afc5300b7682fea3d5dfe772b
+  revision: 8523670126e18ab8e28efa66abf6e3b039a93c90
   specs:
     ooxml_parser (0.4.1)
       nokogiri (~> 1.6)
@@ -74,7 +74,7 @@ GEM
     ruby-filemagic (0.7.2)
     ruby-progressbar (1.10.1)
     ruby-rc4 (0.1.5)
-    rubyzip (2.0.0)
+    rubyzip (2.1.0)
     semantic (1.6.1)
     ttfunk (1.6.1)
     unicode-display_width (1.6.1)
