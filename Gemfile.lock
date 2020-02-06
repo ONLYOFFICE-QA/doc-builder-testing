@@ -36,7 +36,7 @@ GEM
       childprocess (>= 0.6.3, < 4)
       iniparse (~> 1.4)
     parallel (1.19.1)
-    parallel_tests (2.30.1)
+    parallel_tests (2.31.0)
       parallel
     parser (2.7.0.2)
       ast (~> 2.4.0)
