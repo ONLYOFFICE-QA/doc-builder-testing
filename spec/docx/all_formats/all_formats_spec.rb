@@ -8,6 +8,7 @@ describe 'All formats tests from Docx' do
   end
 
   it 'All formats | From Docx to Odt' do
+    skip('https://github.com/ONLYOFFICE/DocumentBuilder/issues/32')
     output_file = builder.build_file('asserts/js/other_formats/addtext_odt.js')
     expect(builder).not_to be_file_empty(output_file)
   end
