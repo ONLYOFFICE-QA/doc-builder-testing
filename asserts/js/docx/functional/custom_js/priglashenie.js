@@ -91,7 +91,7 @@ oParaPr.SetSpacingBefore(180);
 
 // frame
 oParagraph = oDocument.GetElement(0);
-oDrawing = Api.CreateImage("https://s17.postimg.org/5cjvmfcqn/image0.png", 2972435, 4286250);
+oDrawing = Api.CreateImage("https://cloud.githubusercontent.com/assets/668524/22776978/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 2972435, 4286250);
 oDrawing.SetWrappingStyle("behind");
 oDrawing.SetHorPosition("page", 452118);
 oDrawing.SetVerPosition("page", 463548);
