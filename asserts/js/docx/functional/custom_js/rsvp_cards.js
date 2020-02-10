@@ -84,7 +84,7 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 
 	// cells
 	oCell = oTable.GetRow(nRow).GetCell(0);
-	oDrawing = Api.CreateImage("http://s12.postimg.org/8zw6kysb1/image0.png", 1167386, 2928086);
+	oDrawing = Api.CreateImage("https://cloud.githubusercontent.com/assets/668524/22776978/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 1167386, 2928086);
 	oCell.GetContent().GetElement(0).AddDrawing(oDrawing);
 	oCell.GetContent().GetElement(0).SetJc("right");
 	oCell.GetContent().GetElement(0).SetSpacingLine(240, "auto");
