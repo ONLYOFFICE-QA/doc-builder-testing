@@ -1,3 +1,12 @@
 require: rubocop-rspec
-inherit_from:
-    - .rubocop_todo.yml
+inherit_from: .rubocop_todo.yml
+
+Style/HashEachMethods:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
