@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: https://github.com/onlyoffice-testing-robot/onlyoffice_pdf_parser
-  revision: 2676388d74306fc4ada2b667b0ffdedde0b27af4
+  revision: 6f949b821d4f7f7de8db3c64f4e56afed44bddaf
   specs:
     onlyoffice_pdf_parser (0.0.1)
       image_size (~> 2)
