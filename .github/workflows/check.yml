@@ -1,6 +1,14 @@
-name: Docker Build
+name: check
 on: [push]
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running test inside doc-builder-testing
+        run: |
+          docker build -t doc-builder-testing .
+          docker run doc-builder-testing
   build:
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.known-install-problems }}
@@ -18,11 +26,3 @@ jobs:
       run: docker build .
     - name: Dockerfile ${{ matrix.dockerfiles }} Test
       run: docker build -f ${{ matrix.dockerfiles }} .
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Running test inside doc-builder-testing
-        run: |
-          docker build -t doc-builder-testing .
-          docker run doc-builder-testing
