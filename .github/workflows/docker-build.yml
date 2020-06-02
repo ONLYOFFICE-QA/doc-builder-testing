@@ -1,14 +1,17 @@
-name: Docker
+name: Docker Build
 on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dockerfiles: ['Dockerfile', 'dockerfiles/debian-archive/Dockerfile', 'dockerfiles/centos-7/Dockerfile', 'dockerfiles/centos-8/Dockerfile', 'dockerfiles/debian-develop/Dockerfile']
     steps:
     - uses: actions/checkout@v2
     - name: Default Dockerfile Test
       run: docker build .
-    - name: Archive Dockerfiles Test
-      run: docker build -f dockerfiles/debian-archive/Dockerfile .
+    - name: Dockerfile ${{ matrix.dockerfiles }} Test
+      run: docker build -f ${{ matrix.dockerfiles }} .
     - name: Centos-7-Based Dockerfiles Test
       run: docker build -f dockerfiles/centos-7/Dockerfile .
     - name: Centos-8-Based Dockerfiles Test
