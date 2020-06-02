@@ -1,0 +1,21 @@
+name: Docker
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Default Dockerfile Test
+      run: docker build .
+    - name: Archive Dockerfiles Test
+      run: docker build -f dockerfiles/debian-archive/Dockerfile .
+    - name: Centos-7-Based Dockerfiles Test
+      run: docker build -f dockerfiles/centos-7/Dockerfile .
+    - name: Centos-8-Based Dockerfiles Test
+      run: docker build -f dockerfiles/centos-8/Dockerfile .
+    - name: Debian develop Dockerfiles Test
+      run: docker build -f dockerfiles/debian-develop/Dockerfile .
+    - name: Running test inside doc-builder-testing
+      run: |
+        docker build -t doc-builder-testing .
+        docker run doc-builder-testing
