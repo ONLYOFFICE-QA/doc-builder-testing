@@ -12,13 +12,3 @@ jobs:
       run: docker build .
     - name: Dockerfile ${{ matrix.dockerfiles }} Test
       run: docker build -f ${{ matrix.dockerfiles }} .
-    - name: Centos-7-Based Dockerfiles Test
-      run: docker build -f dockerfiles/centos-7/Dockerfile .
-    - name: Centos-8-Based Dockerfiles Test
-      run: docker build -f dockerfiles/centos-8/Dockerfile .
-    - name: Debian develop Dockerfiles Test
-      run: docker build -f dockerfiles/debian-develop/Dockerfile .
-    - name: Running test inside doc-builder-testing
-      run: |
-        docker build -t doc-builder-testing .
-        docker run doc-builder-testing
