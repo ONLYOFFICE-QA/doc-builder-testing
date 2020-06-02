@@ -3,13 +3,14 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.centos-8-failure }}
+    continue-on-error: ${{ matrix.known-install-problems }}
     strategy:
       matrix:
         dockerfiles: ['Dockerfile', 'dockerfiles/debian-archive/Dockerfile', 'dockerfiles/centos-7/Dockerfile', 'dockerfiles/debian-develop/Dockerfile']
+        known-install-problems: [false]
         include:
-          dockerfiles: 'dockerfiles/centos-8/Dockerfile'
-          centos-8-failure: true
+          - dockerfiles: 'dockerfiles/centos-8/Dockerfile'
+            known-install-problems: true
     steps:
     - uses: actions/checkout@v2
     - name: Default Dockerfile Test
