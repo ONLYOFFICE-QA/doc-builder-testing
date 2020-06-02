@@ -10,6 +10,7 @@ jobs:
         known-install-problems: [false]
         include:
           - dockerfiles: 'dockerfiles/centos-8/Dockerfile'
+            # FIXME: after fix of https://github.com/ONLYOFFICE/DocumentBuilder/issues/31
             known-install-problems: true
     steps:
     - uses: actions/checkout@v2
