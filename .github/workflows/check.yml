@@ -1,0 +1,28 @@
+name: check
+on: [push]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Running test inside doc-builder-testing
+        run: |
+          docker build -t doc-builder-testing .
+          docker run doc-builder-testing
+  build:
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.known-install-problems }}
+    strategy:
+      matrix:
+        dockerfiles: ['Dockerfile', 'dockerfiles/debian-archive/Dockerfile', 'dockerfiles/centos-7/Dockerfile', 'dockerfiles/debian-develop/Dockerfile']
+        known-install-problems: [false]
+        include:
+          - dockerfiles: 'dockerfiles/centos-8/Dockerfile'
+            # FIXME: after fix of https://github.com/ONLYOFFICE/DocumentBuilder/issues/31
+            known-install-problems: true
+    steps:
+    - uses: actions/checkout@v2
+    - name: Default Dockerfile Test
+      run: docker build .
+    - name: Dockerfile ${{ matrix.dockerfiles }} Test
+      run: docker build -f ${{ matrix.dockerfiles }} .
