@@ -16,5 +16,4 @@ RUN chmod +x /usr/bin/documentbuilder
 WORKDIR /doc-builder-testing
 RUN /bin/bash -c 'bundle install --without development'
 CMD /bin/bash -c "documentbuilder; \
-                  bundle update; \
                   bundle exec parallel_rspec spec"

@@ -29,5 +29,4 @@ RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyo
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
                   cd /doc-builder-testing; \
-                  bundle update; \
                   bundle exec parallel_rspec spec"
