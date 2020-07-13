@@ -15,5 +15,4 @@ RUN echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/a
     apt-get -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
                   cd /doc-builder-testing; \
-                  bundle update; \
                   rake"
