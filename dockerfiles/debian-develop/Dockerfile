@@ -15,4 +15,4 @@ RUN echo "deb [trusted=yes]  http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubu
 
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
                   cd /doc-builder-testing; \
-                  bundle exec parallel_rspec spec"
+                  rake rspec_critical"
