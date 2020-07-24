@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'From Xlsx' do
+describe 'From Xlsx', critical: true do
   it 'All formats | From Xlsx to Xlsx' do
     xlsx = builder.build_and_parse('asserts/js/other_formats/addtext_xlsx.js')
     expect(xlsx).to be_with_data

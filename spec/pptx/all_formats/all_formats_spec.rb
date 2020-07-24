@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'All formats tests from Pptx' do
+describe 'All formats tests from Pptx', critical: true do
   it 'All formats | From Pptx to Pptx' do
     pptx = builder.build_and_parse('asserts/js/other_formats/addtext_pptx.js')
     expect(pptx).to be_with_data

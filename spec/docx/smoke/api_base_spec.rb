@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'Api section tests' do
+describe 'Api section tests', critical: true do
   it 'Api | CreateBlipFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_blip_fill.js')
     graphic = docx.elements.first.nonempty_runs

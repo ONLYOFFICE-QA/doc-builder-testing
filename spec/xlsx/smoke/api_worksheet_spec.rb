@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'ApiWorksheet section tests' do
+describe 'ApiWorksheet section tests', critical: true do
   it 'ApiWorksheet | AddChart method' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_chart.js')
     drawing = xlsx.worksheets.first.drawings.first

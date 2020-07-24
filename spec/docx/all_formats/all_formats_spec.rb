@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'All formats tests from Docx' do
+describe 'All formats tests from Docx', critical: true do
   it 'All formats | From Docx to Docx' do
     docx = builder.build_and_parse('asserts/js/other_formats/addtext_docx.js')
     expect(docx).to be_with_data

@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 
-describe 'My behaviour' do
+describe 'My behaviour', critical: true do
   let(:simple_script) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph.js' }
   let(:simple_script_windows) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
   let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
