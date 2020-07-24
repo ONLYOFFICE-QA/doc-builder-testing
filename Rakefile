@@ -13,3 +13,8 @@ task :run_tests_on_web do
   ENV['BUILDER_PLATFORM'] = 'WEB'
   sh 'bundle exec parallel_rspec spec'
 end
+
+desc 'run only critical tests'
+task :rspec_critical do
+  sh("parallel_rspec spec -o '--tag critical'")
+end
