@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'javascript code injection' do
+describe 'javascript code injection', critical: true do
   it 'check add type of value | bold_report' do
     docx = builder.build_and_parse('asserts/js/docx/functional/custom_js/bold_report.js')
     expect(docx).to be_with_data

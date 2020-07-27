@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'Edit existing document' do
+describe 'Edit existing document', critical: true do
   it 'Edit document | only_paragraph.docx | add paragraph' do
     pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36084') if ENV['BUILDER_PLATFORM'] == 'WEB'
     docx = builder.build_and_parse('asserts/js/docx/functional/edit_document_only_paragraph.js')

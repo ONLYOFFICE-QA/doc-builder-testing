@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 describe 'Add image to paragraph' do
-  it 'Add default image' do
+  it 'Add default image', critical: true do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/images/create_image_base64.js')
     drawing = docx.elements.first.nonempty_runs.first.drawing
     drawing ||= docx.elements.first.nonempty_runs.first.alternate_content.office2010_content

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'ApiDocumentContent section tests' do
+describe 'ApiDocumentContent section tests', critical: true do
   it 'ApiDocumentContent | AddElement method' do
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_document_content/add_element.js')
     expect(pptx.slides.first.elements.first

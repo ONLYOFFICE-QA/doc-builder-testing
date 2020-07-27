@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  it 'text should be smallcapitals' do
+  it 'text should be smallcapitals', critical: true do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/text/add_text_with_smallcapitals_in_paragraph.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('SmallCapitals')
     expect(docx.elements[1].nonempty_runs.first.caps).to eq(:small_caps)
