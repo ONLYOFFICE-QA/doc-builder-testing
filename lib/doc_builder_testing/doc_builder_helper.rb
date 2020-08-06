@@ -50,7 +50,7 @@ module DocBuilderHelper
   # @param script [String] script content
   # @return [String] type of file
   def recognize_output_format(script)
-    save_file = script.match(/builder.SaveFile\(\"(.*)\",/)
+    save_file = script.match(/builder.SaveFile\("(.*)",/)
     return nil unless save_file
 
     save_file[1]

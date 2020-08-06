@@ -31,12 +31,6 @@ Style/RedundantFileExtensionInRequire:
   Exclude:
     - 'spec/spec_helper.rb'
 
-# Offense count: 2
-# Cop supports --auto-correct.
-Style/RedundantRegexpEscape:
-  Exclude:
-    - 'lib/doc_builder_testing/doc_builder_helper.rb'
-
 # Offense count: 428
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
