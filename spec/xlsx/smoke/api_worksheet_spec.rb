@@ -248,14 +248,12 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | SetPageOrientation method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=39068')
     pdf = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_page_orientation.js')
     expect(pdf.page_size).to eq('Landscape A4')
   end
 
   it 'ApiWorksheet | PageOrientation property' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=39068')
     pdf = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/page_orientation_property.js')
     expect(pdf.page_size).to eq('Landscape A4')
   end
