@@ -33,7 +33,7 @@ describe 'ApiTable section tests' do
 
   it 'ApiTable | MergeCells method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/merge_cells.js')
-    expect(docx.elements[1].rows[1].cells[1].properties.grid_span.count_of_merged_cells).to eq(2)
+    expect(docx.elements[1].rows[1].cells[1].properties.grid_span.value).to eq(2)
     expect(docx.elements[1].rows[1].cells.count).to eq(4)
     expect(docx.elements[1].rows[0].cells.count).to eq(5)
   end
