@@ -11,6 +11,7 @@ RUN yum -y install file-devel \
                    gcc \
                    git \
                    ImageMagick-devel \
+                   poppler-utils \
                    # /usr/lib/rpm/redhat/redhat-hardened-cc1: No such file or directory
                    # on gems install
                    redhat-rpm-config \
