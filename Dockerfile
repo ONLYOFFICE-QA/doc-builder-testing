@@ -3,7 +3,8 @@ FROM ruby:2.6
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
 RUN apt-get update && apt-get -y -q install git curl
-RUN apt-get update && apt-get -y -q install libmagic-dev
+RUN apt-get update && apt-get -y -q install libmagic-dev \
+                                            poppler-utils
 
 RUN gem install bundler
 COPY . /doc-builder-testing
