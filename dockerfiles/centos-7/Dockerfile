@@ -12,7 +12,8 @@ RUN yum -y install file-devel \
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
-RUN /bin/bash -c 'bundle install --without development'
+RUN bundle config set without 'development' && \
+    bundle install
 RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
