@@ -15,6 +15,7 @@ COPY . /doc-builder-testing
 COPY asserts/documentbuilder /usr/bin/documentbuilder
 RUN chmod +x /usr/bin/documentbuilder
 WORKDIR /doc-builder-testing
-RUN /bin/bash -c 'bundle install --without development'
+RUN bundle config set without 'development' && \
+    bundle install
 CMD /bin/bash -c "documentbuilder; \
                   bundle exec parallel_rspec spec"

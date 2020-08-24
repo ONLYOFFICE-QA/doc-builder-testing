@@ -25,7 +25,8 @@ RUN gem update --system --install-dir=/usr/share/gems --bindir /usr/local/bin --
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
-RUN /bin/bash -c 'bundle install --without development'
+RUN bundle config set without 'development' && \
+    bundle install
 RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
