@@ -13,7 +13,7 @@ GEM
     mini_portile2 (2.4.0)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
-    onlyoffice_pdf_parser (0.1.2)
+    onlyoffice_pdf_parser (0.2.1)
       image_size (~> 2)
       pdf-reader (~> 2)
       rmagick (>= 2, < 5)
