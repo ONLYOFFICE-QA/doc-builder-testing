@@ -22,7 +22,5 @@ jobs:
             known-install-problems: true
     steps:
     - uses: actions/checkout@v2
-    - name: Default Dockerfile Test
-      run: docker build .
     - name: Dockerfile ${{ matrix.dockerfiles }} Test
       run: docker build -f ${{ matrix.dockerfiles }} .
