@@ -30,7 +30,7 @@ class DocBuilderWrapper
 
   def build(script_file)
     build_result = `#{run_build_command(script_file)}`
-    raise DocBuilderError, build_result if build_result =~ /[Ee]rror|not found/
+    raise DocBuilderError, build_result if /[Ee]rror|not found/.match?(build_result)
   end
 
   # @return [String] command of version
