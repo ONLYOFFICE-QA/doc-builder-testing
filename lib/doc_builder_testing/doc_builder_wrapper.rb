@@ -28,6 +28,9 @@ class DocBuilderWrapper
     "#{@builder_exe} #{script_file} 2>&1"
   end
 
+  # Build file from script
+  # @param script_file [String] script file
+  # @return [nil]
   def build(script_file)
     build_result = `#{run_build_command(script_file)}`
     raise DocBuilderError, build_result if /[Ee]rror|not found/.match?(build_result)

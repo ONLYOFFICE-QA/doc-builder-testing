@@ -16,6 +16,9 @@ module DocBuilderHelper
     end
   end
 
+  # Check if file empty
+  # @param file_path [String] path to file
+  # @return [True, False] is file empty
   def file_empty?(file_path)
     File.size?(file_path) <= MINIMAL_FILESIZE[File.extname(file_path)]
   end
@@ -35,7 +38,7 @@ module DocBuilderHelper
 
   # Make a copy of script file, so no need to change output path on real file
   # @param script_file [String] path to actual script file
-  # @return [Hash] {temp_script_file: file_path, temp_output_file: output_path}
+  # @return [Hash] with data
   def change_output_file(script_file)
     script_file_content = File.open(script_file, 'r').read
     output_format = recognize_output_format(script_file_content)

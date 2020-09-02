@@ -68,6 +68,9 @@ class WebDocBuilderWrapper
     request[@jwt_header] = "#{@jwt_prefix} #{jwt_encoded}"
   end
 
+  # Read script from file
+  # @param script [String] file to read
+  # @return [String] result of read
   def read_script_file(script)
     raise WebDocBuilderError, 'Filepath is incorrect' unless File.exist?(script)
 
