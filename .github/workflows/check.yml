@@ -20,6 +20,8 @@ jobs:
         run: |
           sudo npm install -g markdownlint-cli
           markdownlint *.md
+      - name: Check that code 100% documented
+        run: yardoc . | grep -q '100.00% documented'
   test:
     runs-on: ubuntu-latest
     steps:

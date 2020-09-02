@@ -4,7 +4,7 @@
 require_relative 'doc_builder_helper'
 require_relative 'doc_builder_wrapper/doc_builder_version_helper'
 
-# Class for working with documentbuilder
+# Class for working with DocBuilder
 class DocBuilderWrapper
   include DocBuilderHelper
   include DocBuilderVersionHelper
@@ -28,6 +28,9 @@ class DocBuilderWrapper
     "#{@builder_exe} #{script_file} 2>&1"
   end
 
+  # Build file from script
+  # @param script_file [String] script file
+  # @return [nil]
   def build(script_file)
     build_result = `#{run_build_command(script_file)}`
     raise DocBuilderError, build_result if /[Ee]rror|not found/.match?(build_result)
@@ -54,6 +57,9 @@ class DocBuilderWrapper
     parse(temp_script_data)
   end
 
+  # Build file from script file
+  # @param script_file [String] path to file with script
+  # @return [String] path to build file
   def build_file(script_file)
     temp_script_data = change_output_file(script_file)
     build(temp_script_data[:temp_script_file].path)

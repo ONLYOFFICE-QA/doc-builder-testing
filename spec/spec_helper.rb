@@ -5,6 +5,9 @@ require 'bundler/setup'
 require 'rspec'
 require_relative '../lib/doc_builder_testing'
 
+# Get either DocBuilder of WebDocBuilder
+# depending of env var
+# @return [WebDocBuilderWrapper, DocBuilderWrapper]
 def builder
   @builder ||= if ENV['BUILDER_PLATFORM'] == 'WEB'
                  WebDocBuilderWrapper.new
