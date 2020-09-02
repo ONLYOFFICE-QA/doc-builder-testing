@@ -16,6 +16,10 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop check
         run: rubocop
+      - name: Check markdown files using `markdownlint`
+        run: |
+          sudo npm install -g markdownlint-cli
+          markdownlint *.md
   test:
     runs-on: ubuntu-latest
     steps:
