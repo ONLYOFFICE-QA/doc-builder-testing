@@ -2,8 +2,12 @@
 
 # Helpers method for document builder
 module DocBuilderHelper
+  # [Hash] list of minimal file size by formats
   MINIMAL_FILESIZE = { '.odt' => 3656, '.rtf' => 976, '.pdf' => 734, '.txt' => 5, '.ods' => 3351, '.csv' => 1 }.freeze
 
+  # Parse file
+  # @param path [String] file to path
+  # @return [Object] parsed object
   def parse(path)
     if File.extname(path) == '.pdf'
       OnlyofficePdfParser::PdfStructure.parse(path)

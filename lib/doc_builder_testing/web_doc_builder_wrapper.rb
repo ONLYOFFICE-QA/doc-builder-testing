@@ -39,6 +39,9 @@ class WebDocBuilderWrapper
     trimmed_lines[/\d(\.)\d(\.)\d/]
   end
 
+  # Build file from script file
+  # @param script_file [String] path to file with script
+  # @return [String] path to build file
   def build_file(script_file)
     temp_script_data = change_output_file(script_file)
     @temp_script_data = temp_script_data
@@ -56,6 +59,9 @@ class WebDocBuilderWrapper
     JSON.parse(response.body)['urls'].values.first
   end
 
+  # Add jwt data to request
+  # @param request [Net::HTTP::Post] to add
+  # @return [Net::HTTP::Post] with added jwt
   def add_jwt_data(request)
     payload_to_encode = { 'payload' => '{}' }
     jwt_encoded = JWT.encode payload_to_encode, @jwt_key
@@ -68,6 +74,10 @@ class WebDocBuilderWrapper
     File.open(script, 'r').read
   end
 
+  # Download file to path
+  # @param url [String] url to downlad
+  # @param output_file [String] path to store file
+  # @return [nil]
   def download_file(url, output_file)
     `wget -qO '#{output_file}' '#{url}'`
   end
