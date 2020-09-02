@@ -1,6 +1,21 @@
 name: check
 on: [push]
 jobs:
+  code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 2.7
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7
+      - name: Install gem dependencies
+        run: |
+          gem install bundler
+          bundle config set with 'development'
+          bundle install --jobs 4 --retry 3
+      - name: Run RuboCop checkec
+        run: rubocop
   test:
     runs-on: ubuntu-latest
     steps:
