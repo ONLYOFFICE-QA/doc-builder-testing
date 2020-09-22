@@ -6,6 +6,7 @@
 
 * Add support of `markdownlint` in CI
 * Add CI task to check code 100% documented
+* Add Dockerfile for next release version and CI test for it
 
 ### Changes
 
