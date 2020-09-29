@@ -166,15 +166,13 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | GetUsedRange method' do
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735')
-    skip if builder.semver < Semantic::Version.new('5.2.0')
+    skip('Problem fixed in develop (possible v6.1.0). Waiting for release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | UsedRange getter' do
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37735')
-    skip if builder.semver < Semantic::Version.new('5.2.0')
+    skip('Problem fixed in develop (possible v6.1.0). Waiting for release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
