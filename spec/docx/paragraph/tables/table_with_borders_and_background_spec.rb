@@ -4,6 +4,7 @@ require 'spec_helper'
 
 describe 'Add table with borders and background' do
   it 'Table with borders' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/661')
     docx = builder.build_and_parse('asserts/js/docx/paragraph/tables/table_with_borders.js')
     expect(docx.elements[1].rows.length).to eq(3)
     expect(docx.elements[1].rows.first.cells.length).to eq(3)
