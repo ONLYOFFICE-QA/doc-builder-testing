@@ -4,20 +4,21 @@ require 'spec_helper'
 
 describe 'Add table with borders and background' do
   it 'Table with borders' do
-    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/661')
     docx = builder.build_and_parse('asserts/js/docx/paragraph/tables/table_with_borders.js')
     expect(docx.elements[1].rows.length).to eq(3)
-    expect(docx.elements[1].rows.first.cells.length).to eq(3)
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.between.color).to eq(OoxmlParser::Color.new(0, 0, 0))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.between.size).to eq(OoxmlParser::OoxmlSize.new(0.5, :point))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.bottom.color).to eq(OoxmlParser::Color.new(0, 0, 0))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.bottom.size).to eq(OoxmlParser::OoxmlSize.new(0.5, :point))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.left.color).to eq(OoxmlParser::Color.new(0, 0, 0))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.left.size).to eq(OoxmlParser::OoxmlSize.new(0.5, :point))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.right.color).to eq(OoxmlParser::Color.new(0, 0, 0))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.right.size).to eq(OoxmlParser::OoxmlSize.new(0.5, :point))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.top.color).to eq(OoxmlParser::Color.new(0, 0, 0))
-    expect(docx.elements[1].rows.first.cells.first.elements.first.borders.top.size).to eq(OoxmlParser::OoxmlSize.new(0.5, :point))
+    table_borders = docx.elements[1].properties.table_borders
+    expect(table_borders.top.color).to eq(OoxmlParser::Color.new(1, 2, 3))
+    expect(table_borders.top.size).to eq(OoxmlParser::OoxmlSize.new(1, :point))
+    expect(table_borders.bottom.color).to eq(OoxmlParser::Color.new(4, 5, 6))
+    expect(table_borders.bottom.size).to eq(OoxmlParser::OoxmlSize.new(2, :point))
+    expect(table_borders.left.color).to eq(OoxmlParser::Color.new(7, 8, 9))
+    expect(table_borders.left.size).to eq(OoxmlParser::OoxmlSize.new(3, :point))
+    expect(table_borders.right.color).to eq(OoxmlParser::Color.new(10, 11, 12))
+    expect(table_borders.right.size).to eq(OoxmlParser::OoxmlSize.new(4, :point))
+    expect(table_borders.inside_vertical.color).to eq(OoxmlParser::Color.new(13, 14, 15))
+    expect(table_borders.inside_vertical.size).to eq(OoxmlParser::OoxmlSize.new(5, :point))
+    expect(table_borders.inside_horizontal.color).to eq(OoxmlParser::Color.new(16, 17, 18))
+    expect(table_borders.inside_horizontal.size).to eq(OoxmlParser::OoxmlSize.new(6, :point))
   end
 
   it 'Table with background' do
