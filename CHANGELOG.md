@@ -13,3 +13,4 @@
 * Fix new warnings from `rubocop-performance` v1.8.0 update
 * Skip pdf-related tests on Windows
 * Split long spec files in smaller one
+* Use `dependabot` config instead of old direct integration
