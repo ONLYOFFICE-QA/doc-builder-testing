@@ -32,20 +32,15 @@ jobs:
           docker run doc-builder-testing
   build:
     runs-on: ubuntu-latest
-    continue-on-error: ${{ matrix.known-install-problems }}
     strategy:
       matrix:
         dockerfiles:
           - 'Dockerfile'
           - 'dockerfiles/debian-archive/Dockerfile'
           - 'dockerfiles/centos-7/Dockerfile'
+          - 'dockerfiles/centos-8/Dockerfile'
           - 'dockerfiles/debian-develop/Dockerfile'
           - 'dockerfiles/debian-next-release/Dockerfile'
-        known-install-problems: [false]
-        include:
-          - dockerfiles: 'dockerfiles/centos-8/Dockerfile'
-            # FIXME: after fix of https://github.com/ONLYOFFICE/DocumentBuilder/issues/31
-            known-install-problems: true
     steps:
     - uses: actions/checkout@v2
     - name: Dockerfile ${{ matrix.dockerfiles }} Test
