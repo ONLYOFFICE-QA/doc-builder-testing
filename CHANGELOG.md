@@ -15,3 +15,7 @@
 * Split long spec files in smaller one
 * Use `dependabot` config instead of old direct integration
 * Changes from `rubocop` v1.4.0
+
+### Fixes
+
+* Fix centos 8 dockerfile

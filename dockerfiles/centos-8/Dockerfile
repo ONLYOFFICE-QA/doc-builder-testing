@@ -5,8 +5,8 @@ MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 # ImageMagic only in epel repo
 RUN dnf install -y epel-release
 # `PowerTools` need to correct install ImageMagic dependencies
-RUN dnf install -y 'dnf-command(config-manager)' && \
-    dnf config-manager --set-enabled PowerTools
+RUN yum install -y dnf-plugins-core && \
+    yum config-manager --set-enabled powertools
 RUN yum -y install file-devel \
                    gcc \
                    git \
