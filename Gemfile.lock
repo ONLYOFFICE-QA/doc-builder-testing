@@ -10,9 +10,10 @@ GEM
     image_size (2.1.0)
     iniparse (1.5.0)
     jwt (2.2.2)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    mini_portile2 (2.5.0)
+    nokogiri (1.11.1)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     onlyoffice_pdf_parser (0.3.0)
       image_size (~> 2)
       pdf-reader (~> 2)
@@ -35,6 +36,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
+    racc (1.5.2)
     rainbow (3.0.0)
     rake (13.0.3)
     regexp_parser (2.0.3)
