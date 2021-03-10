@@ -3,7 +3,13 @@
 # Helpers method for document builder
 module DocBuilderHelper
   # [Hash] list of minimal file size by formats
-  MINIMAL_FILESIZE = { '.odt' => 3656, '.rtf' => 976, '.pdf' => 734, '.txt' => 5, '.ods' => 3351, '.csv' => 1 }.freeze
+  MINIMAL_FILESIZE = { '.odt' => 3656,
+                       '.rtf' => 976,
+                       '.pdf' => 734,
+                       '.txt' => 5,
+                       '.odp' => 3933,
+                       '.ods' => 3351,
+                       '.csv' => 1 }.freeze
 
   # Parse file
   # @param path [String] file to path
