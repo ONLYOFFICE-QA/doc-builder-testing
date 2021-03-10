@@ -143,7 +143,6 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetFillColor method' do
-    skip('Not working on develop because need newest core')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_fill_color.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.foreground_color).to eq(OoxmlParser::Color.new(255, 224, 204))
