@@ -59,7 +59,7 @@ describe 'ApiTextPr section tests' do
 
   it 'ApiTextPr | SetShd method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_text_pr/set_shd.js')
-    expect(docx.elements.first.nonempty_runs.first.background_color).to eq(OoxmlParser::Color.new(0, 255, 0))
+    expect(docx.elements.first.nonempty_runs.first.shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
   end
 
   it 'ApiTextPr | SetSmallCaps method' do
