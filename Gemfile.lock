@@ -10,7 +10,7 @@ GEM
     image_size (2.1.0)
     iniparse (1.5.0)
     jwt (2.2.3)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.5.1)
     nokogiri (1.11.3)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
