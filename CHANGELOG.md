@@ -15,6 +15,7 @@
 * Split long spec files in smaller one
 * Use `dependabot` config instead of old direct integration
 * Changes from `rubocop` v1.4.0
+* Fix compatibility with new color structure scheme in v6.3.0
 
 ### Fixes
 

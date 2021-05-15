@@ -25,6 +25,6 @@ describe 'Add table with borders and background' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/tables/table_with_background.js')
     expect(docx.elements[1].rows.length).to eq(3)
     expect(docx.elements[1].rows.first.cells.length).to eq(3)
-    expect(docx.elements[1].properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.shade.color).to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
   end
 end

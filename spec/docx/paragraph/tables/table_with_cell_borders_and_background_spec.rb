@@ -6,7 +6,7 @@ describe 'Add table with cells with borders and background' do
   it 'Table with cell background: red' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/tables/table_with_cell_borders.js')
     expect(docx.elements[1].rows.length).to eq(3)
-    expect(docx.elements[1].rows.first.cells[1].properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].rows.first.cells[1].properties.shade.color).to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
   end
 
   it 'Table with cell borders: top, left, top, bottom', critical: true do
