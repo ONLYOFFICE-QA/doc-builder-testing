@@ -33,13 +33,13 @@ describe 'ApiStyle section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_style/get_table_cell_pr.js')
     table_style = docx.elements[1].properties.table_style
     expect(table_style.northwest_cell.table_cell_properties
-               .shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+               .shade.color).to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
     expect(table_style.northeast_cell.table_cell_properties
-               .shade.fill).to eq(OoxmlParser::Color.new(0, 255, 0))
+               .shade.color).to eq(OoxmlParser::Color.new(0, 255, 0).to_hex.to_sym)
     expect(table_style.southwest_cell.table_cell_properties
-               .shade.fill).to eq(OoxmlParser::Color.new(0, 0, 255))
+               .shade.color).to eq(OoxmlParser::Color.new(0, 0, 255).to_hex.to_sym)
     expect(table_style.southeast_cell.table_cell_properties
-               .shade.fill).to eq(OoxmlParser::Color.new(255, 255, 0))
+               .shade.color).to eq(OoxmlParser::Color.new(255, 255, 0).to_hex.to_sym)
   end
 
   it 'ApiStyle | GetTablePr method' do

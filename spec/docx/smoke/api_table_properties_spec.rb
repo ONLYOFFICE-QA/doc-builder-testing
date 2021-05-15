@@ -19,7 +19,7 @@ describe 'ApiTablePr section tests' do
 
   it 'ApiTablePr | SetShd method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_shd.js')
-    expect(docx.elements[1].properties.table_style.table_properties.shade.fill).to eq(OoxmlParser::Color.new(238, 238, 238))
+    expect(docx.elements[1].properties.table_style.table_properties.shade.color).to eq(OoxmlParser::Color.new(238, 238, 238).to_hex.to_sym)
   end
 
   it 'ApiTablePr | SetStyleColBandSize method' do

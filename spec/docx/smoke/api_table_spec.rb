@@ -62,7 +62,7 @@ describe 'ApiTable section tests' do
 
   it 'ApiTable | SetShd method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_shd.js')
-    expect(docx.elements[1].properties.shade.fill).to eq(OoxmlParser::Color.new(238, 238, 238))
+    expect(docx.elements[1].properties.shade.color).to eq(OoxmlParser::Color.new(238, 238, 238).to_hex.to_sym)
     expect(docx.elements[1].properties.shade.value).to eq(:clear)
   end
 
@@ -162,7 +162,9 @@ describe 'ApiTable section tests' do
   it 'ApiTable | SetTableLook method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table/set_table_look.js')
     expect(docx.elements[1].properties.table_look.first_column).to be_truthy
-    expect(docx.elements[1].properties.table_style.table_style_properties_list.first.table_cell_properties.shade.fill).to eq(OoxmlParser::Color.new(255, 0, 0))
+    expect(docx.elements[1].properties.table_style.table_style_properties_list
+               .first.table_cell_properties.shade.color)
+      .to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy
     expect(docx.elements[1].properties.table_look.last_column).to be_truthy
     expect(docx.elements[1].properties.table_look.first_row).to be_truthy

@@ -18,8 +18,8 @@ describe 'ApiTableStylePr section tests' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_style_pr/get_table_cell_pr.js')
     shade = docx.elements[1].table_properties.table_style
                 .northwest_cell.cell_properties.shade
-    expect(shade.fill)
-      .to eq(OoxmlParser::Color.new(238, 238, 238))
+    expect(shade.color)
+      .to eq(OoxmlParser::Color.new(238, 238, 238).to_hex.to_sym)
     expect(shade.value).to eq(:clear)
   end
 
