@@ -10,12 +10,7 @@ GEM
     image_size (2.1.0)
     iniparse (1.5.0)
     jwt (2.2.3)
-    mini_portile2 (2.5.2)
-      net-ftp (~> 0.1)
-    net-ftp (0.1.2)
-      net-protocol
-      time
-    net-protocol (0.1.0)
+    mini_portile2 (2.5.3)
     nokogiri (1.11.6)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -85,7 +80,6 @@ GEM
     ruby-rc4 (0.1.5)
     rubyzip (2.3.0)
     semantic (1.6.1)
-    time (0.1.0)
     ttfunk (1.7.0)
     unicode-display_width (2.0.0)
     yard (0.9.26)
