@@ -135,6 +135,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetThemesColors method' do
+    skip('Default theme changed in v6.4.0. Waiting for full release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
     %w[Office Grayscale Apex Aspect Civic Concourse Equity Flow
        Foundry Median Metro Module Opulent Oriel Origin Paper Solstice
@@ -144,6 +145,7 @@ describe 'Api section tests' do
   end
 
   it 'Api |  SetThemeColors method' do
+    skip('Default theme changed in v6.4.0. Waiting for full release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/set_theme_colors.js')
     expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(50, 50, 50))
   end
