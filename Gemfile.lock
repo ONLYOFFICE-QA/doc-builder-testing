@@ -18,7 +18,7 @@ GEM
       image_size (~> 2)
       pdf-reader (~> 2)
       rmagick (~> 4)
-    ooxml_parser (0.16.0)
+    ooxml_parser (0.17.0)
       nokogiri (~> 1)
       ruby-filemagic (~> 0)
       rubyzip (~> 2)
