@@ -81,7 +81,7 @@ GEM
     rubyzip (2.3.2)
     semantic (1.6.1)
     ttfunk (1.7.0)
-    unicode-display_width (2.0.0)
+    unicode-display_width (2.1.0)
     yard (0.9.26)
 
 PLATFORMS
