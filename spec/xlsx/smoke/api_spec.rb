@@ -144,13 +144,13 @@ describe 'Api section tests' do
     end
   end
 
-  it 'Api |  SetThemeColors method' do
+  it 'Api | SetThemeColors method' do
     skip('Default theme changed in v6.4.0. Waiting for full release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/set_theme_colors.js')
     expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(50, 50, 50))
   end
 
-  it 'Api |  GetSheets method' do
+  it 'Api | GetSheets method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_sheets.js')
     expect(xlsx.worksheets[1].rows[0].cells.first.text).to eq('Sheet1')
