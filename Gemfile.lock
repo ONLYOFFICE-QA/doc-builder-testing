@@ -9,7 +9,7 @@ GEM
     hashery (2.1.2)
     image_size (2.1.2)
     iniparse (1.5.0)
-    jwt (2.2.3)
+    jwt (2.3.0)
     mini_portile2 (2.6.1)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
