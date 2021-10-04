@@ -11,7 +11,7 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN echo "deb [trusted=yes]  http://repo-doc-onlyoffice-com.s3.amazonaws.com/ubuntu/trusty/onlyoffice-documentbuilder/origin/develop/latest/amd64/ repo/" >> /etc/apt/sources.list.d/onlyoffice.list && \
+RUN echo "deb [trusted=yes] http://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/onlyoffice/repo-unstable/ubuntu trusty main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
 
