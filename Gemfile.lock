@@ -37,7 +37,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    racc (1.5.2)
+    racc (1.6.0)
     rainbow (3.0.0)
     rake (13.0.6)
     regexp_parser (2.1.1)
