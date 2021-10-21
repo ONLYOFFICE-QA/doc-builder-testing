@@ -25,7 +25,7 @@ end
 desc 'Generate report with memory usage'
 task :memory_usage_report do
   data = []
-  files = Dir['asserts/js/docx/columns/*']
+  files = Dir["#{Dir.pwd}/asserts/js/**/*.js"]
   files.each do |file|
     memory = DocBuilderWrapper.new.build_file_memory_usage(file)
     data << { file: file, memory: memory }

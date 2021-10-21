@@ -18,5 +18,5 @@ oParagraph3 = Api.CreateParagraph();
 oTable3 = Api.CreateTable(3, 3);
 oDocument.Push(oTable3);
 oDocument.Push(oParagraph3);
-builder.SaveFile("docx", "/tmp/add_table_in_three_columns.docx");
+builder.SaveFile("docx", "add_table_in_three_columns.docx");
 builder.CloseFile();

@@ -71,7 +71,8 @@ class DocBuilderWrapper
   # @param [String] script_file file to build
   # @return [Integer] peak memory usage of building some file
   def build_file_memory_usage(script_file)
-    output = `/usr/bin/time -v #{run_build_command(script_file)}`
+    temp_script_data = change_output_file(script_file)
+    output = `/usr/bin/time -v #{run_build_command(temp_script_data[:temp_script_file].path)}`
     memory_line = output.split("\n").find { |line| line.include?('Maximum resident set') }
     memory_line.scan(/\d/).join.to_i
   end
