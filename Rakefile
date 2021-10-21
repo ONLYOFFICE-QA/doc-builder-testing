@@ -24,18 +24,19 @@ end
 
 desc 'Generate report with memory usage'
 task :memory_usage_report do
-  data = []
+  results = []
   files = Dir["#{Dir.pwd}/asserts/js/**/*.js"]
   files.each do |file|
-    memory = DocBuilderWrapper.new.build_file_memory_usage(file)
-    data << { file: file, memory: memory }
+    data = DocBuilderWrapper.new.build_file_with_usage_stats(file)
+    results << { file: file, memory: data.memory, time: data.user_time }
   end
-  memory_sum = data.sum { |h| h[:memory] }
+  memory_sum = results.sum { |h| h[:memory] }
+  time_sum = results.sum { |h| h[:time] }
   CSV.open('report.csv', 'w') do |csv|
-    csv << %w[File Memory]
-    data.each do |data_line|
-      csv << [data_line[:file], data_line[:memory]]
+    csv << %w[File Memory Time]
+    results.each do |data_line|
+      csv << [data_line[:file], data_line[:memory], data_line[:time]]
     end
-    csv << ['Total memory:', memory_sum]
+    csv << ['Total:', memory_sum, time_sum]
   end
 end
