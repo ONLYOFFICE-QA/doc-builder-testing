@@ -11,5 +11,5 @@ oDocument.Push(oParagraph1);
 oParagraph2 = Api.CreateParagraph();
 oParagraph2.AddText("Second columns");
 oDocument.Push(oParagraph2);
-builder.SaveFile("docx", "add_two_columns.docx");
+builder.SaveFile("docx", "/tmp/add_two_columns.docx");
 builder.CloseFile();

@@ -14,5 +14,5 @@ oDocument.Push(oParagraph2);
 oParagraph3 = Api.CreateParagraph();
 oParagraph3.AddText("Third columns");
 oDocument.Push(oParagraph3);
-builder.SaveFile("docx", "add_three_columns.docx");
+builder.SaveFile("docx", "/tmp/add_three_columns.docx");
 builder.CloseFile();
