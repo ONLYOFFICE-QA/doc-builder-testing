@@ -22,8 +22,8 @@ task :rspec_critical do
   sh("parallel_rspec spec -o '--tag critical'")
 end
 
-desc 'Generate report with memory usage'
-task :memory_usage_report do
+desc 'Generate report with resource usage'
+task :resource_usage_report do
   results = []
   files = Dir["#{Dir.pwd}/asserts/js/**/*.js"]
   files.each do |file|
