@@ -8,6 +8,7 @@
 * Add CI task to check code 100% documented
 * Add Dockerfile for next release version and CI test for it
 * Add `GitHub Action` task to push image to Docker Hub
+* Add ability to make report for memory and time usage
 
 ### Changes
 
