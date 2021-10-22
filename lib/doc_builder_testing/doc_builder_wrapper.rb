@@ -3,6 +3,7 @@
 # Class for Wrapping doc building
 require_relative 'doc_builder_helper'
 require_relative 'doc_builder_wrapper/doc_builder_version_helper'
+require_relative 'doc_builder_wrapper/bin_time_result_parser'
 
 # Class for working with DocBuilder
 class DocBuilderWrapper
@@ -65,5 +66,14 @@ class DocBuilderWrapper
     build(temp_script_data[:temp_script_file].path)
     wait_file_creation(temp_script_data[:output_file])
     temp_script_data[:output_file]
+  end
+
+  # Build file and return memory usage of building this file
+  # @param [String] script_file file to build
+  # @return [BinTimeResultParser] Process data
+  def build_file_with_usage_stats(script_file)
+    temp_script_data = change_output_file(script_file)
+    output = `/usr/bin/time -v #{run_build_command(temp_script_data[:temp_script_file].path)}`
+    BinTimeResultParser.new(output)
   end
 end
