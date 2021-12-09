@@ -38,7 +38,6 @@ jobs:
           - 'Dockerfile'
           - 'dockerfiles/debian-archive/Dockerfile'
           - 'dockerfiles/centos-7/Dockerfile'
-          - 'dockerfiles/centos-8/Dockerfile'
           - 'dockerfiles/debian-develop/Dockerfile'
           - 'dockerfiles/debian-next-release/Dockerfile'
     steps:
