@@ -96,8 +96,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetReviewReport method' do
-    skip('https://github.com/ONLYOFFICE/doc-builder-testing/issues/309')
-    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+    skip('Cannot use OpenFile in web version') if ENV['BUILDER_PLATFORM'] == 'WEB'
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_review_report.js')
     expect(docx.elements[3].rows[2].cells[2].elements
                .first.nonempty_runs.first.text).to eq('Removed text')
