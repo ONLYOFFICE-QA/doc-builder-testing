@@ -34,14 +34,12 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | GetElement method' do
-    skip if builder.semver < Semantic::Version.new('5.3.0')
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_paragraph/get_element.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs.size).to eq(3)
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs[0].properties.font_style.bold).to be true
   end
 
   it 'ApiParagraph | GetElementsCount method' do
-    skip if builder.semver < Semantic::Version.new('5.3.0')
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api_paragraph/get_elements_count.js')
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs.first.text).to eq("Number of paragraph elements at this point: \t1")
     expect(pptx.slides.first.elements.first.text_body.paragraphs.first.runs.last.text).to eq("Number of paragraph elements after we added a text run: \t2")

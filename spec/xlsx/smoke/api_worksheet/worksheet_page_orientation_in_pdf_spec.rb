@@ -4,7 +4,6 @@ require 'spec_helper'
 describe 'ApiWorksheet page orientation in pdf' do
   before do
     skip('pdfinfo is not supported on Windows') if Gem.win_platform?
-    skip if builder.semver < Semantic::Version.new('5.2.0')
   end
 
   it 'ApiWorksheet | SetPageOrientation method' do

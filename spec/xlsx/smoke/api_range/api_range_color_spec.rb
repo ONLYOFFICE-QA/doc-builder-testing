@@ -14,7 +14,6 @@ describe 'ApiRange Color' do
   end
 
   it 'ApiRange | FontColor method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_font_color.js')
     expect(xlsx.worksheets.first.rows[1]
                .cells.first.style
@@ -34,7 +33,6 @@ describe 'ApiRange Color' do
   end
 
   it 'ApiRange | FillColor method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_fill_color.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.background_color).to eq(OoxmlParser::Color.new(255, 224, 204))
     expect(xlsx.worksheets.first.rows[1].cells[0].style.fill_color.pattern_fill.foreground_color).to eq(OoxmlParser::Color.new(255, 224, 204))

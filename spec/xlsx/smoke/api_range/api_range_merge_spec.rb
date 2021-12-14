@@ -14,7 +14,6 @@ describe 'ApiRange Merge' do
   end
 
   it 'ApiRange | MergeArea property' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/merge_area_property.js')
     expect(xlsx.worksheets.first.rows[3].cells.first.text).to eq('9')
   end

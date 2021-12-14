@@ -135,7 +135,6 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetThemesColors method' do
-    skip('Default theme changed in v6.4.0. Waiting for full release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_themes_colors.js')
     %w[Office Grayscale Apex Aspect Civic Concourse Equity Flow
        Foundry Median Metro Module Opulent Oriel Origin Paper Solstice
@@ -145,20 +144,17 @@ describe 'Api section tests' do
   end
 
   it 'Api | SetThemeColors method' do
-    skip('Default theme changed in v6.4.0. Waiting for full release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/set_theme_colors.js')
     expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(50, 50, 50))
   end
 
   it 'Api | GetSheets method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/get_sheets.js')
     expect(xlsx.worksheets[1].rows[0].cells.first.text).to eq('Sheet1')
     expect(xlsx.worksheets[1].rows[1].cells.first.text).to eq('new_sheet_name')
   end
 
   it 'Api | Format method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/format_property.js')
     expect(xlsx.worksheets[0].rows[0].cells.first.text).to eq('|05:04:23 PM|')
   end

@@ -6,13 +6,13 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 45
+# Offense count: 44
 # Configuration parameters: CountComments, CountAsOne, ExcludedMethods, IgnoredMethods.
 # IgnoredMethods: refine
 Metrics/BlockLength:
   Max: 223
 
-# Offense count: 110
+# Offense count: 105
 # Configuration parameters: CountAsOne.
 RSpec/ExampleLength:
   Max: 21

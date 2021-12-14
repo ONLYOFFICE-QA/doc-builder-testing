@@ -144,7 +144,6 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateTable method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api/create_table.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.count).to eq(2)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.count).to eq(2)

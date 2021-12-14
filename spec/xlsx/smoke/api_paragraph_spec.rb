@@ -38,14 +38,12 @@ describe 'ApiParagraph section tests' do
   end
 
   it 'ApiParagraph | GetElement method' do
-    skip if builder.semver < Semantic::Version.new('5.3.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_paragraph/get_element.js')
     expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs.size).to eq(3)
     expect(xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs.first.runs[0].properties.font_style.bold).to be true
   end
 
   it 'ApiParagraph | GetElementsCount method' do
-    skip if builder.semver < Semantic::Version.new('5.3.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_paragraph/get_elements_count.js')
     runs = xlsx.worksheets.first.drawings.first
                .shape.text_body.paragraphs.first.runs
