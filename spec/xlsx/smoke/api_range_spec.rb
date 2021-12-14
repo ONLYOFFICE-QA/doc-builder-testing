@@ -70,57 +70,6 @@ describe 'ApiRange section tests' do
     expect(xlsx.worksheets.first.rows[2].cells[1].text).to eq('4')
   end
 
-  it 'ApiRange | SetBold method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_bold.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Bold text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.bold).to be_truthy
-  end
-
-  it 'ApiRange | Bold method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_bold.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Bold text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.bold).to be_truthy
-  end
-
-  it 'ApiRange | SetItalic method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_italic.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Italicized text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.italic).to be_truthy
-  end
-
-  it 'ApiRange | Italic method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_italic.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Italicized text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.italic).to be_truthy
-  end
-
-  it 'ApiRange | SetUnderline method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_underline.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('The text underlined with a single line')
-    expect(xlsx.worksheets.first.rows[3].cells[0].raw_text).to eq('Normal text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.underlined).to eq(:single)
-    expect(xlsx.worksheets.first.rows[3].cells[0].style.font.font_style.underlined).to eq(:none)
-  end
-
-  it 'ApiRange | Underline method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_underline.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('The text underlined with a single line')
-    expect(xlsx.worksheets.first.rows[3].cells[0].raw_text).to eq('Normal text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.underlined).to eq(:single)
-    expect(xlsx.worksheets.first.rows[3].cells[0].style.font.font_style.underlined).to eq(:none)
-  end
-
-  it 'ApiRange | SetStrikeout method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_strikeout.js')
-    expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Struckout text')
-    expect(xlsx.worksheets.first.rows[2].cells[0].raw_text).to eq('Normal text')
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.strike).to eq(:single)
-    expect(xlsx.worksheets.first.rows[2].cells[0].style.font.font_style.strike).to eq(:none)
-  end
-
   it 'ApiRange | SetNumberFormat method' do
     formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)',
                'm/d/yyyy', '[$-F800]dddd, mmmm dd, yyyy',
