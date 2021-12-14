@@ -8,3 +8,15 @@ inherit_from: .rubocop_todo.yml
 AllCops:
   NewCops: enable
   TargetRubyVersion: 2.7
+
+# Disable this check since we test end-user product
+# And do not perform unit-testing of some ruby classes
+RSpec/DescribeClass:
+  Enabled: false
+
+# By design some test require multiple expectations
+# I think we can theoretically resolve all those cases
+# But it will require a lot of time and not sure about real profits
+# So I'll leave this check disabled until better times
+RSpec/MultipleExpectations:
+  Enabled: false
