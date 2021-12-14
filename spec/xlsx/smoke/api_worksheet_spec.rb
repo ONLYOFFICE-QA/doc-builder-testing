@@ -216,7 +216,6 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | ActiveCell property' do
-    # Active cell must be A1 by default. Check bug when it will be
     pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
     skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/active_cell_property.js')
