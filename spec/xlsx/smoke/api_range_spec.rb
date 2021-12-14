@@ -124,10 +124,9 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Width getter' do
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37730')
-    # skip if builder.semver < Semantic::Version.new('5.2.0')
+    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/width_getter.js')
-    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('15')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('110')
   end
 
   it 'ApiRange | Height getter' do
