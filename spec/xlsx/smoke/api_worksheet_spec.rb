@@ -179,14 +179,14 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | SetVisible method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
+    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | GetVisible method' do
     skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
+    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('FALSE')
   end
