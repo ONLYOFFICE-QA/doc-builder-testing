@@ -139,7 +139,8 @@ describe 'ApiRun section tests' do
   it 'ApiRun | SetShd method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/set_shd.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text shading set to green.')
-    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.color).to eq(OoxmlParser::Color.new(0, 255, 0).to_hex.to_sym)
+    expect(docx.elements.first.nonempty_runs[1].run_properties.shade.color.upcase)
+      .to eq(OoxmlParser::Color.new(0, 255, 0).to_hex.to_sym)
     expect(docx.elements.first.nonempty_runs[1].run_properties.shade.value).to eq(:clear)
   end
 

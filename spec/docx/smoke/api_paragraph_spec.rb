@@ -214,7 +214,8 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | SetShd method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/set_shd.js')
-    expect(docx.elements.first.paragraph_properties.shade.color).to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
+    expect(docx.elements.first.paragraph_properties.shade.color.upcase)
+      .to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
     expect(docx.elements.first.nonempty_runs[0].text).to eq('This is an example of setting a shade to a paragraph. ')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
     expect(docx.elements.first.nonempty_runs[2].text).to eq('These sentences are used to add lines for demonstrative purposes. ')
