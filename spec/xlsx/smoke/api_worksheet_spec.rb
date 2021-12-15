@@ -76,7 +76,6 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(10)
     expect(xlsx.worksheets.first.columns[1].width.to_i).to eq(20)
@@ -98,141 +97,116 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | getter Name' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | setter Name' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/setter_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
 
   it 'ApiWorksheet | GetCells method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
     expect(xlsx.worksheets.first.columns.first.to).to eq(16_384)
   end
 
   it 'ApiWorksheet | Getter Cells' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
     expect(xlsx.worksheets.first.columns.count).to eq(1)
     expect(xlsx.worksheets.first.columns[0].style.fill_color).not_to be_nil
   end
 
   it 'ApiWorksheet | AddSheet method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_sheet.js')
     expect(xlsx.worksheets.count).to eq(2)
   end
 
   it 'ApiWorksheet | GetCols method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
     expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | GetRows method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_rows.js')
     expect(xlsx.worksheets.first.rows.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | Cols getter' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/cols_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Rows getter' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/rows_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Index getter method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_index.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | Get Name method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | GetUsedRange method' do
-    skip('Problem fixed in develop (possible v6.1.0). Waiting for release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | UsedRange getter' do
-    skip('Problem fixed in develop (possible v6.1.0). Waiting for release')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | SetVisible method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
+    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | GetVisible method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=37781')
+    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('FALSE')
   end
 
   it 'ApiWorksheet | PrintHeadings property', critical: true do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_headings_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | GetPageOrientation method', critical: true do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_page_orientation.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('xlPortrait')
   end
 
   it 'ApiWorksheet | Selection property' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=39226')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/selection_property.js')
-    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | GetSelection method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=39226')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_selection_method.js')
-    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('60')
+    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | ActiveCell property' do
-    # Active cell must be A1 by default. Check bug when it will be
     pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/active_cell_property.js')
     expect(xlsx.worksheets.first.rows[12].cells[3].text).to eq('60')
   end
 
   it 'ApiWorksheet | PrintGridlines property', critical: true do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
   end
 
   it 'ApiWorksheet | GetIndex property', critical: true do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_index_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end

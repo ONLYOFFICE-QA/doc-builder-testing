@@ -12,7 +12,6 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | AlignHorizontal method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_align_horizontal.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
@@ -31,7 +30,6 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | AlignVertical method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_align_vertical.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
@@ -47,21 +45,18 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | SetWrapText method' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_wrap_text.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
 
   it 'ApiRange | Wrap property' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/wrap_property.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey
   end
 
   it 'ApiRange | WrapText property' do
-    skip if builder.semver < Semantic::Version.new('5.2.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/wrap_text_property.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.alignment.wrap_text).to be_truthy
     expect(xlsx.worksheets.first.rows[1].cells[2].style.alignment.wrap_text).to be_falsey

@@ -9,7 +9,6 @@ describe 'ApiRange Font Format' do
   end
 
   it 'ApiRange | Bold method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_bold.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Bold text')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.bold).to be_truthy
@@ -22,7 +21,6 @@ describe 'ApiRange Font Format' do
   end
 
   it 'ApiRange | Italic method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_italic.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('Italicized text')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.font.font_style.italic).to be_truthy
@@ -37,7 +35,6 @@ describe 'ApiRange Font Format' do
   end
 
   it 'ApiRange | Underline method' do
-    skip if builder.semver < Semantic::Version.new('5.1.0')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/setter_underline.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].raw_text).to eq('The text underlined with a single line')
     expect(xlsx.worksheets.first.rows[3].cells[0].raw_text).to eq('Normal text')

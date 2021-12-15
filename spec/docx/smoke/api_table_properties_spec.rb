@@ -106,12 +106,6 @@ describe 'ApiTablePr section tests' do
     expect(docx.elements[1].properties.table_style.table_properties.table_indent).to eq(OoxmlParser::OoxmlSize.new(1440, :twip))
   end
 
-  it 'ApiTablePr | SetTableLayout method' do
-    pending('http://bugzilla.onlyoffice.com/show_bug.cgi?id=36131')
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_table_layout.js')
-    expect(docx.elements[1].properties.table_style.table_properties.table_layout.type).to eq(false)
-  end
-
   it 'ApiTablePr | SetWidth method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_table_pr/set_width.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))

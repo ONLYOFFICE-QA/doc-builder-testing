@@ -19,6 +19,7 @@
 * Changes from `rubocop` v1.4.0
 * Fix compatibility with new color structure scheme in v6.3.0
 * Remove `centos-8` checks because of it's EOL
+* Actualize `pending` and `skip` state for different tests
 
 ### Fixes
 
