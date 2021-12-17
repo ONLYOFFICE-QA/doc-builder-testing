@@ -11,5 +11,6 @@ describe DocBuilderWrapper, '#exe_path' do
     fake_exe_path = '/tmp/builder_exe'
     ENV['BUILDER_EXE_PATH'] = fake_exe_path
     expect(described_class.new.builder_exe).to eq(fake_exe_path)
+    ENV['BUILDER_EXE_PATH'] = ''
   end
 end
