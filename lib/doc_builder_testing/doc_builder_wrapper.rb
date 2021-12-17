@@ -11,10 +11,10 @@ class DocBuilderWrapper
   include DocBuilderVersionHelper
 
   # Path to Builder exe
-  attr_accessor :builder_exe
+  attr_reader :builder_exe
 
-  def initialize(builder_exe: default_builder_location)
-    @builder_exe = builder_exe
+  def initialize
+    @builder_exe = ENV['BUILDER_EXE_PATH'] || default_builder_location
   end
 
   # @return [String] location of builder on different OS
