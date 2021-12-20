@@ -164,15 +164,13 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | SetVisible method' do
-    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
-    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
+    expect(xlsx.sheets.first.state).to eq(:hidden)
   end
 
   it 'ApiWorksheet | GetVisible method' do
-    pending('https://github.com/ONLYOFFICE/ooxml_parser/issues/871')
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
-    expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('FALSE')
+    expect(xlsx.worksheets[1].rows.first.cells.first.text).to eq('0')
   end
 
   it 'ApiWorksheet | PrintHeadings property', critical: true do
