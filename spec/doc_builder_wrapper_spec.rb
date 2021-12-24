@@ -39,15 +39,15 @@ describe 'My behaviour' do
 
   describe 'change_output_file' do
     it 'check that change output file do not change original file' do
-      before_change = File.open(simple_script, 'rb').read
+      before_change = File.binread(simple_script)
       builder.change_output_file(simple_script)
-      after_change = File.open(simple_script, 'rb').read
+      after_change = File.binread(simple_script)
       expect(before_change).to eq(after_change)
     end
 
     it 'check that changed file contain returned values' do
       rebuild_result = builder.change_output_file(simple_script)
-      expect(File.open(rebuild_result[:temp_script_file].path, 'rb').read).to include(rebuild_result[:output_file])
+      expect(File.binread(rebuild_result[:temp_script_file].path)).to include(rebuild_result[:output_file])
     end
 
     it 'Check that temp script file is same format as original file' do

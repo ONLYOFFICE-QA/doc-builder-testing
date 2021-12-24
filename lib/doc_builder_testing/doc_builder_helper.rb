@@ -46,7 +46,7 @@ module DocBuilderHelper
   # @param script_file [String] path to actual script file
   # @return [Hash] with data
   def change_output_file(script_file)
-    script_file_content = File.open(script_file, 'r').read
+    script_file_content = File.read(script_file)
     output_format = recognize_output_format(script_file_content)
     temp_output_file = Tempfile.new([File.basename(script_file), ".#{output_format}"])
     output_path = temp_output_file.path
