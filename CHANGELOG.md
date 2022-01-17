@@ -9,6 +9,7 @@
 * Add Dockerfile for next release version and CI test for it
 * Add `GitHub Action` task to push image to Docker Hub
 * Add ability to make report for memory and time usage
+* Ability to set Web Builder url via `WEB_BUILDER_URL`
 
 ### Changes
 

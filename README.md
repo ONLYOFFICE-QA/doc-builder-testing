@@ -2,6 +2,11 @@
 
 Framework for QA of `onlyoffice-documentbuilder`
 
+## Configuration
+
+`WEB_BUILDER_URL` - Set via Environmental Variables.
+  Used to changed default url of Web Document Builder
+
 ## Project Information
 
 [Official website](https://www.onlyoffice.com)
