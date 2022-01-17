@@ -12,7 +12,8 @@ class WebDocBuilderWrapper
   include DocBuilderHelper
   include DocBuilderVersionHelper
 
-  def initialize(documentserver_path = 'https://doc-linux.teamlab.info')
+  def initialize(documentserver_path = default_web_builder_url)
+    puts "Using builder: #{documentserver_path}"
     @uri = URI(documentserver_path)
     @http = Net::HTTP.new(@uri.host, @uri.port)
     @http.use_ssl = true if @uri.port == 443
@@ -93,5 +94,10 @@ class WebDocBuilderWrapper
   def check_response_for_errors(response)
     raise WebDocBuilderError, response unless response.code == '200'
     raise EmptyUrlsInWebBuilderResponse, response if JSON.parse(response.body)['urls'].empty?
+  end
+
+  # @return [String] Url for default location of DocBuilder
+  def default_web_builder_url
+    ENV['WEB_BUILDER_URL'] || 'https://doc-linux.teamlab.info'
   end
 end
