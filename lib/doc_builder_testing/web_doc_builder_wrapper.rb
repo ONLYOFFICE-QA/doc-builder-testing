@@ -13,7 +13,6 @@ class WebDocBuilderWrapper
   include DocBuilderVersionHelper
 
   def initialize(documentserver_path = default_web_builder_url)
-    puts "Using builder: #{documentserver_path}"
     @uri = URI(documentserver_path)
     @http = Net::HTTP.new(@uri.host, @uri.port)
     @http.use_ssl = true if @uri.port == 443
