@@ -21,6 +21,7 @@
 * Fix compatibility with new color structure scheme in v6.3.0
 * Remove `centos-8` checks because of it's EOL
 * Actualize `pending` and `skip` state for different tests
+* Remove `codeclimate` support since we don't use it any more
 
 ### Fixes
 
