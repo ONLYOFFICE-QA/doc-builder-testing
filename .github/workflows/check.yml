@@ -16,10 +16,6 @@ jobs:
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop check
         run: rubocop
-      - name: Check markdown files using `markdownlint`
-        run: |
-          sudo npm install -g markdownlint-cli
-          markdownlint *.md
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
   test:
@@ -41,6 +37,6 @@ jobs:
           - 'dockerfiles/debian-develop/Dockerfile'
           - 'dockerfiles/debian-next-release/Dockerfile'
     steps:
-    - uses: actions/checkout@v2
-    - name: Dockerfile ${{ matrix.dockerfiles }} Test
-      run: docker build -f ${{ matrix.dockerfiles }} .
+      - uses: actions/checkout@v2
+      - name: Dockerfile ${{ matrix.dockerfiles }} Test
+        run: docker build -f ${{ matrix.dockerfiles }} .
