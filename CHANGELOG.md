@@ -23,6 +23,7 @@
 * Remove `centos-8` checks because of it's EOL
 * Actualize `pending` and `skip` state for different tests
 * Remove `codeclimate` support since we don't use it any more
+* Check `dependabot` at 8:00 Moscow time daily
 
 ### Fixes
 
