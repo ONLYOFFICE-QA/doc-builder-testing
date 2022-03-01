@@ -73,7 +73,7 @@ describe 'Api section tests', critical: true do
 
   it 'Api | CreatePatternFill method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_pattern_fill.js')
-    expect(docx.nil?).to eq(false)
+    expect(docx.nil?).to be(false)
   end
 
   it 'Api | CreatePresetColor method' do

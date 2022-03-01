@@ -205,8 +205,8 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | SetPageBreakBefore method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/set_page_break_before.js')
-    expect(docx.elements.first.page_break).to eq(false)
-    expect(docx.elements[1].page_break).to eq(true)
+    expect(docx.elements.first.page_break).to be(false)
+    expect(docx.elements[1].page_break).to be(true)
   end
 
   it 'ApiParagraph | SetShd method' do
