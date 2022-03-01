@@ -93,9 +93,9 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_range/set_borders.js')
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.color).to eq(OoxmlParser::Color.new(49, 133, 154))
     expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.bottom.style).to eq(:thick)
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.left.color).to eq(nil)
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.right.color).to eq(nil)
-    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.top.color).to eq(nil)
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.left.color).to be_nil
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.right.color).to be_nil
+    expect(xlsx.worksheets.first.rows[1].cells[0].style.borders.top.color).to be_nil
   end
 
   it 'ApiRange | GetValue method' do

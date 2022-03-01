@@ -24,6 +24,7 @@
 * Actualize `pending` and `skip` state for different tests
 * Remove `codeclimate` support since we don't use it any more
 * Check `dependabot` at 8:00 Moscow time daily
+* Changes from `rubocop-rspec` update to 2.9.0
 
 ### Fixes
 
