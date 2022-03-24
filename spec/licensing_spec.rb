@@ -3,9 +3,8 @@
 require 'spec_helper'
 
 describe 'DocumentBuilder licensing' do
-  it 'running docbuilder create temp license' do
-    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
-    skip('License terms are too different for different versions')
-    expect(Dir["#{builder.license_path}/*.lickey"].length).to eq(1)
+  it 'running docbuilder will not create temp license' do
+    skip('This test only for Desktop Builder') if ENV['BUILDER_PLATFORM'] == 'WEB'
+    expect(Dir["#{builder.license_path}/*.lickey"]).to be_empty
   end
 end
