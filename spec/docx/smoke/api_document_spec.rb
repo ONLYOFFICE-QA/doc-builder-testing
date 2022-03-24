@@ -131,6 +131,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | SetEvenAndOddHdrFtr method' do
+    pending('bugzilla 56263')
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/set_even_and_odd_hdr_ftr.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is section #1 of the document. ')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('It has a header and a footer for odd pages. ')
