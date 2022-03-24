@@ -14,7 +14,7 @@ describe 'My behaviour' do
     end
 
     it '[WEB] should raise correct error if input file is incorrect' do
-      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip('This test only for Web Builder') unless ENV['BUILDER_PLATFORM'] == 'WEB'
       expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
     end
 
@@ -30,7 +30,7 @@ describe 'My behaviour' do
     end
 
     it '[WEB] should not raise error if output path is incorrect' do
-      skip unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip('This test only for Web Builder') unless ENV['BUILDER_PLATFORM'] == 'WEB'
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
       FileUtils.rm_rf('/tmp/docbuilder-testing')
