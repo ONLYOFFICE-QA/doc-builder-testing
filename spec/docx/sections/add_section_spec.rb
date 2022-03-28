@@ -14,8 +14,8 @@ describe 'text with tabs' do
     docx = builder.build_and_parse('asserts/js/docx/sections/add_table_in_section.js')
     expect(docx.element_by_description[1].rows.length).to eq(3)
     expect(docx.element_by_description[1].rows[0].cells.length).to eq(3)
-    expect(docx.element_by_description[5].rows.length).to eq(3)
-    expect(docx.element_by_description[5].rows[0].cells.length).to eq(3)
+    expect(docx.element_by_description[4].rows.length).to eq(3)
+    expect(docx.element_by_description[4].rows[0].cells.length).to eq(3)
   end
 
   it 'Page size for Section' do
