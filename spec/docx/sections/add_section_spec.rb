@@ -10,6 +10,7 @@ describe 'text with tabs' do
   end
 
   it 'Add Table in Section', critical: true do
+    skip('Behavior changed in https://github.com/ONLYOFFICE/sdkjs/pull/2667. Recheck after v7.1 release')
     docx = builder.build_and_parse('asserts/js/docx/sections/add_table_in_section.js')
     expect(docx.element_by_description[1].rows.length).to eq(3)
     expect(docx.element_by_description[1].rows[0].cells.length).to eq(3)
