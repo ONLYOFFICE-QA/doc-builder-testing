@@ -97,6 +97,6 @@ class WebDocBuilderWrapper
 
   # @return [String] Url for default location of DocBuilder
   def default_web_builder_url
-    ENV['WEB_BUILDER_URL'] || 'https://doc-linux.teamlab.info'
+    ENV.fetch('WEB_BUILDER_URL', 'https://doc-linux.teamlab.info')
   end
 end

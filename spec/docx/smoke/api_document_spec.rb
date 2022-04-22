@@ -46,7 +46,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetCommentsReport method' do
-    skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+    skip if web_builder?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_comments_report.js')
     expect(docx.elements[1].rows[1].cells[3].elements
                .first.nonempty_runs.first.text).to eq('yes')
@@ -96,7 +96,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetReviewReport method' do
-    skip('Cannot use OpenFile in web version') if ENV['BUILDER_PLATFORM'] == 'WEB'
+    skip('Cannot use OpenFile in web version') if web_builder?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_review_report.js')
     expect(docx.elements[3].rows[2].cells[2].elements
                .first.nonempty_runs.first.text).to eq('Removed text')
