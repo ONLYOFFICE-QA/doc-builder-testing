@@ -9,9 +9,20 @@ require_relative '../lib/doc_builder_testing'
 # depending of env var
 # @return [WebDocBuilderWrapper, DocBuilderWrapper]
 def builder
-  @builder ||= if ENV['BUILDER_PLATFORM'] == 'WEB'
+  @builder ||= if web_builder?
                  WebDocBuilderWrapper.new
                else
                  DocBuilderWrapper.new
                end
+end
+
+# @return [String] which platform is used to run builder tests
+def builder_platform
+  ENV.fetch('BUILDER_PLATFORM', 'DESKTOP')
+end
+
+# Check if platform for builder is web
+# @return [Boolean] result of check
+def web_builder?
+  builder_platform == 'WEB'
 end

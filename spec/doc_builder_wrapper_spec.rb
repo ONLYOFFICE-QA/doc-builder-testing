@@ -9,17 +9,17 @@ describe 'My behaviour' do
 
   describe 'build_doc' do
     it 'raises correct error if input file is incorrect' do
-      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip if web_builder?
       expect { builder.build('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
     it '[WEB] should raise correct error if input file is incorrect' do
-      skip('This test only for Web Builder') unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip('This test only for Web Builder') unless web_builder?
       expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
     end
 
     it 'does not raise error if output path is incorrect' do
-      skip if ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip if web_builder?
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       if Gem.win_platform?
         expect(builder.build(simple_script_windows)).to be_nil
@@ -30,7 +30,7 @@ describe 'My behaviour' do
     end
 
     it '[WEB] should not raise error if output path is incorrect' do
-      skip('This test only for Web Builder') unless ENV['BUILDER_PLATFORM'] == 'WEB'
+      skip('This test only for Web Builder') unless web_builder?
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       expect { builder.build('test') }.to raise_error(WebDocBuilderError, 'Filepath is incorrect')
       FileUtils.rm_rf('/tmp/docbuilder-testing')
