@@ -7,7 +7,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.0
 
 # Disable this check since we test end-user product
 # And do not perform unit-testing of some ruby classes
