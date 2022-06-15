@@ -1,7 +1,7 @@
 FROM ruby:3.1
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
-ENV VERSION="7.2.0-28"
+ENV VERSION="7.2.0-*"
 
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev \
@@ -14,7 +14,7 @@ RUN bundle config set without 'development' && \
     bundle install
 RUN echo "deb [trusted=yes] http://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/onlyoffice/repo-testing/ubuntu trusty main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
-    apt-get -y install onlyoffice-documentbuilder
+    apt-get -y install onlyoffice-documentbuilder=$VERSION
 RUN cat /etc/apt/sources.list.d/onlyoffice.list
 
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
