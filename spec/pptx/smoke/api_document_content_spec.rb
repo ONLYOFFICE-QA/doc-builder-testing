@@ -7,7 +7,7 @@ describe 'ApiDocumentContent section tests', critical: true do
     expect(pptx.slides.first.elements.first
                .text_body.paragraphs.last.runs
                .first.text)
-      .to eq('We removed all elements from '\
+      .to eq('We removed all elements from ' \
              'the shape and added a new paragraph inside it.')
   end
 
@@ -35,7 +35,7 @@ describe 'ApiDocumentContent section tests', critical: true do
     expect(pptx.slides.first.elements.first
                .text_body.paragraphs.last
                .characters.first.text)
-      .to eq('We removed all elements from the '\
+      .to eq('We removed all elements from the ' \
              'shape and added a new paragraph inside it.')
   end
 
@@ -45,7 +45,7 @@ describe 'ApiDocumentContent section tests', critical: true do
                      .first.text_body.paragraphs
     expect(paragraphs.size).to eq(2)
     expect(paragraphs.last.characters.first.text)
-      .to eq('We removed all elements from the '\
+      .to eq('We removed all elements from the ' \
              'shape and added a new paragraph inside it.')
   end
 

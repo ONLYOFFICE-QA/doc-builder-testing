@@ -102,8 +102,8 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | GetElementsCount method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/get_elements_count.js')
     expect(docx.elements.first.nonempty_runs.first.text)
-      .to eq('Number of paragraph elements at '\
-             "this point: \t1\rNumber of paragraph "\
+      .to eq('Number of paragraph elements at ' \
+             "this point: \t1\rNumber of paragraph " \
              "elements after we added a text run: \t2")
   end
 
@@ -130,8 +130,8 @@ describe 'ApiParagraph section tests' do
   it 'ApiParagraph | RemoveAllElements method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/remove_all_elements.js')
     expect(docx.elements.first.nonempty_runs.first.text)
-      .to eq('This is the first document paragraph. We removed all the elements '\
-             'to get the number of paragraph elements at this point: 1. '\
+      .to eq('This is the first document paragraph. We removed all the elements ' \
+             'to get the number of paragraph elements at this point: 1. ' \
              "If we had not done that the number before this sentence would be \'1\'.")
   end
 

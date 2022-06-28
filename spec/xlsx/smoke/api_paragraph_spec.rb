@@ -69,8 +69,8 @@ describe 'ApiParagraph section tests' do
     expect(xlsx.worksheets.first.drawings.first.shape
                .text_body.paragraphs.first.runs[2]
                .text)
-      .not_to eq('This is the third paragraph element '\
-                 '(it will be removed from the paragraph and '\
+      .not_to eq('This is the third paragraph element ' \
+                 '(it will be removed from the paragraph and ' \
                  'we will not see it). ')
   end
 
