@@ -53,7 +53,7 @@ describe 'Api section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api/create_paragraph.js')
     paragraphs = xlsx.worksheets.first.drawings.first.shape.text_body.paragraphs
     expect(paragraphs[0].runs).to be_empty
-    expect(paragraphs[1].runs.first.text).to eq('We removed all elements from the shape '\
+    expect(paragraphs[1].runs.first.text).to eq('We removed all elements from the shape ' \
                                                 'and added a new paragraph inside it.')
   end
 

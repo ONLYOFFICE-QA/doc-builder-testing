@@ -5,9 +5,9 @@ describe 'ApiDocument section tests' do
   it 'ApiDocument | AddElement method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/add_element.js')
     expect(docx.elements[1].nonempty_runs.first.text)
-      .to eq('Number of paragraph elements '\
-             "at this point: \t0\rNumber of "\
-             'paragraph elements after we '\
+      .to eq('Number of paragraph elements ' \
+             "at this point: \t0\rNumber of " \
+             'paragraph elements after we ' \
              "added a text run: \t1")
   end
 

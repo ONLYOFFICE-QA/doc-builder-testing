@@ -12,8 +12,8 @@ describe 'ApiRun section tests' do
     expect(xlsx.worksheets.first.drawings.first.shape
                .text_body.paragraphs.first.runs
                .first.text)
-      .to eq('This is just a sample text. After it three tab '\
-             "stops will be added.\t\t\tThis is the text which "\
+      .to eq('This is just a sample text. After it three tab ' \
+             "stops will be added.\t\t\tThis is the text which " \
              'starts after the tab stops.')
   end
 
