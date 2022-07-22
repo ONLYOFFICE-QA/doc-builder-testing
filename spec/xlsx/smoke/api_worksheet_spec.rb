@@ -208,4 +208,10 @@ describe 'ApiWorksheet section tests' do
     xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_index_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
+
+  it 'ApiWorksheet | Delete sheet' do
+    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/delete_worksheet.js')
+    expect(xlsx.worksheets.count).to eq(1)
+    expect(xlsx.worksheets.first.name).to eq('New sheet')
+  end
 end
