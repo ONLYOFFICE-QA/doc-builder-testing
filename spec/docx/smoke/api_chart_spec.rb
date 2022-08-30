@@ -35,4 +35,11 @@ describe 'ApiChart section tests' do
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises[1].title.elements.first.runs.first.text).to eq('USD In Hundred Thousands')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10)
   end
+
+  it 'ApiChart | SetStyle methods | #54039' do
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_chart/apply_chart_style.js')
+    (1..11).each do |index|
+      expect(docx.elements[index].nonempty_runs.first.text).to eq('true')
+    end
+  end
 end
