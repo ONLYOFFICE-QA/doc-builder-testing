@@ -1,0 +1,16 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+var oDrawing = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+oParagraph.AddDrawing(oDrawing);
+oDrawing.SetSize(4 * 547200, 4 * 346500);
+var oFirstParagraph = Api.CreateParagraph();
+var oSecondParagraph = Api.CreateParagraph();
+var aImages = oDocument.GetAllImages();
+var nWidth = aImages[0].GetWidth();
+var nHeight = aImages[0].GetHeight();
+oFirstParagraph.AddText(nWidth.toString());
+oSecondParagraph.AddText(nHeight.toString());
+oDocument.InsertContent([oFirstParagraph, oSecondParagraph]);
+builder.SaveFile("docx", "GetSizeImage.docx");
+builder.CloseFile();
