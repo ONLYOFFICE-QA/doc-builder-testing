@@ -6,13 +6,13 @@ let oParagraph = oDocument.GetElement(0);
     oParagraph.SetStyle(oHeading);
 
 let oParagraph1 = Api.CreateParagraph();
-    oParagraph1.AddText('');
+    oParagraph1.AddText('Paragraph text ');
 let oParagraph2 = Api.CreateParagraph();
     oParagraph2.AddText('Page Number ');
 let oParagraph3 = Api.CreateParagraph();
     oParagraph3.AddText('Heading number ');
 let oParagraph4 = Api.CreateParagraph();
-    oParagraph4.AddText('');
+    oParagraph4.AddText('Above/below ');
 
 let arrPar = [oParagraph1, oParagraph2, oParagraph3, oParagraph4];
     arrPar.forEach(element => oDocument.Push(element));

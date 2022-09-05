@@ -20,25 +20,25 @@ describe 'All tests numbering object' do
 
   it 'Cross-reference to heading' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_heading_cross_reference.js')
-    reference = docx.elements[0].character_style_array[1].name
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Heading 1')
+    expect(docx.elements[1].nonempty_runs[1].text).to eq('Heading 1')
+    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF _Ref1  \\h')
     expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
+    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF _Ref1 \\h')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('0')
-    expect(docx.elements[4].nonempty_runs.first.text).to eq('above')
-    (1..4).each do |a|
-      expect(docx.elements[a].runs[1].instruction_text.value).to include(reference)
-    end
+    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' REF _Ref1 \\r  \\h \\p')
+    expect(docx.elements[4].nonempty_runs[1].text).to eq('above')
+    expect(docx.elements[4].runs[2].instruction_text.value).to eq(' REF _Ref1 \\p  \\h')
   end
 
   it 'Cross-reference to bookmarks' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_bookmark_cross_reference.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
-    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \h')
+    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
     expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
-    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF Bookmark \h')
+    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF Bookmark \\h')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('0')
-    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' REF Bookmark \r  \h')
+    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' REF Bookmark \\r  \\h')
     expect(docx.elements[4].nonempty_runs.first.text).to eq('above')
-    expect(docx.elements[4].runs[1].instruction_text.value).to eq(' REF Bookmark \p  \h')
+    expect(docx.elements[4].runs[1].instruction_text.value).to eq(' REF Bookmark \\p  \\h')
   end
 end
