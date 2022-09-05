@@ -1,17 +1,11 @@
 builder.CreateFile("docx");
 let oDocument = Api.GetDocument();
 let oNum = oDocument.CreateNumbering();
-
 for(let nlvl = 0; nlvl < 2; ++nlvl) {
-
     let oNumLvl = oNum.GetLevel(nlvl);
     console.log(oNumLvl.GetClassType())
     let sFormatString = ''
-
-    for(let nTempLvl = 1; nTempLvl <= (nlvl + 1); ++nTempLvl) {
-        sFormatString += "%" + nTempLvl + ".";
-    }
-
+    for(let nTempLvl = 1; nTempLvl <= (nlvl + 1); ++nTempLvl) { sFormatString += "%" + nTempLvl + "." }
     oNumLvl.SetCustomType("decimal", sFormatString, "left");
     oNumLvl.SetStart(nlvl + 1);
     oNumLvl.SetSuff("space");
@@ -21,19 +15,18 @@ for(let nlvl = 0; nlvl < 2; ++nlvl) {
     oPar.SetContextualSpacing(true);
     oDocument.Push(oPar);
 }
-
 let oPar1 = Api.CreateParagraph();
     oPar1.AddText('Page Number ');
 let oPar2 = Api.CreateParagraph();
     oPar2.AddText('Paragraph Number ');
 let oPar3 = Api.CreateParagraph();
-    oPar3.AddText('No Context ');
+    oPar3.AddText('Paragraph number (no context) ');
 let oPar4 = Api.CreateParagraph();
-    oPar4.AddText('Full Context ');
+    oPar4.AddText('Paragraph number (full context) ');
 let oPar5 = Api.CreateParagraph();
-    oPar5.AddText('');
+    oPar5.AddText('Paragraph text ');
 let oPar6 = Api.CreateParagraph();
-    oPar6.AddText('');
+    oPar6.AddText('Above/below ');
 
 let arrNumParagraphs = oDocument.GetAllNumberedParagraphs()
 let oNumParLvl1 = arrNumParagraphs[0];
