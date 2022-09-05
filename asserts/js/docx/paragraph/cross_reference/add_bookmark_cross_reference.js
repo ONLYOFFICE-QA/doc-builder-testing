@@ -6,7 +6,7 @@ let oRange = oDocument.GetRange(0, 8);
     oRange.AddBookmark("Bookmark");
 
 let oParagraph1 = Api.CreateParagraph();
-    oParagraph1.AddText('');
+    oParagraph1.AddText('Paragraph text ');
 let oParagraph2 = Api.CreateParagraph();
     oParagraph2.AddText('Page Number ');
 let oParagraph3 = Api.CreateParagraph();
