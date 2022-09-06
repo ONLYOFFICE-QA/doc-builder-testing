@@ -41,4 +41,30 @@ describe 'All tests numbering object' do
     expect(docx.elements[4].nonempty_runs.first.text).to eq('above')
     expect(docx.elements[4].runs[1].instruction_text.value).to eq(' REF Bookmark \\p  \\h')
   end
+
+  it 'Cross-reference to footnote' do
+    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_footnote_cross_ref.js')
+    expect(docx.elements[1].nonempty_runs[1].text).to eq('1')
+    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\h')
+    expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
+    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF _Ref2 \\h')
+    expect(docx.elements[3].nonempty_runs[1].text).to eq('above')
+    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\p  \\h')
+    expect(docx.elements[4].nonempty_runs[1].text).to eq('1')
+    expect(docx.elements[4].nonempty_runs[1].run_properties.vertical_align.to_s).to eq('superscript')
+    expect(docx.elements[4].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\f  \\h')
+  end
+
+  it 'Cross-reference to endnote' do
+    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_endnote_cross_ref.js')
+    expect(docx.elements[1].nonempty_runs[1].text).to eq('i')
+    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\h')
+    expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
+    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF _Ref2 \\h')
+    expect(docx.elements[3].nonempty_runs[1].text).to eq('above')
+    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\p  \\h')
+    expect(docx.elements[4].nonempty_runs[1].text).to eq('i')
+    expect(docx.elements[4].nonempty_runs[1].run_properties.vertical_align.to_s).to eq('superscript')
+    expect(docx.elements[4].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\f  \\h')
+  end
 end
