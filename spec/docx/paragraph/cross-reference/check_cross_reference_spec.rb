@@ -3,7 +3,7 @@
 require 'spec_helper'
 describe 'All tests numbering object' do
   it 'Cross-reference to numbering paragraphs' do
-    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_numbered_cross_reference.js')
+    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_numbered_cross_ref.js')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[3].runs[2].instruction_text.value).to eq(' PAGEREF _Ref1 \\h')
     expect(docx.elements[4].nonempty_runs[1].text).to eq('1')
@@ -19,7 +19,7 @@ describe 'All tests numbering object' do
   end
 
   it 'Cross-reference to heading' do
-    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_heading_cross_reference.js')
+    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_heading_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Heading 1')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF _Ref1  \\h')
     expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
@@ -31,7 +31,7 @@ describe 'All tests numbering object' do
   end
 
   it 'Cross-reference to bookmarks' do
-    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_bookmark_cross_reference.js')
+    docx = builder.build_and_parse('asserts/js/docx/paragraph/cross_reference/add_bookmark_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
     expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
