@@ -1,0 +1,5 @@
+default
+resource_usage_report
+rspec_critical
+run_tests_on_desktop
+run_tests_on_web

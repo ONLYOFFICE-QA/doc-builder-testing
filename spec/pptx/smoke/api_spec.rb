@@ -6,7 +6,7 @@ describe 'Api section tests' do
     pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
     pptx = builder.build_and_parse('asserts/js/pptx/smoke/api/create_blip_fill.js')
     expect(pptx.slides.first.background.fill.image.file_reference.content.length).to be >= 1_000
-    expect(pptx.slides.first.background.fill.image.tile).to be_a_kind_of(OoxmlParser::Tile)
+    expect(pptx.slides.first.background.fill.image.tile).to be_a(OoxmlParser::Tile)
   end
 
   it 'Api | CreateBullet method' do
