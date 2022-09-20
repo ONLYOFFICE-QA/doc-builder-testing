@@ -9,7 +9,7 @@ describe 'My behaviour' do
 
   describe 'build_doc' do
     it 'raises correct error if input file is incorrect' do
-      skip if web_builder?
+      skip('Opening local file is not available in web builder') if web_builder?
       expect { builder.build('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
     end
 
@@ -19,7 +19,7 @@ describe 'My behaviour' do
     end
 
     it 'does not raise error if output path is incorrect' do
-      skip if web_builder?
+      skip('Saving local file is not available in web builder') if web_builder?
       FileUtils.rm_rf('/tmp/docbuilder-testing')
       if Gem.win_platform?
         expect(builder.build(simple_script_windows)).to be_nil

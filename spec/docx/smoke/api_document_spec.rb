@@ -46,7 +46,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetCommentsReport method' do
-    skip if web_builder?
+    skip('GetCommentsReport require local file to open and not aviable in web builder') if web_builder?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_comments_report.js')
     expect(docx.elements[1].rows[1].cells[3].elements
                .first.nonempty_runs.first.text).to eq('yes')
