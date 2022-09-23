@@ -98,7 +98,7 @@ describe 'ApiDocument section tests' do
   it 'ApiDocument | GetReviewReport method' do
     skip('Cannot use OpenFile in web version') if web_builder?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_review_report.js')
-    expect(docx.elements[3].rows[2].cells[2].elements
+    expect(docx.elements[3].rows[1].cells[2].elements
                .first.nonempty_runs.first.text).to eq('Removed text')
   end
 
