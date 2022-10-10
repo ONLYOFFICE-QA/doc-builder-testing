@@ -38,7 +38,7 @@ describe 'ApiChart section tests' do
 
   it 'ApiChart | SetStyle methods | #54039' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_chart/apply_chart_style.js')
-    (1..11).each do |index|
+    (1..10).each do |index|
       expect(docx.elements[index].nonempty_runs.first.text).to eq('true')
     end
   end
