@@ -42,4 +42,10 @@ describe 'ApiChart section tests' do
       expect(docx.elements[index].nonempty_runs.first.text).to eq('true')
     end
   end
+
+  it 'ApiChart | CreateChart method | aNumFormats param' do
+    docx = builder.build_and_parse('asserts/js/docx/smoke/api_chart/set_series_format.js')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series[0].values.number_reference.cache.format_code).to eq('0.00E+00')
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series[1].values.number_reference.cache.format_code).to eq('#,##0.00_);[Red](#,##0.00)')
+  end
 end
