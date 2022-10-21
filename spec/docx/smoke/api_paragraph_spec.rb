@@ -132,7 +132,7 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements.first.nonempty_runs.first.text)
       .to eq('This is the first document paragraph. We removed all the elements ' \
              'to get the number of paragraph elements at this point: 1. ' \
-             "If we had not done that the number before this sentence would be \'1\'.")
+             "If we had not done that the number before this sentence would be '1'.")
   end
 
   it 'ApiParagraph | RemoveElement method' do
