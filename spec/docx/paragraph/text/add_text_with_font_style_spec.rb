@@ -24,6 +24,6 @@ describe 'My behaviour' do
   it 'text should be underline' do
     docx = builder.build_and_parse('asserts/js/docx/paragraph/text/add_text_with_setunderline_in_paragraph.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Underline')
-    expect(docx.elements[1].nonempty_runs.first.font_style.underlined.style).to eq('single')
+    expect(docx.elements[1].nonempty_runs.first.font_style.underlined.style).to eq(:single)
   end
 end
