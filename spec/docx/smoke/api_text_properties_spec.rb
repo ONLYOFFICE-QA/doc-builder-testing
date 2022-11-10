@@ -87,7 +87,7 @@ describe 'ApiTextPr section tests' do
 
   it 'ApiTextPr | SetUnderline method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_text_pr/set_underline.js')
-    expect(docx.elements.first.nonempty_runs.first.font_style.underlined.style).to eq('single')
+    expect(docx.elements.first.nonempty_runs.first.font_style.underlined.style).to eq(:single)
   end
 
   it 'ApiTextPr | SetVertAlign method' do

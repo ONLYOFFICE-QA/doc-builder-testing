@@ -172,7 +172,7 @@ describe 'ApiRun section tests' do
   it 'ApiRun | SetUnderline method' do
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_run/set_underline.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text underlined with a single line.')
-    expect(docx.elements.first.nonempty_runs[1].font_style.underlined.style).to eq('single')
+    expect(docx.elements.first.nonempty_runs[1].font_style.underlined.style).to eq(:single)
   end
 
   it 'ApiRun | SetVertAlign method' do

@@ -24,6 +24,6 @@ describe 'Check fontstyles in header' do
   it 'text should be underline' do
     docx = builder.build_and_parse('asserts/js/docx/header/text/text_with_underline_in_header.js')
     expect(docx.notes.first.elements[1].nonempty_runs.first.text).to eq('Underline')
-    expect(docx.notes.first.elements[1].nonempty_runs.first.font_style.underlined.style).to eq('single')
+    expect(docx.notes.first.elements[1].nonempty_runs.first.font_style.underlined.style).to eq(:single)
   end
 end
