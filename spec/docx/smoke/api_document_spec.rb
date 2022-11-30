@@ -99,7 +99,7 @@ describe 'ApiDocument section tests' do
     skip('Cannot use OpenFile in web version') if web_builder?
     docx = builder.build_and_parse('asserts/js/docx/smoke/api_document/get_review_report.js')
     expect(docx.elements[3].rows[1].cells[2].elements
-               .first.nonempty_runs.first.text).to eq('Removed text')
+               .first.nonempty_runs.first.text).to eq('Formatted text')
   end
 
   it 'ApiDocument | GetStyle method' do
