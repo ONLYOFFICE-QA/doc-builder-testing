@@ -1,4 +1,4 @@
-builder.OpenFile("DocumentWithReview.docx");
+builder.OpenFile("asserts/api_document_files/DocumentWithReview.docx");
 var oDocument = Api.GetDocument();
 GlobalVariable["ReviewReport"] = oDocument.GetReviewReport();
 builder.CloseFile();
