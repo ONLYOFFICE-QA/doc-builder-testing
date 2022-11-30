@@ -1,4 +1,4 @@
-builder.OpenFile("asserts/api_document_files/DocumentWithComments.docx");
+builder.OpenFile("assets/api_document_files/DocumentWithComments.docx");
 var oDocument = Api.GetDocument();
 GlobalVariable["CommentsReport"] = oDocument.GetCommentsReport();
 builder.CloseFile();
