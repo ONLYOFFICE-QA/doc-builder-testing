@@ -1,28 +1,28 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'From Xlsx negative' do
-  it 'All formats | From Xlsx to Docx' do
+describe 'Conversion tests from Xlsx negative' do
+  it 'Conversion | Xlsx to Docx' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx/xlsx_to_docx.js') }.to raise_error(StandardError)
   end
 
-  it 'All formats | From Xlsx to Odt' do
+  it 'Conversion | Xlsx to Odt' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx/xlsx_to_odt.js') }.to raise_error(StandardError)
   end
 
-  it 'All formats | From Xlsx to Txt' do
+  it 'Conversion | Xlsx to Txt' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx/xlsx_to_txt.js') }.to raise_error(StandardError)
   end
 
-  it 'All formats | From Xlsx to Rtf' do
+  it 'Conversion | Xlsx to Rtf' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx/xlsx_to_rtf.js') }.to raise_error(StandardError)
   end
 
-  it 'All formats | From Xlsx to Pptx' do
+  it 'Conversion | Xlsx to Pptx' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx/xlsx_to_pptx.js') }.to raise_error(StandardError)
   end
 
-  it 'All formats | From Xlsx to Odp' do
+  it 'Conversion | Xlsx to Odp' do
     expect { builder.build_and_parse('asserts/js/conversion/negative/xlsx//xlsx_to_odp.js') }.to raise_error(StandardError)
   end
 end
