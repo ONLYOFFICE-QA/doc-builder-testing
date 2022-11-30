@@ -4,7 +4,7 @@ require 'spec_helper'
 
 describe 'PDF Creation specific bugs' do
   it 'Bug 48473' do
-    file = builder.build_and_parse('asserts/js/pdf/bug_48473.js')
+    file = builder.build_and_parse('js/pdf/bug_48473.js')
     expect(File.size(file.file_path)).to be > 10_000
   end
 end

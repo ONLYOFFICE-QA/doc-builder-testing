@@ -3,7 +3,7 @@
 require 'spec_helper'
 describe 'Cross-Reference test' do
   it 'ApiParagraph | AddNumberedCrossRef' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api_paragraph/add_numbered_cross_ref.js')
+    docx = builder.build_and_parse('js/docx/smoke/api_paragraph/add_numbered_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' PAGEREF _Ref1 \\h')
     expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
