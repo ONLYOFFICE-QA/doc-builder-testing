@@ -7,12 +7,12 @@ describe 'ApiWorksheet page orientation in pdf' do
   end
 
   it 'ApiWorksheet | SetPageOrientation method' do
-    pdf = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_page_orientation.js')
+    pdf = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_page_orientation.js')
     expect(pdf.page_size).to eq('Landscape A4')
   end
 
   it 'ApiWorksheet | PageOrientation property' do
-    pdf = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/page_orientation_property.js')
+    pdf = builder.build_and_parse('js/xlsx/smoke/api_worksheet/page_orientation_property.js')
     expect(pdf.page_size).to eq('Landscape A4')
   end
 end

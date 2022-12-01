@@ -1,4 +1,4 @@
-builder.OpenFile("asserts/sample_files/only_paragraph.docx");
+builder.OpenFile("assets/sample_files/only_paragraph.docx");
 var oDocument = Api.GetDocument();
 var oParagraph;
 oParagraph = oDocument.GetElement(0);

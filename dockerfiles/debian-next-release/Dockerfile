@@ -1,7 +1,7 @@
 FROM ruby:3.1
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
-ENV VERSION="7.2.0-*"
+ENV VERSION="7.2.2-*"
 
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev \

@@ -3,7 +3,7 @@
 require 'spec_helper'
 describe 'ApiWorksheet section tests' do
   it 'ApiWorksheet | AddChart method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_chart.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_chart.js')
     drawing = xlsx.worksheets.first.drawings.first
     data = drawing.graphic_frame.graphic_data.first
     drawing.graphic_frame.graphic_data.first.series.each_with_index do |series, index|
@@ -22,7 +22,7 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | AddImage method' do
     pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_image.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_image.js')
     expect(xlsx.worksheets.first.drawings.first.picture.path_to_image.file_reference.content.length).to be >= 1_000
     expect(xlsx.worksheets.first.drawings.first.picture.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(60 * 36_000, :emu))
     expect(xlsx.worksheets.first.drawings.first.picture.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(35 * 36_000, :emu))
@@ -33,7 +33,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | AddShape method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_shape.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_shape.js')
     drawing = xlsx.worksheets.first.drawings.first
     fill_color = drawing.shape.properties.fill_color.value
     expect(drawing.shape.properties.preset_geometry.name).to eq(:flowChartOnlineStorage)
@@ -53,7 +53,7 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | FormatAsTable method', critical: true do
     column_names = %w[A B C D E]
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/format_as_table.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/format_as_table.js')
     xlsx.worksheets.first.table_parts.first.autofilter.ref.each do |current_autofilter|
       expect(current_autofilter.list).to eq 'Sheet1'
       expect(current_autofilter.column).to(satisfy { |value| column_names.include?(value) })
@@ -62,7 +62,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | GetRange method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_range.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_range.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
         expect(current_cell.style.alignment.horizontal).to eq(:center)
@@ -71,146 +71,146 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | GetRangeByNumber method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_range_by_number.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_range_by_number.js')
     expect(xlsx.worksheets.first.rows[1].cells[2].text).to eq('42')
   end
 
   it 'ApiWorksheet | SetColumnWidth method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_column_width.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_column_width.js')
     expect(xlsx.worksheets.first.columns.first.width.to_i).to eq(10)
     expect(xlsx.worksheets.first.columns[1].width.to_i).to eq(20)
   end
 
   it 'ApiWorksheet | SetName method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_name.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
 
   it 'ApiWorksheet | SetDisplayGridlines method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_gridlines.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_display_gridlines.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_gridlines).to be_falsey
   end
 
   it 'ApiWorksheet | SetDisplayHeadings method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_display_headings.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_display_headings.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
   end
 
   it 'ApiWorksheet | getter Name' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_name.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/getter_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | setter Name' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/setter_name.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/setter_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
 
   it 'ApiWorksheet | GetCells method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cells.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_cells.js')
     expect(xlsx.worksheets.first.columns.first.to).to eq(16_384)
   end
 
   it 'ApiWorksheet | Getter Cells' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_cells.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/getter_cells.js')
     expect(xlsx.worksheets.first.columns.count).to eq(1)
     expect(xlsx.worksheets.first.columns[0].style.fill_color).not_to be_nil
   end
 
   it 'ApiWorksheet | AddSheet method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/add_sheet.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_sheet.js')
     expect(xlsx.worksheets.count).to eq(2)
   end
 
   it 'ApiWorksheet | GetCols method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_cols.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_cols.js')
     expect(xlsx.worksheets.first.columns.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | GetRows method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_rows.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_rows.js')
     expect(xlsx.worksheets.first.rows.first.style.fill_color.pattern_fill.background_color.rgb).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'ApiWorksheet | Cols getter' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/cols_getter.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/cols_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Rows getter' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/rows_getter.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/rows_getter.js')
     expect(xlsx.worksheets.first.columns.first.style.font.font_style.bold).to be_truthy
   end
 
   it 'ApiWorksheet | Index getter method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/getter_index.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/getter_index.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | Get Name method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_name.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
   end
 
   it 'ApiWorksheet | GetUsedRange method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_used_range.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_used_range.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | UsedRange getter' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/used_range_getter.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/used_range_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('9')
   end
 
   it 'ApiWorksheet | SetVisible method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/set_visible.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_visible.js')
     expect(xlsx.sheets.first.state).to eq(:hidden)
   end
 
   it 'ApiWorksheet | GetVisible method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_visible.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_visible.js')
     expect(xlsx.worksheets[1].rows.first.cells.first.text).to eq('0')
   end
 
   it 'ApiWorksheet | PrintHeadings property', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_headings_property.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/print_headings_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | GetPageOrientation method', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_page_orientation.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_page_orientation.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('xlPortrait')
   end
 
   it 'ApiWorksheet | Selection property' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/selection_property.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/selection_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | GetSelection method' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_selection_method.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_selection_method.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | ActiveCell property' do
     pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/active_cell_property.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/active_cell_property.js')
     expect(xlsx.worksheets.first.rows[12].cells[3].text).to eq('60')
   end
 
   it 'ApiWorksheet | PrintGridlines property', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
   end
 
   it 'ApiWorksheet | GetIndex property', critical: true do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/get_index_property.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_index_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
   it 'ApiWorksheet | Delete sheet' do
-    xlsx = builder.build_and_parse('asserts/js/xlsx/smoke/api_worksheet/delete_worksheet.js')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/delete_worksheet.js')
     expect(xlsx.worksheets.count).to eq(1)
     expect(xlsx.worksheets.first.name).to eq('New sheet')
   end
