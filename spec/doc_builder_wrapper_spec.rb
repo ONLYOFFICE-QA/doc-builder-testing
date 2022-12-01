@@ -3,9 +3,9 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  let(:simple_script) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph.js' }
-  let(:simple_script_windows) { 'asserts/js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
-  let(:simple_xlsx_script) { 'asserts/js/wrapper/simplest_xlsx_file.js' }
+  let(:simple_script) { 'js/wrapper/add_text_with_bold_in_paragraph.js' }
+  let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
+  let(:simple_xlsx_script) { 'js/wrapper/simplest_xlsx_file.js' }
 
   describe 'build_doc' do
     it 'raises correct error if input file is incorrect' do
@@ -67,7 +67,7 @@ describe 'My behaviour' do
     end
 
     it 'check that build is performed with script with russian letters' do
-      expect(builder.build_and_parse('asserts/js/docx/paragraph/text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
+      expect(builder.build_and_parse('js/docx/paragraph/text/add_text_in_header.js')).to be_a(OoxmlParser::DocumentStructure)
     end
   end
 

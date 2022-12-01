@@ -12,7 +12,7 @@ RUN tar xvf documentbuilder-*.tar.gz
 RUN mv /documentbuilder-4.4.1 /documentbuilder
 RUN chmod -R 777 /documentbuilder
 COPY . /doc-builder-testing
-COPY asserts/documentbuilder /usr/bin/documentbuilder
+COPY assets/debian-archive_scripts/documentbuilder /usr/bin/documentbuilder
 RUN chmod +x /usr/bin/documentbuilder
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
