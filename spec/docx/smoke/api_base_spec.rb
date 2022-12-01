@@ -3,7 +3,7 @@
 require 'spec_helper'
 describe 'Api section tests', critical: true do
   it 'Api | CreateBlipFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_blip_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_blip_fill.js')
     graphic = docx.elements.first.nonempty_runs
                   .first.alternate_content
                   .office2010_content.graphic
@@ -17,7 +17,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateChart method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_chart.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_chart.js')
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.type).to eq(:chart)
     expect(docx.elements.first.nonempty_runs.first.drawing.graphic.data.type).to eq(:bar_3d)
     docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.series.each do |series|
@@ -31,7 +31,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateGradientStop method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_gradient_stop.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_gradient_stop.js')
     graphic = docx.elements.first.nonempty_runs
                   .first.alternate_content
                   .office2010_content.graphic
@@ -46,7 +46,7 @@ describe 'Api section tests', critical: true do
 
   it 'Api | CreateImage method' do
     pending('https://github.com/ONLYOFFICE/DocumentBuilder/issues/26') if Gem.win_platform?
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_image.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_image.js')
     drawing = docx.elements.first.nonempty_runs.first.drawing
     drawing ||= docx.elements.first.nonempty_runs.first.alternate_content.office2010_content
     expect(drawing.graphic.type).to eq(:picture)
@@ -56,28 +56,28 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateLinearGradientFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_linear_gradient_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_linear_gradient_fill.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.linear_gradient.angle).to eq(54.0)
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.gradient_stops).not_to be_empty
   end
 
   it 'Api | CreateNoFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_no_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_no_fill.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color).to be_nil
   end
 
   it 'Api | CreateParagraph method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_paragraph.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_paragraph.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('This is a new paragraph')
   end
 
   it 'Api | CreatePatternFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_pattern_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_pattern_fill.js')
     expect(docx.nil?).to be(false)
   end
 
   it 'Api | CreatePresetColor method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_preset_color.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_preset_color.js')
     fill_color = docx.elements.first.nonempty_runs
                      .first.alternate_content
                      .office2010_content.graphic
@@ -89,7 +89,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateRadialGradientFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_radial_gradient_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_radial_gradient_fill.js')
     color_value = docx.elements.first.nonempty_runs
                       .first.alternate_content
                       .office2010_content.graphic
@@ -103,7 +103,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateRGBColor method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_rgb_color.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_rgb_color.js')
     color_value = docx.elements.first.nonempty_runs
                       .first.alternate_content
                       .office2010_content.graphic
@@ -117,17 +117,17 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateRun method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_run.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_run.js')
     expect(docx.elements.first.nonempty_runs.size).to eq(1)
   end
 
   it 'Api | CreateSchemeColor method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_scheme_color.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_scheme_color.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value.scheme).to eq('accent6')
   end
 
   it 'Api | CreateShape method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_shape.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_shape.js')
     alternate_content = docx.elements.first.nonempty_runs.first.alternate_content
     expect(alternate_content.office2007_content.data.properties.stroke_color).to be_nil
     properties = alternate_content.office2010_content
@@ -140,17 +140,17 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateSolidFill method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_solid_fill.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_solid_fill.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.properties.fill_color.value).to eq(OoxmlParser::Color.new(0, 255, 0))
   end
 
   it 'Api | CreateStroke method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_stroke.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_stroke.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2007_content.data.properties.stroke_color).to eq(OoxmlParser::Color.new(255, 224, 204))
   end
 
   it 'Api | CreateTable method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/create_table.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/create_table.js')
     expect(docx.elements[1].rows.size).to eq(3)
     expect(docx.elements[1].rows[0].cells.size).to eq(3)
     expect(docx.elements[1].rows[1].cells.size).to eq(3)
@@ -164,7 +164,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | GetDocument method' do
-    docx = builder.build_and_parse('asserts/js/docx/smoke/api/get_document.js')
+    docx = builder.build_and_parse('js/docx/smoke/api/get_document.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('This is a new paragraph')
   end
 end

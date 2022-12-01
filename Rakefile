@@ -25,7 +25,7 @@ end
 desc 'Generate report with resource usage'
 task :resource_usage_report do
   results = []
-  files = Dir["#{Dir.pwd}/asserts/js/**/*.js"]
+  files = Dir["#{Dir.pwd}/js/**/*.js"]
   files.each do |file|
     data = DocBuilderWrapper.new.build_file_with_usage_stats(file)
     results << { file: file, memory: data.memory, time: data.user_time }
