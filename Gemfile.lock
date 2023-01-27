@@ -11,7 +11,7 @@ GEM
     iniparse (1.5.0)
     json (2.6.3)
     jwt (2.5.0)
-    mini_portile2 (2.8.0)
+    mini_portile2 (2.8.1)
     nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
