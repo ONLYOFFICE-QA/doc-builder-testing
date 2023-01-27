@@ -2,7 +2,7 @@ FROM centos:7
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
-RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/3.0.4/ruby-3.0.4-1.el7.centos.x86_64.rpm
+RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/3.2.0/ruby-3.2.0-1.el7.centos.x86_64.rpm
 RUN yum -y install file-devel \
                    gcc \
                    git \
