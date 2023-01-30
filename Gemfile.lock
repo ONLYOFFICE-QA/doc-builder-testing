@@ -11,8 +11,8 @@ GEM
     iniparse (1.5.0)
     json (2.6.3)
     jwt (2.5.0)
-    mini_portile2 (2.8.0)
-    nokogiri (1.13.10)
+    mini_portile2 (2.8.1)
+    nokogiri (1.14.0)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     onlyoffice_pdf_parser (0.5.0)
@@ -42,7 +42,7 @@ GEM
       ruby-rc4
       ttfunk
     pkg-config (1.5.1)
-    racc (1.6.1)
+    racc (1.6.2)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.6.2)
