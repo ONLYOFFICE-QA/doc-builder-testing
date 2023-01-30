@@ -52,6 +52,7 @@ describe 'Api Table section tests' do
   end
 
   it 'Api | SetHeight method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=60928')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/set_height.js')
     expect(pptx.slides.first.elements.last.graphic_data
                .first.rows.first.height).to eq(OoxmlParser::OoxmlSize.new(10_000_000, :emu))
