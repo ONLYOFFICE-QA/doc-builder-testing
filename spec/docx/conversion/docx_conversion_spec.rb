@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'Conversion tests from Docx' do
+describe 'Conversion tests from docx' do
   it 'Conversion | docx to docx', critical: true do
     parsed_output_file = builder.build_and_parse('js/conversion/docx/docx_to_docx.js')
     expect(parsed_output_file).to be_with_data
   end
 
-  it 'Conversion | docx to Docxf' do
+  it 'Conversion | docx to docxf' do
     parsed_output_file = builder.build_and_parse('js/conversion/docx/docx_to_docxf.js')
     ext = builder.recognize_output_format(File.read('js/conversion/docx/docx_to_docxf.js'))
     expect(File.extname(parsed_output_file.file_path).strip.downcase[1..]).to eq(ext)
