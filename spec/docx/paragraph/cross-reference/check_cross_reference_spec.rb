@@ -67,4 +67,10 @@ describe 'All tests numbering object' do
     expect(docx.elements[4].nonempty_runs[1].run_properties.vertical_align.to_s).to eq('superscript')
     expect(docx.elements[4].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\f  \\h')
   end
+
+  it 'Cross-reference to caption' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=60968')
+    docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_caption_cross_ref.js')
+    expect(docx).to eq(docx)
+  end
 end
