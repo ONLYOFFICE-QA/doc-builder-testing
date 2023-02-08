@@ -23,15 +23,16 @@ let sCaptionSep = "hyphen" // separator (use if need to include chapter number).
     oPar = Api.CreateParagraph();
     oPar.AddText('sRefType: entireCaption ');
 let oPar1 = Api.CreateParagraph();
-    oPar1.AddText('sRefType: captionText ');
+    oPar1.AddText('sRefType: labelNumber ');
 let oPar2 = Api.CreateParagraph();
-    oPar2.AddText('sRefType: pageNum ');
+    oPar2.AddText('sRefType: captionText ');
 let oPar3 = Api.CreateParagraph();
-    oPar3.AddText('sRefType: aboveBelow ');
+    oPar3.AddText('sRefType: pageNum ');
 let oPar4 = Api.CreateParagraph();
-    oPar4.AddText('sRefType: labelNumber ');
+    oPar4.AddText('sRefType: aboveBelow ');
 let oPar5 = Api.CreateParagraph();
-    oPar5.AddText('Result method: ');
+    oPar5.AddText('Return: ');
+
 let arrPar = [oPar, oPar1, oPar2, oPar3, oPar4, oPar5];
     arrPar.forEach(element => oDoc.Push(element));
 
@@ -46,10 +47,10 @@ let bLink = true // Specifies if the reference will be inserted as a hyperlink
 let bAboveBelow = false // Specifies if the above/below words indicating the position of the reference should be included (used only with the "pageNum" sRefType).
 
 let result = oPar.AddCaptionCrossRef(sCaption, sRefType, oParaTo, bLink, bAboveBelow);
-    oPar1.AddCaptionCrossRef(sCaption, 'captionText', oParaTo, bLink, bAboveBelow);
-    oPar2.AddCaptionCrossRef(sCaption, 'pageNum', oParaTo, bLink, bAboveBelow);
-    oPar3.AddCaptionCrossRef(sCaption, 'aboveBelow', oParaTo, bLink, bAboveBelow);
-    oPar4.AddCaptionCrossRef(sCaption, 'labelNumber', oParaTo, bLink, bAboveBelow);
+    oPar1.AddCaptionCrossRef(sCaption, 'labelNumber', oParaTo, bLink, bAboveBelow);
+    oPar2.AddCaptionCrossRef(sCaption, 'captionText', oParaTo, bLink, bAboveBelow);
+    oPar3.AddCaptionCrossRef(sCaption, 'pageNum', oParaTo, bLink, bAboveBelow);
+    oPar4.AddCaptionCrossRef(sCaption, 'aboveBelow', oParaTo, bLink, bAboveBelow);
     oPar5.AddText(result.toString());
 builder.SaveFile("docx", "add_caption_cross_ref.docx");
 builder.CloseFile();
