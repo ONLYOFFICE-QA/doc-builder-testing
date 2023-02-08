@@ -4,7 +4,7 @@ require 'spec_helper'
 describe 'All tests numbering object' do
   it 'Cross-reference to numbering paragraphs' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_numbered_cross_ref.js')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[3].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[3].runs[2].instruction_text.value).to eq(' PAGEREF _Ref1 \\h')
     expect(docx.elements[4].nonempty_runs[1].text).to eq('1')
@@ -23,7 +23,7 @@ describe 'All tests numbering object' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_heading_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Heading 1')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF _Ref1  \\h')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF _Ref1 \\h')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('0')
@@ -36,7 +36,7 @@ describe 'All tests numbering object' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_bookmark_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF Bookmark \\h')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('0')
@@ -49,7 +49,7 @@ describe 'All tests numbering object' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_footnote_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\h')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF _Ref2 \\h')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('above')
@@ -61,7 +61,7 @@ describe 'All tests numbering object' do
 
   it 'Cross-reference to endnote' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_endnote_cross_ref.js')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58902'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58902'
     # expect(docx.elements[1].nonempty_runs[1].text).to eq('i')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' NOTEREF _Ref1 \\h')
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
@@ -78,7 +78,7 @@ describe 'All tests numbering object' do
     expect(docx.elements[3].nonempty_runs[3].text).to eq(' caption with text ')
     expect((1..2).map { |i| docx.elements[4].nonempty_runs[i].text }.join(' ')).to eq('Table  1')
     expect(docx.elements[5].nonempty_runs[1].text).to eq('caption with text ')
-    # TODO bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[6].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[7].nonempty_runs[1].text).to eq('above')
     expect(docx.elements[8].nonempty_runs[1].text).to eq('true')
