@@ -53,4 +53,11 @@ describe 'ApiDocumentContent section tests' do
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[4]
         .nonempty_runs.first.text).to eq('We removed paragraph #3, check that out above.')
   end
+
+  it 'ApiDocumentContent | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document_content/to_json.js')
+    expect(docx.elements[0].nonempty_runs.first.text).to eq('Simple text')
+    json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
+    expect(json['type']).to eq('docContent')
+  end
 end
