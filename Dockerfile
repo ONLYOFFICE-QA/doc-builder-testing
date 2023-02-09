@@ -12,8 +12,9 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
-RUN echo "deb http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
+RUN mkdir -p -m 700 ~/.gnupg
+RUN gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/onlyoffice.gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys CB2DE8E5
+RUN echo 'deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] https://download.onlyoffice.com/repo/debian squeeze main' | sudo tee -a /etc/apt/sources.list.d/onlyoffice.list \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
