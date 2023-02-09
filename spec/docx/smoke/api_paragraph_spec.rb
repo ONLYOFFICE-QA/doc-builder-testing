@@ -259,4 +259,9 @@ describe 'ApiParagraph section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_paragraph/set_widow_control.js')
     expect(docx.elements[5].orphan_control).to be_truthy
   end
+
+  it 'ApiParagraph | SetFontFamily method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_paragraph/set_font_family.js')
+    expect(docx.elements[0].nonempty_runs[0].font).to eq(docx.elements[0].nonempty_runs[1].text)
+  end
 end
