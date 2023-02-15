@@ -24,4 +24,3 @@ builder.CreateFile("docx");
         oDocument.Push(oParagraph);
 builder.SaveFile("docx", "ParagraphToJSON.docx");
 builder.CloseFile();
-
