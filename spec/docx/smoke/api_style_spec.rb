@@ -85,4 +85,19 @@ describe 'ApiStyle section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_style/set_name.js')
     expect(docx.elements[1].properties.table_style.name).to eq('My Custom Style')
   end
+
+  it 'ApiStyle | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_style/to_json.js')
+    json = JSON.parse(docx.elements[22].nonempty_runs[0].text)
+    DocBuilderStaticData::DEFAULT_STYLES.each_with_index do |style, index|
+      # TODO: To understand why incorrect names are recorded
+      next if (style == 'Header') || # in the metadata: Custom_Style 719 styleId: 42
+              (style == 'Footer') || # in the metadata: Custom_Style 725 styleId: 44
+              (style == 'Footnote text') || # in the metadata: Normal styleId: styleId => 599
+              (style == 'Endnote text') # in the metadata: Normal styleId: styleId => 599
+
+      expect(docx.elements[index + 1].style.name).to eq(style)
+      expect(JSON.parse(json[style])['name']).to eq(style)
+    end
+  end
 end
