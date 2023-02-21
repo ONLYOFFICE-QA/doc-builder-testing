@@ -6,8 +6,22 @@ builder.CreateFile("docx");
     var oDrawing = Api.CreateShape("rect", 3212465, 963295, oFill, oStroke);
         oParagraph.AddDrawing(oDrawing);
     var oDocContent = oDrawing.GetDocContent();
+// Add Hyperlink
         oParagraph = oDocContent.GetElement(0);
-        oParagraph.AddText("Simple text");
+        oParagraph.AddText('Hyperlink');
+    var oRange = oParagraph.GetRange(0, 8);
+        oRange.AddHyperlink('https://api.onlyoffice.com')
+// Add BlockLvlSdt
+    var oBlockLvlSdt = Api.CreateBlockLvlSdt();
+        oBlockLvlSdt.AddText('oBlockLvlSdt');
+        oDocContent.Push(oBlockLvlSdt);
+// Add Table
+    var oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+        oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
+    var oTable = Api.CreateTable(3, 3);
+        oTable.SetWidth("percent", 100);
+        oTable.SetStyle(oTableStyle);
+        oDocContent.Push(oTable);
     var json = oDocContent.ToJSON(true, true);
 GlobalVariable["JSON"] = json;
 builder.CloseFile();
@@ -17,10 +31,12 @@ builder.CloseFile();
 builder.CreateFile("docx");
     var json = GlobalVariable["JSON"]
     var oDocContentFromJSON = Api.FromJSON(json);
-        Api.ReplaceDocumentContent(oDocContentFromJSON);
     var oDocument = Api.GetDocument();
+    for( let el = 0; el < oDocContentFromJSON.GetElementsCount(); el++ ) {
+        oDocument.Push(oDocContentFromJSON.GetElement(el))
+    }
     var oParagraph = Api.CreateParagraph();
         oParagraph.AddText(json);
         oDocument.Push(oParagraph);
-builder.SaveFile("docx", "ParagraphToJSON.docx");
+builder.SaveFile("docx", "DocContentToJSON.docx");
 builder.CloseFile();
