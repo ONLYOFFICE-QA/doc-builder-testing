@@ -56,8 +56,13 @@ describe 'ApiDocumentContent section tests' do
 
   it 'ApiDocumentContent | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_document_content/to_json.js')
-    expect(docx.elements[0].nonempty_runs.first.text).to eq('Simple text')
-    json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
+    expect(docx.elements[1].hyperlink.action.to_s).to eq('external_link')
+    # TODO: add block content control checking
+    expect(docx.elements[4].number).to eq(3)
+    json = JSON.parse(docx.elements[7].nonempty_runs.first.text)
     expect(json['type']).to eq('docContent')
+    expect(json['content'][0]['content'][2]['type']).to eq('hyperlink')
+    expect(json['content'][1]['type']).to eq('blockLvlSdt')
+    expect(json['content'][2]['type']).to eq('table')
   end
 end
