@@ -27,6 +27,7 @@
 * Changes from `rubocop-rspec` update to 2.9.0
 * Fix `rubocop-1.28.1` code issues
 * Actualize `debian-next-release` docker for version v7.2.0
+* Move docker images from `onlyofficeqa` org to `onlyoffice`
 
 ### Fixes
 
