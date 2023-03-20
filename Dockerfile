@@ -12,8 +12,13 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN wget --retry-on-http-error=500 -qO - "http://keyserver.ubuntu.com/pks/lookup?op=get&search=0xe09ca29f6e178040ef22b4098320ca65cb2de8e5" | \
-    gpg --dearmor > /usr/share/keyrings/onlyoffice.gpg
+# Install gpg key
+RUN mkdir -p -m 700 ~/.gnupg
+RUN curl -fsSL https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE | gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --import
+RUN chmod 644 /tmp/onlyoffice.gpg
+RUN chown root:root /tmp/onlyoffice.gpg
+RUN mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
+# Write repository & install docbuilder
 RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
