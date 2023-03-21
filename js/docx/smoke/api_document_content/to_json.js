@@ -19,6 +19,8 @@ builder.CreateFile("docx");
     var oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
         oTableStyle.SetBasedOn(oDocument.GetStyle("Bordered - Accent 5"));
     var oTable = Api.CreateTable(3, 3);
+    var oCell = oTable.GetCell(0, 0);
+        oCell.GetContent().GetElement(0).AddText("Cell #1");
         oTable.SetWidth("percent", 100);
         oTable.SetStyle(oTableStyle);
         oDocContent.Push(oTable);
@@ -32,9 +34,11 @@ builder.CreateFile("docx");
     var json = GlobalVariable["JSON"]
     var oDocContentFromJSON = Api.FromJSON(json);
     var oDocument = Api.GetDocument();
-    for( let el = 0; el < oDocContentFromJSON.GetElementsCount(); el++ ) {
-        oDocument.Push(oDocContentFromJSON.GetElement(el))
+    var arrElements = []
+    for( var i = 0; i < oDocContentFromJSON.GetElementsCount(); i++) {
+        arrElements.push(oDocContentFromJSON.GetElement(i));
     }
+        oDocument.InsertContent(arrElements)
     var oParagraph = Api.CreateParagraph();
         oParagraph.AddText(json);
         oDocument.Push(oParagraph);
