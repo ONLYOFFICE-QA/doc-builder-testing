@@ -12,7 +12,7 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN echo "deb [trusted=yes] https://repo-doc-onlyoffice-com.s3.eu-west-1.amazonaws.com/repo/debian stretch test" | tee /etc/apt/sources.list.d/onlyoffice.list && \
+RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian stretch 7.4.0" | tee /etc/apt/sources.list.d/onlyoffice-dev.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder=$VERSION
 RUN cat /etc/apt/sources.list.d/onlyoffice.list
