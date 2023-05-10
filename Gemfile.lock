@@ -94,9 +94,7 @@ GEM
     semantic (1.6.1)
     ttfunk (1.7.0)
     unicode-display_width (2.4.2)
-    webrick (1.7.0)
-    yard (0.9.28)
-      webrick (~> 1.7.0)
+    yard (0.9.34)
 
 PLATFORMS
   ruby
