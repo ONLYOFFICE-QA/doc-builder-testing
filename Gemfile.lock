@@ -12,7 +12,7 @@ GEM
     json (2.6.3)
     jwt (2.7.0)
     mini_portile2 (2.8.2)
-    nokogiri (1.14.3)
+    nokogiri (1.14.4)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     onlyoffice_pdf_parser (0.5.0)
