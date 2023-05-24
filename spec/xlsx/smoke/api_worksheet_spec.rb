@@ -96,6 +96,13 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
   end
 
+  it 'ApiWorksheet | SetHyperlink' do
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_hyperlink.js')
+    expect(xlsx.worksheets[1].hyperlinks[0].url).to eq('https://google.com')
+    expect(xlsx.worksheets[1].hyperlinks[1].url.list).to eq('Sheet1')
+    expect(xlsx.worksheets[1].hyperlinks[2].url.list).to eq('Sheet1')
+  end
+
   it 'ApiWorksheet | getter Name' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/getter_name.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq(xlsx.worksheets.first.name)
