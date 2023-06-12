@@ -96,7 +96,17 @@ class WebDocBuilderWrapper
   # @param response [Net::HTTPResponse] response to check error
   # @return [nil]
   def check_response_for_errors(response)
+    webbuilder_errors = { '-1': 'Unknown error.',
+                          '-2':	'Generation timeout error.',
+                          '-3':	'Document generation error.',
+                          '-4':	'Error while downloading the document file to be generated.',
+                          '-6':	'Error while accessing the document generation result database.',
+                          '-8':	'Invalid token.' }
     raise WebDocBuilderError, response unless response.code == '200'
+
+    webbuilder_errors.each do |key, value|
+      raise WebDocBuilderError, value if response.body.include?(key.to_s)
+    end
     raise EmptyUrlsInWebBuilderResponse, response if JSON.parse(response.body)['urls'].empty?
   end
 end
