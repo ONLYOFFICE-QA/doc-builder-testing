@@ -13,7 +13,6 @@ oSection.SetPageMargins(1800, 1440, 1800, 1440);
 oSection.SetPageSize(11909, 16834, true);
 oSection.SetType("nextPage");
 
-
 // default text properties
 oTextPr = oDocument.GetDefaultTextPr();
 oTextPr.SetFontSize(24);
@@ -23,14 +22,12 @@ oTextPr.SetSpacing(0);
 oTextPr.SetPosition(0);
 oTextPr.SetColor(0x07, 0x3A, 0x77, false);
 
-
 // default paragraph properties
 oParaPr = oDocument.GetDefaultParaPr();
 oParaPr.SetSpacingLine(240, "auto");
 oParaPr.SetSpacingBefore(0);
 oParaPr.SetSpacingAfter(0);
 oParaPr.SetJc("left");
-
 
 // heading 1 style
 oHeading1Style = oDocument.CreateStyle("Heading 1 custom", "paragraph");
@@ -45,7 +42,6 @@ oParaPr.SetSpacingLine(560, "exact");
 oParaPr.SetJc("center");
 oParaPr.SetSpacingBefore(180);
 
-
 // heading 2 style
 oHeading2Style = oDocument.CreateStyle("Heading 2 custom", "paragraph");
 
@@ -58,7 +54,6 @@ oParaPr = oHeading2Style.GetParaPr();
 oParaPr.SetSpacingLine(280, "exact");
 oParaPr.SetJc("center");
 oParaPr.SetSpacingBefore(360);
-
 
 // heading 3 style
 oHeading3Style = oDocument.CreateStyle("Heading 3 custom", "paragraph");
@@ -74,7 +69,6 @@ oParaPr.SetSpacingLine(280, "exact");
 oParaPr.SetJc("center");
 oParaPr.SetSpacingBefore(0);
 
-
 // normal style
 oNormalStyle = oDocument.CreateStyle("Normal custom", "paragraph");
 
@@ -88,15 +82,13 @@ oParaPr.SetSpacingLine(240, "auto");
 oParaPr.SetJc("center");
 oParaPr.SetSpacingBefore(180);
 
-
 // frame
 oParagraph = oDocument.GetElement(0);
-oDrawing = Api.CreateImage("https://cloud.githubusercontent.com/assets/668524/22776978/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 2972435, 4286250);
+let oDrawing = Api.CreateImage("https://testing-documentserver-files.s3.amazonaws.com/png/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 2972435, 4286250);
 oDrawing.SetWrappingStyle("behind");
 oDrawing.SetHorPosition("page", 452118);
 oDrawing.SetVerPosition("page", 463548);
 oParagraph.AddDrawing(oDrawing);
-
 
 // shape with text
 oFill = Api.CreateNoFill();
@@ -105,7 +97,6 @@ oDrawingRect = Api.CreateShape("rect", 2514600, 3599815, oFill, oStroke);
 oDrawingRect.SetWrappingStyle("square");
 oDrawingRect.SetHorPosition("page", 685800);
 oDrawingRect.SetVerPosition("page", 800100);
-
 
 // paragraph_text
 // heading 1
@@ -124,20 +115,17 @@ oParagraphInner.SetStyle(oHeading1Style);
 oParagraphInner.AddText("МЕРОПРИЯТИЯ");
 oDrawingRect.GetDocContent().Push(oParagraphInner);
 
-
 // heading 2
 oParagraphInner = Api.CreateParagraph();
 oParagraphInner.SetStyle(oHeading2Style);
 oParagraphInner.AddText("24 cентября (воскресенье)");
 oDrawingRect.GetDocContent().Push(oParagraphInner);
 
-
 // heading 3
 oParagraphInner = Api.CreateParagraph();
 oParagraphInner.SetStyle(oHeading3Style);
 oParagraphInner.AddText("19:00");
 oDrawingRect.GetDocContent().Push(oParagraphInner);
-
 
 // normal
 oParagraphInner = Api.CreateParagraph();
@@ -153,7 +141,6 @@ oRun.AddText("предоставлять не нужно, удалите это�
 oParagraphInner.AddElement(oRun);
 oDrawingRect.GetDocContent().Push(oParagraphInner);
 
-
 // italic normal
 oParagraphInner = Api.CreateParagraph();
 oParagraphInner.SetStyle(oNormalStyle);
@@ -162,7 +149,6 @@ oRun.AddText("Москва, ул. Чехова 123, корп. 2");
 oRun.SetItalic(true);
 oParagraphInner.AddElement(oRun);
 oDrawingRect.GetDocContent().Push(oParagraphInner);
-
 
 // all caps normal
 oParagraphInner = Api.CreateParagraph();
@@ -174,14 +160,12 @@ oRun.SetCaps(true);
 oParagraphInner.AddElement(oRun);
 oDrawingRect.GetDocContent().Push(oParagraphInner);
 
-
 // KnV coding style: removing 1st element 'empty paragraph'
 oDrawingRect.GetDocContent().RemoveElement(0);
 
 oParagraph = Api.CreateParagraph();
 oParagraph.AddDrawing(oDrawingRect);
 oDocument.Push(oParagraph);
-
 
 builder.SaveFile("docx", "priglashenie.docx");
 builder.CloseFile();
