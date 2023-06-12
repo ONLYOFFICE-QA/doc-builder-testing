@@ -12,15 +12,20 @@ class WebDocBuilderWrapper
   include DocBuilderHelper
   include DocBuilderVersionHelper
 
-  def initialize(documentserver_path = default_web_builder_url)
-    @uri = URI(documentserver_path)
+  def initialize(**args)
+    @uri = URI(args.fetch(:documentserver_path, default_web_builder_url))
     @http = Net::HTTP.new(@uri.host, @uri.port)
     @http.use_ssl = true if @uri.port == 443
     @request_data = Net::HTTP::Post.new('/docbuilder?async=false')
     @temp_script_data = nil
-    @jwt_key = 'doc-linux'
-    @jwt_header = 'AuthorizationJwt'
+    @jwt_key = args.fetch(:jwt_key, 'doc-linux')
+    @jwt_header = args.fetch(:jwt_header, 'AuthorizationJwt')
     @jwt_prefix = 'Bearer'
+  end
+
+  # @return [String] Url for default location of DocBuilder
+  def default_web_builder_url
+    ENV.fetch('WEB_BUILDER_URL', 'https://doc-linux.teamlab.info')
   end
 
   # Send script for building and parse it
@@ -93,10 +98,5 @@ class WebDocBuilderWrapper
   def check_response_for_errors(response)
     raise WebDocBuilderError, response unless response.code == '200'
     raise EmptyUrlsInWebBuilderResponse, response if JSON.parse(response.body)['urls'].empty?
-  end
-
-  # @return [String] Url for default location of DocBuilder
-  def default_web_builder_url
-    ENV.fetch('WEB_BUILDER_URL', 'https://doc-linux.teamlab.info')
   end
 end
