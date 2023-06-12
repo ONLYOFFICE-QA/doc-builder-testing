@@ -1,7 +1,8 @@
 builder.CreateFile("docx");
+
 var oDocument, oSection, oTextPr, oParaPr, oRun, oTable;
 var oParagraph, oTableRow, oCell, oNumbering, oTablePr;
-var oTableCellPr, oDrawing, oRow, oCell2, oTableRow2;
+var oTableCellPr, oDrawing, oCell2, oTableRow2;
 var oTable2, oTable3, oTableRow3, oCell3;
 var oTable4, oTableRow4, oCell4;
 
@@ -13,8 +14,6 @@ oSection.SetPageMargins(2520, 1440, 2520, 1440);
 oSection.SetPageSize(12240, 15840, false);
 oSection.SetType("nextPage");
 
-
-
 // default text properties
 oTextPr = oDocument.GetDefaultTextPr();
 oTextPr.SetFontSize(24);
@@ -22,7 +21,6 @@ oTextPr.SetLanguage("en-US");
 oTextPr.SetFontFamily("Gabriola");
 oTextPr.SetSpacing(0);
 oTextPr.SetPosition(0);
-
 
 // default paragraph properties
 oParaPr = oDocument.GetDefaultParaPr();
@@ -34,13 +32,11 @@ oParaPr.SetIndLeft(0);
 oParaPr.SetIndRight(0);
 oParaPr.SetIndFirstLine(0);
 
-
 // subtitle style
 var oSubTitleStyle = oDocument.CreateStyle("Subtitle Custom", "paragraph");
 
 oTextPr = oSubTitleStyle.GetTextPr();
 oTextPr.SetFontSize(28);
-
 
 // title style
 var oTitleStyle = oDocument.CreateStyle("Title Custom", "paragraph");
@@ -53,7 +49,6 @@ oParaPr = oTitleStyle.GetParaPr();
 oParaPr.SetSpacingAfter(290);
 oParaPr.SetSpacingLine(168, "auto");
 
-
 // table style
 var oTableStyle = oDocument.CreateStyle("TableStyle", "table");
 
@@ -65,12 +60,10 @@ oTablePr.SetWidth("auto");
 oTablePr.SetTableCellMarginRight(0);
 oTablePr.SetTableCellMarginLeft(0);
 
-
 // table
 oTable = Api.CreateTable(3, 3);
 oDocument.Push(oTable);
 oDocument.RemoveElement(0);
-
 
 oTable.SetStyle(oTableStyle);
 oTable.SetWidth(7200);
@@ -81,10 +74,9 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oTableRow = oTable.GetRow(nRow);
 	oTableRow.SetHeight("atLeast", 5040);
 
-
 	// cells
 	oCell = oTable.GetRow(nRow).GetCell(0);
-	oDrawing = Api.CreateImage("https://cloud.githubusercontent.com/assets/668524/22776978/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 1167386, 2928086);
+	oDrawing = Api.CreateImage("https://testing-documentserver-files.s3.amazonaws.com/png/d4623fd6-eec2-11e6-98a8-263e7d75e538.png", 1167386, 2928086);
 	oCell.GetContent().GetElement(0).AddDrawing(oDrawing);
 	oCell.GetContent().GetElement(0).SetJc("right");
 	oCell.GetContent().GetElement(0).SetSpacingLine(240, "auto");
@@ -97,7 +89,6 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 
 	oCell = oTable.GetRow(nRow).GetCell(2);
 	oCell.SetWidth("twips", 4752);
-
 
 	// table 3rd cell
 	oTable2 = Api.CreateTable(1, 2);
@@ -141,7 +132,6 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 
 	oParagraph.AddElement(oRun);
 	oTable2.GetRow(1).GetCell(0).GetContent().Push(oParagraph);
-
 
 	// table 3
 	oTable3 = Api.CreateTable(1, 2);
@@ -198,7 +188,6 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oCell2.Push(oTable4);
 	// inner lvl 2 table 2 (table 4)
 
-
 	// cells
 	oCell4 = oTable4.GetRow(0).GetCell(0);
 	oCell4.SetWidth("twips", 432);
@@ -221,11 +210,9 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oCell4.GetContent().GetElement(0).AddText("Regrets");
 }
 
-
 // middle cell
 oTableRow = oTable.GetRow(1);
 oTableRow.SetHeight("atLeast", 1440);
-
 
 builder.SaveFile("docx", "rsvp_cards.docx");
 builder.CloseFile();
