@@ -4,22 +4,22 @@ require 'spec_helper'
 describe 'ApiRange section tests' do
   it 'ApiRange | GetCol method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_col.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('4')
   end
 
   it 'ApiRange | Col method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/getter_col.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('4')
   end
 
   it 'ApiRange | GetRow method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_row.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('9')
   end
 
   it 'ApiRange | Row method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/getter_row.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('9')
   end
 
   it 'ApiRange | SetFontName method' do
