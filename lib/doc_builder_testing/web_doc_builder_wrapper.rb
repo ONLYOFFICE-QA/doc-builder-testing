@@ -105,7 +105,7 @@ class WebDocBuilderWrapper
     raise WebDocBuilderError, response unless response.code == '200'
 
     webbuilder_errors.each do |key, value|
-      raise WebDocBuilderError, value if response.body.include?(key.to_s)
+      raise WebDocBuilderError, value if response.body.include?("\"error\":#{key}")
     end
     raise EmptyUrlsInWebBuilderResponse, response if JSON.parse(response.body)['urls'].empty?
   end
