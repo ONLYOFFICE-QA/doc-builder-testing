@@ -2,24 +2,28 @@
 
 require 'spec_helper'
 describe 'ApiRange section tests' do
+  before do
+    include TestData
+  end
+
   it 'ApiRange | GetCol method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_col.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('4')
   end
 
   it 'ApiRange | Col method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/getter_col.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('3')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('4')
   end
 
   it 'ApiRange | GetRow method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_row.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('9')
   end
 
   it 'ApiRange | Row method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/getter_row.js')
-    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('8')
+    expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('9')
   end
 
   it 'ApiRange | SetFontName method' do
@@ -78,15 +82,21 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | NumberFormat method' do
-    formats = ['General', '0.00', '$#,##0.00', '_($* #,##0.00_)', 'm/d/yyyy',
-               '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM',
-               '0.00%', '0%', '# ?/?', '0.00E+00']
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/setter_number_format.js')
-    formats.each_with_index do |current_format, i|
+    TestData.number_formats.each_with_index do |format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].raw_text).to eq('123456')
-      expect(xlsx.worksheets.first.rows[i + 1].cells[0].style.numerical_format).to eq(current_format)
+      expect(xlsx.worksheets.first.rows[i + 1].cells[0].style.numerical_format).to eq(format)
     end
     expect(xlsx.worksheets.first.rows.last.cells[0].style.apply_number_format).to be_truthy
+  end
+
+  it 'ApiRange | GetNumberFormat' do
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_number_format.js')
+    TestData.number_formats.each_with_index do |format, i|
+      expect(xlsx.worksheets.first.rows[i + 1].cells[2].raw_text).to eq('123456')
+      expect(xlsx.worksheets.first.rows[i + 1].cells[2].style.numerical_format).to eq(format)
+    end
+    expect(xlsx.worksheets.first.rows.last.cells[2].style.apply_number_format).to be_truthy
   end
 
   it 'ApiRange | SetBorders method' do
