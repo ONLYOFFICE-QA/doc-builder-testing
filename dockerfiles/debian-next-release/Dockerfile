@@ -1,18 +1,20 @@
 FROM ruby:3.2
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
-ENV VERSION="7.4.0"
+ENV VERSION="7.4.1"
 
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev \
-                                            poppler-utils
+                                            poppler-utils \
+                                            lsb-release
 
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian stretch $VERSION" | tee /etc/apt/sources.list.d/onlyoffice.list && \
+RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian $(lsb_release -cs) $VERSION" | \
+    tee /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder=$VERSION-*
 RUN cat /etc/apt/sources.list.d/onlyoffice.list
