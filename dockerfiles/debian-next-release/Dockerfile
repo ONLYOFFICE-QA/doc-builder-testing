@@ -2,6 +2,8 @@ FROM ruby:3.2
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 ENV VERSION="7.4.1"
+#$(lsb_release -cs)
+ENV DIST="stable"
 
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev \
@@ -13,11 +15,11 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
-RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian $(lsb_release -cs) $VERSION" | \
-    tee /etc/apt/sources.list.d/onlyoffice.list && \
+RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian $DIST $VERSION" | \
+    tee /etc/apt/sources.list.d/onlyoffice-dev.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder=$VERSION-*
-RUN cat /etc/apt/sources.list.d/onlyoffice.list
+RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
                   cd /doc-builder-testing; \
