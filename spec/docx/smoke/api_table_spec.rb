@@ -107,6 +107,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderLeft method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1188') if builder.semver == Semantic::Version.new('99.99.99')
     docx = builder.build_and_parse('js/docx/smoke/api_table/set_table_border_left.js')
     expect(docx.elements[1].properties.table_borders.left.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
@@ -115,6 +116,7 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | SetTableBorderRight method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1188') if builder.semver == Semantic::Version.new('99.99.99')
     docx = builder.build_and_parse('js/docx/smoke/api_table/set_table_border_right.js')
     expect(docx.elements[1].properties.table_borders.right.color).to eq(OoxmlParser::Color.new(0, 0, 255))
     expect(docx.elements[1].properties.table_borders.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))

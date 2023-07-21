@@ -150,6 +150,7 @@ describe 'Api section tests', critical: true do
   end
 
   it 'Api | CreateTable method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1188') if builder.semver == Semantic::Version.new('99.99.99')
     docx = builder.build_and_parse('js/docx/smoke/api/create_table.js')
     expect(docx.elements[1].rows.size).to eq(3)
     expect(docx.elements[1].rows[0].cells.size).to eq(3)
