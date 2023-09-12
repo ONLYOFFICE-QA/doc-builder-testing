@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Check fontstyles in header' do
-  it 'text should be bold', critical: true do
+  it 'text should be bold', :critical do
     docx = builder.build_and_parse('js/docx/header/text/text_with_bold_in_header.js')
     expect(docx.notes.first.elements[1].nonempty_runs.first.text).to eq('Bold')
     expect(docx.notes.first.elements[1].nonempty_runs.first.font_style.bold).to be_truthy

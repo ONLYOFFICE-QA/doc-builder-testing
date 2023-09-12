@@ -18,7 +18,7 @@ describe 'Check Column' do
     expect(docx.elements[2].nonempty_runs.first.text).to eq('Second columns')
   end
 
-  it '[text] Three columns', critical: true do
+  it '[text] Three columns', :critical do
     docx = builder.build_and_parse('js/docx/columns/add_three_columns.js')
     expect(docx.page_properties.columns.count).to eq(3)
     expect(docx.page_properties.columns.equal_width).to be_truthy
@@ -45,7 +45,7 @@ describe 'Check Column' do
     expect(docx.element_by_description[4].rows[0].cells.length).to eq(3)
   end
 
-  it '[text] Add table in three columns', critical: true do
+  it '[text] Add table in three columns', :critical do
     docx = builder.build_and_parse('js/docx/columns/add_table_in_three_columns.js')
     expect(docx.page_properties.columns.count).to eq(3)
     expect(docx.page_properties.columns.equal_width).to be_truthy

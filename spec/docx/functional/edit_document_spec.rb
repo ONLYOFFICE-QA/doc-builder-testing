@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'Edit existing document', critical: true do
+describe 'Edit existing document', :critical do
   it 'Edit document | only_paragraph.docx | add paragraph' do
     skip('Cannot use OpenFile in web version') if web_builder?
     docx = builder.build_and_parse('js/docx/functional/edit_document_only_paragraph.js')
