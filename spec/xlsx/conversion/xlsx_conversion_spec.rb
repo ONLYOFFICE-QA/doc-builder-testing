@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'Conversion tests from Xlsx', critical: true do
+describe 'Conversion tests from Xlsx', :critical do
   it 'Conversion | Xlsx to Xlsx' do
     xlsx = builder.build_and_parse('js/conversion/xlsx/xlsx_to_xlsx.js')
     expect(xlsx).to be_with_data
