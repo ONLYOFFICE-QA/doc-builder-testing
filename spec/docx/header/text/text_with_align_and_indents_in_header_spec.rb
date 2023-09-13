@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'Check indents' do
-  it 'Align should be right', critical: true do
+  it 'Align should be right', :critical do
     docx = builder.build_and_parse('js/docx/header/text/text_in_right_in_header.js')
     expect(docx.notes.first.elements[1].nonempty_runs.first.text).to eq('Right')
     expect(docx.notes.first.elements[1].align).to eq(:right)

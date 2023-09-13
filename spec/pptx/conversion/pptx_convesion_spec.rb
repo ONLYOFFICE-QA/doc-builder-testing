@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 describe 'Conversion tests from Pptx' do
-  it 'Conversion | Pptx to Pptx', critical: true do
+  it 'Conversion | Pptx to Pptx', :critical do
     pptx = builder.build_and_parse('js/conversion/pptx/pptx_to_pptx.js')
     expect(pptx).to be_with_data
   end
@@ -12,7 +12,7 @@ describe 'Conversion tests from Pptx' do
     expect(builder).not_to be_file_empty(output_file)
   end
 
-  it 'Conversion | Pptx to Pdf', critical: true do
+  it 'Conversion | Pptx to Pdf', :critical do
     output_file = builder.build_file('js/conversion/pptx/pptx_to_pdf.js')
     expect(builder).not_to be_file_empty(output_file)
   end
