@@ -8,6 +8,7 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetParaPr method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_para_pr.js')
     expect(docx.elements[1].properties
                .table_style.table_style_properties_list
@@ -24,6 +25,7 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTablePr method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_table_pr.js')
     bottom_border = docx.document_style_by_name('CustomTableStyle')
                         .table_style_properties_list.first.table_properties
@@ -35,6 +37,7 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTableRowPr method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_table_row_pr.js')
     expect(docx.document_style_by_name('CustomTableStyle')
                .table_style_properties_list
@@ -43,6 +46,7 @@ describe 'ApiTableStylePr section tests' do
   end
 
   it 'ApiTableStylePr | GetTextPr method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_text_pr.js')
     expect(docx.elements[1].properties.table_style.table_style_properties_list.first.run_properties.font_style.bold).to be_truthy
   end
