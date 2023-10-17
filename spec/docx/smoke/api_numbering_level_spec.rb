@@ -18,22 +18,26 @@ describe 'ApiNumberingLevel section tests' do
 
     expect(docx.elements[0].nonempty_runs.first.text).to eq("This is the first element of a parent numbered list which starts with '1'")
     expect(docx.elements[0].numbering.ilvl).to eq(0)
-    expect(docx.elements[0].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
+    # TODO: 'https://github.com/ONLYOFFICE/ooxml_parser/issues/1216'
+    # expect(docx.elements[0].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[1].nonempty_runs.first.text).to eq("This is the first element of a child numbered list which starts with 'a'")
     expect(docx.elements[1].numbering.ilvl).to eq(1)
-    expect(docx.elements[1].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
+    # TODO: 'https://github.com/ONLYOFFICE/ooxml_parser/issues/1216'
+    # expect(docx.elements[1].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[2].nonempty_runs.first.text).to eq("This is the second element of a child numbered list which starts with 'b'")
     expect(docx.elements[2].numbering.ilvl).to eq(1)
-    expect(docx.elements[2].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
+    # TODO: 'https://github.com/ONLYOFFICE/ooxml_parser/issues/1216'
+    # expect(docx.elements[2].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
 
     expect(docx.elements[3].nonempty_runs.first.text).to eq('This is a paragraph without a numbering. ')
     expect(docx.elements[3].numbering).to be_nil
 
     expect(docx.elements[4].nonempty_runs.first.text).to eq("This is the second element of a parent numbered list which starts with '2'")
     expect(docx.elements[4].numbering.ilvl).to eq(0)
-    expect(docx.elements[4].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
+    # TODO: 'https://github.com/ONLYOFFICE/ooxml_parser/issues/1216'
+    # expect(docx.elements[4].numbering.abstruct_numbering.multilevel_type.value).to eq(:hybrid_multi_level)
   end
 
   it 'ApiNumberingLevel | GetParaPr method' do
@@ -74,6 +78,7 @@ describe 'ApiNumberingLevel section tests' do
   end
 
   it 'ApiNumberingLevel | SetSuff method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1216')
     docx = builder.build_and_parse('js/docx/smoke/api_numbering_level/set_suff.js')
     expect(docx.element_by_description.first.numbering.abstruct_numbering.level_list.first.suffix.value).to eq(:space)
   end
