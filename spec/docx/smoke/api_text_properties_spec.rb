@@ -38,7 +38,7 @@ describe 'ApiTextPr section tests' do
   end
 
   it 'ApiTextPr | SetHighlight method' do
-    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=62996')
+    skip('Bug 62996 (FIXED TO 7.5)')
     docx = builder.build_and_parse('js/docx/smoke/api_text_pr/set_highlight.js')
     expect(docx.elements.first.nonempty_runs.first.highlight).to eq('yellow')
   end

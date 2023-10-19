@@ -8,6 +8,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetBetweenBorder method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_between_border.js')
     expect(docx.elements.first.borders.between.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.between.size).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
@@ -15,6 +16,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetBottomBorder method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_bottom_border.js')
     expect(docx.elements.first.borders.bottom.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.bottom.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
@@ -30,18 +32,21 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetIndFirstLine method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1215')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_ind_first_line.js')
     expect(docx.elements.first.ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440.0, :twip))
     expect(docx.elements[1].ind.first_line_indent).to eq(OoxmlParser::OoxmlSize.new(1440.0, :twip))
   end
 
   it 'ApiParaPr | SetIndLeft method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1215')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_ind_left.js')
     expect(docx.elements.first.ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
     expect(docx.elements[1].ind.left_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
   end
 
   it 'ApiParaPr | SetIndRight method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1215')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_ind_right.js')
     expect(docx.elements.first.ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
     expect(docx.elements[1].ind.right_indent).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
@@ -78,6 +83,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetLeftBorder method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_left_border.js')
     expect(docx.elements.first.borders.left.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.left.space).to eq(OoxmlParser::OoxmlSize.new(0.0, :point))
@@ -100,6 +106,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetRightBorder method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1215')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_right_border.js')
     expect(docx.elements.first.borders.right.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.right.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
@@ -155,6 +162,7 @@ describe 'ApiParaPr section tests' do
   end
 
   it 'ApiParaPr | SetTopBorder method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_top_border.js')
     expect(docx.elements.first.borders.top.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.top.size).to eq(OoxmlParser::OoxmlSize.new(24, :one_eighth_point))
