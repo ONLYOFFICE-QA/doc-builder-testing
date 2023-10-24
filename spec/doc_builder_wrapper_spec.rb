@@ -3,10 +3,12 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  let(:builder_location) { DocBuilderWrapper.new.default_builder_location }
-  let(:arr_libs) { Dir.entries(File.dirname(builder_location)) }
+  unless Gem.win_platform?
+    let(:builder_location) { DocBuilderWrapper.new.default_builder_location }
+    let(:arr_libs) { Dir.entries(File.dirname(builder_location)) }
+    let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
+  end
   let(:simple_script) { 'js/wrapper/add_text_with_bold_in_paragraph.js' }
-  let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
   let(:simple_xlsx_script) { 'js/wrapper/simplest_xlsx_file.js' }
 
   describe 'build_doc', :win do
@@ -87,6 +89,7 @@ describe 'My behaviour' do
   describe 'check windows build libs', :win do
     TestData.libs.each do |lib|
       it lib.to_s do
+        skip('[WIN] check build libs') unless Gem.win_platform?
         expect(arr_libs).to include(lib)
       end
     end
