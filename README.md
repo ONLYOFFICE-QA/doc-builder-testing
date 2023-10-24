@@ -27,7 +27,7 @@ See the LICENSE file for more information.
 * Install dependencies
 
 ```shell
-  bundle install --with win 
+  bundle install
 ```
 
 * Run test

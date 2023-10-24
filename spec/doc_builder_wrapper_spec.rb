@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  let(:builder_location) { DocBuilderWrapper.new().default_builder_location }
+  let(:builder_location) { DocBuilderWrapper.new.default_builder_location }
   let(:arr_libs) { Dir.entries(File.dirname(builder_location)) }
   let(:simple_script) { 'js/wrapper/add_text_with_bold_in_paragraph.js' }
   let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
@@ -86,8 +86,8 @@ describe 'My behaviour' do
 
   describe 'check windows build libs', :win do
     TestData.libs.each do |lib|
-    it "#{lib}" do
-        expect(arr_libs.include?(lib)).to be_truthy
+      it lib.to_s do
+        expect(arr_libs).to include(lib)
       end
     end
   end
