@@ -8,4 +8,23 @@ module TestData
      '[$-F800]dddd, mmmm dd, yyyy', '[$-F400]h:mm:ss AM/PM',
      '0.00%', '0%', '# ?/?', '0.00E+00'].freeze
   end
+  
+  def self.libs
+    ['DjVuFile.dll',
+    'docbuilder.com.dll',
+    'docbuilder.net.dll',
+    'doctrenderer.dll',
+    'DocxRenderer.dll',
+    'EpubFile.dll',
+    'Fb2File.dll',
+    'graphics.dll',
+    'HtmlRenderer.dll',
+    'icudt58.dll',
+    'icuuc58.dll',
+    'kernel.dll',
+    'kernel_network.dll',
+    'PdfFile.dll',
+    'UnicodeConverter.dll',
+    'XpsFile.dll']
+  end
 end

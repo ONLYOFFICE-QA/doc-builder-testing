@@ -19,7 +19,7 @@ class DocBuilderWrapper
 
   # @return [String] location of builder on different OS
   def default_builder_location
-    return 'C:\Program Files\ONLYOFFICE\DocumentBuilder\docbuilder.exe' if Gem.win_platform?
+    return 'C:\ONLYOFFICE\DocumentBuilder\docbuilder.exe' if Gem.win_platform?
 
     '/usr/bin/documentbuilder'
   end

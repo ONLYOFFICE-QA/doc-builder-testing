@@ -40,3 +40,8 @@ task :resource_usage_report do
     csv << ['Total:', memory_sum, time_sum]
   end
 end
+
+desc 'run rspec via windows'
+task :run_test_on_win do
+  system('rspec --tag win')
+end

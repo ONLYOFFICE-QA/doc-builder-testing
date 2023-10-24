@@ -3,11 +3,13 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
+  let(:builder_location) { DocBuilderWrapper.new().default_builder_location }
+  let(:arr_libs) { Dir.entries(File.dirname(builder_location)) }
   let(:simple_script) { 'js/wrapper/add_text_with_bold_in_paragraph.js' }
   let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
   let(:simple_xlsx_script) { 'js/wrapper/simplest_xlsx_file.js' }
 
-  describe 'build_doc' do
+  describe 'build_doc', :win do
     it 'raises correct error if input file is incorrect' do
       skip('Opening local file is not available in web builder') if web_builder?
       expect { builder.build('test') }.to raise_error(DocBuilderError, /error: cannot read run file\n/)
@@ -37,7 +39,7 @@ describe 'My behaviour' do
     end
   end
 
-  describe 'change_output_file' do
+  describe 'change_output_file', :win do
     it 'check that change output file do not change original file' do
       before_change = File.binread(simple_script)
       builder.change_output_file(simple_script)
@@ -79,6 +81,14 @@ describe 'My behaviour' do
     it 'check that builded xlsx file have correct extension' do
       xlsx = builder.build_and_parse(simple_xlsx_script)
       expect(File.extname(xlsx.file_path)).to eq('.xlsx')
+    end
+  end
+
+  describe 'check windows build libs', :win do
+    TestData.libs.each do |lib|
+    it "#{lib}" do
+        expect(arr_libs.include?(lib)).to be_truthy
+      end
     end
   end
 end

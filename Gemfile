@@ -17,3 +17,8 @@ group :development do
   gem 'rubocop-rspec', require: false
   gem 'yard'
 end
+
+group :win do
+  gem 'rspec'
+  gem 'semantic'
+end

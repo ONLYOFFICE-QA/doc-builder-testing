@@ -19,3 +19,19 @@ Framework for QA of `onlyoffice-documentbuilder`
 
 docbuilder-testing is released under an GNU AGPL v3.0 license.
 See the LICENSE file for more information.
+
+## install via windows
+
+* Install desktop builder to `C:\`
+
+* Install dependencies
+
+```shell
+  bundle install --with win 
+```
+
+* Run test
+
+```shell
+  rake run_test_on_win
+```
