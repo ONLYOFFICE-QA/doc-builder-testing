@@ -9,6 +9,7 @@ describe 'ApiStyle section tests' do
   end
 
   it 'ApiStyle | GetConditionalTableStyle method' do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1214')
     docx = builder.build_and_parse('js/docx/smoke/api_style/get_conditional_table_style.js')
     table_style = docx.elements[1].properties.table_style
     expect(table_style.table_style_properties_list[0]

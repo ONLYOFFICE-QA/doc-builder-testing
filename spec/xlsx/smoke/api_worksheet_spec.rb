@@ -2,7 +2,7 @@
 
 require 'spec_helper'
 describe 'ApiWorksheet section tests' do
-  it 'ApiWorksheet | AddChart method', critical: true do
+  it 'ApiWorksheet | AddChart method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_chart.js')
     drawing = xlsx.worksheets.first.drawings.first
     data = drawing.graphic_frame.graphic_data.first
@@ -32,7 +32,7 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.drawings.first.from.row_offset).to eq(OoxmlParser::OoxmlSize.new(3 * 36_000, :emu))
   end
 
-  it 'ApiWorksheet | AddShape method', critical: true do
+  it 'ApiWorksheet | AddShape method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_shape.js')
     drawing = xlsx.worksheets.first.drawings.first
     fill_color = drawing.shape.properties.fill_color.value
@@ -51,7 +51,7 @@ describe 'ApiWorksheet section tests' do
     expect(drawing.from.row_offset).to eq(OoxmlParser::OoxmlSize.new(3 * 36_000, :emu))
   end
 
-  it 'ApiWorksheet | FormatAsTable method', critical: true do
+  it 'ApiWorksheet | FormatAsTable method', :critical do
     column_names = %w[A B C D E]
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/format_as_table.js')
     xlsx.worksheets.first.table_parts.first.autofilter.ref.each do |current_autofilter|
@@ -61,7 +61,7 @@ describe 'ApiWorksheet section tests' do
     end
   end
 
-  it 'ApiWorksheet | GetRange method', critical: true do
+  it 'ApiWorksheet | GetRange method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_range.js')
     xlsx.worksheets.first.rows.each do |current_row|
       current_row.cells.each do |current_cell|
@@ -70,7 +70,7 @@ describe 'ApiWorksheet section tests' do
     end
   end
 
-  it 'ApiWorksheet | GetRangeByNumber method', critical: true do
+  it 'ApiWorksheet | GetRangeByNumber method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_range_by_number.js')
     expect(xlsx.worksheets.first.rows[1].cells[2].text).to eq('42')
   end
@@ -81,17 +81,17 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.columns[1].width.to_i).to eq(20)
   end
 
-  it 'ApiWorksheet | SetName method', critical: true do
+  it 'ApiWorksheet | SetName method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_name.js')
     expect(xlsx.worksheets.first.name).to eq('sheet 1')
   end
 
-  it 'ApiWorksheet | SetDisplayGridlines method', critical: true do
+  it 'ApiWorksheet | SetDisplayGridlines method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_display_gridlines.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_gridlines).to be_falsey
   end
 
-  it 'ApiWorksheet | SetDisplayHeadings method', critical: true do
+  it 'ApiWorksheet | SetDisplayHeadings method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_display_headings.js')
     expect(xlsx.worksheets.first.sheet_views.first.show_row_column_headers).to be_falsey
   end
@@ -180,12 +180,12 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets[1].rows.first.cells.first.text).to eq('0')
   end
 
-  it 'ApiWorksheet | PrintHeadings property', critical: true do
+  it 'ApiWorksheet | PrintHeadings property', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/print_headings_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end
 
-  it 'ApiWorksheet | GetPageOrientation method', critical: true do
+  it 'ApiWorksheet | GetPageOrientation method', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_page_orientation.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('xlPortrait')
   end
@@ -206,12 +206,12 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.rows[12].cells[3].text).to eq('60')
   end
 
-  it 'ApiWorksheet | PrintGridlines property', critical: true do
+  it 'ApiWorksheet | PrintGridlines property', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/print_gridlines_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('0')
   end
 
-  it 'ApiWorksheet | GetIndex property', critical: true do
+  it 'ApiWorksheet | GetIndex property', :critical do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/get_index_property.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('1')
   end

@@ -1,7 +1,7 @@
 FROM ruby:3.2
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
-ENV VERSION="7.4.1"
+ENV VERSION="7.5.0"
 ENV DIST="stable"
 
 RUN apt-get update && apt-get -y -q install git \

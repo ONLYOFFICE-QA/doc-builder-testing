@@ -8,3 +8,6 @@ doc
 # bundler
 .bundle
 .idea
+
+# other
+.vscode

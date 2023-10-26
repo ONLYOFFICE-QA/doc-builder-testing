@@ -10,7 +10,8 @@ describe 'Add table with cells with borders and background' do
       .to eq(OoxmlParser::Color.new(255, 0, 0).to_hex.to_sym)
   end
 
-  it 'Table with cell borders: top, left, top, bottom', critical: true do
+  it 'Table with cell borders: top, left, top, bottom', :critical do
+    skip('https://github.com/ONLYOFFICE/ooxml_parser/issues/1188') if builder.semver == Semantic::Version.new('99.99.99')
     docx = builder.build_and_parse('js/docx/paragraph/tables/table_with_cell_borders.js')
     expect(docx.elements[1].rows.length).to eq(3)
     expect(docx.elements[1].rows[1].cells.first.properties.borders_properties.bottom.color).to eq(OoxmlParser::Color.new(0, 255, 0))
