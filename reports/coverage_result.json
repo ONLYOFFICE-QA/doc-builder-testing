@@ -1,0 +1,1050 @@
+{
+  "Text document API": {
+    "api": [
+      "AddComment",
+      "attachEvent",
+      "ConvertDocument",
+      "CreateBlockLvlSdt",
+      "CreateBullet",
+      "CreateHyperlink",
+      "CreateInlineLvlSdt",
+      "CreateOleObject",
+      "CreateRange",
+      "CreateTextPr",
+      "CreateWordArt",
+      "detachEvent",
+      "FromJSON",
+      "GetFullName",
+      "GetMailMergeReceptionsCount",
+      "GetMailMergeTemplateDocContent",
+      "LoadMailMergeData",
+      "MailMerge",
+      "ReplaceDocumentContent",
+      "ReplaceTextSmart"
+    ],
+    "apiblocklvlsdt": [
+      "AddComment",
+      "Delete",
+      "GetAlias",
+      "GetAllContentControls",
+      "GetAllDrawingObjects",
+      "GetAllParagraphs",
+      "GetAllTablesOnPage",
+      "GetDropdownList",
+      "GetLabel",
+      "GetLock",
+      "GetParentContentControl",
+      "GetParentTable",
+      "GetParentTableCell",
+      "GetPlaceholderText",
+      "GetPosInParent",
+      "GetTag",
+      "ReplaceByElement",
+      "Search",
+      "SetAlias",
+      "SetBackgroundColor",
+      "SetLabel",
+      "SetLock",
+      "SetPlaceholderText",
+      "SetTag",
+      "SetTextPr",
+      "ToJSON"
+    ],
+    "ApiBullet": [
+
+    ],
+    "ApiChart": [
+      "GetNextChart",
+      "GetPrevChart",
+      "RemoveSeria",
+      "SetCategoryName",
+      "SetHorAxisLablesFontSize",
+      "SetHorAxisMajorTickMark",
+      "SetHorAxisMinorTickMark",
+      "SetHorAxisOrientation",
+      "SetHorAxisTickLabelPosition",
+      "SetLegendFontSize",
+      "SetMajorHorizontalGridlines",
+      "SetMajorVerticalGridlines",
+      "SetMarkerFill",
+      "SetMarkerOutLine",
+      "SetMinorHorizontalGridlines",
+      "SetMinorVerticalGridlines",
+      "SetSeriaName",
+      "SetSeriaValues",
+      "SetShowPointDataLabel",
+      "SetVerAxisOrientation",
+      "SetVertAxisLablesFontSize",
+      "SetVertAxisMajorTickMark",
+      "SetVertAxisMinorTickMark",
+      "SetVertAxisTickLabelPosition",
+      "SetXValues"
+    ],
+    "ApiCheckBoxForm": [
+      "Copy",
+      "GetFormKey",
+      "GetFormType",
+      "GetRadioGroup",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsChecked",
+      "IsFixed",
+      "IsRadioButton",
+      "IsRequired",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetChecked",
+      "SetFormKey",
+      "SetPlaceholderText",
+      "SetRadioGroup",
+      "SetRequired",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "ApiComboBoxForm": [
+      "Copy",
+      "GetFormKey",
+      "GetFormType",
+      "GetListValues",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsEditable",
+      "IsFixed",
+      "IsRequired",
+      "SelectListValue",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetFormKey",
+      "SetListValues",
+      "SetPlaceholderText",
+      "SetRequired",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "ApiComplexForm": [
+      "Copy",
+      "GetFormKey",
+      "GetFormType",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsFixed",
+      "IsRequired",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetFormKey",
+      "SetPlaceholderText",
+      "SetRequired",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "apicontentcontrollist": [
+      "GetAllItems",
+      "GetItem",
+      "GetParent"
+    ],
+    "apicontentcontrollistentry": [
+      "Delete",
+      "GetIndex",
+      "GetParent",
+      "GetValue",
+      "MoveDown",
+      "MoveUp",
+      "SetIndex",
+      "SetValue"
+    ],
+    "apidocument": [
+      "AcceptAllRevisionChanges",
+      "AddComment",
+      "AddTableOfContents",
+      "AddTableOfFigures",
+      "ClearAllFields",
+      "DeleteBookmark",
+      "GetAllBookmarksNames",
+      "GetAllCharts",
+      "GetAllComments",
+      "GetAllContentControls",
+      "GetAllDrawingObjects",
+      "GetAllForms",
+      "GetAllOleObjects",
+      "GetAllParagraphs",
+      "GetAllShapes",
+      "GetAllStyles",
+      "GetAllTables",
+      "GetAllTablesOnPage",
+      "GetBookmarkRange",
+      "GetCommentById",
+      "GetContentControlsByTag",
+      "GetFormsByTag",
+      "GetPageCount",
+      "GetRangeBySelect",
+      "GetSections",
+      "GetSelectedDrawings",
+      "GetStatistics",
+      "GetTagsOfAllContentControls",
+      "GetTagsOfAllForms",
+      "GetWatermarkSettings",
+      "InsertWatermark",
+      "IsTrackRevisions",
+      "Last",
+      "RejectAllRevisionChanges",
+      "RemoveSelection",
+      "RemoveWatermark",
+      "ReplaceCurrentImage",
+      "ReplaceDrawing",
+      "Search",
+      "SearchAndReplace",
+      "SetControlsHighlight",
+      "SetFormsHighlight",
+      "SetTrackRevisions",
+      "SetWatermarkSettings",
+      "ToHtml",
+      "ToJSON",
+      "ToMarkdown",
+      "UpdateAllTOC",
+      "UpdateAllTOF"
+    ],
+    "apidocumentcontent": [
+      "GetAllCharts",
+      "GetAllDrawingObjects",
+      "GetAllOleObjects",
+      "GetAllParagraphs",
+      "GetAllShapes",
+      "GetAllTables",
+      "ToJSON"
+    ],
+    "ApiDrawing": [
+      "AddBreak",
+      "Copy",
+      "Delete",
+      "GetLockValue",
+      "GetNextDrawing",
+      "GetParentContentControl",
+      "GetParentParagraph",
+      "GetParentTable",
+      "GetParentTableCell",
+      "GetPrevDrawing",
+      "InsertInContentControl",
+      "InsertParagraph",
+      "ScaleHeight",
+      "ScaleWidth",
+      "SetDrawingPrFromDrawing",
+      "SetHorFlip",
+      "SetLockValue",
+      "SetOutLine",
+      "SetVertFlip",
+      "ToJSON"
+    ],
+    "ApiFill": [
+      "ToJSON"
+    ],
+    "ApiFormBase": [
+      "Copy",
+      "GetFormKey",
+      "GetFormType",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsFixed",
+      "IsRequired",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetFormKey",
+      "SetPlaceholderText",
+      "SetRequired",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "ApiGradientStop": [
+      "ToJSON"
+    ],
+    "ApiHyperlink": [
+      "GetDisplayedText",
+      "GetLinkedText",
+      "GetScreenTipText",
+      "SetDefaultStyle",
+      "SetDisplayedText",
+      "SetLink",
+      "SetScreenTipText",
+      "ToJSON"
+    ],
+    "ApiImage": [
+      "GetNextImage",
+      "GetPrevImage"
+    ],
+    "apiinlinelvlsdt": [
+      "AddComment",
+      "Copy",
+      "Delete",
+      "GetAlias",
+      "GetDropdownList",
+      "GetLabel",
+      "GetLock",
+      "GetParentContentControl",
+      "GetParentParagraph",
+      "GetParentTable",
+      "GetParentTableCell",
+      "GetPlaceholderText",
+      "GetTag",
+      "IsForm",
+      "SetAlias",
+      "SetLabel",
+      "SetLock",
+      "SetPlaceholderText",
+      "SetTag",
+      "SetTextPr",
+      "ToJSON"
+    ],
+    "ApiNumbering": [
+      "ToJSON"
+    ],
+    "ApiNumberingLevel": [
+
+    ],
+    "ApiOleObject": [
+      "GetApplicationId",
+      "GetData",
+      "SetApplicationId"
+    ],
+    "apiparagraph": [
+      "AddComment",
+      "AddHyperlink",
+      "AddInlineLvlSdt",
+      "Copy",
+      "Delete",
+      "GetAllCharts",
+      "GetAllContentControls",
+      "GetAllDrawingObjects",
+      "GetAllOleObjects",
+      "GetAllShapes",
+      "GetFontNames",
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetLastRunWithText",
+      "GetNext",
+      "GetParentContentControl",
+      "GetParentTable",
+      "GetParentTableCell",
+      "GetPosInParent",
+      "GetPrevious",
+      "GetSection",
+      "GetShd",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue",
+      "InsertInContentControl",
+      "InsertParagraph",
+      "Last",
+      "ReplaceByElement",
+      "Search",
+      "SetBullet",
+      "SetSection",
+      "SetTextPr",
+      "ToJSON",
+      "WrapInMailMergeField"
+    ],
+    "ApiParaPr": [
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetShd",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue",
+      "SetBullet",
+      "ToJSON"
+    ],
+    "ApiPictureForm": [
+      "Copy",
+      "GetFormKey",
+      "GetFormType",
+      "GetImage",
+      "GetPicturePosition",
+      "GetScaleFlag",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsFixed",
+      "IsLockAspectRatio",
+      "IsRequired",
+      "IsRespectBorders",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetFormKey",
+      "SetImage",
+      "SetLockAspectRatio",
+      "SetPicturePosition",
+      "SetPlaceholderText",
+      "SetRequired",
+      "SetRespectBorders",
+      "SetScaleFlag",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "ApiPresetColor": [
+      "ToJSON"
+    ],
+    "ApiRange": [
+      "AddComment",
+      "AddHyperlink",
+      "Delete",
+      "ExpandTo",
+      "GetAllParagraphs",
+      "IntersectWith",
+      "SetTextPr",
+      "ToJSON"
+    ],
+    "ApiRGBColor": [
+      "ToJSON"
+    ],
+    "apirun": [
+      "AddComment",
+      "AddHyperlink",
+      "Copy",
+      "Delete",
+      "GetFontNames",
+      "GetParentContentControl",
+      "GetParentTable",
+      "GetParentTableCell",
+      "SetFill",
+      "SetOutLine",
+      "SetTextFill",
+      "SetTextPr",
+      "ToJSON",
+      "WrapInMailMergeField"
+    ],
+    "ApiSchemeColor": [
+      "ToJSON"
+    ],
+    "ApiSection": [
+      "GetNext",
+      "GetPrevious",
+      "ToJSON"
+    ],
+    "ApiShape": [
+      "GetNextShape",
+      "GetPrevShape",
+      "SetPaddings"
+    ],
+    "ApiStroke": [
+      "ToJSON"
+    ],
+    "ApiStyle": [
+      "ToJSON"
+    ],
+    "apitable": [
+      "AddColumns",
+      "AddComment",
+      "AddRows",
+      "Copy",
+      "Delete",
+      "GetNext",
+      "GetParentContentControl",
+      "GetParentTable",
+      "GetParentTableCell",
+      "GetPosInParent",
+      "GetPrevious",
+      "GetTableDescription",
+      "GetTables",
+      "GetTableTitle",
+      "InsertInContentControl",
+      "ReplaceByElement",
+      "Search",
+      "SetBackgroundColor",
+      "SetHAlign",
+      "SetPaddings",
+      "SetTableDescription",
+      "SetTableTitle",
+      "SetTextPr",
+      "SetVAlign",
+      "Split",
+      "ToJSON"
+    ],
+    "ApiTableCell": [
+      "AddColumns",
+      "AddRows",
+      "GetIndex",
+      "GetNext",
+      "GetParentRow",
+      "GetParentTable",
+      "GetPrevious",
+      "GetRowIndex",
+      "Search",
+      "SetBackgroundColor",
+      "SetCellPr",
+      "SetColumnBackgroundColor",
+      "SetTextPr",
+      "Split",
+      "ToJSON"
+    ],
+    "ApiTableCellPr": [
+      "ToJSON"
+    ],
+    "ApiTablePr": [
+      "GetTableDescription",
+      "GetTableTitle",
+      "SetTableDescription",
+      "SetTableTitle",
+      "ToJSON"
+    ],
+    "ApiTableRow": [
+      "AddRows",
+      "GetIndex",
+      "GetNext",
+      "GetParentTable",
+      "GetPrevious",
+      "Search",
+      "SetBackgroundColor",
+      "SetTextPr",
+      "ToJSON"
+    ],
+    "ApiTableRowPr": [
+      "ToJSON"
+    ],
+    "ApiTableStylePr": [
+      "ToJSON"
+    ],
+    "ApiTextForm": [
+      "Copy",
+      "GetCharactersLimit",
+      "GetFormKey",
+      "GetFormType",
+      "GetTipText",
+      "GetWrapperShape",
+      "IsAutoFit",
+      "IsComb",
+      "IsFixed",
+      "IsMultiline",
+      "IsRequired",
+      "SetAutoFit",
+      "SetBackgroundColor",
+      "SetBorderColor",
+      "SetCellWidth",
+      "SetCharactersLimit",
+      "SetComb",
+      "SetFormKey",
+      "SetMultiline",
+      "SetPlaceholderText",
+      "SetRequired",
+      "SetTextPr",
+      "SetTipText",
+      "ToFixed",
+      "ToInline"
+    ],
+    "ApiTextPr": [
+      "SetFill",
+      "SetOutLine",
+      "SetTextFill",
+      "ToJSON"
+    ],
+    "ApiUniColor": [
+      "ToJSON"
+    ],
+    "ApiUnsupported": [
+
+    ],
+    "apiwatermarksettings": [
+      "GetDirection",
+      "GetImageHeight",
+      "GetImageURL",
+      "GetImageWidth",
+      "GetOpacity",
+      "SetDirection",
+      "SetImageSize",
+      "SetImageURL",
+      "SetOpacity",
+      "SetTextPr"
+    ]
+  },
+  "Spreadsheet API": {
+    "api": [
+      "AddDefName",
+      "attachEvent",
+      "CreateNewHistoryPoint",
+      "CreateTextPr",
+      "detachEvent",
+      "GetComments",
+      "GetDefName",
+      "GetFullName",
+      "GetLocale",
+      "GetMailMergeData",
+      "Intersect",
+      "RecalculateAllFormulas",
+      "ReplaceTextSmart",
+      "SetLocale",
+      "event-onworksheetchange"
+    ],
+    "ApiAreas": [
+      "GetItem",
+      "GetParent"
+    ],
+    "ApiBullet": [
+
+    ],
+    "ApiChart": [
+      "AddSeria",
+      "ApplyChartStyle",
+      "RemoveSeria",
+      "SetAxieNumFormat",
+      "SetCatFormula",
+      "SetDataPointFill",
+      "SetDataPointOutLine",
+      "SetHorAxisLablesFontSize",
+      "SetHorAxisMajorTickMark",
+      "SetHorAxisMinorTickMark",
+      "SetLegendFill",
+      "SetLegendFontSize",
+      "SetLegendOutLine",
+      "SetMajorHorizontalGridlines",
+      "SetMajorVerticalGridlines",
+      "SetMarkerFill",
+      "SetMarkerOutLine",
+      "SetMinorHorizontalGridlines",
+      "SetMinorVerticalGridlines",
+      "SetPlotAreaFill",
+      "SetPlotAreaOutLine",
+      "SetSeriaName",
+      "SetSeriaValues",
+      "SetSeriaXValues",
+      "SetSeriesFill",
+      "SetSeriesOutLine",
+      "SetShowPointDataLabel",
+      "SetTitleFill",
+      "SetTitleOutLine",
+      "SetVertAxisLablesFontSize",
+      "SetVertAxisMajorTickMark",
+      "SetVertAxisMinorTickMark"
+    ],
+    "ApiColor": [
+
+    ],
+    "ApiComment": [
+
+    ],
+    "ApiDocument": [
+
+    ],
+    "ApiDocumentContent": [
+
+    ],
+    "ApiDrawing": [
+      "GetHeight",
+      "GetLockValue",
+      "GetWidth",
+      "SetLockValue"
+    ],
+    "ApiFill": [
+
+    ],
+    "ApiGradientStop": [
+
+    ],
+    "ApiImage": [
+
+    ],
+    "ApiName": [
+      "GetRefersTo",
+      "GetRefersToRange",
+      "SetRefersTo"
+    ],
+    "ApiOleObject": [
+      "GetApplicationId",
+      "GetData",
+      "SetApplicationId",
+      "SetData"
+    ],
+    "ApiParagraph": [
+      "Copy",
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetNext",
+      "GetPrevious",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue"
+    ],
+    "ApiParaPr": [
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue"
+    ],
+    "ApiPresetColor": [
+
+    ],
+    "apirange": [
+      "AddComment",
+      "AutoFit",
+      "Copy",
+      "End",
+      "Find",
+      "FindNext",
+      "FindPrevious",
+      "GetAreas",
+      "GetCharacters",
+      "GetComment",
+      "GetDefName",
+      "GetFillColor",
+      "GetFormula",
+      "GetOrientation",
+      "GetValue2",
+      "GetWorksheet",
+      "Paste",
+      "Replace",
+      "SetOrientation",
+      "SetSort"
+    ],
+    "ApiRGBColor": [
+
+    ],
+    "ApiRun": [
+      "Copy",
+      "GetFontNames",
+      "SetColor",
+      "SetHighlight",
+      "SetLanguage",
+      "SetOutLine",
+      "SetShd",
+      "SetStyle",
+      "SetTextFill",
+      "SetTextPr"
+    ],
+    "ApiSchemeColor": [
+
+    ],
+    "ApiShape": [
+      "GetContent",
+      "SetPaddings"
+    ],
+    "ApiStroke": [
+
+    ],
+    "ApiTextPr": [
+      "SetOutLine",
+      "SetTextFill"
+    ],
+    "ApiUniColor": [
+
+    ],
+    "apiworksheet": [
+      "AddDefName",
+      "AddOleObject",
+      "AddWordArt",
+      "GetActiveCell",
+      "GetAllCharts",
+      "GetAllDrawings",
+      "GetAllImages",
+      "GetAllOleObjects",
+      "GetAllShapes",
+      "GetComments",
+      "GetDefName",
+      "GetDefNames",
+      "GetPrintGridlines",
+      "GetPrintHeadings",
+      "Move",
+      "ReplaceCurrentImage",
+      "SetActive",
+      "SetPrintGridlines",
+      "SetPrintHeadings"
+    ]
+  },
+  "Presentation API": {
+    "api": [
+      "attachEvent",
+      "CreateGroup",
+      "CreateLayout",
+      "CreateMaster",
+      "CreateOleObject",
+      "CreatePlaceholder",
+      "CreateTextPr",
+      "CreateTheme",
+      "CreateThemeColorScheme",
+      "CreateThemeFontScheme",
+      "CreateThemeFormatScheme",
+      "CreateWordArt",
+      "detachEvent",
+      "FromJSON",
+      "GetFullName",
+      "ReplaceTextSmart"
+    ],
+    "ApiBullet": [
+
+    ],
+    "ApiChart": [
+      "ApplyChartStyle",
+      "RemoveSeria",
+      "SetAxieNumFormat",
+      "SetCategoryName",
+      "SetDataPointFill",
+      "SetDataPointNumFormat",
+      "SetDataPointOutLine",
+      "SetHorAxisLablesFontSize",
+      "SetHorAxisMajorTickMark",
+      "SetHorAxisMinorTickMark",
+      "SetHorAxisOrientation",
+      "SetHorAxisTickLabelPosition",
+      "SetLegendFill",
+      "SetLegendFontSize",
+      "SetLegendOutLine",
+      "SetMajorHorizontalGridlines",
+      "SetMajorVerticalGridlines",
+      "SetMarkerFill",
+      "SetMarkerOutLine",
+      "SetMinorHorizontalGridlines",
+      "SetMinorVerticalGridlines",
+      "SetPlotAreaFill",
+      "SetPlotAreaOutLine",
+      "SetSeriaName",
+      "SetSeriaNumFormat",
+      "SetSeriaValues",
+      "SetSeriesFill",
+      "SetSeriesOutLine",
+      "SetShowPointDataLabel",
+      "SetTitleFill",
+      "SetTitleOutLine",
+      "SetVerAxisOrientation",
+      "SetVertAxisLablesFontSize",
+      "SetVertAxisMajorTickMark",
+      "SetVertAxisMinorTickMark",
+      "SetVertAxisTickLabelPosition",
+      "SetXValues"
+    ],
+    "ApiDocument": [
+
+    ],
+    "ApiDocumentContent": [
+
+    ],
+    "ApiDrawing": [
+      "Copy",
+      "Delete",
+      "GetLockValue",
+      "GetParent",
+      "GetParentLayout",
+      "GetParentMaster",
+      "GetParentSlide",
+      "GetPlaceholder",
+      "SetLockValue",
+      "SetPlaceholder",
+      "ToJSON"
+    ],
+    "ApiFill": [
+
+    ],
+    "ApiGradientStop": [
+
+    ],
+    "ApiImage": [
+
+    ],
+    "ApiLayout": [
+      "ClearBackground",
+      "Copy",
+      "Delete",
+      "Duplicate",
+      "FollowMasterBackground",
+      "GetAllCharts",
+      "GetAllDrawings",
+      "GetAllImages",
+      "GetAllOleObjects",
+      "GetAllShapes",
+      "GetMaster",
+      "MoveTo",
+      "RemoveObject",
+      "SetName",
+      "ToJSON"
+    ],
+    "ApiMaster": [
+      "AddLayout",
+      "ClearBackground",
+      "Copy",
+      "Delete",
+      "Duplicate",
+      "GetAllCharts",
+      "GetAllDrawings",
+      "GetAllImages",
+      "GetAllOleObjects",
+      "GetAllShapes",
+      "GetLayout",
+      "GetLayoutsCount",
+      "GetTheme",
+      "RemoveLayout",
+      "RemoveObject",
+      "SetTheme",
+      "ToJSON"
+    ],
+    "ApiOleObject": [
+      "GetApplicationId",
+      "GetData",
+      "SetApplicationId",
+      "SetData"
+    ],
+    "ApiParagraph": [
+      "Copy",
+      "Delete",
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetNext",
+      "GetPrevious",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue",
+      "SetHighlight"
+    ],
+    "ApiParaPr": [
+      "GetIndFirstLine",
+      "GetIndLeft",
+      "GetIndRight",
+      "GetJc",
+      "GetSpacingAfter",
+      "GetSpacingBefore",
+      "GetSpacingLineRule",
+      "GetSpacingLineValue"
+    ],
+    "ApiPlaceholder": [
+      "SetType"
+    ],
+    "ApiPresentation": [
+      "AddMaster",
+      "ApplyTheme",
+      "CreateNewHistoryPoint",
+      "GetMaster",
+      "GetMastersCount",
+      "GetSlidesCount",
+      "RemoveSlides",
+      "ReplaceCurrentImage",
+      "SetLanguage",
+      "SlidesToJSON",
+      "ToJSON"
+    ],
+    "ApiPresetColor": [
+
+    ],
+    "ApiRGBColor": [
+
+    ],
+    "ApiRun": [
+      "Copy",
+      "Delete",
+      "GetFontNames",
+      "SetColor",
+      "SetHighlight",
+      "SetLanguage",
+      "SetOutLine",
+      "SetStyle",
+      "SetTextFill",
+      "SetTextPr"
+    ],
+    "ApiSchemeColor": [
+
+    ],
+    "ApiShape": [
+
+    ],
+    "apislide": [
+      "ApplyLayout",
+      "ApplyTheme",
+      "ClearBackground",
+      "Copy",
+      "Delete",
+      "Duplicate",
+      "FollowLayoutBackground",
+      "FollowMasterBackground",
+      "GetAllCharts",
+      "GetAllDrawings",
+      "GetAllImages",
+      "GetAllOleObjects",
+      "GetAllShapes",
+      "GetLayout",
+      "GetSlideIndex",
+      "GetTheme",
+      "GetVisible",
+      "MoveTo",
+      "RemoveObject",
+      "SetVisible",
+      "ToJSON"
+    ],
+    "ApiStroke": [
+
+    ],
+    "ApiTable": [
+      "Copy",
+      "Select",
+      "ToJSON"
+    ],
+    "ApiTableCell": [
+
+    ],
+    "ApiTableRow": [
+
+    ],
+    "ApiTextPr": [
+      "SetHighlight",
+      "SetOutLine",
+      "SetTextFill"
+    ],
+    "ApiTheme": [
+      "GetColorScheme",
+      "GetFontScheme",
+      "GetFormatScheme",
+      "GetMaster",
+      "SetColorScheme",
+      "SetFontScheme",
+      "SetFormatScheme"
+    ],
+    "ApiThemeColorScheme": [
+      "ChangeColor",
+      "Copy",
+      "SetSchemeName",
+      "ToJSON"
+    ],
+    "ApiThemeFontScheme": [
+      "Copy",
+      "SetFonts",
+      "SetSchemeName",
+      "ToJSON"
+    ],
+    "ApiThemeFormatScheme": [
+      "ChangeBgFillStyles",
+      "ChangeEffectStyles",
+      "ChangeFillStyles",
+      "ChangeLineStyles",
+      "Copy",
+      "SetSchemeName",
+      "ToJSON"
+    ],
+    "ApiUniColor": [
+
+    ]
+  },
+  "Form API": {
+    "Api": [
+      "CreateCheckBoxForm",
+      "CreateComboBoxForm",
+      "CreatePictureForm",
+      "CreateTextForm"
+    ]
+  }
+}
