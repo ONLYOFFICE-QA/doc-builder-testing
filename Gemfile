@@ -8,6 +8,7 @@ gem 'parallel_tests'
 gem 'rake', '>= 12'
 gem 'rspec'
 gem 'semantic'
+gem 'nokogiri'
 
 group :development do
   gem 'overcommit', require: false
