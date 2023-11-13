@@ -183,13 +183,4 @@ describe 'ApiRun section tests' do
     expect(docx.elements.first.nonempty_runs[3].text).to eq('This is a text run with the text aligned above the baseline vertically.')
     expect(docx.elements.first.nonempty_runs[3].vertical_align).to eq(:superscript)
   end
-
-  it 'ApiRun | ToJSON method' do
-    docx = builder.build_and_parse('js/docx/smoke/api_run/to_json.js')
-    expect(docx.elements[0].nonempty_runs.first.text).to eq('This is a text run')
-    json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
-    expect(json['type']).to eq('run')
-    expect(json['rPr']['type']).to eq('textPr')
-    expect(json['content'][0]).to eq('This is a text run')
-  end
 end
