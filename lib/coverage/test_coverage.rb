@@ -14,9 +14,9 @@ module TestCoverage
   }.freeze
 
   SOURCES = {
-    'CDE' => File.join(Dir.pwd, 'js', 'docx').to_s,
-    'CSE' => File.join(Dir.pwd, 'js', 'xlsx').to_s,
-    'CPE' => File.join(Dir.pwd, 'js', 'pptx').to_s
+    'CDE' => File.join(Dir.pwd, 'js', 'docx', 'smoke').to_s,
+    'CSE' => File.join(Dir.pwd, 'js', 'xlsx', 'smoke').to_s,
+    'CPE' => File.join(Dir.pwd, 'js', 'pptx', 'smoke').to_s
   }.freeze
 
   # MethodCoverage class
@@ -49,7 +49,7 @@ module TestCoverage
     def contains_matches?(path, pattern)
       File.open(path, 'r') do |file|
         file.each_line do |line|
-          next unless line.include?(pattern)
+          next unless line.include?("#{pattern}(")
 
           @flag = true # Switch global flag
           break
@@ -81,5 +81,7 @@ module TestCoverage
   end
 end
 
-result = TestCoverage.run
-File.binwrite(File.join(Dir.pwd, 'reports', 'coverage_result.json').to_s, result)
+# p TestCoverage::Matcher.new('SetData', 'js').pattern_found?
+
+File.binwrite(File.join(Dir.pwd, 'reports', 'coverage_result.json').to_s,
+              TestCoverage.run)

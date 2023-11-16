@@ -20,9 +20,11 @@
       "LoadMailMergeData",
       "MailMerge",
       "ReplaceDocumentContent",
-      "ReplaceTextSmart"
+      "ReplaceTextSmart",
+      "Save"
     ],
     "apiblocklvlsdt": [
+      "AddCaption",
       "AddComment",
       "Delete",
       "GetAlias",
@@ -38,9 +40,11 @@
       "GetParentTableCell",
       "GetPlaceholderText",
       "GetPosInParent",
+      "GetRange",
       "GetTag",
       "ReplaceByElement",
       "Search",
+      "Select",
       "SetAlias",
       "SetBackgroundColor",
       "SetLabel",
@@ -54,6 +58,7 @@
 
     ],
     "ApiChart": [
+      "ApplyChartStyle",
       "GetNextChart",
       "GetPrevChart",
       "RemoveSeria",
@@ -81,10 +86,12 @@
       "SetXValues"
     ],
     "ApiCheckBoxForm": [
+      "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
       "GetRadioGroup",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsChecked",
@@ -104,10 +111,12 @@
       "ToInline"
     ],
     "ApiComboBoxForm": [
+      "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
       "GetListValues",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsEditable",
@@ -120,15 +129,18 @@
       "SetListValues",
       "SetPlaceholderText",
       "SetRequired",
+      "SetText",
       "SetTextPr",
       "SetTipText",
       "ToFixed",
       "ToInline"
     ],
     "ApiComplexForm": [
+      "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -144,6 +156,8 @@
       "ToInline"
     ],
     "apicontentcontrollist": [
+      "Add",
+      "Clear",
       "GetAllItems",
       "GetItem",
       "GetParent"
@@ -152,25 +166,34 @@
       "Delete",
       "GetIndex",
       "GetParent",
+      "GetText",
       "GetValue",
       "MoveDown",
       "MoveUp",
+      "Select",
       "SetIndex",
+      "SetText",
       "SetValue"
     ],
     "apidocument": [
       "AcceptAllRevisionChanges",
       "AddComment",
+      "AddEndnote",
+      "AddFootnote",
       "AddTableOfContents",
       "AddTableOfFigures",
       "ClearAllFields",
+      "CreateNewHistoryPoint",
       "DeleteBookmark",
       "GetAllBookmarksNames",
+      "GetAllCaptionParagraphs",
       "GetAllCharts",
       "GetAllComments",
       "GetAllContentControls",
       "GetAllDrawingObjects",
       "GetAllForms",
+      "GetAllHeadingParagraphs",
+      "GetAllNumberedParagraphs",
       "GetAllOleObjects",
       "GetAllParagraphs",
       "GetAllShapes",
@@ -180,8 +203,11 @@
       "GetBookmarkRange",
       "GetCommentById",
       "GetContentControlsByTag",
+      "GetEndNotesFirstParagraphs",
+      "GetFootnotesFirstParagraphs",
       "GetFormsByTag",
       "GetPageCount",
+      "GetRange",
       "GetRangeBySelect",
       "GetSections",
       "GetSelectedDrawings",
@@ -216,6 +242,7 @@
       "GetAllParagraphs",
       "GetAllShapes",
       "GetAllTables",
+      "GetRange",
       "ToJSON"
     ],
     "ApiDrawing": [
@@ -233,6 +260,7 @@
       "InsertParagraph",
       "ScaleHeight",
       "ScaleWidth",
+      "Select",
       "SetDrawingPrFromDrawing",
       "SetHorFlip",
       "SetLockValue",
@@ -244,9 +272,11 @@
       "ToJSON"
     ],
     "ApiFormBase": [
+      "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -267,6 +297,7 @@
     "ApiHyperlink": [
       "GetDisplayedText",
       "GetLinkedText",
+      "GetRange",
       "GetScreenTipText",
       "SetDefaultStyle",
       "SetDisplayedText",
@@ -291,6 +322,7 @@
       "GetParentTable",
       "GetParentTableCell",
       "GetPlaceholderText",
+      "GetRange",
       "GetTag",
       "IsForm",
       "SetAlias",
@@ -310,12 +342,20 @@
     "ApiOleObject": [
       "GetApplicationId",
       "GetData",
-      "SetApplicationId"
+      "SetApplicationId",
+      "SetData"
     ],
     "apiparagraph": [
+      "AddBookmarkCrossRef",
+      "AddCaption",
+      "AddCaptionCrossRef",
       "AddComment",
+      "AddEndnoteCrossRef",
+      "AddFootnoteCrossRef",
+      "AddHeadingCrossRef",
       "AddHyperlink",
       "AddInlineLvlSdt",
+      "AddNumberedCrossRef",
       "Copy",
       "Delete",
       "GetAllCharts",
@@ -335,17 +375,20 @@
       "GetParentTableCell",
       "GetPosInParent",
       "GetPrevious",
+      "GetRange",
       "GetSection",
       "GetShd",
       "GetSpacingAfter",
       "GetSpacingBefore",
       "GetSpacingLineRule",
       "GetSpacingLineValue",
+      "GetText",
       "InsertInContentControl",
       "InsertParagraph",
       "Last",
       "ReplaceByElement",
       "Search",
+      "Select",
       "SetBullet",
       "SetSection",
       "SetTextPr",
@@ -366,12 +409,14 @@
       "ToJSON"
     ],
     "ApiPictureForm": [
+      "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
       "GetImage",
       "GetPicturePosition",
       "GetScaleFlag",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -397,12 +442,17 @@
       "ToJSON"
     ],
     "ApiRange": [
+      "AddBookmark",
       "AddComment",
       "AddHyperlink",
       "Delete",
       "ExpandTo",
       "GetAllParagraphs",
+      "GetParagraph",
+      "GetRange",
+      "GetText",
       "IntersectWith",
+      "Select",
       "SetTextPr",
       "ToJSON"
     ],
@@ -418,6 +468,9 @@
       "GetParentContentControl",
       "GetParentTable",
       "GetParentTableCell",
+      "GetRange",
+      "GetText",
+      "Select",
       "SetFill",
       "SetOutLine",
       "SetTextFill",
@@ -445,9 +498,11 @@
       "ToJSON"
     ],
     "apitable": [
+      "AddCaption",
       "AddColumns",
       "AddComment",
       "AddRows",
+      "Clear",
       "Copy",
       "Delete",
       "GetNext",
@@ -456,12 +511,14 @@
       "GetParentTableCell",
       "GetPosInParent",
       "GetPrevious",
+      "GetRange",
       "GetTableDescription",
       "GetTables",
       "GetTableTitle",
       "InsertInContentControl",
       "ReplaceByElement",
       "Search",
+      "Select",
       "SetBackgroundColor",
       "SetHAlign",
       "SetPaddings",
@@ -475,6 +532,7 @@
     "ApiTableCell": [
       "AddColumns",
       "AddRows",
+      "Clear",
       "GetIndex",
       "GetNext",
       "GetParentRow",
@@ -501,10 +559,12 @@
     ],
     "ApiTableRow": [
       "AddRows",
+      "Clear",
       "GetIndex",
       "GetNext",
       "GetParentTable",
       "GetPrevious",
+      "Remove",
       "Search",
       "SetBackgroundColor",
       "SetTextPr",
@@ -517,10 +577,12 @@
       "ToJSON"
     ],
     "ApiTextForm": [
+      "Clear",
       "Copy",
       "GetCharactersLimit",
       "GetFormKey",
       "GetFormType",
+      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsAutoFit",
@@ -538,6 +600,7 @@
       "SetMultiline",
       "SetPlaceholderText",
       "SetRequired",
+      "SetText",
       "SetTextPr",
       "SetTipText",
       "ToFixed",
@@ -561,10 +624,12 @@
       "GetImageURL",
       "GetImageWidth",
       "GetOpacity",
+      "GetText",
       "SetDirection",
       "SetImageSize",
       "SetImageURL",
       "SetOpacity",
+      "SetText",
       "SetTextPr"
     ]
   },
@@ -583,6 +648,7 @@
       "Intersect",
       "RecalculateAllFormulas",
       "ReplaceTextSmart",
+      "Save",
       "SetLocale",
       "event-onworksheetchange"
     ],
@@ -631,7 +697,7 @@
 
     ],
     "ApiComment": [
-
+      "GetText"
     ],
     "ApiDocument": [
 
@@ -694,6 +760,7 @@
     "apirange": [
       "AddComment",
       "AutoFit",
+      "Clear",
       "Copy",
       "End",
       "Find",
@@ -706,8 +773,10 @@
       "GetFillColor",
       "GetFormula",
       "GetOrientation",
+      "GetText",
       "GetValue2",
       "GetWorksheet",
+      "Insert",
       "Paste",
       "Replace",
       "SetOrientation",
@@ -784,7 +853,8 @@
       "detachEvent",
       "FromJSON",
       "GetFullName",
-      "ReplaceTextSmart"
+      "ReplaceTextSmart",
+      "Save"
     ],
     "ApiBullet": [
 
