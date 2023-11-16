@@ -2,6 +2,7 @@
 
 require 'csv'
 require_relative 'lib/doc_builder_testing'
+require_relative 'lib/coverage/test_coverage'
 
 task default: %w[run_tests_on_desktop]
 
@@ -44,4 +45,10 @@ end
 desc 'run rspec via windows'
 task :run_test_on_win do
   system('rspec --tag win')
+end
+
+desc 'run coverage'
+task :coverage do
+  File.binwrite(File.join(Dir.pwd, 'reports', 'coverage_result.json').to_s,
+                TestCoverage.run(TestCoverage.get_api))
 end

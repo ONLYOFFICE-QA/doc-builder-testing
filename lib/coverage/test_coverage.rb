@@ -10,14 +10,24 @@ module TestCoverage
   REDACTORS = {
     'CDE' => 'Text document API',
     'CSE' => 'Spreadsheet API',
-    'CPE' => 'Presentation API'
+    'CPE' => 'Presentation API',
+    'Form' => 'Form API'
   }.freeze
 
   SOURCES = {
     'CDE' => File.join(Dir.pwd, 'js', 'docx', 'smoke').to_s,
     'CSE' => File.join(Dir.pwd, 'js', 'xlsx', 'smoke').to_s,
-    'CPE' => File.join(Dir.pwd, 'js', 'pptx', 'smoke').to_s
+    'CPE' => File.join(Dir.pwd, 'js', 'pptx', 'smoke').to_s,
+    'Form' => File.join(Dir.pwd, 'js', 'form', 'smoke').to_s
   }.freeze
+
+  def self.address
+    ADDRESS
+  end
+
+  def self.redactors
+    REDACTORS
+  end
 
   # MethodCoverage class
   class Matcher
@@ -49,7 +59,8 @@ module TestCoverage
     def contains_matches?(path, pattern)
       File.open(path, 'r') do |file|
         file.each_line do |line|
-          next unless line.include?("#{pattern}(")
+          # regex pattern for js method
+          next unless line.match?(/#{pattern}\(.*\)/)
 
           @flag = true # Switch global flag
           break
@@ -58,7 +69,7 @@ module TestCoverage
     end
   end
 
-  def self.get_api(url)
+  def self.get_api(url = ADDRESS)
     file_url = URI.parse(url)
     http = Net::HTTP.new(file_url.host.to_s, file_url.port)
     http.use_ssl = (file_url.scheme = 'https')
@@ -70,7 +81,7 @@ module TestCoverage
     end
   end
 
-  def self.run(method_list = get_api(ADDRESS))
+  def self.run(method_list)
     method_list = JSON.parse(method_list)
     REDACTORS.each do |key, type|
       method_list[type].each do |_api_class, method|
@@ -80,8 +91,3 @@ module TestCoverage
     JSON.pretty_generate(method_list)
   end
 end
-
-# p TestCoverage::Matcher.new('SetData', 'js').pattern_found?
-
-File.binwrite(File.join(Dir.pwd, 'reports', 'coverage_result.json').to_s,
-              TestCoverage.run)
