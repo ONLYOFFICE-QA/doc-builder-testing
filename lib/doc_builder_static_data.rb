@@ -27,5 +27,6 @@ module DocBuilderStaticData
     'Endnote text'
   ].freeze
 
+  # Default table style codes
   TABLE_STYLE = { BorderedAccent5: '48' }.freeze
 end
