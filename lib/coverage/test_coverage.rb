@@ -3,10 +3,12 @@
 require 'net/http'
 require 'json'
 
-# toplevel documentation
+# Represents a container for test coverage calculation methods
 module TestCoverage
+  # List of methods that are parse from api.onlyoffice.com
   ADDRESS = 'https://raw.githubusercontent.com/ONLYOFFICE-QA/testing-api.onlyoffice.com/master/templates/document_builder/usage_api.json'
 
+  # Representation of editors in different sources
   REDACTORS = {
     'CDE' => 'Text document API',
     'CSE' => 'Spreadsheet API',
@@ -14,6 +16,7 @@ module TestCoverage
     'Form' => 'Form API'
   }.freeze
 
+  # Pathways in the project
   SOURCES = {
     'CDE' => File.join(Dir.pwd, 'js', 'docx', 'smoke').to_s,
     'CSE' => File.join(Dir.pwd, 'js', 'xlsx', 'smoke').to_s,
@@ -21,15 +24,17 @@ module TestCoverage
     'Form' => File.join(Dir.pwd, 'js', 'form', 'smoke').to_s
   }.freeze
 
+  # @return [String (frozen)]
   def self.address
     ADDRESS
   end
 
+  # @return [String (frozen)}]
   def self.redactors
     REDACTORS
   end
 
-  # MethodCoverage class
+  # Represents a class describing the logic of recursive file system traversal
   class Matcher
     def initialize(pattern, path)
       @flag = false
@@ -38,12 +43,16 @@ module TestCoverage
       recursive_search
     end
 
+    # @return [TrueClass, FalseClass]
     def pattern_found?
       @flag
     end
 
     private
 
+    # @param [Object] pattern
+    # @param [Object] node
+    # @return [Dir, TrueClass, FalseClass]
     def recursive_search(pattern = @pattern, node = @path)
       if File.file?(node)
         contains_matches?(node, pattern)
@@ -56,6 +65,9 @@ module TestCoverage
       end
     end
 
+    # @param [Object] path
+    # @param [Object] pattern
+    # @return [Object]
     def contains_matches?(path, pattern)
       File.open(path, 'r') do |file|
         file.each_line do |line|
@@ -69,6 +81,8 @@ module TestCoverage
     end
   end
 
+  # @param [String] url (default: ADDRESS env )
+  # @return [String] body JSON
   def self.get_api(url = ADDRESS)
     file_url = URI.parse(url)
     http = Net::HTTP.new(file_url.host.to_s, file_url.port)
@@ -81,6 +95,8 @@ module TestCoverage
     end
   end
 
+  # @param [String] method_list
+  # @return [String] JSON
   def self.run(method_list)
     method_list = JSON.parse(method_list)
     REDACTORS.each do |key, type|
