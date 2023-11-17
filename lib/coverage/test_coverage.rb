@@ -83,7 +83,7 @@ module TestCoverage
 
   # @param [String] url (default: ADDRESS env )
   # @return [String] body JSON
-  def self.get_api(url = ADDRESS)
+  def self.get_api(url: ADDRESS)
     file_url = URI.parse(url)
     http = Net::HTTP.new(file_url.host.to_s, file_url.port)
     http.use_ssl = (file_url.scheme = 'https')
