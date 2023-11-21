@@ -9,7 +9,7 @@ module TestCoverage
   ADDRESS = 'https://raw.githubusercontent.com/ONLYOFFICE-QA/testing-api.onlyoffice.com/master/templates/document_builder/usage_api.json'
 
   # Representation of editors in different sources
-  REDACTORS = {
+  EDITORS = {
     'CDE' => 'Text document API',
     'CSE' => 'Spreadsheet API',
     'CPE' => 'Presentation API',
@@ -30,8 +30,8 @@ module TestCoverage
   end
 
   # @return [String (frozen)}]
-  def self.redactors
-    REDACTORS
+  def self.editors
+    EDITORS
   end
 
   # Represents a class describing the logic of recursive file system traversal
@@ -99,7 +99,7 @@ module TestCoverage
   # @return [String] JSON
   def self.run(method_list)
     method_list = JSON.parse(method_list)
-    REDACTORS.each do |key, type|
+    EDITORS.each do |key, type|
       method_list[type].each do |_api_class, method|
         method.reject! { |element| Matcher.new(element, SOURCES[key]).pattern_found? }
       end

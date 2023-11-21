@@ -5,7 +5,7 @@ require_relative '../../lib/coverage/test_coverage'
 
 describe TestCoverage do
   let(:json) { described_class.get_api }
-  let(:redactors) { described_class.redactors }
+  let(:redactors) { described_class.editors }
   let(:result_json) { described_class.run(json) }
 
   it 'json that should have expected fields' do
