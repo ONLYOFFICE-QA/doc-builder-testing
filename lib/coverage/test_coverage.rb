@@ -37,7 +37,7 @@ module TestCoverage
   # Represents a class describing the logic of recursive file system traversal
   class Matcher
     def initialize(pattern, path)
-      @flag = false
+      @pattern_found = false
       @pattern = pattern
       @path = path
       recursive_search
@@ -45,7 +45,7 @@ module TestCoverage
 
     # @return [TrueClass, FalseClass]
     def pattern_found?
-      @flag
+      @pattern_found
     end
 
     private
@@ -74,7 +74,7 @@ module TestCoverage
           # regex pattern for js method
           next unless line.match?(/#{pattern}\(.*\)/)
 
-          @flag = true # Switch global flag
+          @pattern_found = true # Switch global flag if pattern is found
           break
         end
       end

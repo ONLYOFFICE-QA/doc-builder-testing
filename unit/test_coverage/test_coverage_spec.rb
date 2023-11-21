@@ -30,13 +30,13 @@ describe TestCoverage do
     let(:path) { File.join(Dir.pwd, 'assets', 'unit') }
 
     it 'true when found' do
-      matcher = described_class.new('Pattern', path)
-      expect(matcher).to be_pattern_found
+      matcher = described_class.new('Pattern', path).pattern_found?
+      expect(matcher).to be_truthy
     end
 
     it 'false when not found' do
-      matcher = described_class.new('abracadabra', path)
-      expect(matcher).not_to be_pattern_found
+      matcher = described_class.new('abracadabra', path).pattern_found?
+      expect(matcher).to be_falsey
     end
   end
 end
