@@ -18,4 +18,4 @@ WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
 CMD /bin/bash -c "documentbuilder; \
-                  bundle exec parallel_rspec spec"
+                  rake"

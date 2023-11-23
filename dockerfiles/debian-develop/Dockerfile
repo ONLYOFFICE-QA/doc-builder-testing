@@ -22,4 +22,4 @@ RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
 CMD /bin/bash -c "onlyoffice-documentbuilder; \
                   cd /doc-builder-testing; \
-                  rake rspec_critical"
+                  rake critical"
