@@ -49,6 +49,6 @@ end
 
 desc 'run coverage'
 task :coverage do
-  File.binwrite(File.join(Dir.pwd, 'reports', 'coverage_result.json').to_s,
+  File.binwrite("#{Dir.pwd}/reports/coverage_result.json",
                 TestCoverageResult.new.run)
 end
