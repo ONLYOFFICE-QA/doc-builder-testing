@@ -10,16 +10,11 @@ require_relative '../lib/doc_builder_testing'
 # @return [WebDocBuilderWrapper, DocBuilderWrapper]
 def builder
   @builder ||= if web_builder?
-                 WebDocBuilderWrapper.new(
-                   jwt_key: 'h6DwLNlgK0ALVDvW8V8FfNJK8NSH6AiZ',
-                   jwt_header: 'Authorization',
-                   documentserver_path: 'http://192.168.100.2'
-                 )
+                 WebDocBuilderWrapper.new
                else
                  DocBuilderWrapper.new
                end
 end
-
 
 # @return [String] which platform is used to run builder tests
 def builder_platform
