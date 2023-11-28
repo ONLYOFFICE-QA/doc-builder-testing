@@ -1,13 +1,13 @@
 builder.CreateFile("docx");
-let oDocument = Api.GetDocument();
-let oParagraph = oDocument.GetElement(0);
-let oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
-oTableStyle.SetName("My Custom Table Style");
-let oTableRowPr = oTableStyle.GetTableRowPr();
-oTableRowPr.SetHeight("atLeast", 720);
-let jsonTableStyle = oTableStyle.ToJSON();
-GlobalVariable["JSON_TableStyle"] = jsonTableStyle;
-oParagraph.AddText(jsonTableStyle);
+    let oDocument = Api.GetDocument();
+    let oParagraph = oDocument.GetElement(0);
+    let oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+        oTableStyle.SetName("My Custom Table Style");
+    let oTableRowPr = oTableStyle.GetTableRowPr();
+        oTableRowPr.SetHeight("atLeast", 720);
+    let jsonTableStyle = oTableStyle.ToJSON();
+        GlobalVariable["JSON_TableStyle"] = jsonTableStyle;
+        oParagraph.AddText(jsonTableStyle);
 builder.CloseFile();
 
 //////////////
