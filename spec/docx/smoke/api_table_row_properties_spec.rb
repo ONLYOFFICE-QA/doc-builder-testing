@@ -22,5 +22,5 @@ describe 'ApiTableRowPr section tests' do
     json = docx.elements[1].nonempty_runs.map(&:text).join
     parsed_json = JSON.parse(json)
     expect(parsed_json).to include('name' => 'My Custom Table Style')
-    end
+  end
 end
