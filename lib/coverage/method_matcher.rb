@@ -1,6 +1,27 @@
 # frozen_string_literal: true
 
 # Represents a class describing the logic of recursive file system traversal
+# For example, let's take a test tree of the file system
+#
+# ./assets
+# .
+# ├── api_scripts
+# │ ├── DocumentWithComments.txt
+# │ └── DocumentWithReview.txt
+# ├── archive_scripts
+# │ └── archive.js
+# ├── simple_scripts
+# │ ├── simple.js
+# └── unit
+#     └── simple_incorrect_script
+#
+# @!method recursive_search(regexp, path)
+# Having received the path to ./assets in path, the algorithm will
+# traverse the whole file system first in depth and then in width
+# and read each inserted file line by line.
+#
+# And if it finds at least one match with regexp in a line,
+# it will change the state of the global flag.
 class MethodMatcher
   def initialize(chars, path)
     @pattern_found = false
