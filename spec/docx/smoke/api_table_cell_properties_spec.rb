@@ -84,4 +84,12 @@ describe 'ApiTableCellPr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/set_width.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.table_cell_width).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
   end
+
+  it 'ApiTableCellPr | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/to_json.js')
+    json = docx.elements[0].nonempty_runs.map(&:text).join
+    parsed_json = JSON.parse(json)
+    expected_values = { 'name' => 'CustomTableStyle' }
+    expect(parsed_json).to include(expected_values)
+  end
 end
