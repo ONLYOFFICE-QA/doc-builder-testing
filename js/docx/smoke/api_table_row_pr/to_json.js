@@ -16,7 +16,6 @@ builder.CloseFile();
 
 builder.CreateFile("docx");
     let oDocument = Api.GetDocument();
-    let oParagraph = oDocument.GetElement(0);
     let jsonTableStyle = GlobalVariable["JSON_TableStyle"];
         oParagraph.AddText(jsonTableStyle);
     let oTableStyleFromJSON = Api.FromJSON(jsonTableStyle);
@@ -34,3 +33,6 @@ builder.CreateFile("docx");
         oParagraph2.AddText(jsonTable);
 builder.SaveFile("docx", "TableStyleToJSON.docx");
 builder.CloseFile();
+
+
+

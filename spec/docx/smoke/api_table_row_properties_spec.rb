@@ -23,4 +23,6 @@ describe 'ApiTableRowPr section tests' do
     parsed_json = JSON.parse(json)
     expect(parsed_json).to include('name' => 'My Custom Table Style')
   end
+
+
 end
