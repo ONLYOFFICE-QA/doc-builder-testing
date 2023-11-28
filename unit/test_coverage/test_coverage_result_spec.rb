@@ -13,7 +13,7 @@ describe TestCoverageResult do
   describe TestCoverageResult do
     let(:instance) { described_class.new }
     let(:json) { instance.api_list }
-    let(:result_json) { instance.run }
+    let(:result_json) { instance.generate }
     let(:editors) { described_class::EDITORS }
 
     it 'json that should have expected fields' do

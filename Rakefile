@@ -50,5 +50,5 @@ end
 desc 'run coverage'
 task :coverage do
   File.binwrite("#{Dir.pwd}/reports/coverage_result.json",
-                TestCoverageResult.new.run)
+                TestCoverageResult.new.generate)
 end

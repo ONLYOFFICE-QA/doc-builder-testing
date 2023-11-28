@@ -30,7 +30,7 @@ class TestCoverageResult
 
   # @param [String] method_list
   # @return [String] edited JSON
-  def run(method_list: @api_list)
+  def generate(method_list: @api_list)
     method_list = JSON.parse(method_list)
     EDITORS.each do |key, type|
       method_list[type].each do |_api_class, method|
