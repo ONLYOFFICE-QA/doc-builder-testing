@@ -7,18 +7,28 @@
 # .
 # ├── api_scripts
 # │ ├── DocumentWithComments.txt
-# │ └── DocumentWithReview.txt
-# ├── archive_scripts
-# │ └── archive.js
+# │ ├── DocumentWithReview.txt
+#   └── archive_scripts
+#       └── archive.js
 # ├── simple_scripts
 # │ ├── simple.js
 # └── unit
 #     └── simple_incorrect_script
 #
-# @!method recursive_search(regexp, path)
-# Having received the path to ./assets in path, the algorithm will
+# Method recursive_search(regexp, path) having received the path
+# to ./assets in path, the algorithm will
 # traverse the whole file system first in depth and then in width
 # and read each inserted file line by line.
+#
+# 1. [open dir] api_scripts
+# 2. [read] DocumentWithComments.txt
+# 3. [read] DocumentWithReview.txt
+# 4. [open dir] archive_scripts
+# 5. [read] archive.js
+# 6. [open dir] simple_scripts
+# 7. [read] simple.js
+# 8. [open dir] unit
+# 9. [read] simple_incorrect_script
 #
 # And if it finds at least one match with regexp in a line,
 # it will change the state of the global flag.
