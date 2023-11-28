@@ -13,12 +13,12 @@ class TestCoverageResult
   attr_reader :api_list
 
   def initialize(address: ADDRESS)
-    @api_list = get_api_methods_at(address)
+    @api_list = download_at(address)
   end
 
-  # @param [String] url (default: ADDRESS env )
-  # @return [String] body
-  def get_api_methods_at(url)
+  # @param [String] url
+  # @return [String, JSON] Returns the full entity body.
+  def download_at(url)
     file_url = URI.parse(url)
     http = Net::HTTP.new(file_url.host.to_s, file_url.port)
     http.use_ssl = (file_url.scheme = 'https')
