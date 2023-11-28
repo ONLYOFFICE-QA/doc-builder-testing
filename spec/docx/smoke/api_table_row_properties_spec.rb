@@ -16,4 +16,11 @@ describe 'ApiTableRowPr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_row_pr/set_table_header.js')
     expect(docx.elements[1].properties.table_style.table_row_properties.table_header).to be_truthy
   end
+
+  it 'ApiTableRowPr | ToJson method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_row_pr/to_json.js')
+    json = docx.elements[1].nonempty_runs.map(&:text).join
+    parsed_json = JSON.parse(json)
+    expect(parsed_json).to include('name' => 'My Custom Table Style')
+  end
 end
