@@ -2,7 +2,7 @@
 
 require_relative '../spec_helper'
 
-describe Matcher do
+describe MethodMatcher do
   let(:path) { "#{Dir.pwd}/assets/unit" }
 
   it 'true when found' do

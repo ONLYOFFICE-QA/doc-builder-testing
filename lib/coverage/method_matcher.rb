@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Represents a class describing the logic of recursive file system traversal
-class Matcher
+class MethodMatcher
   def initialize(chars, path)
     @pattern_found = false
     recursive_search(/#{chars}\(.*\)/, path)

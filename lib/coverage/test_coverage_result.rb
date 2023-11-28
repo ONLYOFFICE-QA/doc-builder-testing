@@ -2,7 +2,7 @@
 
 require 'json'
 require 'net/http'
-require_relative 'matcher'
+require_relative 'method_matcher'
 require_relative 'coverage_static_data'
 
 # Represents a class each instance of which is ready to calculate test coverage
@@ -35,7 +35,7 @@ class TestCoverageResult
     EDITORS.each do |key, type|
       method_list[type].each do |_api_class, method|
         method.reject! do |element|
-          Matcher.new(element, SOURCES[key]).pattern_found?
+          MethodMatcher.new(element, SOURCES[key]).pattern_found?
         end
       end
     end
