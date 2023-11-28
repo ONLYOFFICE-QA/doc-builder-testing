@@ -4,6 +4,7 @@ Encoding.default_external = Encoding::UTF_8
 require 'bundler/setup'
 require 'rspec'
 require_relative '../lib/doc_builder_testing'
+require_relative 'doc_builder_static_data'
 
 # ENV['BUILDER_PLATFORM'] = 'WEB'
 # ENV['WEB_BUILDER_URL'] = 'https://kim.teamlab.info/'
