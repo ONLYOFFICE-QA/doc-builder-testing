@@ -5,9 +5,7 @@ describe 'ApiRGBColor section tests' do
   it 'ApiRGBColor | GetClassType method' do
     docx = builder.build_and_parse('js/docx/smoke/api_rgb_color/get_class_type.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Class Type = rgbColor')
-
   end
-
 
   it 'ApiRGBColor | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_rgb_color/to_json.js')
@@ -15,5 +13,4 @@ describe 'ApiRGBColor section tests' do
     third_paragraph_text = docx.elements[2].nonempty_runs.first.text
     expect(third_paragraph_text).to include(first_paragraph_text)
   end
-
 end

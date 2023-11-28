@@ -55,4 +55,25 @@ describe 'ApiTableStylePr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_type.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Style type = topLeftCell')
   end
+
+  it 'ApiTableStylePr | ToJson method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/to_json.js')
+    expected_json = {
+      'pPr' => { 'bFromDocument' => true, 'type' => 'paraPr' },
+      'rPr' => { 'bFromDocument' => true, 'type' => 'textPr' },
+      'tblPr' => {
+        'tblBorders' => {},
+        'tblCellMar' => {},
+        'tblOverlap' => 'never',
+        'inline' => false,
+        'type' => 'tablePr'
+      },
+      'tcPr' => { 'tcBorders' => {}, 'type' => 'tableCellPr' },
+      'trPr' => { 'type' => 'tableRowPr' },
+      'type' => 'tableStyle'
+    }
+    first_paragraph_text = docx.elements[0].nonempty_runs.first.text
+    first_paragraph_json = JSON.parse(first_paragraph_text)
+    expect(first_paragraph_json).to include(expected_json)
+  end
 end
