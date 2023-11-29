@@ -18,7 +18,7 @@ jobs:
         run: rubocop
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
-  test:
+  base_dockerfile:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
         run: |
           docker build -t doc-builder-testing .
           docker run doc-builder-testing
-  build:
+  build_ubuntu:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -38,4 +38,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Dockerfile ${{ matrix.dockerfiles }} Test
-        run: docker build -f ${{ matrix.dockerfiles }} .
+        run: |
+          docker build -f ${{ matrix.dockerfiles }} .
+          docker run ${{ matrix.dockerfiles }}
