@@ -2,16 +2,16 @@
 
 require_relative 'lib/doc_builder_testing'
 
-task default: %w[run_tests_on_desktop]
+task default: %w[desktop]
 
 desc 'run parallel_rspec on builder in desktop'
-task :run_tests_on_desktop do
+task :desktop do
   ENV['BUILDER_PLATFORM'] = 'DESKTOP'
   sh 'bundle exec parallel_rspec spec'
 end
 
 desc 'run parallel_rspec on builder in documentserver'
-task :run_tests_on_web do
+task :web do
   ENV['BUILDER_PLATFORM'] = 'WEB'
   sh 'bundle exec parallel_rspec spec'
 end
@@ -22,6 +22,6 @@ task :rspec_critical do
 end
 
 desc 'run rspec via windows'
-task :run_test_on_win do
+task :win do
   system('rspec --tag win')
 end
