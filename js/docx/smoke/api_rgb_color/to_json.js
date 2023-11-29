@@ -10,18 +10,21 @@ builder.CloseFile();
 /////////////////////
 
 builder.CreateFile("docx");
-    let oNewDocument = Api.GetDocument();
+    let oDocument = Api.GetDocument();
+    let oParagraph1 = oDocument.GetElement(0);
     let jsonRGBColor = GlobalVariable["JSON_RGBColor"];
-    let oParagraphRGBColor = oNewDocument.GetElement(0);
-        oParagraphRGBColor.AddText(jsonRGBColor);
-    let oRGBColorFromJSON = Api.FromJSON(jsonRGBColor);
-    let oParagraphRGBColorObject = Api.CreateParagraph();
-        oNewDocument.Push(oParagraphRGBColorObject);
-    let bWriteNumberings = false;
-    let bWriteStyles = true;
-    let jsonDrawingFromJSON = oRGBColorFromJSON.ToJSON(bWriteNumberings, bWriteStyles);
-    let oParagraphDrawing = Api.CreateParagraph();
-        oParagraphDrawing.AddText(jsonDrawingFromJSON);
-        oNewDocument.Push(oParagraphDrawing);
-builder.SaveFile("docx", "RGBColorToJSON.docx");
+    let oRGBColor = Api.FromJSON(jsonRGBColor);
+        oParagraph1.AddText(jsonRGBColor);
+        oDocument.Push(oParagraph1);
+    let oParagraph2 = Api.CreateParagraph();
+    let oGs1 = Api.CreateGradientStop(oRGBColor, 0);
+    let oGs2 = Api.CreateGradientStop(oRGBColor, 10);
+    let oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);
+    let oStroke = Api.CreateStroke(0, Api.CreateNoFill());
+    let oDrawing = Api.CreateShape("rect", 5930900, 395605, oFill, oStroke);
+    let jsonDrawing = oDrawing.ToJSON(false, true);
+        oParagraph2.AddText(jsonDrawing);
+        oDocument.Push(oParagraph2);
+builder.SaveFile("docx", "DrawingFromJSON.docx");
 builder.CloseFile();
+
