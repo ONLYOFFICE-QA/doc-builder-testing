@@ -20,6 +20,6 @@ RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffi
     apt-get -y install onlyoffice-documentbuilder
 RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
-CMD /bin/bash -c "onlyoffice-documentbuilder; \
+CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
                   cd /doc-builder-testing; \
                   rake rspec_critical"
