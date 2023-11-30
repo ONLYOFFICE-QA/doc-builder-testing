@@ -9,10 +9,8 @@ describe 'ApiRGBColor section tests' do
 
   it 'ApiRGBColor | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_rgb_color/to_json.js')
-    first_paragraph_text = docx.elements[0].nonempty_runs.first.text
-    second_paragraph_text = docx.elements[1].nonempty_runs.first.text
-    first_paragraph_json = JSON.parse(first_paragraph_text)
-    second_paragraph_json = JSON.parse(second_paragraph_text)
+    first_paragraph_json = JSON.parse(docx.elements[0].nonempty_runs.first.text)
+    second_paragraph_json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
     expect(second_paragraph_json.to_s).to include(first_paragraph_json.to_s)
   end
 end

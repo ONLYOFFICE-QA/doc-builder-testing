@@ -3,8 +3,8 @@ builder.CreateFile("docx");
     let oParagraph = oDocument.GetElement(0);
     let oRGBColor = Api.CreateRGBColor(255, 111, 61);
     let jsonRGBColor = oRGBColor.ToJSON();
-        oParagraph.AddText(jsonRGBColor);
-        GlobalVariable["JSON_RGBColor"] = jsonRGBColor;
+    oParagraph.AddText(jsonRGBColor);
+    GlobalVariable["JSON_RGBColor"] = jsonRGBColor;
 builder.CloseFile();
 
 /////////////////////
@@ -17,8 +17,9 @@ builder.CreateFile("docx");
         oParagraph1.AddText(jsonRGBColor);
         oDocument.Push(oParagraph1);
     let oParagraph2 = Api.CreateParagraph();
-    let oGs1 = Api.CreateGradientStop(oRGBColor, 0);
-    let oGs2 = Api.CreateGradientStop(oRGBColor, 10);
+    let oRGBColor2 = Api.CreateRGBColor(255, 111, 61);
+    let oGs1 = Api.CreateGradientStop(oRGBColor2, 0);
+    let oGs2 = Api.CreateGradientStop(oRGBColor2, 10);
     let oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);
     let oStroke = Api.CreateStroke(0, Api.CreateNoFill());
     let oDrawing = Api.CreateShape("rect", 5930900, 395605, oFill, oStroke);
@@ -27,5 +28,3 @@ builder.CreateFile("docx");
         oDocument.Push(oParagraph2);
 builder.SaveFile("docx", "RGBCoolorToJson.docx");
 builder.CloseFile();
-
-
