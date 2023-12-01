@@ -32,7 +32,6 @@ jobs:
       matrix:
         dockerfiles:
           - 'Dockerfile'
-          - 'dockerfiles/debian-archive/Dockerfile'
           - 'dockerfiles/centos-7/Dockerfile'
           - 'dockerfiles/debian-develop/Dockerfile'
           - 'dockerfiles/debian-next-release/Dockerfile'
