@@ -18,7 +18,7 @@ builder.CreateFile("docx");
         oDocument.Push(oParagraph1);
     let oParagraph2 = Api.CreateParagraph();
     let oGs1 = Api.CreateGradientStop(oRGBColor, 0);
-    let oGs2 = Api.CreateGradientStop(oRGBColor, 10);
+    let oGs2 = Api.CreateGradientStop(255, 213, 191, 100000);
     let oFill = Api.CreateLinearGradientFill([oGs1, oGs2], 5400000);
     let oStroke = Api.CreateStroke(0, Api.CreateNoFill());
     let oDrawing = Api.CreateShape("rect", 5930900, 395605, oFill, oStroke);
