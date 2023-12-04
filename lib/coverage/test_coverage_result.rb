@@ -33,7 +33,7 @@ class TestCoverageResult
   def generate
     method_list = JSON.parse(@api_list)
     EDITORS.each do |key, type|
-      method_list[type].each do |_api_class, method|
+      method_list[type].each_value do |method|
         method.reject! do |element|
           MethodMatcher.new(element, SOURCES[key]).pattern_found?
         end
