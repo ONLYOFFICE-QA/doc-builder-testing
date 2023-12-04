@@ -20,7 +20,7 @@ describe TestCoverageResult do
       hash = JSON.parse(json)
       expect(hash).to be_an(Hash)
       expect(hash.length).to eq(4)
-      hash.each do |key, _value|
+      hash.each_key do |key|
         expect(editors.key(key)).to be_truthy
       end
     end
@@ -29,7 +29,7 @@ describe TestCoverageResult do
       hash = JSON.parse(result_json)
       expect(hash).to be_an(Hash)
       expect(hash.length).to eq(4)
-      hash.each do |key, _value|
+      hash.each_key do |key|
         expect(editors.key(key)).to be_truthy
       end
     end
