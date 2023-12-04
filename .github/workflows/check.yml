@@ -32,9 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        dockerfiles: [dockerfiles/centos-7/Dockerfile,
-                      dockerfiles/debian-develop/Dockerfile,
-                      dockerfiles/debian-next-release/Dockerfile]
+        dockerfiles:
+          - "dockerfiles/centos-7/Dockerfile"
+          - "dockerfiles/debian-develop/Dockerfile"
+          - "dockerfiles/debian-next-release/Dockerfile"
     steps:
       - uses: actions/checkout@v3
       - name: Dockerfile ${{ matrix.dockerfiles }}
