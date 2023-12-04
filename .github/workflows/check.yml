@@ -19,7 +19,7 @@ jobs:
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
 
-  run_latest:
+  run_all_specs_in_default_docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,7 +28,7 @@ jobs:
           docker build -t doc-builder-testing .
           docker run doc-builder-testing
 
-  run:
+  run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
     strategy:
       matrix:
