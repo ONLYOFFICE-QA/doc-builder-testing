@@ -1,8 +1,7 @@
 name: docker-hub-push
 on:
-  push:
-    branches:
-      - 'master'
+  schedule:
+    - cron: '08***'
   workflow_dispatch:
 
 jobs:
