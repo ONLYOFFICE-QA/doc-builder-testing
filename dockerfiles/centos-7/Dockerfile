@@ -2,6 +2,8 @@ FROM centos:7
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
+ENV PLATFORM="desktop"
+
 RUN yum -y install https://github.com/feedforce/ruby-rpm/releases/download/3.2.0/ruby-3.2.0-1.el7.centos.x86_64.rpm
 RUN yum -y install file-devel \
                    gcc \
@@ -18,4 +20,4 @@ RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyo
 RUN yum -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
                   cd /doc-builder-testing; \
-                  rake rspec_critical"
+                  rake $PLATFORM"

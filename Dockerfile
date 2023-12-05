@@ -2,6 +2,8 @@ FROM ruby:3.2
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 
+ENV PLATFORM="desktop"
+
 RUN apt-get update && apt-get -y -q install git curl
 RUN apt-get update && apt-get -y -q install libmagic-dev \
                                             poppler-utils \
@@ -24,4 +26,4 @@ RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onl
     apt-get -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
                   cd /doc-builder-testing; \
-                  rake"
+                  rake $PLATFORM"

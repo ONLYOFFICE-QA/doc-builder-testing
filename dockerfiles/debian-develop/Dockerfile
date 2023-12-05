@@ -1,6 +1,7 @@
 FROM ruby:3.2
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
+ENV PLATFORM="desktop"
 ENV VERSION="99.99.99"
 ENV DIST="stable"
 
@@ -22,4 +23,4 @@ RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
 CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
                   cd /doc-builder-testing; \
-                  rake rspec_critical"
+                  rake $PLATFORM"
