@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         dockerfiles:
-          - "Dockerfiles"
+          - "Dockerfile"
           - "dockerfiles/centos-7/Dockerfile"
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
