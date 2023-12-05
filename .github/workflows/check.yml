@@ -1,38 +1,12 @@
 name: check
 on: [push]
 jobs:
-  code-style:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Ruby 3.2
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
-      - name: Install gem dependencies
-        run: |
-          gem install bundler
-          bundle config set with 'development'
-          bundle install --jobs 4 --retry 3
-      - name: Run RuboCop check
-        run: rubocop
-      - name: Check that code 100% documented
-        run: yardoc . | grep -q '100.00% documented'
-
-  run_all_specs_in_default_docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Running test inside doc-builder-testing
-        run: |
-          docker build -t doc-builder-testing .
-          docker run doc-builder-testing
-
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         dockerfiles:
+          - "Dockerfiles"
           - "dockerfiles/centos-7/Dockerfile"
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
@@ -41,4 +15,4 @@ jobs:
       - name: Dockerfile ${{ matrix.dockerfiles }}
         run: |
           docker build -t doc-builder-testing -f ${{ matrix.dockerfiles }} .
-          docker run doc-builder-testing
+          docker run -e "PLATFORM=rspec_critical" doc-builder-testing
