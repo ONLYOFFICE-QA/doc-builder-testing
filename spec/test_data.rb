@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Test data for autotest
-module DocBuilderStaticData
+module TestData
   # CDE number formats (7.4.0)
   # @return [Array<String (frozen)>]
   def self.number_formats
@@ -16,32 +16,6 @@ module DocBuilderStaticData
      '0%',
      '# ?/?',
      '0.00E+00'].freeze
-  end
-
-  # Default style list for CDE v7.4.1
-  # @return [Array<String (frozen)>]
-  def self.cde_styles
-    ['Normal',
-     'No Spacing',
-     'Heading 1',
-     'Heading 2',
-     'Heading 3',
-     'Heading 4',
-     'Heading 5',
-     'Heading 6',
-     'Heading 7',
-     'Heading 8',
-     'Heading 9',
-     'Title',
-     'Subtitle',
-     'Quote',
-     'Intense Quote',
-     'List Paragraph',
-     'Caption',
-     'Header',
-     'Footer',
-     'Footnote text',
-     'Endnote text'].freeze
   end
 
   # @return [Array<String (frozen)>]

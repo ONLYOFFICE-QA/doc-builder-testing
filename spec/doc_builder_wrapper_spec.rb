@@ -87,7 +87,7 @@ describe 'My behaviour' do
   end
 
   describe 'check windows build libs', :win do
-    DocBuilderStaticData.libs.each do |lib|
+    TestData.libs.each do |lib|
       it lib.to_s do
         skip('[WIN] check build libs') unless Gem.win_platform?
         expect(arr_libs).to include(lib)
