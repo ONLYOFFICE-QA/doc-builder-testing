@@ -1,0 +1,14 @@
+name: daily_check
+on:
+  schedule:
+    - cron: '09***'
+
+jobs:
+  run_all_specs_in_default_docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Running test inside doc-builder-testing
+        run: |
+          docker build -t doc-builder-testing .
+          docker run doc-builder-testing
