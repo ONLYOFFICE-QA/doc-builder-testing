@@ -2,6 +2,23 @@ name: Linting
 on:
   - pull_request
 jobs:
+  code-style:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 3.2
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+      - name: Install gem dependencies
+        run: |
+          gem install bundler
+          bundle config set with 'development'
+          bundle install --jobs 4 --retry 3
+      - name: Run RuboCop check
+        run: rubocop
+      - name: Check that code 100% documented
+        run: yardoc . | grep -q '100.00% documented'
   yamllint:
     name: Yamllint
     runs-on: ubuntu-latest
