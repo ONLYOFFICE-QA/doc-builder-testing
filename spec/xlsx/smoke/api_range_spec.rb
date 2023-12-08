@@ -79,7 +79,7 @@ describe 'ApiRange section tests' do
 
   it 'ApiRange | NumberFormat method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/setter_number_format.js')
-    DocBuilderStaticData.number_formats.each_with_index do |format, i|
+    TestData.number_formats.each_with_index do |format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].raw_text).to eq('123456')
       expect(xlsx.worksheets.first.rows[i + 1].cells[0].style.numerical_format).to eq(format)
     end
@@ -88,7 +88,7 @@ describe 'ApiRange section tests' do
 
   it 'ApiRange | GetNumberFormat' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_number_format.js')
-    DocBuilderStaticData.number_formats.each_with_index do |format, i|
+    TestData.number_formats.each_with_index do |format, i|
       expect(xlsx.worksheets.first.rows[i + 1].cells[2].raw_text).to eq('123456')
       expect(xlsx.worksheets.first.rows[i + 1].cells[2].style.numerical_format).to eq(format)
     end
