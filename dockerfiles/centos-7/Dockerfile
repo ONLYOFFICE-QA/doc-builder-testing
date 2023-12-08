@@ -16,6 +16,6 @@ RUN bundle config set without 'development' && \
     bundle install
 RUN yum -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm
 RUN yum -y install onlyoffice-documentbuilder
-CMD /bin/bash -c "onlyoffice-documentbuilder; \
+CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
                   cd /doc-builder-testing; \
-                  bundle exec parallel_rspec spec"
+                  rake rspec_critical"
