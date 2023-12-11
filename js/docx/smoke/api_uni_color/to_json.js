@@ -1,8 +1,8 @@
 builder.CreateFile("docx");
     let oDocument = Api.GetDocument();
     let oParagraph = oDocument.GetElement(0);
-// Using an RGBColor instance is valid for testing UniColor.
-// This information is directly from the developer.
+    // RGBColor is an inheritor of UniColor class.
+    // It is impossible to use an instance of UniColor class directly
     let oRGBColor = Api.CreateRGBColor(255, 111, 61);
     let oFill = Api.CreateSolidFill(oRGBColor);
         oParagraph.AddText(oFill.ToJSON());
