@@ -9,7 +9,7 @@ describe 'ApiUniColor section tests' do
 
   it 'ApiUniColor | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_uni_color/to_json.js')
-    json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
+    json = JSON.parse(docx.elements[0].nonempty_runs.first.text)
     graphic = json['graphic']
     sp_pr = graphic['spPr'] if graphic
     fill_first = sp_pr['fill'] if sp_pr
