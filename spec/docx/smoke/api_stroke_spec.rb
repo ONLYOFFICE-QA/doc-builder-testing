@@ -14,9 +14,9 @@ describe 'ApiStroke section tests' do
                .alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements[1].nonempty_runs.first.text).to include('"type":"stroke"')
     json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
-    stroke = json['graphic']['spPr']['ln']['fill']['fill']['color']['color']['rgba']
-    expect(stroke['red']).to eq(51)
-    expect(stroke['green']).to eq(51)
-    expect(stroke['blue']).to eq(51)
+    rgba_from_stroke = json['graphic']['spPr']['ln']['fill']['fill']['color']['color']['rgba']
+    expect(rgba_from_stroke['red']).to eq(51)
+    expect(rgba_from_stroke['green']).to eq(51)
+    expect(rgba_from_stroke['blue']).to eq(51)
   end
 end
