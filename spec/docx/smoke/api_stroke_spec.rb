@@ -10,13 +10,18 @@ describe 'ApiStroke section tests' do
   it 'ApiStroke | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_stroke/to_json.js')
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements.first.character_style_array.size).to eq(2)
-    expect(docx.elements.first.nonempty_runs.first
-               .alternate_content.office2010_content.graphic.type).to eq(:shape)
+    expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.type).to eq(:shape)
     expect(docx.elements[1].nonempty_runs.first.text).to include('"type":"stroke"')
     json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
-    rgba_from_stroke = json['graphic']['spPr']['ln']['fill']['fill']['color']['color']['rgba']
+    stroke = json['graphic']['spPr']['ln']
+    rgba_from_stroke = stroke['fill']['fill']['color']['color']['rgba']
     expect(rgba_from_stroke['red']).to eq(51)
     expect(rgba_from_stroke['green']).to eq(51)
     expect(rgba_from_stroke['blue']).to eq(51)
+    expect(rgba_from_stroke['alpha']).to eq(255)
+    fill_type = stroke['fill']['type']
+    expect(fill_type).to eq('fill')
+    line_transparent = stroke['transparent']
+    expect(line_transparent).to be_nil
   end
 end
