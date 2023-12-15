@@ -22,5 +22,11 @@ describe 'ApiTableRowPr section tests' do
     json = docx.elements[1].nonempty_runs.map(&:text).join
     parsed_json = JSON.parse(json)
     expect(parsed_json).to include('name' => 'My Custom Table Style')
+    expect(parsed_json['tblPr']).to include('tblOverlap' => 'never', 'inline' => false, 'type' => 'tablePr')
+    expect(parsed_json['trPr']).to include('type' => 'tableRowPr')
+    expect(parsed_json['trPr']['trHeight']).to include('val' => 720, 'hRule' => 'atLeast')
+    expect(parsed_json['trPr']['trHeight']['val']).to eq(720)
+    expect(parsed_json['trPr']['trHeight']['hRule']).to eq('atLeast')
+    expect(parsed_json['styleType']).to eq('tableStyle')
   end
 end
