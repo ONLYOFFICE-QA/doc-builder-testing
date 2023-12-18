@@ -18,6 +18,12 @@ module TestData
      '0.00E+00'].freeze
   end
 
+  # CDE fill types
+  # @return [Array<String (frozen)>]
+  def self.fill_types
+    %w[blipFill solid gradFill noFill pattFill gradFill]
+  end
+
   # @return [Array<String (frozen)>]
   def self.libs
     %w[DjVuFile.dll
