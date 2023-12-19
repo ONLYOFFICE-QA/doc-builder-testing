@@ -19,14 +19,10 @@ describe 'ApiTableRowPr section tests' do
 
   it 'ApiTableRowPr | ToJson method' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_row_pr/to_json.js')
-    json = docx.elements[1].nonempty_runs.map(&:text).join
-    parsed_json = JSON.parse(json)
-    expect(parsed_json).to include('name' => 'My Custom Table Style')
-    expect(parsed_json['tblPr']).to include('tblOverlap' => 'never', 'inline' => false, 'type' => 'tablePr')
-    expect(parsed_json['trPr']).to include('type' => 'tableRowPr')
-    expect(parsed_json['trPr']['trHeight']).to include('val' => 720, 'hRule' => 'atLeast')
-    expect(parsed_json['trPr']['trHeight']['val']).to eq(720)
-    expect(parsed_json['trPr']['trHeight']['hRule']).to eq('atLeast')
-    expect(parsed_json['styleType']).to eq('tableStyle')
+    full_json = JSON.parse(docx.elements[0].nonempty_runs.map(&:text).join)
+    expected_json_fragment = { 'trHeight' => { 'val' => 720, 'hRule' => 'atLeast' }, 'type' => 'tableRowPr' }
+    table_rows = full_json['content'].select { |content_item| content_item['type'] == 'tblRow' }
+    table_rows.each { |row| expect(row['trPr']).to eq(expected_json_fragment) }
+    expect(table_rows.size).to eq(3)
   end
 end

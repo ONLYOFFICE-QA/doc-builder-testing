@@ -5,9 +5,8 @@ builder.CreateFile("docx");
         oTableStyle.SetName("My Custom Table Style");
     let oTableRowPr = oTableStyle.GetTableRowPr();
         oTableRowPr.SetHeight("atLeast", 720);
-    let jsonTableStyle = oTableStyle.ToJSON();
-        GlobalVariable["JSON_TableStyle"] = jsonTableStyle;
-        oParagraph.AddText(jsonTableStyle);
+    let jsonTableRowPr = oTableRowPr.ToJSON();
+        GlobalVariable["JSON_TableRowPr"] = jsonTableRowPr;
 builder.CloseFile();
 
 //////////////
@@ -15,13 +14,17 @@ builder.CloseFile();
 builder.CreateFile("docx");
     let oDocument = Api.GetDocument();
     let oParagraph = oDocument.GetElement(0);
-    let jsonTableStyle = GlobalVariable["JSON_TableStyle"];
-    let oTableStyle = Api.FromJSON(jsonTableStyle);
+    let jsonTableRowPr = GlobalVariable["JSON_TableRowPr"];
+    let savedTableRowPr = JSON.parse(jsonTableRowPr);
+    let oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
+        oTableStyle.SetName("My Custom Table Style");
     let oTable = Api.CreateTable(3, 3);
         oTable.SetStyle(oTableStyle);
-    let jsonTable = oTableStyle.ToJSON();
-    let oParagraph2 = Api.CreateParagraph();
-        oParagraph2.AddText(jsonTable);
-        oDocument.Push(oParagraph2);
-builder.SaveFile("docx", "TableStyleToJSON.docx");
+    for (let i = 0; i < oTable.GetRowsCount(); i++) {
+        let oRow = oTable.GetRow(i);
+        oRow.SetHeight(savedTableRowPr.trHeight.hRule, savedTableRowPr.trHeight.val);
+    }
+    let jsonTable = oTable.ToJSON();
+        oParagraph.AddText(jsonTable);
+builder.SaveFile("docx", "CustomTableWithJSON.docx");
 builder.CloseFile();
