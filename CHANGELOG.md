@@ -11,6 +11,7 @@
 * Add ability to make report for memory and time usage
 * Ability to set Web Builder url via `WEB_BUILDER_URL`
 * Add `yamllint` check in CI
+* Add `dependabot` check for `GitHub Actions`
 
 ### Changes
 
