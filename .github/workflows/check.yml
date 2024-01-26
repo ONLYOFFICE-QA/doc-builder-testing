@@ -4,7 +4,7 @@ jobs:
   code-style:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Ruby 3.2
         uses: ruby/setup-ruby@v1
         with:
@@ -22,7 +22,7 @@ jobs:
   run_all_specs_in_default_docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
@@ -37,7 +37,7 @@ jobs:
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Dockerfile ${{ matrix.dockerfiles }}
         run: |
           docker build -t doc-builder-testing -f ${{ matrix.dockerfiles }} .
