@@ -3,7 +3,7 @@
 require 'spec_helper'
 
 describe 'My behaviour' do
-  unless Gem.win_platform?
+  if Gem.win_platform?
     let(:builder_location) { DocBuilderWrapper.new.default_builder_location }
     let(:arr_libs) { Dir.entries(File.dirname(builder_location)) }
     let(:simple_script_windows) { 'js/wrapper/add_text_with_bold_in_paragraph_windows.js' }
