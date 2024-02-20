@@ -34,7 +34,6 @@ describe 'All tests numbering object' do
 
   it 'Cross-reference to bookmarks' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_bookmark_cross_ref.js')
-    skip('Bug 65298')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
     # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
