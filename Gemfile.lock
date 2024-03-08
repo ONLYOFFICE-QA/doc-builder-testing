@@ -101,7 +101,7 @@ GEM
     semantic (1.6.1)
     ttfunk (1.7.0)
     unicode-display_width (2.5.0)
-    yard (0.9.35)
+    yard (0.9.36)
 
 PLATFORMS
   ruby
