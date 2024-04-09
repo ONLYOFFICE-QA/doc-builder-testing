@@ -182,10 +182,9 @@ describe 'ApiTable section tests' do
   end
 
   it 'ApiTable | ToJSON method' do
-    skip('bug https://bugzilla.onlyoffice.com/show_bug.cgi?id=61176')
     docx = builder.build_and_parse('js/docx/smoke/api_table/to_json.js')
     json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
-    expect(json['type']).to eq('Table')
+    expect(json['type']).to eq('table')
     expect(json['styles']['132']['name']).to eq('List Table 5 Dark')
     expect(docx.elements[1].properties.table_style.name).to eq('List Table 5 Dark')
   end
