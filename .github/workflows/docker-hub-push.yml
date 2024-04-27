@@ -31,9 +31,9 @@ jobs:
           file: dockerfiles/debian-next-release/Dockerfile
           push: true
           tags: onlyoffice/doc-builder-testing:next-release
-      - name: Build and push current CentOS docker
+      - name: Build and push current Rockylinux docker
         uses: docker/build-push-action@v5
         with:
-          file: dockerfiles/centos-7/Dockerfile
+          file: dockerfiles/rockylinux/Dockerfile
           push: true
-          tags: onlyoffice/doc-builder-testing:latest-centos
+          tags: onlyoffice/doc-builder-testing:latest-rocky
