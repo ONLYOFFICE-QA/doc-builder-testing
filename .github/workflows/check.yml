@@ -33,10 +33,9 @@ jobs:
     strategy:
       matrix:
         dockerfiles:
-          - "dockerfiles/centos-7/Dockerfile"
+          - "dockerfiles/rockylinux/Dockerfile"
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
-          - "dockerfiles/rockylinux/Dockerfile"
     steps:
       - uses: actions/checkout@v4
       - name: Dockerfile ${{ matrix.dockerfiles }}
