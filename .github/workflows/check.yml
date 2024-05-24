@@ -33,7 +33,7 @@ jobs:
     strategy:
       matrix:
         dockerfiles:
-          - "dockerfiles/rockylinux/Dockerfile"
+          - "dockerfiles/rockylinux-latest/Dockerfile"
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
     steps:
