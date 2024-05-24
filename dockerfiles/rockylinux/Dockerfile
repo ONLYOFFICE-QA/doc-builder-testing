@@ -1,4 +1,4 @@
-FROM ghcr.io/onlyoffice-qa/rocky-ruby-image:master
+FROM ghcr.io/onlyoffice-qa/rocky-ruby-image:3.3.1
 
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
