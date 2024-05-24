@@ -34,6 +34,6 @@ jobs:
       - name: Build and push current Rockylinux docker
         uses: docker/build-push-action@v5
         with:
-          file: dockerfiles/rockylinux/Dockerfile
+          file: dockerfiles/rockylinux-latest/Dockerfile
           push: true
           tags: onlyoffice/doc-builder-testing:latest-rocky
