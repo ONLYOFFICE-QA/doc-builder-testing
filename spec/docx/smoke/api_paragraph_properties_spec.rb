@@ -173,4 +173,12 @@ describe 'ApiParaPr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_para_pr/set_widow_control.js')
     expect(docx.elements[5].orphan_control).to be_truthy
   end
+
+  it 'ApiParaPr | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_para_pr/to_json.js')
+    json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
+    expect(docx.elements[0].nonempty_runs[0].text).to eq(json['type'])
+    expect(json['pBdr']['left']['value']).to eq('single')
+    expect(json['pBdr']['left']['color']['g']).to eq(255)
+  end
 end
