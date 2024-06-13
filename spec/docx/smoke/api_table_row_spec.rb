@@ -26,4 +26,11 @@ describe 'ApiTableRow section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_row/set_table_header.js')
     expect(docx.elements[1].rows.first.table_row_properties.table_header).to be_truthy
   end
+
+  it 'ApiTableRow | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_row/to_json.js')
+    json = JSON.parse(docx.elements[4].nonempty_runs.first.text)
+    expect("#{docx.elements[1].nonempty_runs.first.text}Pr").to eq(json['type'])
+    expect(docx.elements[2].rows[1].table_row_properties.height.value.value).to eq(json['trHeight']['val'].to_f)
+  end
 end
