@@ -49,4 +49,10 @@ describe 'ApiDrawing section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_drawing/set_wrapping_style.js')
     expect(docx.elements.first.nonempty_runs[3].alternate_content.office2010_content.properties.wrap.wrap_text).to eq(:square)
   end
+
+  it 'ApiDrawing | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_drawing/to_json.js')
+    json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
+    expect(docx.elements[1].nonempty_runs[0].alternate_content.office2010_content.type.to_s).to eq(json['drawingType'])
+  end
 end
