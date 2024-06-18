@@ -134,11 +134,9 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetThemesColors method' do
+    # TODO: 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=68709'
     xlsx = builder.build_and_parse('js/xlsx/smoke/api/get_themes_colors.js')
-    ['New Office', 'Office', 'Grayscale', 'Apex', 'Aspect',
-     'Civic', 'Concourse', 'Equity', 'Flow', 'Foundry',
-     'Median', 'Metro', 'Module', 'Opulent', 'Oriel', 'Origin', 'Paper',
-     'Solstice', 'Technic', 'Trek', 'Urban', 'Verve'].each_with_index do |current_color, index|
+    TestData.worksheet_themes_color.each_with_index do |current_color, index|
       expect(xlsx.worksheets.first.rows[index].cells[0].text).to eq(current_color)
     end
   end
