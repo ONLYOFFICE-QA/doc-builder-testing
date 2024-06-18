@@ -55,4 +55,10 @@ describe 'ApiTableStylePr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/get_type.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Style type = topLeftCell')
   end
+
+  it 'ApiTableStylePr | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_style_pr/to_json.js')
+    json = JSON.parse(docx.elements[3].nonempty_runs.first.text)
+    expect(docx.elements[0].nonempty_runs[0].text).to include(json['type'])
+  end
 end

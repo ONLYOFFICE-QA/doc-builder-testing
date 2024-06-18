@@ -112,4 +112,10 @@ describe 'ApiTablePr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_pr/set_width.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_width).to eq(OoxmlParser::OoxmlSize.new(100, :percent))
   end
+
+  it 'ApiTablePr | ToJson method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_pr/to_json.js')
+    json = JSON.parse(docx.elements[1].nonempty_runs[0].text)
+    expect(docx.elements[0].nonempty_runs[0].text).to eq(json['type'])
+  end
 end
