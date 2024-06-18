@@ -21,7 +21,12 @@ module TestData
   # CDE fill types
   # @return [Array<String (frozen)>]
   def self.fill_types
-    %w[blipFill solid gradFill noFill pattFill gradFill]
+    %w[blipFill
+       solid
+       gradFill
+       noFill
+       pattFill
+       gradFill]
   end
 
   # @return [Array<String (frozen)>]
@@ -46,11 +51,26 @@ module TestData
 
   # Default style list in the CDE
   def self.default_styles
-    ['Normal', 'No Spacing', 'Heading 1', 'Heading 2',
-     'Heading 3', 'Heading 4', 'Heading 5', 'Heading 6',
-     'Heading 7', 'Heading 8', 'Heading 9', 'Title',
-     'Subtitle', 'Quote', 'Intense Quote', 'List Paragraph',
-     'Caption', 'Header', 'Footer', 'Footnote text',
+    ['Normal',
+     'No Spacing',
+     'Heading 1',
+     'Heading 2',
+     'Heading 3',
+     'Heading 4',
+     'Heading 5',
+     'Heading 6',
+     'Heading 7',
+     'Heading 8',
+     'Heading 9',
+     'Title',
+     'Subtitle',
+     'Quote',
+     'Intense Quote',
+     'List Paragraph',
+     'Caption',
+     'Header',
+     'Footer',
+     'Footnote text',
      'Endnote text'].freeze
   end
 end
