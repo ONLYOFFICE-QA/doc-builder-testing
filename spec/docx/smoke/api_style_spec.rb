@@ -94,7 +94,8 @@ describe 'ApiStyle section tests' do
       next if (style == 'Header') || # in the metadata: Custom_Style 719 styleId: 42
               (style == 'Footer') || # in the metadata: Custom_Style 725 styleId: 44
               (style == 'Footnote text') || # in the metadata: Normal styleId: styleId => 599
-              (style == 'Endnote text') # in the metadata: Normal styleId: styleId => 599
+              (style == 'Endnote text') || # in the metadata: Normal styleId: styleId => 599
+              (style == 'Subtitle') # in the metadata: Custom_Style 723 styleId: styleId => 722
 
       expect(docx.elements[index + 1].style.name).to eq(style)
       expect(JSON.parse(json[style])['name']).to eq(style)
