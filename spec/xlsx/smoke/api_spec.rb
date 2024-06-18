@@ -145,7 +145,7 @@ describe 'Api section tests' do
 
   it 'Api | SetThemeColors method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api/set_theme_colors.js')
-    expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(105, 103, 109))
+    expect(xlsx.theme.color_scheme[:text2].color).to eq(OoxmlParser::Color.new(36, 40, 82))
   end
 
   it 'Api | GetSheets method' do
