@@ -89,7 +89,7 @@ describe 'ApiStyle section tests' do
   it 'ApiStyle | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_style/to_json.js')
     json = JSON.parse(docx.elements[22].nonempty_runs[0].text)
-    DocBuilderStaticData::DEFAULT_STYLES.each_with_index do |style, index|
+    TestData.default_styles.each_with_index do |style, index|
       # TODO: To understand why incorrect names are recorded
       next if (style == 'Header') || # in the metadata: Custom_Style 719 styleId: 42
               (style == 'Footer') || # in the metadata: Custom_Style 725 styleId: 44
