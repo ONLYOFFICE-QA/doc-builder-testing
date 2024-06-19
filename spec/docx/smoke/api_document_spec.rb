@@ -148,4 +148,13 @@ describe 'ApiDocument section tests' do
     expect(docx.elements[0].sector_properties.notes[3].type).to eq('footer2')
     expect(docx.elements[0].sector_properties.notes[3].elements.first.nonempty_runs.first.text).to eq('This is an even page footer')
   end
+
+  it 'ApiDocument | ToJSON' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/to_json.js')
+    json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
+    expect(json['type']).to eq('document')
+    expect(json['content'][1]['type']).to eq(docx.elements[1].nonempty_runs[0].text)
+    expect(json['content'][2]['type']).to eq(docx.elements[2].rows[0].cells[0].elements[0].nonempty_runs[0].text)
+    expect(json['content'][4]['type']).to eq(docx.elements[4].sdt_content.elements.first.nonempty_runs[0].text)
+  end
 end

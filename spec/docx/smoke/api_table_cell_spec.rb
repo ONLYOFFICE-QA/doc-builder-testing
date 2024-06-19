@@ -76,4 +76,23 @@ describe 'ApiTableCell section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_cell/set_width.js')
     expect(docx.nil?).to be(false)
   end
+
+  it 'ApiTableCell | SetWidth method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_cell/to_json.js')
+    json = JSON.parse(docx.elements[3].nonempty_runs[0].text)
+    cell = docx.elements[1].rows[0].cells[0]
+
+    expect(cell.properties.table_cell_margin.bottom.value).to eq(json['tcMar']['bottom']['w'])
+    expect(cell.properties.table_cell_margin.top.value).to eq(json['tcMar']['top']['w'])
+    expect(cell.properties.table_cell_margin.left.value).to eq(json['tcMar']['left']['w'])
+    expect(cell.properties.table_cell_margin.right.value).to eq(json['tcMar']['right']['w'])
+
+    expect(cell.properties.borders_properties.bottom.val.to_s).to eq(json['tcBorders']['bottom']['value'])
+    expect(cell.properties.borders_properties.top.val.to_s).to eq(json['tcBorders']['top']['value'])
+    expect(cell.properties.borders_properties.left.val.to_s).to eq(json['tcBorders']['start']['value'])
+    expect(cell.properties.borders_properties.right.val.to_s).to eq(json['tcBorders']['end']['value'])
+
+    expect(cell.properties.text_direction).to eq(:bottom_to_top_left_to_right)
+    expect(cell.properties.table_cell_width.value.to_i).to eq(json['tcW']['w'])
+  end
 end

@@ -2,10 +2,6 @@
 
 require 'spec_helper'
 describe 'ApiRange section tests' do
-  before do
-    include TestData
-  end
-
   it 'ApiRange | GetCol method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_col.js')
     expect(xlsx.worksheets.first.rows[1].cells.first.text).to eq('4')
