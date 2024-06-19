@@ -53,4 +53,16 @@ describe 'ApiDocumentContent section tests' do
     expect(docx.elements.first.nonempty_runs.first.alternate_content.office2010_content.graphic.data.text_body.elements[4]
         .nonempty_runs.first.text).to eq('We removed paragraph #3, check that out above.')
   end
+
+  it 'ApiDocumentContent | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document_content/to_json.js')
+    expect(docx.elements[0].hyperlink.action.to_s).to eq('external_link')
+    expect(docx.elements[1].sdt_content.elements[1].character_style_array[0].text).to eq('oBlockLvlSdt')
+    expect(docx.elements[2].properties.table_style.name).to eq('CustomTableStyle')
+    json = JSON.parse(docx.elements[5].nonempty_runs.first.text)
+    expect(json['type']).to eq('docContent')
+    expect(json['content'][0]['content'][2]['type']).to eq('hyperlink')
+    expect(json['content'][1]['type']).to eq('blockLvlSdt')
+    expect(json['content'][2]['type']).to eq('table')
+  end
 end

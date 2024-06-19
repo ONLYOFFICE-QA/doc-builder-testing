@@ -84,4 +84,19 @@ describe 'ApiTableCellPr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/set_width.js')
     expect(docx.elements[1].properties.table_style.table_cell_properties.table_cell_width).to eq(OoxmlParser::OoxmlSize.new(2880, :twip))
   end
+
+  it 'ApiTableCellPr | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/to_json.js')
+    json = JSON.parse(docx.elements[3].nonempty_runs[0].text)
+    r = json['tcBorders']['bottom']['color']['r']
+    g = json['tcBorders']['bottom']['color']['g']
+    b = json['tcBorders']['bottom']['color']['b']
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.color)
+      .to eq(OoxmlParser::Color.new(r, g, b))
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.val.to_s)
+      .to eq(json['tcBorders']['bottom']['value'])
+    expect(docx.elements[1].properties.table_style.table_cell_properties.borders_properties.bottom.size)
+      .to eq(OoxmlParser::OoxmlSize.new(json['tcBorders']['bottom']['sz'], :one_eighth_point))
+    expect(docx.elements[0].nonempty_runs[0].text).to eq(json['type'])
+  end
 end

@@ -16,4 +16,11 @@ describe 'ApiTableRowPr section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table_row_pr/set_table_header.js')
     expect(docx.elements[1].properties.table_style.table_row_properties.table_header).to be_truthy
   end
+
+  it 'ApiTableRowPr | ToJSON method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_table_row_pr/to_json.js')
+    json = JSON.parse(docx.elements[3].nonempty_runs[0].text)
+    expect(docx.elements[0].nonempty_runs[0].text).to eq(json['type'])
+    expect(docx.elements[1].properties.table_style.table_row_properties.height.value).to eq(OoxmlParser::OoxmlSize.new(720, :twip))
+  end
 end

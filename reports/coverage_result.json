@@ -4,16 +4,10 @@
       "AddComment",
       "attachEvent",
       "ConvertDocument",
-      "CreateBlockLvlSdt",
-      "CreateBullet",
-      "CreateHyperlink",
-      "CreateInlineLvlSdt",
       "CreateOleObject",
-      "CreateRange",
       "CreateTextPr",
       "CreateWordArt",
       "detachEvent",
-      "FromJSON",
       "GetFullName",
       "GetMailMergeReceptionsCount",
       "GetMailMergeTemplateDocContent",
@@ -40,22 +34,15 @@
       "GetParentTableCell",
       "GetPlaceholderText",
       "GetPosInParent",
-      "GetRange",
       "GetTag",
       "ReplaceByElement",
       "Search",
       "Select",
-      "SetAlias",
-      "SetBackgroundColor",
       "SetLabel",
       "SetLock",
       "SetPlaceholderText",
       "SetTag",
-      "SetTextPr",
-      "ToJSON"
-    ],
-    "ApiBullet": [
-
+      "SetTextPr"
     ],
     "ApiChart": [
       "ApplyChartStyle",
@@ -98,7 +85,6 @@
       "IsFixed",
       "IsRadioButton",
       "IsRequired",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetChecked",
       "SetFormKey",
@@ -123,7 +109,6 @@
       "IsFixed",
       "IsRequired",
       "SelectListValue",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetFormKey",
       "SetListValues",
@@ -135,6 +120,35 @@
       "ToFixed",
       "ToInline"
     ],
+    "apicomment": [
+      "AddReply",
+      "Delete",
+      "GetAuthorName",
+      "GetId",
+      "GetQuoteText",
+      "GetRepliesCount",
+      "GetReply",
+      "GetText",
+      "GetTime",
+      "GetTimeUTC",
+      "GetUserId",
+      "IsSolved",
+      "RemoveReplies",
+      "SetAuthorName",
+      "SetSolved",
+      "SetText",
+      "SetTime",
+      "SetTimeUTC",
+      "SetUserId"
+    ],
+    "apicommentreply": [
+      "GetAuthorName",
+      "GetText",
+      "GetUserId",
+      "SetAuthorName",
+      "SetText",
+      "SetUserId"
+    ],
     "ApiComplexForm": [
       "Clear",
       "Copy",
@@ -145,7 +159,6 @@
       "GetWrapperShape",
       "IsFixed",
       "IsRequired",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetFormKey",
       "SetPlaceholderText",
@@ -178,6 +191,7 @@
     "apidocument": [
       "AcceptAllRevisionChanges",
       "AddComment",
+      "AddDrawingToPage",
       "AddEndnote",
       "AddFootnote",
       "AddTableOfContents",
@@ -206,8 +220,8 @@
       "GetEndNotesFirstParagraphs",
       "GetFootnotesFirstParagraphs",
       "GetFormsByTag",
+      "GetFormsData",
       "GetPageCount",
-      "GetRange",
       "GetRangeBySelect",
       "GetSections",
       "GetSelectedDrawings",
@@ -226,11 +240,11 @@
       "Search",
       "SearchAndReplace",
       "SetControlsHighlight",
+      "SetFormsData",
       "SetFormsHighlight",
       "SetTrackRevisions",
       "SetWatermarkSettings",
       "ToHtml",
-      "ToJSON",
       "ToMarkdown",
       "UpdateAllTOC",
       "UpdateAllTOF"
@@ -241,11 +255,9 @@
       "GetAllOleObjects",
       "GetAllParagraphs",
       "GetAllShapes",
-      "GetAllTables",
-      "GetRange",
-      "ToJSON"
+      "GetAllTables"
     ],
-    "ApiDrawing": [
+    "apidrawing": [
       "AddBreak",
       "Copy",
       "Delete",
@@ -265,11 +277,10 @@
       "SetHorFlip",
       "SetLockValue",
       "SetOutLine",
-      "SetVertFlip",
-      "ToJSON"
+      "SetVertFlip"
     ],
     "ApiFill": [
-      "ToJSON"
+
     ],
     "ApiFormBase": [
       "Clear",
@@ -281,7 +292,6 @@
       "GetWrapperShape",
       "IsFixed",
       "IsRequired",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetFormKey",
       "SetPlaceholderText",
@@ -292,18 +302,15 @@
       "ToInline"
     ],
     "ApiGradientStop": [
-      "ToJSON"
+
     ],
     "ApiHyperlink": [
       "GetDisplayedText",
       "GetLinkedText",
-      "GetRange",
       "GetScreenTipText",
-      "SetDefaultStyle",
       "SetDisplayedText",
       "SetLink",
-      "SetScreenTipText",
-      "ToJSON"
+      "SetScreenTipText"
     ],
     "ApiImage": [
       "GetNextImage",
@@ -322,19 +329,16 @@
       "GetParentTable",
       "GetParentTableCell",
       "GetPlaceholderText",
-      "GetRange",
       "GetTag",
       "IsForm",
-      "SetAlias",
       "SetLabel",
       "SetLock",
       "SetPlaceholderText",
       "SetTag",
-      "SetTextPr",
-      "ToJSON"
+      "SetTextPr"
     ],
     "ApiNumbering": [
-      "ToJSON"
+
     ],
     "ApiNumberingLevel": [
 
@@ -353,8 +357,6 @@
       "AddEndnoteCrossRef",
       "AddFootnoteCrossRef",
       "AddHeadingCrossRef",
-      "AddHyperlink",
-      "AddInlineLvlSdt",
       "AddNumberedCrossRef",
       "Copy",
       "Delete",
@@ -375,7 +377,6 @@
       "GetParentTableCell",
       "GetPosInParent",
       "GetPrevious",
-      "GetRange",
       "GetSection",
       "GetShd",
       "GetSpacingAfter",
@@ -389,13 +390,11 @@
       "ReplaceByElement",
       "Search",
       "Select",
-      "SetBullet",
       "SetSection",
       "SetTextPr",
-      "ToJSON",
       "WrapInMailMergeField"
     ],
-    "ApiParaPr": [
+    "apiparapr": [
       "GetIndFirstLine",
       "GetIndLeft",
       "GetIndRight",
@@ -404,9 +403,7 @@
       "GetSpacingAfter",
       "GetSpacingBefore",
       "GetSpacingLineRule",
-      "GetSpacingLineValue",
-      "SetBullet",
-      "ToJSON"
+      "GetSpacingLineValue"
     ],
     "ApiPictureForm": [
       "Clear",
@@ -423,7 +420,6 @@
       "IsLockAspectRatio",
       "IsRequired",
       "IsRespectBorders",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetFormKey",
       "SetImage",
@@ -439,52 +435,44 @@
       "ToInline"
     ],
     "ApiPresetColor": [
-      "ToJSON"
+
     ],
     "ApiRange": [
       "AddBookmark",
       "AddComment",
-      "AddHyperlink",
       "Delete",
       "ExpandTo",
       "GetAllParagraphs",
       "GetParagraph",
-      "GetRange",
       "GetText",
       "IntersectWith",
       "Select",
-      "SetTextPr",
-      "ToJSON"
+      "SetTextPr"
     ],
     "ApiRGBColor": [
-      "ToJSON"
+
     ],
     "apirun": [
       "AddComment",
-      "AddHyperlink",
       "Copy",
       "Delete",
       "GetFontNames",
       "GetParentContentControl",
       "GetParentTable",
       "GetParentTableCell",
-      "GetRange",
       "GetText",
       "Select",
-      "SetFill",
-      "SetOutLine",
-      "SetTextFill",
       "SetTextPr",
-      "ToJSON",
       "WrapInMailMergeField"
     ],
-    "ApiSchemeColor": [
-      "ToJSON"
+    "apischemecolor": [
+
     ],
-    "ApiSection": [
+    "apisection": [
       "GetNext",
-      "GetPrevious",
-      "ToJSON"
+      "GetPageHeight",
+      "GetPageWidth",
+      "GetPrevious"
     ],
     "ApiShape": [
       "GetNextShape",
@@ -492,10 +480,10 @@
       "SetPaddings"
     ],
     "ApiStroke": [
-      "ToJSON"
+
     ],
     "ApiStyle": [
-      "ToJSON"
+
     ],
     "apitable": [
       "AddCaption",
@@ -511,7 +499,6 @@
       "GetParentTableCell",
       "GetPosInParent",
       "GetPrevious",
-      "GetRange",
       "GetTableDescription",
       "GetTables",
       "GetTableTitle",
@@ -519,15 +506,12 @@
       "ReplaceByElement",
       "Search",
       "Select",
-      "SetBackgroundColor",
       "SetHAlign",
       "SetPaddings",
-      "SetTableDescription",
       "SetTableTitle",
       "SetTextPr",
       "SetVAlign",
-      "Split",
-      "ToJSON"
+      "Split"
     ],
     "ApiTableCell": [
       "AddColumns",
@@ -540,22 +524,17 @@
       "GetPrevious",
       "GetRowIndex",
       "Search",
-      "SetBackgroundColor",
-      "SetCellPr",
       "SetColumnBackgroundColor",
       "SetTextPr",
-      "Split",
-      "ToJSON"
+      "Split"
     ],
     "ApiTableCellPr": [
-      "ToJSON"
+
     ],
     "ApiTablePr": [
       "GetTableDescription",
       "GetTableTitle",
-      "SetTableDescription",
-      "SetTableTitle",
-      "ToJSON"
+      "SetTableTitle"
     ],
     "ApiTableRow": [
       "AddRows",
@@ -566,15 +545,13 @@
       "GetPrevious",
       "Remove",
       "Search",
-      "SetBackgroundColor",
-      "SetTextPr",
-      "ToJSON"
+      "SetTextPr"
     ],
     "ApiTableRowPr": [
-      "ToJSON"
+
     ],
     "ApiTableStylePr": [
-      "ToJSON"
+
     ],
     "ApiTextForm": [
       "Clear",
@@ -591,7 +568,6 @@
       "IsMultiline",
       "IsRequired",
       "SetAutoFit",
-      "SetBackgroundColor",
       "SetBorderColor",
       "SetCellWidth",
       "SetCharactersLimit",
@@ -606,14 +582,11 @@
       "ToFixed",
       "ToInline"
     ],
-    "ApiTextPr": [
-      "SetFill",
-      "SetOutLine",
-      "SetTextFill",
-      "ToJSON"
+    "apitextpr": [
+
     ],
     "ApiUniColor": [
-      "ToJSON"
+
     ],
     "ApiUnsupported": [
 
@@ -635,13 +608,17 @@
   },
   "Spreadsheet API": {
     "api": [
+      "AddComment",
       "AddDefName",
       "attachEvent",
       "CreateNewHistoryPoint",
       "CreateTextPr",
       "detachEvent",
+      "GetAllComments",
+      "GetCommentById",
       "GetComments",
       "GetDefName",
+      "GetFreezePanesType",
       "GetFullName",
       "GetLocale",
       "GetMailMergeData",
@@ -649,6 +626,7 @@
       "RecalculateAllFormulas",
       "ReplaceTextSmart",
       "Save",
+      "SetFreezePanesType",
       "SetLocale",
       "event-onworksheetchange"
     ],
@@ -658,6 +636,15 @@
     ],
     "ApiBullet": [
 
+    ],
+    "apicharacters": [
+      "GetCaption",
+      "GetFont",
+      "GetParent",
+      "GetText",
+      "Insert",
+      "SetCaption",
+      "SetText"
     ],
     "ApiChart": [
       "AddSeria",
@@ -696,8 +683,37 @@
     "ApiColor": [
 
     ],
-    "ApiComment": [
-      "GetText"
+    "apicomment": [
+      "AddReply",
+      "GetAuthorName",
+      "GetId",
+      "GetQuoteText",
+      "GetRepliesCount",
+      "GetReply",
+      "GetText",
+      "GetTime",
+      "GetTimeUTC",
+      "GetUserId",
+      "IsSolved",
+      "RemoveReplies",
+      "SetAuthorName",
+      "SetSolved",
+      "SetText",
+      "SetTime",
+      "SetTimeUTC",
+      "SetUserId"
+    ],
+    "apicommentreply": [
+      "GetAuthorName",
+      "GetText",
+      "GetTime",
+      "GetTimeUTC",
+      "GetUserId",
+      "SetAuthorName",
+      "SetText",
+      "SetTime",
+      "SetTimeUTC",
+      "SetUserId"
     ],
     "ApiDocument": [
 
@@ -705,7 +721,7 @@
     "ApiDocumentContent": [
 
     ],
-    "ApiDrawing": [
+    "apidrawing": [
       "GetHeight",
       "GetLockValue",
       "GetWidth",
@@ -713,6 +729,28 @@
     ],
     "ApiFill": [
 
+    ],
+    "apifont": [
+      "GetBold",
+      "GetColor",
+      "GetItalic",
+      "GetParent",
+      "GetSize",
+      "GetStrikethrough",
+      "GetSubscript",
+      "GetSuperscript",
+      "GetUnderline",
+      "SetColor",
+      "SetStrikethrough",
+      "SetSubscript",
+      "SetSuperscript"
+    ],
+    "apifreezepanes": [
+      "FreezeAt",
+      "FreezeColumns",
+      "FreezeRows",
+      "GetLocation",
+      "Unfreeze"
     ],
     "ApiGradientStop": [
 
@@ -827,6 +865,7 @@
       "GetComments",
       "GetDefName",
       "GetDefNames",
+      "GetFreezePanes",
       "GetPrintGridlines",
       "GetPrintHeadings",
       "Move",
@@ -898,6 +937,31 @@
       "SetVertAxisTickLabelPosition",
       "SetXValues"
     ],
+    "apicomment": [
+      "AddReply",
+      "Delete",
+      "GetAuthorName",
+      "GetQuoteText",
+      "GetRepliesCount",
+      "GetText",
+      "GetTime",
+      "GetTimeUTC",
+      "IsSolved",
+      "RemoveReplies",
+      "SetAuthorName",
+      "SetSolved",
+      "SetText",
+      "SetTime",
+      "SetTimeUTC",
+      "SetUserId"
+    ],
+    "apicommentreply": [
+      "GetAuthorName",
+      "GetText",
+      "SetAuthorName",
+      "SetText",
+      "SetUserId"
+    ],
     "ApiDocument": [
 
     ],
@@ -923,7 +987,7 @@
     "ApiGradientStop": [
 
     ],
-    "ApiImage": [
+    "apiimage": [
 
     ],
     "ApiLayout": [
@@ -1000,6 +1064,7 @@
       "AddMaster",
       "ApplyTheme",
       "CreateNewHistoryPoint",
+      "GetAllComments",
       "GetMaster",
       "GetMastersCount",
       "GetSlidesCount",
@@ -1110,11 +1175,14 @@
     ]
   },
   "Form API": {
-    "Api": [
+    "api": [
       "CreateCheckBoxForm",
       "CreateComboBoxForm",
       "CreatePictureForm",
       "CreateTextForm"
+    ],
+    "apidocument": [
+      "inserttextform"
     ]
   }
 }
