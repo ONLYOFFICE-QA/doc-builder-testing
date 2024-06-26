@@ -3,6 +3,7 @@
 require 'spec_helper'
 describe 'ApiParagraph Borders' do
   it 'ApiParagraph | SetBetweenBorder method' do
+    # TODO: something
     docx = builder.build_and_parse('js/docx/smoke/api_paragraph/set_between_border.js')
     expect(docx.elements.first.borders.between.color).to eq(OoxmlParser::Color.new(0, 255, 0))
     expect(docx.elements.first.borders.between.space).to eq(OoxmlParser::OoxmlSize.new(0, :point))
