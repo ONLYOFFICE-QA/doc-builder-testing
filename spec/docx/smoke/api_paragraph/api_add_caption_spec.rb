@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'spec_helper'
 describe 'ApiParagraph AddCaption' do
   before(:all) do
@@ -14,7 +16,7 @@ describe 'ApiParagraph AddCaption' do
   end
 
   it 'Check document structure' do
-    expect(@docx.elements.size).to eq(8)
+    expect(@docx.elements.size).to eq(13)
   end
 
   it 'Check AddCaption without parameters' do
@@ -27,29 +29,38 @@ describe 'ApiParagraph AddCaption' do
   end
 
   it 'Check AddCaption with additional text' do
-    paragraph = @docx.elements[2].nonempty_runs.first
+    paragraph = @docx.elements[5].nonempty_runs.first
     expect(paragraph.text).to eq('Caption with additional text')
 
-    caption = @docx.elements[3]
+    caption = @docx.elements[6]
     expect(caption.nonempty_runs.size).to eq(4)
-    check_caption(caption, ['Figure ', '-', '1', ' caption text '])
+    check_caption(caption, ['Figure ', '.', '1', ' caption text '])
   end
 
   it 'Check AddCaption with bExludeLabel: true' do
-    paragraph = @docx.elements[4].nonempty_runs.first
-    expect(paragraph.text).to eq('Caption with bExludeLabel: true')
+    paragraph = @docx.elements[7].nonempty_runs.first
+    expect(paragraph.text).to eq('Caption with bExludeLabel: true and nHeadingLvl: 1')
 
-    caption = @docx.elements[5]
-    expect(caption.nonempty_runs.size).to eq(3)
-    check_caption(caption, [':', '1', ' caption text '])
+    caption = @docx.elements[8]
+    expect(caption.nonempty_runs.size).to eq(4)
+    check_caption(caption, ['1', ':', '1', ' caption text '])
   end
 
   it 'Check AddCaption with bBefore: true' do
-    paragraph = @docx.elements[7].nonempty_runs.first
-    expect(paragraph.text).to eq('Caption with bBefore: true')
+    paragraph = @docx.elements[10].nonempty_runs.first
+    expect(paragraph.text).to eq('Caption with bBefore: true and nHeadingLvl: 2')
 
-    caption = @docx.elements[6]
-    expect(caption.nonempty_runs.size).to eq(3)
-    check_caption(caption, ['Equation ', '.', '2'])
+    caption = @docx.elements[9]
+    expect(caption.nonempty_runs.size).to eq(4)
+    check_caption(caption, ['Equation ', '1.1', '-', '1'])
+  end
+
+  it 'Check AddCaption with nHeadingLvl: 3' do
+    paragraph = @docx.elements[11].nonempty_runs.first
+    expect(paragraph.text).to eq('Caption with nHeadingLvl: 3')
+
+    caption = @docx.elements[12]
+    expect(caption.nonempty_runs.size).to eq(4)
+    check_caption(caption, ['Table ', '1.1.1', '—', '2'])
   end
 end
