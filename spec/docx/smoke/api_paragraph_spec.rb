@@ -273,6 +273,7 @@ describe 'ApiParagraph section tests' do
   describe 'ApiParagraph | AddCaption method' do
     before(:all) do
       @docx = builder.build_and_parse('js/docx/smoke/api_paragraph/add_caption.js')
+      @docx.freeze
     end
 
     def check_style(element)

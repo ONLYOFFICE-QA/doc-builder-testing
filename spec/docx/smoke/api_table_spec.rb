@@ -191,6 +191,7 @@ describe 'ApiTable section tests' do
   describe 'ApiTable | AddCaption method' do
     before(:all) do
       @docx = builder.build_and_parse('js/docx/smoke/api_table/add_caption.js')
+      @docx.freeze
     end
 
     def check_style(element)
