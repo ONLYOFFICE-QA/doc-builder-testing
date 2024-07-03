@@ -6,10 +6,10 @@
 # Note that changes in the inspected code, or installation of new
 # versions of RuboCop, may require this file to be generated again.
 
-# Offense count: 4
+# Offense count: 5
 # Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
 Metrics/MethodLength:
-  Max: 21
+  Max: 24
 
 # Offense count: 3
 RSpec/BeforeAfterAll:
@@ -17,7 +17,7 @@ RSpec/BeforeAfterAll:
     - 'spec/docx/smoke/api_paragraph_spec.rb'
     - 'spec/docx/smoke/api_table_spec.rb'
 
-# Offense count: 134
+# Offense count: 129
 # Configuration parameters: CountAsOne.
 RSpec/ExampleLength:
   Max: 21

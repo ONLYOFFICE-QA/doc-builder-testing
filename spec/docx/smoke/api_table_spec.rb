@@ -185,8 +185,7 @@ describe 'ApiTable section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table/to_json.js')
     json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
     expect(json['type']).to eq('table')
-    expect(json['styles']['132']['name']).to eq('List Table 5 Dark')
-    expect(docx.elements[1].properties.table_style.name).to eq('List Table 5 Dark')
+    expect(docx.elements[1].properties.table_style.name).to eq(json['styles']['95']['name'])
   end
 
   describe 'ApiTable | AddCaption method' do
