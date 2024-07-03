@@ -36,6 +36,7 @@ jobs:
           - "dockerfiles/rockylinux-latest/Dockerfile"
           - "dockerfiles/debian-develop/Dockerfile"
           - "dockerfiles/debian-next-release/Dockerfile"
+      fail-fast: false
     steps:
       - uses: actions/checkout@v4
       - name: Dockerfile ${{ matrix.dockerfiles }}
