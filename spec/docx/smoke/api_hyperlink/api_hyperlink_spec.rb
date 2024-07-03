@@ -10,6 +10,6 @@ describe 'ApiHyperlink tests' do
     expect(json['type']).to eq('hyperlink')
     expect(json['value']).to eq('https://api.onlyoffice.com/')
     expect(json['tooltip']).to eq('ONLYOFFICE for developers')
-    expect(json['styles']['174']['name']).to eq('Hyperlink')
+    expect(json['styles']['186']['name']).to eq('Hyperlink')
   end
 end
