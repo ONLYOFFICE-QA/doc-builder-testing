@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("ONLYOFFICE Document Builder");
+var oRange1 = oDocument.GetRange();
+oRange1.SetBold(true);
+var oRange2 = oRange1.GetRange(0, 9);
+oRange2.SetColor(255, 0, 0);
+var oRange3 = oDocument.GetRange(20, 27);
+oRange3.SetItalic(true);
+builder.SaveFile("docx", "GetRange.docx");
+builder.CloseFile();
