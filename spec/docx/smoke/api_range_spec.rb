@@ -12,41 +12,38 @@ describe 'ApiRange section tests' do
 
   describe 'ApiRange | GetRange method' do
     let(:style) { OoxmlParser::FontStyle.new(true, true) }
-
-    before(:all) do
-      @docx = builder.build_and_parse('js/docx/smoke/api_range/get_range.js').freeze
-    end
+    let(:docx) { builder.build_and_parse('js/docx/smoke/api_range/get_range.js') }
 
     it 'Check document structure' do
-      expect(@docx.elements[0].nonempty_runs.size).to eq(1)
-      expect(@docx.elements[1].nonempty_runs.size).to eq(4)
+      expect(docx.elements[0].nonempty_runs.size).to eq(1)
+      expect(docx.elements[1].nonempty_runs.size).to eq(4)
     end
 
     it 'Check method for document' do
       style.italic = false
-      expect(@docx.elements[0].nonempty_runs[0].text).to eq('Document Builder')
-      expect(@docx.elements[0].nonempty_runs[0].font_style).to eq(style)
-      expect(@docx.elements[0].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
+      expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder')
+      expect(docx.elements[0].nonempty_runs[0].font_style).to eq(style)
+      expect(docx.elements[0].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
 
-      expect(@docx.elements[1].nonempty_runs[3].text).to eq('method')
-      expect(@docx.elements[1].nonempty_runs[3].font_style).to eq(style)
-      expect(@docx.elements[1].nonempty_runs[3].font_color).to eq(OoxmlParser::Color.new)
+      expect(docx.elements[1].nonempty_runs[3].text).to eq('method')
+      expect(docx.elements[1].nonempty_runs[3].font_style).to eq(style)
+      expect(docx.elements[1].nonempty_runs[3].font_color).to eq(OoxmlParser::Color.new)
     end
 
     it 'Check method for paragraph' do
-      expect(@docx.elements[1].nonempty_runs[0].text).to eq('Check ')
-      expect(@docx.elements[1].nonempty_runs[0].font_style).to eq(style)
-      expect(@docx.elements[1].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Check ')
+      expect(docx.elements[1].nonempty_runs[0].font_style).to eq(style)
+      expect(docx.elements[1].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
 
-      expect(@docx.elements[1].nonempty_runs[2].text).to eq('nge ')
-      expect(@docx.elements[1].nonempty_runs[2].font_style).to eq(style)
-      expect(@docx.elements[1].nonempty_runs[2].font_color).to eq(OoxmlParser::Color.new)
+      expect(docx.elements[1].nonempty_runs[2].text).to eq('nge ')
+      expect(docx.elements[1].nonempty_runs[2].font_style).to eq(style)
+      expect(docx.elements[1].nonempty_runs[2].font_color).to eq(OoxmlParser::Color.new)
     end
 
     it 'Check method for another range' do
-      expect(@docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
-      expect(@docx.elements[1].nonempty_runs[1].font_style).to eq(style)
-      expect(@docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
+      expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
+      expect(docx.elements[1].nonempty_runs[1].font_style).to eq(style)
+      expect(docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
     end
   end
 end

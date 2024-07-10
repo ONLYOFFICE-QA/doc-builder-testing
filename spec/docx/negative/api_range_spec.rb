@@ -19,14 +19,36 @@ describe 'ApiRange section negative tests' do
       file.close
     end
 
-    [[0, -1], [-1, 0], [10.2, 16.5], ['"5"', '"13"']].each do |params|
-      it "Check method with wrong parameters: #{params}" do
-        create_builder_script(file_path, *params)
-        docx = builder.build_and_parse(file_path)
-        expect(docx.elements.size).to eq(1)
-        expect(docx.elements.first.nonempty_runs.size).to eq(1)
-        expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
-      end
+    it 'Check method with wrong parameters 0, -1' do
+      create_builder_script(file_path, 0, -1)
+      docx = builder.build_and_parse(file_path)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
+    end
+
+    it 'Check method with parameters -1, 0' do
+      create_builder_script(file_path, -1, 0)
+      docx = builder.build_and_parse(file_path)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
+    end
+
+    it 'Check method with wrong parameters 0.2, 16.5' do
+      create_builder_script(file_path, 0.2, 16.5)
+      docx = builder.build_and_parse(file_path)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
+    end
+
+    it 'Check method with wrong parameters "5", "13"' do
+      create_builder_script(file_path, '"5"', '"13"')
+      docx = builder.build_and_parse(file_path)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.size).to eq(1)
+      expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
     end
   end
 end
