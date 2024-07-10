@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetUserId method test");
+Api.AddComment(oParagraph, "comment", "John Smith", "uid-1");
+var aComments = oDocument.GetAllComments();
+var sUserId = aComments[0].GetUserId();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("User ID: " + sUserId);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetUserId.docx");
+builder.CloseFile();

@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetId method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+var sId = aComments[0].GetId();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Comment ID: " + sId);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetId.docx");
+builder.CloseFile();

@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just Delete method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+var result = aComments[0].Delete();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Deleted: " + result);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "Delete.docx");
+builder.CloseFile();
