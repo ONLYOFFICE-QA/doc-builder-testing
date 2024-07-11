@@ -2,10 +2,11 @@
 
 require 'spec_helper'
 describe 'ApiComment section tests' do
-  # it 'ApiComment | AddReply method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/add_reply.js')
-  #   expect('').to eq('')
-  # end
+  it 'ApiComment | AddReply method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/add_reply.js')
+    expect(docx.comments.comments_array.size).to eq(2)
+    expect(docx.comments.comments_array[1].paragraphs.first.nonempty_runs.first.text).to eq('reply to comment')
+  end
 
   # it 'ApiComment | Delete method' do
   #   docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
@@ -48,30 +49,43 @@ describe 'ApiComment section tests' do
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Comment: comment text')
   end
 
-  # it 'ApiComment | SetTime\GetTime method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time.js')
-  #   expect('').to eq('')
-  # end
-
-  # it 'ApiComment | SetTimeUTC\GetTimeUTC method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time_utc.js')
-  #   expect('').to eq('')
-  # end
-
-  it 'ApiComment | GetUserId method' do
-    docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-1')
+  it 'ApiComment | SetTime\GetTime method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time.js')
+    creation_time = docx.elements[1].nonempty_runs.first.text[/\d+/]
+    changed_time = docx.elements[2].nonempty_runs.first.text[/\d+/]
+    expect(creation_time).not_to eq(changed_time)
   end
+
+  it 'ApiComment | SetTimeUTC\GetTimeUTC method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time_utc.js')
+    creation_time = docx.elements[1].nonempty_runs.first.text[/\d+/]
+    changed_time = docx.elements[2].nonempty_runs.first.text[/\d+/]
+    expect(creation_time).not_to eq(changed_time)
+  end
+
+  # it 'ApiComment | GetUserId method' do
+  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
+  #   expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-5')
+  # end
 
   it 'ApiComment | IsSolved method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/is_solved.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Is solved: false')
   end
 
-  # it 'ApiComment | RemoveReplies method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/remove_replies.js')
-  #   expect('').to eq('')
-  # end
+  it 'ApiComment | RemoveReplies method > Remove one' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/remove_replies_one.js')
+    expect(docx.comments.comments_array.size).to eq(3)
+    expect(docx.comments.comments_array[1].paragraphs.first.nonempty_runs.first.text).to eq('reply 2')
+    expect(docx.comments.comments_array[2].paragraphs.first.nonempty_runs.first.text).to eq('reply 1')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Replies count: 2')
+  end
+
+  it 'ApiComment | RemoveReplies method > Remove all' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/remove_replies_all.js')
+    expect(docx.comments.comments_array.size).to eq(1)
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Replies count: 0')
+  end
 
   it 'ApiComment | SetAuthorName method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/set_author_name.js')
@@ -86,6 +100,7 @@ describe 'ApiComment section tests' do
 
   it 'ApiComment | SetText method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/set_text.js')
+    expect(docx.comments.comments_array[0].paragraphs.first.nonempty_runs.first.text).to eq('new text')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Comment: new text')
   end
 
