@@ -8,10 +8,12 @@ describe 'ApiComment section tests' do
     expect(docx.comments.comments_array[1].paragraphs.first.nonempty_runs.first.text).to eq('reply to comment')
   end
 
-  # it 'ApiComment | Delete method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
-  #   expect('').to eq('')
-  # end
+  it 'ApiComment | Delete method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
+    expect(docx.comments).to be_nil
+    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69142'
+    # expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true')
+  end
 
   it 'ApiComment | GetAuthorName method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/get_author_name.js')
@@ -63,6 +65,7 @@ describe 'ApiComment section tests' do
     expect(creation_time).not_to eq(changed_time)
   end
 
+  # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69149'
   # it 'ApiComment | GetUserId method' do
   #   docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
   #   expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-5')
