@@ -18,7 +18,6 @@
       "Save"
     ],
     "apiblocklvlsdt": [
-      "AddCaption",
       "AddComment",
       "Delete",
       "GetAlias",
@@ -35,6 +34,7 @@
       "GetPlaceholderText",
       "GetPosInParent",
       "GetTag",
+      "MoveCursorOutside",
       "ReplaceByElement",
       "Search",
       "Select",
@@ -72,7 +72,7 @@
       "SetVertAxisTickLabelPosition",
       "SetXValues"
     ],
-    "ApiCheckBoxForm": [
+    "apicheckboxform": [
       "Clear",
       "Copy",
       "GetFormKey",
@@ -85,6 +85,7 @@
       "IsFixed",
       "IsRadioButton",
       "IsRequired",
+      "MoveCursorOutside",
       "SetBorderColor",
       "SetChecked",
       "SetFormKey",
@@ -96,7 +97,7 @@
       "ToFixed",
       "ToInline"
     ],
-    "ApiComboBoxForm": [
+    "apicomboboxform": [
       "Clear",
       "Copy",
       "GetFormKey",
@@ -108,6 +109,7 @@
       "IsEditable",
       "IsFixed",
       "IsRequired",
+      "MoveCursorOutside",
       "SelectListValue",
       "SetBorderColor",
       "SetFormKey",
@@ -149,7 +151,7 @@
       "SetText",
       "SetUserId"
     ],
-    "ApiComplexForm": [
+    "apicomplexform": [
       "Clear",
       "Copy",
       "GetFormKey",
@@ -159,6 +161,7 @@
       "GetWrapperShape",
       "IsFixed",
       "IsRequired",
+      "MoveCursorOutside",
       "SetBorderColor",
       "SetFormKey",
       "SetPlaceholderText",
@@ -282,7 +285,7 @@
     "ApiFill": [
 
     ],
-    "ApiFormBase": [
+    "apiformbase": [
       "Clear",
       "Copy",
       "GetFormKey",
@@ -292,6 +295,7 @@
       "GetWrapperShape",
       "IsFixed",
       "IsRequired",
+      "MoveCursorOutside",
       "SetBorderColor",
       "SetFormKey",
       "SetPlaceholderText",
@@ -331,6 +335,7 @@
       "GetPlaceholderText",
       "GetTag",
       "IsForm",
+      "MoveCursorOutside",
       "SetLabel",
       "SetLock",
       "SetPlaceholderText",
@@ -351,7 +356,6 @@
     ],
     "apiparagraph": [
       "AddBookmarkCrossRef",
-      "AddCaption",
       "AddCaptionCrossRef",
       "AddComment",
       "AddEndnoteCrossRef",
@@ -405,7 +409,7 @@
       "GetSpacingLineRule",
       "GetSpacingLineValue"
     ],
-    "ApiPictureForm": [
+    "apipictureform": [
       "Clear",
       "Copy",
       "GetFormKey",
@@ -420,6 +424,7 @@
       "IsLockAspectRatio",
       "IsRequired",
       "IsRespectBorders",
+      "MoveCursorOutside",
       "SetBorderColor",
       "SetFormKey",
       "SetImage",
@@ -456,11 +461,27 @@
       "AddComment",
       "Copy",
       "Delete",
+      "GetBold",
+      "GetCaps",
+      "GetColor",
+      "GetDoubleStrikeout",
+      "GetFontFamily",
       "GetFontNames",
+      "GetFontSize",
+      "GetHighlight",
+      "GetItalic",
+      "GetLanguage",
       "GetParentContentControl",
       "GetParentTable",
       "GetParentTableCell",
+      "GetPosition",
+      "GetShd",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
       "GetText",
+      "GetUnderline",
+      "GetVertAlign",
       "Select",
       "SetTextPr",
       "WrapInMailMergeField"
@@ -486,7 +507,6 @@
 
     ],
     "apitable": [
-      "AddCaption",
       "AddColumns",
       "AddComment",
       "AddRows",
@@ -553,40 +573,26 @@
     "ApiTableStylePr": [
 
     ],
-    "ApiTextForm": [
-      "Clear",
-      "Copy",
-      "GetCharactersLimit",
-      "GetFormKey",
-      "GetFormType",
-      "GetText",
-      "GetTipText",
-      "GetWrapperShape",
-      "IsAutoFit",
-      "IsComb",
-      "IsFixed",
-      "IsMultiline",
-      "IsRequired",
-      "SetAutoFit",
-      "SetBorderColor",
-      "SetCellWidth",
-      "SetCharactersLimit",
-      "SetComb",
-      "SetFormKey",
-      "SetMultiline",
-      "SetPlaceholderText",
-      "SetRequired",
-      "SetText",
-      "SetTextPr",
-      "SetTipText",
-      "ToFixed",
-      "ToInline"
-    ],
     "apitextpr": [
-
+      "GetBold",
+      "GetCaps",
+      "GetColor",
+      "GetDoubleStrikeout",
+      "GetFontFamily",
+      "GetFontSize",
+      "GetHighlight",
+      "GetItalic",
+      "GetLanguage",
+      "GetPosition",
+      "GetShd",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
+      "GetUnderline",
+      "GetVertAlign"
     ],
-    "ApiUniColor": [
-
+    "apiunicolor": [
+      "GetRGB"
     ],
     "ApiUnsupported": [
 
@@ -609,8 +615,10 @@
   "Spreadsheet API": {
     "api": [
       "AddComment",
+      "AddCustomFunction",
       "AddDefName",
       "attachEvent",
+      "ClearCustomFunctions",
       "CreateNewHistoryPoint",
       "CreateTextPr",
       "detachEvent",
@@ -622,12 +630,16 @@
       "GetFullName",
       "GetLocale",
       "GetMailMergeData",
+      "GetReferenceStyle",
+      "GetWorksheetFunction",
       "Intersect",
       "RecalculateAllFormulas",
+      "RemoveCustomFunction",
       "ReplaceTextSmart",
       "Save",
       "SetFreezePanesType",
       "SetLocale",
+      "SetReferenceStyle",
       "event-onworksheetchange"
     ],
     "ApiAreas": [
@@ -680,8 +692,8 @@
       "SetVertAxisMajorTickMark",
       "SetVertAxisMinorTickMark"
     ],
-    "ApiColor": [
-
+    "apicolor": [
+      "GetRGB"
     ],
     "apicomment": [
       "AddReply",
@@ -749,8 +761,7 @@
       "FreezeAt",
       "FreezeColumns",
       "FreezeRows",
-      "GetLocation",
-      "Unfreeze"
+      "GetLocation"
     ],
     "ApiGradientStop": [
 
@@ -800,6 +811,7 @@
       "AutoFit",
       "Clear",
       "Copy",
+      "Cut",
       "End",
       "Find",
       "FindNext",
@@ -816,6 +828,7 @@
       "GetWorksheet",
       "Insert",
       "Paste",
+      "PasteSpecial",
       "Replace",
       "SetOrientation",
       "SetSort"
@@ -823,9 +836,22 @@
     "ApiRGBColor": [
 
     ],
-    "ApiRun": [
+    "apirun": [
       "Copy",
+      "GetBold",
+      "GetCaps",
+      "GetDoubleStrikeout",
+      "GetFill",
+      "GetFontFamily",
       "GetFontNames",
+      "GetFontSize",
+      "GetItalic",
+      "GetOutLine",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
+      "GetTextFill",
+      "GetUnderline",
       "SetColor",
       "SetHighlight",
       "SetLanguage",
@@ -845,7 +871,20 @@
     "ApiStroke": [
 
     ],
-    "ApiTextPr": [
+    "apitextpr": [
+      "GetBold",
+      "GetCaps",
+      "GetDoubleStrikeout",
+      "GetFill",
+      "GetFontFamily",
+      "GetFontSize",
+      "GetItalic",
+      "GetOutLine",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
+      "GetTextFill",
+      "GetUnderline",
       "SetOutLine",
       "SetTextFill"
     ],
@@ -855,12 +894,14 @@
     "apiworksheet": [
       "AddDefName",
       "AddOleObject",
+      "AddProtectedRange",
       "AddWordArt",
       "GetActiveCell",
       "GetAllCharts",
       "GetAllDrawings",
       "GetAllImages",
       "GetAllOleObjects",
+      "GetAllProtectedRanges",
       "GetAllShapes",
       "GetComments",
       "GetDefName",
@@ -868,7 +909,9 @@
       "GetFreezePanes",
       "GetPrintGridlines",
       "GetPrintHeadings",
+      "GetProtectedRange",
       "Move",
+      "Paste",
       "ReplaceCurrentImage",
       "SetActive",
       "SetPrintGridlines",
@@ -1080,10 +1123,24 @@
     "ApiRGBColor": [
 
     ],
-    "ApiRun": [
+    "apirun": [
       "Copy",
       "Delete",
+      "GetBold",
+      "GetCaps",
+      "GetDoubleStrikeout",
+      "GetFill",
+      "GetFontFamily",
       "GetFontNames",
+      "GetFontSize",
+      "GetHighlight",
+      "GetItalic",
+      "GetOutLine",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
+      "GetTextFill",
+      "GetUnderline",
       "SetColor",
       "SetHighlight",
       "SetLanguage",
@@ -1135,7 +1192,21 @@
     "ApiTableRow": [
 
     ],
-    "ApiTextPr": [
+    "apitextpr": [
+      "GetBold",
+      "GetCaps",
+      "GetDoubleStrikeout",
+      "GetFill",
+      "GetFontFamily",
+      "GetFontSize",
+      "GetHighlight",
+      "GetItalic",
+      "GetOutLine",
+      "GetSmallCaps",
+      "GetSpacing",
+      "GetStrikeout",
+      "GetTextFill",
+      "GetUnderline",
       "SetHighlight",
       "SetOutLine",
       "SetTextFill"
@@ -1178,6 +1249,7 @@
     "api": [
       "CreateCheckBoxForm",
       "CreateComboBoxForm",
+      "CreateDateForm",
       "CreatePictureForm",
       "CreateTextForm"
     ],
