@@ -51,25 +51,25 @@ describe 'ApiComment section tests' do
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Comment: comment text')
   end
 
-  it 'ApiComment | SetTime\GetTime method' do
+  it 'ApiComment | GetTime\SetTime method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time.js')
     creation_time = docx.elements[1].nonempty_runs.first.text[/\d+/]
     changed_time = docx.elements[2].nonempty_runs.first.text[/\d+/]
     expect(creation_time).not_to eq(changed_time)
   end
 
-  it 'ApiComment | SetTimeUTC\GetTimeUTC method' do
+  it 'ApiComment | GetTimeUTC\SetTimeUTC method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/set_get_time_utc.js')
     creation_time = docx.elements[1].nonempty_runs.first.text[/\d+/]
     changed_time = docx.elements[2].nonempty_runs.first.text[/\d+/]
     expect(creation_time).not_to eq(changed_time)
   end
 
-  # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69149'
-  # it 'ApiComment | GetUserId method' do
-  #   docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
-  #   expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-5')
-  # end
+  it 'ApiComment | GetUserId method' do
+    skip 'bug https://bugzilla.onlyoffice.com/show_bug.cgi?id=69149'
+    docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-5')
+  end
 
   it 'ApiComment | IsSolved method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/is_solved.js')
