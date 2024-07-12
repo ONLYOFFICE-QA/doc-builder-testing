@@ -11,5 +11,5 @@ aComments[0].RemoveReplies(null, null, true);
 oParagraph = Api.CreateParagraph();
 oParagraph.AddText("Replies count: " + aComments[0].GetRepliesCount());
 oDocument.Push(oParagraph);
-builder.SaveFile("docx", "RemoveReplies.docx");
+builder.SaveFile("docx", "RemoveRepliesAll.docx");
 builder.CloseFile();
