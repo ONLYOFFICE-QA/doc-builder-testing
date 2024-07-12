@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("Document Builder");
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Check GetRange method");
+oDocument.Push(oParagraph);
+var oRange1 = oDocument.GetRange();
+oRange1.SetBold(true);
+var oRange2 = oParagraph.GetRange(0, 15);
+oRange2.SetItalic(true);
+var oRange3 = oRange2.GetRange(6, 10);
+oRange3.SetColor(255, 0, 0);
+builder.SaveFile("docx", "GetRange.docx");
+builder.CloseFile();
