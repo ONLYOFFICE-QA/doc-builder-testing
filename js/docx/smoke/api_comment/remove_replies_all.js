@@ -1,0 +1,15 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just RemoveReplies method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+aComments[0].AddReply("reply 1", "Mark", "uid-2", 0);
+aComments[0].AddReply("reply 2", "Peter", "uid-3", 0);
+aComments[0].AddReply("reply 3", "Daniel", "uid-4", 0);
+aComments[0].RemoveReplies(null, null, true);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Replies count: " + aComments[0].GetRepliesCount());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "RemoveRepliesAll.docx");
+builder.CloseFile();

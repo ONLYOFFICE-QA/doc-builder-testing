@@ -1,0 +1,17 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetTimeUTC method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+var sTime = aComments[0].GetTimeUTC();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Creation UTC timestamp: " + sTime);
+oDocument.Push(oParagraph);
+aComments[0].SetTimeUTC(new Date(sTime - 5*60000).getTime());
+var sTimeUTC = aComments[0].GetTimeUTC();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Changed UTC timestamp: " + sTimeUTC);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetTimeUTC.docx");
+builder.CloseFile();

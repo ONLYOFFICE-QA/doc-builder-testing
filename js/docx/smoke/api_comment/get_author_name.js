@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetAuthorName method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Author name: " + aComments[0].GetAuthorName());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetAuthorName.docx");
+builder.CloseFile();

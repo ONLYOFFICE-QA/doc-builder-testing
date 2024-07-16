@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just IsSolved method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Is solved: " + aComments[0].IsSolved());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "SetSolved.docx");
+builder.CloseFile();

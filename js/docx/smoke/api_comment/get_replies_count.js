@@ -1,0 +1,13 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetRepliesCount method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+aComments[0].AddReply("Comment reply 1", "Mark", "uid-2", 0);
+aComments[0].AddReply("Comment reply 2", "Peter", "uid-3", 0);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Comment replies: " + aComments[0].GetRepliesCount());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetRepliesCount.docx");
+builder.CloseFile();

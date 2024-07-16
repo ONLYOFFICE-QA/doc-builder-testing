@@ -1,0 +1,17 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetTime method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+var sTime = aComments[0].GetTime();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Creation timestamp: " + sTime);
+oDocument.Push(oParagraph);
+aComments[0].SetTime(new Date(sTime - 5*60000).getTime());
+sTime = aComments[0].GetTime();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Changed timestamp: " + sTime);
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetTime.docx");
+builder.CloseFile();

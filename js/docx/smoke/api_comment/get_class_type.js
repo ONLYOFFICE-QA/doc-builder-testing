@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetClassType method test");
+Api.AddComment(oParagraph, "comment", "John Smith");
+var aComments = oDocument.GetAllComments();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Class type: " + aComments[0].GetClassType());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetClassType.docx");
+builder.CloseFile();

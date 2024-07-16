@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("This is just GetText method test");
+Api.AddComment(oParagraph, "comment text", "John Smith");
+var aComments = oDocument.GetAllComments();
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Comment: " + aComments[0].GetText());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "GetText.docx");
+builder.CloseFile();

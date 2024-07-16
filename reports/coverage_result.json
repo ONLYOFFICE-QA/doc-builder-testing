@@ -18,6 +18,7 @@
       "Save"
     ],
     "apiblocklvlsdt": [
+      "AddCaption",
       "AddComment",
       "Delete",
       "GetAlias",
@@ -123,25 +124,7 @@
       "ToInline"
     ],
     "apicomment": [
-      "AddReply",
-      "Delete",
-      "GetAuthorName",
-      "GetId",
-      "GetQuoteText",
-      "GetRepliesCount",
-      "GetReply",
-      "GetText",
-      "GetTime",
-      "GetTimeUTC",
-      "GetUserId",
-      "IsSolved",
-      "RemoveReplies",
-      "SetAuthorName",
-      "SetSolved",
-      "SetText",
-      "SetTime",
-      "SetTimeUTC",
-      "SetUserId"
+
     ],
     "apicommentreply": [
       "GetAuthorName",
