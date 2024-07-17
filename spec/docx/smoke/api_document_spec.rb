@@ -149,12 +149,25 @@ describe 'ApiDocument section tests' do
     expect(docx.elements[0].sector_properties.notes[3].elements.first.nonempty_runs.first.text).to eq('This is an even page footer')
   end
 
-  it 'ApiDocument | ToJSON' do
+  it 'ApiDocument | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_document/to_json.js')
     json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
     expect(json['type']).to eq('document')
     expect(json['content'][1]['type']).to eq(docx.elements[1].nonempty_runs[0].text)
     expect(json['content'][2]['type']).to eq(docx.elements[2].rows[0].cells[0].elements[0].nonempty_runs[0].text)
     expect(json['content'][4]['type']).to eq(docx.elements[4].sdt_content.elements.first.nonempty_runs[0].text)
+  end
+
+  it 'ApiDocument | GetAllComments method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/get_all_comments.js')
+    expect(docx.comments.comments_array.size).to eq(6)
+    expect(docx.comments_document.comments_array.size).to eq(2)
+    comments_text = docx.comments_document.comments_array.reverse.map do |item|
+      item.paragraphs.first.nonempty_runs.first.text
+    end
+    docx.comments.comments_array.reverse_each do |item|
+      comments_text.append(item.paragraphs.first.nonempty_runs.first.text)
+    end
+    expect(comments_text.join(', ')).to eq(docx.elements.last.nonempty_runs.first.text)
   end
 end

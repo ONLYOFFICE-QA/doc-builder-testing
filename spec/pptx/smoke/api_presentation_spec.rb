@@ -39,4 +39,13 @@ describe 'ApiPresentation section tests' do
     expect(pptx.slide_size.height).to eq(OoxmlParser::OoxmlSize.new(190 * 36_000, :emu))
     expect(pptx.slide_size.width).to eq(OoxmlParser::OoxmlSize.new(254 * 36_000, :emu))
   end
+
+  it 'ApiPresentation | GetAllComments method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_presentation/get_all_comments.js')
+    expect(pptx.comments.list.size).to eq(2)
+    expect(pptx.comment_authors.list.size).to eq(2)
+    comments_text = pptx.comments.list.map(&:text)
+    slide_data = pptx.slides[0].common_slide_data.shape_tree
+    expect(comments_text.join(', ')).to eq(slide_data.elements[0].text_body.paragraphs[0].runs[0].text)
+  end
 end
