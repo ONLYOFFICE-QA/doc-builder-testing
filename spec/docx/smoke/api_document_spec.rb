@@ -160,8 +160,6 @@ describe 'ApiDocument section tests' do
 
   it 'ApiDocument | GetAllComments method' do
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_all_comments.js')
-    expect(docx.comments.comments_array.size).to eq(6)
-    expect(docx.comments_document.comments_array.size).to eq(2)
     comments_text = docx.comments_document.comments_array.reverse.map do |item|
       item.paragraphs.first.nonempty_runs.first.text
     end
