@@ -156,4 +156,12 @@ describe 'Api section tests' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api/format_property.js')
     expect(xlsx.worksheets[0].rows[0].cells.first.text).to eq('|05:04:23 PM|')
   end
+
+  it 'Api | GetAllComments method' do
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api/get_all_comments.js')
+    expect(xlsx.worksheets.first.rows_raw.size).to eq(3)
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw.first.raw_text).to eq('John Smith:This is a comment.')
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw.first.raw_text).to eq('Mark Potato:This is another comment.')
+    expect(xlsx.worksheets.first.rows_raw[2].cells_raw.first.raw_text).to eq('James:Comment for range')
+  end
 end
