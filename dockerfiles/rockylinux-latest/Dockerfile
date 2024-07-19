@@ -9,5 +9,5 @@ RUN bundle config set without 'development' && \
 RUN dnf -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyoffice-repo.noarch.rpm && \
     dnf -y install onlyoffice-documentbuilder && \
     dnf clean all
-CMD ["rake", "rspec_critical"]
+CMD ["sh", "dockerfiles/entrypoint.sh"]
 

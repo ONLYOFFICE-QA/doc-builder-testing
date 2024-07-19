@@ -20,6 +20,4 @@ RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffi
     rm -rf /var/lib/apt/lists/*
 RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
-CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
-                  cd /doc-builder-testing; \
-                  rake rspec_critical"
+CMD ["sh", "dockerfiles/entrypoint.sh"]
