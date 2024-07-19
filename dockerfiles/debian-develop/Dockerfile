@@ -1,6 +1,5 @@
 FROM ruby:3.3
 
-MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 ENV VERSION="99.99.99"
 ENV DIST="stable"
 
@@ -17,7 +16,8 @@ RUN bundle config set without 'development' && \
 RUN echo "deb [trusted=yes] https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/repo/debian $DIST $VERSION" | \
     tee /etc/apt/sources.list.d/onlyoffice-dev.list && \
     apt-get -y update && \
-    apt-get -y install onlyoffice-documentbuilder
+    apt-get --no-install-recommends -y install onlyoffice-documentbuilder && \
+    rm -rf /var/lib/apt/lists/*
 RUN cat /etc/apt/sources.list.d/onlyoffice-dev.list
 
 CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
