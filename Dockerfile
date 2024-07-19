@@ -1,10 +1,12 @@
 FROM ruby:3.3
 
-RUN apt-get update && apt-get -y -q install git curl
-RUN apt-get update && apt-get -y -q install libmagic-dev \
-                                            poppler-utils \
-                                            time
-
+RUN apt-get update && \
+    apt-get --no-install-recommends -y -q install \
+        curl \
+        git \
+        libmagic-dev \
+        poppler-utils \
+        time
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
