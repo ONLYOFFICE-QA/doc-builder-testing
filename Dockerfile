@@ -15,7 +15,7 @@ RUN bundle config set without 'development' && \
     bundle install
 # Install gpg key
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
-RUN mkdir -p -m 700 ~/.gnupg && \
+RUN mkdir -m 700 ~/.gnupg && \
     curl -fsSL https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE | gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --import && \
     chmod 644 /tmp/onlyoffice.gpg && \
     chown root:root /tmp/onlyoffice.gpg && \
