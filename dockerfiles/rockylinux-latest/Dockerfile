@@ -10,4 +10,3 @@ RUN dnf -y install https://download.onlyoffice.com/repo/centos/main/noarch/onlyo
     dnf -y install onlyoffice-documentbuilder && \
     dnf clean all
 CMD ["sh", "dockerfiles/entrypoint.sh"]
-
