@@ -24,6 +24,4 @@ RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onl
     apt-get -y update && \
     apt-get --no-install-recommends -y install onlyoffice-documentbuilder && \
     rm -rf /var/lib/apt/lists/*
-CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
-                  cd /doc-builder-testing; \
-                  rake"
+CMD ["sh", "entrypoint.sh"]

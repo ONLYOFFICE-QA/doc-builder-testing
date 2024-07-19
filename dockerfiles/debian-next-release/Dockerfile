@@ -4,7 +4,8 @@ ENV VERSION="8.1.1"
 ENV DIST="stable"
 
 RUN apt-get update && \
-    apt-get -y -q install git \
+    apt-get --no-install-recommends -y -q install \
+                          git \
                           curl \
                           libmagic-dev \
                           poppler-utils && \

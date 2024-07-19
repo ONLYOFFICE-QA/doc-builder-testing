@@ -4,7 +4,8 @@ ENV VERSION="99.99.99"
 ENV DIST="stable"
 
 RUN apt-get update && \
-    apt-get -y -q install git \
+    apt-get --no-install-recommends -y -q install \
+                          git \
                           curl \
                           libmagic-dev \
                           poppler-utils && \
