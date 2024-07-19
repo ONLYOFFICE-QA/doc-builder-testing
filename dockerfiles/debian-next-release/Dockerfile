@@ -3,10 +3,12 @@ FROM ruby:3.3
 ENV VERSION="8.1.1"
 ENV DIST="stable"
 
-RUN apt-get update && apt-get -y -q install git \
-                                            curl \
-                                            libmagic-dev \
-                                            poppler-utils
+RUN apt-get update && \
+    apt-get -y -q install git \
+                          curl \
+                          libmagic-dev \
+                          poppler-utils && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler
 COPY . /doc-builder-testing

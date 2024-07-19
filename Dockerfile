@@ -6,18 +6,19 @@ RUN apt-get update && \
         git \
         libmagic-dev \
         poppler-utils \
-        time
+        time && \
+    rm -rf /var/lib/apt/lists/*
 RUN gem install bundler
 COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 RUN bundle config set without 'development' && \
     bundle install
 # Install gpg key
-RUN mkdir -p -m 700 ~/.gnupg
-RUN curl -fsSL https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE | gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --import
-RUN chmod 644 /tmp/onlyoffice.gpg
-RUN chown root:root /tmp/onlyoffice.gpg
-RUN mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
+RUN mkdir -p -m 700 ~/.gnupg && \
+    curl -fsSL https://download.onlyoffice.com/GPG-KEY-ONLYOFFICE | gpg --no-default-keyring --keyring gnupg-ring:/tmp/onlyoffice.gpg --import && \
+    chmod 644 /tmp/onlyoffice.gpg && \
+    chown root:root /tmp/onlyoffice.gpg && \
+    mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 # Write repository & install docbuilder
 RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
