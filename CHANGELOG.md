@@ -30,7 +30,7 @@
 * Actualize `debian-next-release` docker for version v7.2.0
 * Move docker images from `onlyofficeqa` org to `onlyoffice`
 * Add `gcc-c++` to `centos-7` dockerfile to fix compatibility with `rmagick-v5.4.1`
-* Add `argument` option to `build_and_parse` method in `DocBuilderWrapper` and `WebDocBuilderWrapper`
+* Add `arguments` option to `build_and_parse` method in `DocBuilderWrapper` and `WebDocBuilderWrapper`
 
 ### Fixes
 
