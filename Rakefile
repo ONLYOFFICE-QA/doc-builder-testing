@@ -26,7 +26,7 @@ task :win do
   system('rspec --tag win')
 end
 
-desc 'run unittests'
-task :unittests do
+desc 'run units'
+task :units do
   system('bundle exec parallel_rspec unit')
 end
