@@ -1,0 +1,11 @@
+name: unittests
+on: [push]
+jobs:
+  unittests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Running unittests
+        run: |
+          docker build -t unittests -f dockerfiles/unittests/Dockerfile .
+          docker run unittests

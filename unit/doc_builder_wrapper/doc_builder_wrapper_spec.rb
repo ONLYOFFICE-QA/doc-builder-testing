@@ -26,6 +26,7 @@ describe DocBuilderWrapper do
     end
 
     it 'build method, argument with space' do
+      skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69321'
       expect { builder.build(file_path, **argument_with_spaces) }.not_to raise_error(DocBuilderError)
     end
 
@@ -35,6 +36,7 @@ describe DocBuilderWrapper do
     end
 
     it 'build_and_parse method, argument with space' do
+      skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69321'
       docx = builder.build_and_parse('unit/doc_builder_wrapper/js/check_argument.js', **argument_with_spaces)
       expect(docx.elements.first.nonempty_runs.first.text).to eq("Argument: #{argument_with_spaces.to_json}")
     end
