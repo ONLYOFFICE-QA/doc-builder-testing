@@ -1,5 +1,5 @@
 name: units
-on: [push]
+on: [push, pull_request]
 jobs:
   units:
     runs-on: ubuntu-latest
