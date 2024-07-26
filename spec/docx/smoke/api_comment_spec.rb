@@ -11,8 +11,7 @@ describe 'ApiComment section tests' do
   it 'ApiComment | Delete method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
     expect(docx.comments).to be_nil
-    # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69142'
-    # expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true')
   end
 
   it 'ApiComment | GetAuthorName method' do

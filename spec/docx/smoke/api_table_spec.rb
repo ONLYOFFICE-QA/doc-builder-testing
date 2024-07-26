@@ -229,7 +229,7 @@ describe 'ApiTable section tests' do
 
       caption = docx.elements[11]
       expect(caption.nonempty_runs.size).to eq(4)
-      check_caption(caption, ['1', ':', '2', ' caption text '])
+      check_caption(caption, ['1', ':', 'B', ' caption text '])
     end
 
     it 'Check AddCaption with bBefore: true and nHeadingLvl: 2' do
@@ -237,7 +237,7 @@ describe 'ApiTable section tests' do
 
       caption = docx.elements[13]
       expect(caption.nonempty_runs.size).to eq(4)
-      check_caption(caption, ['Equation ', '1.1', '-', '1'])
+      check_caption(caption, ['Equation ', '1.1', '-', 'a'])
     end
 
     it 'Check AddCaption with nHeadingLvl: 3' do
@@ -245,7 +245,7 @@ describe 'ApiTable section tests' do
 
       caption = docx.elements[17]
       expect(caption.nonempty_runs.size).to eq(4)
-      check_caption(caption, ['Table ', '1.1.1', '—', '3'])
+      check_caption(caption, ['Table ', '1.1.1', '—', 'III'])
     end
   end
 end
