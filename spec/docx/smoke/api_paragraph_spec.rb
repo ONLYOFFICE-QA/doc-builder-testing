@@ -315,12 +315,11 @@ describe 'ApiParagraph section tests' do
       caption = docx.elements[8]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= '8.2'
+      if builder.version >= 'v8.2'
         check_caption(caption, ['1', ':', 'A', ' caption text '])
       else
         check_caption(caption, ['1', ':', '1', ' caption text '])
       end
-
     end
 
     it 'Check AddCaption with bBefore: true' do
@@ -330,12 +329,11 @@ describe 'ApiParagraph section tests' do
       caption = docx.elements[9]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= '8.2'
+      if builder.version >= 'v8.2'
         check_caption(caption, ['Equation ', '1.1', '-', 'a'])
       else
         check_caption(caption, ['Equation ', '1.1', '-', '1'])
       end
-
     end
 
     it 'Check AddCaption with nHeadingLvl: 3' do
@@ -345,7 +343,7 @@ describe 'ApiParagraph section tests' do
       caption = docx.elements[12]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= '8.2'
+      if builder.version >= 'v8.2'
         check_caption(caption, ['Table ', '1.1.1', '—', 'II'])
       else
         check_caption(caption, ['Table ', '1.1.1', '—', '2'])
