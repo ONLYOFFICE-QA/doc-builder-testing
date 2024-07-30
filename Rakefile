@@ -26,7 +26,7 @@ task :win do
   system('rspec --tag win')
 end
 
-desc 'run units'
-task :units do
-  system('bundle exec parallel_rspec unit')
+desc 'run immanent spec'
+task :immanent_spec do
+  system('bundle exec parallel_rspec immanent_spec')
 end
