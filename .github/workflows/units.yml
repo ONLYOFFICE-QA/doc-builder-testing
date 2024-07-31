@@ -7,5 +7,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: Running units
         run: |
-          docker build -t units -f dockerfiles/units/Dockerfile .
-          docker run units
+          docker build -t doc-builder-units .
+          docker run -it doc-builder-units rake immanent_spec

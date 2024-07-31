@@ -23,5 +23,4 @@ RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onl
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
 CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
-                  cd /doc-builder-testing; \
-                  rake"
+                  cd /doc-builder-testing"

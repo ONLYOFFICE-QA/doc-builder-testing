@@ -7,7 +7,7 @@ describe DocBuilderWrapper do
 
   describe 'get_argument_string method' do
     it 'check gsub( ", \" )' do
-      expect(builder.get_argument_string('""')).to eq('\"\"')
+      expect(builder.get_argument_string('"":""')).to eq('\"\":\"\"')
     end
 
     it 'check sub( ^{, \{ )' do
