@@ -3,12 +3,13 @@
 require_relative '../../spec_helper'
 
 describe DocBuilderWrapper do
-  let(:file_path) { 'immanent_spec/integration/doc_builder_wrapper/js/check_argument.js' }
   let(:builder) { described_class.new }
+  let(:file_path) { 'immanent_spec/integration/doc_builder_wrapper/js/check_argument.js' }
 
   context 'without arguments' do
     it 'build method' do
-      expect { builder.build(file_path) }.not_to raise_error(DocBuilderError)
+      temp_script_data = builder.change_output_file(file_path)
+      expect { builder.build(temp_script_data[:temp_script_file].path) }.not_to raise_error(DocBuilderError)
     end
 
     it 'build_and_parse method' do
@@ -22,12 +23,14 @@ describe DocBuilderWrapper do
     let(:argument_with_spaces) { { key: 'Some value with spaces' } }
 
     it 'build method' do
-      expect { builder.build(file_path, **argument) }.not_to raise_error(DocBuilderError)
+      temp_script_data = builder.change_output_file(file_path)
+      expect { builder.build(temp_script_data[:temp_script_file].path, **argument) }.not_to raise_error(DocBuilderError)
     end
 
     it 'build method, argument with space' do
       skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=69321'
-      expect { builder.build(file_path, **argument_with_spaces) }.not_to raise_error(DocBuilderError)
+      temp_script_data = builder.change_output_file(file_path)
+      expect { builder.build(temp_script_data[:temp_script_file].path, **argument_with_spaces) }.not_to raise_error(DocBuilderError)
     end
 
     it 'build_and_parse method' do
