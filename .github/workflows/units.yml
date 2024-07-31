@@ -8,4 +8,4 @@ jobs:
       - name: Running units
         run: |
           docker build -t doc-builder-units .
-          docker run -it doc-builder-units rake immanent_spec
+          docker run -t doc-builder-units rake immanent_spec
