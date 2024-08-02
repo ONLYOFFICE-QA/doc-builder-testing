@@ -31,10 +31,11 @@ class WebDocBuilderWrapper
 
   # Send script for building and parse it
   # @param script_file [String] path to script file
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
   # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
-  def build_and_parse(script_file, **arguments)
-    output_file = build_file(script_file, **arguments)
+  def build_and_parse(script_file, **kwargs)
+    output_file = build_file(script_file, **kwargs)
     parse(output_file)
   end
 
@@ -47,18 +48,20 @@ class WebDocBuilderWrapper
 
   # Build file from script file
   # @param script_file [String] path to file with script
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] path to build file
-  def build_file(script_file, **arguments)
+  def build_file(script_file, **kwargs)
     temp_script_data = change_output_file(script_file)
     @temp_script_data = temp_script_data
-    link_to_file = build(temp_script_data[:temp_script_file].path, **arguments)
+    link_to_file = build(temp_script_data[:temp_script_file].path, **kwargs)
     download_file(link_to_file, temp_script_data[:output_file])
     temp_script_data[:output_file]
   end
 
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] link to file after building
-  def build(script_file, **arguments)
-    add_payload_params(argument: arguments) if arguments != {}
+  def build(script_file, **kwargs)
+    add_payload_params(argument: kwargs) if kwargs != {}
     @request_data.body = read_script_file(script_file)
     add_jwt_data(@request_data)
     response = @http.request(@request_data)
@@ -67,10 +70,10 @@ class WebDocBuilderWrapper
   end
 
   # Add payload params to @payload_params
-  # @param params [Hash] to add
+  # @param kwargs [Hash] parameters to add
   # @return [nil]
-  def add_payload_params(**params)
-    params.each do |key, value|
+  def add_payload_params(**kwargs)
+    kwargs.each do |key, value|
       @payload_params[:payload][key] = value
     end
   end

@@ -31,7 +31,7 @@ class DocBuilderWrapper
   end
 
   # @param script_file [String] script file
-  # @param kwargs [Hash] build arguments
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] command to run builder for any platform
   def run_build_command(script_file, **kwargs)
     argument = kwargs == {} ? nil : get_argument_string(kwargs.to_json)
@@ -40,6 +40,7 @@ class DocBuilderWrapper
 
   # Build file from script
   # @param script_file [String] script file
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [nil]
   def build(script_file, **kwargs)
     build_result = `#{run_build_command(script_file, **kwargs)}`
@@ -60,6 +61,7 @@ class DocBuilderWrapper
 
   # Build document and parse it
   # @param script_file [String] path to script file
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
   # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
   def build_and_parse(script_file, **kwargs)
@@ -69,6 +71,7 @@ class DocBuilderWrapper
 
   # Build file from script file
   # @param script_file [String] path to file with script
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] path to build file
   def build_file(script_file, **kwargs)
     temp_script_data = change_output_file(script_file)
@@ -79,6 +82,7 @@ class DocBuilderWrapper
 
   # Build file and return memory usage of building this file
   # @param [String] script_file file to build
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [BinTimeResultParser] Process data
   def build_file_with_usage_stats(script_file, **kwargs)
     temp_script_data = change_output_file(script_file)

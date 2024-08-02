@@ -22,5 +22,5 @@ RUN mv /tmp/onlyoffice.gpg /usr/share/keyrings/onlyoffice.gpg
 RUN echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onlyoffice.com/repo/debian squeeze main" >> /etc/apt/sources.list.d/onlyoffice.list && \
     apt-get -y update && \
     apt-get -y install onlyoffice-documentbuilder
-CMD /bin/bash -c "onlyoffice-documentbuilder -v; \
-                  cd /doc-builder-testing"
+ENTRYPOINT  /bin/bash -c
+CMD ["rake"]
