@@ -26,7 +26,7 @@ jobs:
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
-          docker run doc-builder-testing
+          docker run -t doc-builder-testing rake
 
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
