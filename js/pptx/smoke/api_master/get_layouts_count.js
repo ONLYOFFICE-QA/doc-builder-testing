@@ -7,15 +7,15 @@ var oMaster = Api.CreateMaster();
 oPresentation.AddMaster(1, oMaster);
 oMaster0.Delete();
 
-var oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
-oMaster.AddObject(oImage);
-var aImages = oMaster.GetAllImages();
+var oLayout = Api.CreateLayout();
+oMaster.AddLayout(0, oLayout);
+oMaster.AddLayout(1, oLayout);
 
-var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
+oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('Images count: ' + aImages.length + ', type: ' + aImages[0].GetClassType());
+oParagraph.AddText('Layouts count: ' + oMaster.GetLayoutsCount());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
-builder.SaveFile("pptx", "GetAllImages.pptx");
+builder.SaveFile("pptx", "GetLayoutsCount.pptx");
 builder.CloseFile();
