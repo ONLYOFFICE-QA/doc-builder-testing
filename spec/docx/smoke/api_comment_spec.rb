@@ -12,7 +12,7 @@ describe 'ApiComment section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
     expect(docx.comments).to be_nil
     # TODO: 'check after release'
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true') if builder.version >= 'v8.2'
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true') if builder.semver >= Semantic::Version.new('8.2.0')
   end
 
   it 'ApiComment | GetAuthorName method' do
