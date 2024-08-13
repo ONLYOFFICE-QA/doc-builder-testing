@@ -1,11 +1,10 @@
 builder.CreateFile("pptx");
 var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
+// oPresentation.GetMaster(0).Delete();
 oSlide.RemoveAllObjects();
-var oMaster0 = oPresentation.GetMaster(0);
 var oMaster = Api.CreateMaster();
 oPresentation.AddMaster(1, oMaster);
-oMaster0.Delete();
 
 var oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
 oMaster.AddObject(oImage);

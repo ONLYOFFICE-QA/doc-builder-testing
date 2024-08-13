@@ -2,11 +2,12 @@ builder.CreateFile("pptx");
 var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
+var oMaster1 = oPresentation.GetMaster(0);
 
-var oMaster = Api.CreateMaster();
-oPresentation.AddMaster(1, oMaster);
+var oMaster2 = Api.CreateMaster();
+oPresentation.AddMaster(1, oMaster2);
 var nCountBefore = oPresentation.GetMastersCount();
-oMaster.Delete();
+oMaster2.Delete();
 var nCountAfter = oPresentation.GetMastersCount();
 
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);

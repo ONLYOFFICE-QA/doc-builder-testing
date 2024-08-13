@@ -1,11 +1,10 @@
 builder.CreateFile("pptx");
 var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
+// oPresentation.GetMaster(0).Delete();
 oSlide.RemoveAllObjects();
-var oMaster0 = oPresentation.GetMaster(0);
 var oMaster = Api.CreateMaster();
 oPresentation.AddMaster(1, oMaster);
-oMaster0.Delete();
 
 var nCountBefore = oMaster.GetAllShapes().length;
 var oFill = Api.CreateSolidFill(Api.CreateRGBColor(255, 111, 61));
