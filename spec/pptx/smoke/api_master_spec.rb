@@ -4,7 +4,7 @@ require 'spec_helper'
 describe 'ApiMaster section tests' do
   it 'ApiMaster | AddLayout method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/add_layout.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     # expect(pptx.slide_layouts.size).to eq(1)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -13,7 +13,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | AddObject method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/add_object.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     shape_element = pptx.slide_masters[1].common_slide_data.shape_tree.elements.first
     expect(shape_element.class).to eq(OoxmlParser::DocxShape)
@@ -35,7 +35,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | Delete method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/delete.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # заменить удаление второго мастера на первый
     expect(pptx.slide_masters.size).to eq(1)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -51,7 +51,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllCharts method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_charts.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.first.class).to eq(OoxmlParser::GraphicFrame)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -60,7 +60,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllDrawings method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_drawings.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.size).to eq(2)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[0].class).to eq(OoxmlParser::DocxPicture)
@@ -72,7 +72,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllImages method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_images.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.first.class).to eq(OoxmlParser::DocxPicture)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -81,7 +81,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllOleObjects method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_ole_objects.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.first.class).to eq(OoxmlParser::GraphicFrame)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -90,7 +90,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllShapes method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_shapes.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.first.class).to eq(OoxmlParser::DocxShape)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -131,7 +131,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | RemoveObject method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/remove_object.js')
-    # TODO https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
+    # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.size).to eq(1)
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.first.class).to eq(OoxmlParser::DocxPicture)
