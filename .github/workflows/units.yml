@@ -1,0 +1,11 @@
+name: units
+on: [push, pull_request]
+jobs:
+  units:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Running units
+        run: |
+          docker build -t doc-builder-units .
+          docker run -t doc-builder-units project_spec

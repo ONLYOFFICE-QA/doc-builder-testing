@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative '../../spec_helper'
 
 describe TestCoverageResult do
   let(:bad) { 'https://raw.githubusercontent.com/ONLYOFFICE-QA' }
