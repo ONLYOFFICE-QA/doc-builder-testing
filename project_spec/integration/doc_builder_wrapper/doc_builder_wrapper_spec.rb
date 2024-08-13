@@ -4,7 +4,7 @@ require_relative '../../spec_helper'
 
 describe DocBuilderWrapper do
   let(:builder) { described_class.new }
-  let(:file_path) { 'immanent_spec/integration/doc_builder_wrapper/js/check_argument.js' }
+  let(:file_path) { 'project_spec/integration/doc_builder_wrapper/js/check_argument.js' }
 
   context 'without arguments' do
     it 'build method' do
