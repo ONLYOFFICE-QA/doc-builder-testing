@@ -230,7 +230,7 @@ describe 'ApiTable section tests' do
       caption = docx.elements[11]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= 'v8.2'
+      if builder.semver >= Semantic::Version.new('8.2.0')
         check_caption(caption, ['1', ':', 'B', ' caption text '])
       else
         check_caption(caption, ['1', ':', '2', ' caption text '])
@@ -243,7 +243,7 @@ describe 'ApiTable section tests' do
       caption = docx.elements[13]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= 'v8.2'
+      if builder.semver >= Semantic::Version.new('8.2.0')
         check_caption(caption, ['Equation ', '1.1', '-', 'a'])
       else
         check_caption(caption, ['Equation ', '1.1', '-', '1'])
@@ -256,7 +256,7 @@ describe 'ApiTable section tests' do
       caption = docx.elements[17]
       expect(caption.nonempty_runs.size).to eq(4)
       # TODO: 'check after release'
-      if builder.version >= 'v8.2'
+      if builder.semver >= Semantic::Version.new('8.2.0')
         check_caption(caption, ['Table ', '1.1.1', '—', 'III'])
       else
         check_caption(caption, ['Table ', '1.1.1', '—', '3'])
