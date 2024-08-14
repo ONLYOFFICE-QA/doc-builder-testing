@@ -25,3 +25,8 @@ desc 'run rspec via windows'
 task :win do
   system('rspec --tag win')
 end
+
+desc 'run project spec'
+task :project_spec do
+  system('bundle exec parallel_rspec project_spec')
+end
