@@ -27,6 +27,7 @@ describe 'ApiMaster section tests' do
   end
 
   it 'ApiMaster | Copy method' do
+    skip('Fixed since v8.1.1') if builder.semver <= Semantic::Version.new('8.1.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/copy.js')
     expect(pptx.slide_masters.size).to eq(2)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
@@ -43,6 +44,7 @@ describe 'ApiMaster section tests' do
   end
 
   it 'ApiMaster | Duplicate method' do
+    skip('Fixed since v8.1.1') if builder.semver <= Semantic::Version.new('8.1.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/duplicate.js')
     expect(pptx.slide_masters.size).to eq(2)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
