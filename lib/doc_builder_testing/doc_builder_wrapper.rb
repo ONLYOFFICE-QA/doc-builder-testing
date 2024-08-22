@@ -35,7 +35,7 @@ class DocBuilderWrapper
   # @return [String] command to run builder for any platform
   def run_build_command(script_file, **kwargs)
     argument = kwargs == {} ? nil : get_argument_string(kwargs.to_json)
-    "#{@builder_exe} #{"--argument=#{argument}" if argument} #{script_file} 2>&1"
+    "#{@builder_exe}#{" --argument=#{argument}" if argument} #{script_file} 2>&1"
   end
 
   # Build file from script
