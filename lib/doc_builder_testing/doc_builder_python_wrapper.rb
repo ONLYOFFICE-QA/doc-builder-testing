@@ -17,7 +17,7 @@ class DocBuilderPythonWrapper
   # @param script_file [String] script file
   # @return [String] output file path
   def build(script_file)
-    build_result = `export PYTHONPATH="$PWD"; #{run_build_command(script_file)}`
+    build_result = `#{run_build_command(script_file)}`
     raise DocBuilderError, build_result if build_result.include?('Error')
   end
 
