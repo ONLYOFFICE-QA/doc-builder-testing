@@ -10,10 +10,9 @@ class PythonDocBuilderWrapper:
 
     @property
     def default_builder_path(self) -> str:
-        return (
-            r'C:\Program Files\ONLYOFFICE\DocumentBuilder' if system().lower() == 'windows'
-            else '/opt/onlyoffice/documentbuilder'
-        )
+        if system().lower() == 'windows':
+            return r'C:\Program Files\ONLYOFFICE\DocumentBuilder'
+        return '/opt/onlyoffice/documentbuilder'
 
     def builder(self) -> Any:
         sys.path.append(self.builder_path)
