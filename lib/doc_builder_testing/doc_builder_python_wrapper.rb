@@ -7,10 +7,14 @@ require_relative 'doc_builder_helper'
 class DocBuilderPythonWrapper
   include DocBuilderHelper
 
+  def initialize
+    @python = Gem.win_platform? ? 'python' : 'python3'
+  end
+
   # @param script_file [String] script file
   # @return [String] command to run builder for any platform
   def run_build_command(script_file)
-    "python3 #{script_file} 2>&1"
+    "#{@python} #{script_file} 2>&1"
   end
 
   # Build file from script
