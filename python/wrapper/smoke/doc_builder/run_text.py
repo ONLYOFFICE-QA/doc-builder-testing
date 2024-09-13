@@ -5,5 +5,5 @@ var oParagraph = Api.CreateParagraph();
 oParagraph.AddText("This is a paragraph for RunText");
 oDocument.Push(oParagraph);
 """)
-builder.SaveFile("docx", "Run.docx")
+builder.SaveFile("docx", "RunText.docx")
 builder.CloseFile()

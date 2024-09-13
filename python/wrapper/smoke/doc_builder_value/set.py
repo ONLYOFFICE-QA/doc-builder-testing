@@ -17,5 +17,5 @@ content.Set(1, paragraph1)
 content.Set(2, paragraph2)
 document.Call('InsertContent', content)
 
-builder.SaveFile("docx", "BaseExample.docx")
+builder.SaveFile("docx", "Set.docx")
 builder.CloseFile()

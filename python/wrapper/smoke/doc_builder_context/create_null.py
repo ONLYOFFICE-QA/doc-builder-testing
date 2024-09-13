@@ -11,5 +11,5 @@ paragraph = document.Call("GetElement", 0)
 value = context.CreateNull()
 paragraph.Call("AddText", f"Value is null = {value.IsNull()}")
 
-builder.SaveFile("docx", "BaseExample.docx")
+builder.SaveFile("docx", "CreateNull.docx")
 builder.CloseFile()

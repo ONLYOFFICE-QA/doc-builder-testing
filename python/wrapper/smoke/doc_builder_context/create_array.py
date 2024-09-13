@@ -18,5 +18,5 @@ content[0] = paragraph1
 content[1] = paragraph2
 document.Call('InsertContent', content)
 
-builder.SaveFile("docx", "BaseExample.docx")
+builder.SaveFile("docx", "CreateArray.docx")
 builder.CloseFile()

@@ -17,5 +17,5 @@ content = context.CreateArray(1)
 content[0] = paragraph
 
 document.Call("InsertContent", content)
-builder.SaveFile("docx", "ExecuteCommand.docx")
+builder.SaveFile("docx", "SetProperty.docx")
 builder.CloseFile()

@@ -8,11 +8,11 @@ api = globalObj["Api"]
 
 document = api.Call("GetDocument")
 paragraph = document.Call("GetElement", 0)
-value1 = context.CreateNull()
-value2 = context.CreateObject()
-paragraph.Call("AddText", f"Value 1 is null = {value.IsNull()}")
+text = paragraph.Call("GetText")
+style = paragraph.Call("GetStyle")
+paragraph.Call("AddText", f"Text is null = {text.IsNull()}")
 paragraph.Call("AddLineBreak")
-paragraph.Call("AddText", f"Value 2 is null = {value.IsNull()}")
+paragraph.Call("AddText", f"Style is null = {style.IsNull()}")
 
-builder.SaveFile("docx", "BaseExample.docx")
+builder.SaveFile("docx", "IsNull.docx")
 builder.CloseFile()

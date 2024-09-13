@@ -11,5 +11,5 @@ paragraph = document.Call("GetElement", 0)
 value = context.CreateUndefined()
 paragraph.Call("AddText", f"Value is undefined = {value.IsUndefined()}")
 
-builder.SaveFile("docx", "BaseExample.docx")
+builder.SaveFile("docx", "CreateUndefined.docx")
 builder.CloseFile()

@@ -15,5 +15,5 @@ comments = document.Call("GetAllComments")
 paragraph.Call("AddLineBreak")
 paragraph.Call("AddText", f"Comment text is {comments.Get(0).Call("GetText").ToString()}")
 
-builder.SaveFile("docx", "IsArray.docx")
+builder.SaveFile("docx", "Get.docx")
 builder.CloseFile()

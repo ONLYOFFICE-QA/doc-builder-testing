@@ -37,50 +37,57 @@ describe 'CDocBuilderValue tests', :critical do
   it 'CDocBuilderValue | IsBool method' do
     skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=70046'
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_bool.py')
-    expect(docx.elements.first.nonempty_runs[4].text).to eq('Text IsBool = False')
-    expect(docx.elements.first.nonempty_runs[6].text).to eq('Delete result IsBool = True')
-
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Text IsBool = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('Delete result IsBool = True')
   end
 
-  # it "CDocBuilderValue | IsDouble method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_double.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsDouble method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_double.py')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('Width is double = True')
+    expect(docx.elements.first.nonempty_runs[3].text).to eq('LockValue is double = False')
+  end
 
-  # it "CDocBuilderValue | IsEmpty method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_empty.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsEmpty method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_empty.py')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Right call is empty = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('Wrong call is empty = True')
+  end
 
-  # it "CDocBuilderValue | IsFunction method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_function.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsFunction method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_function.py')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('globalObj["Api"] is undefined = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('globalObj["Object"] is undefined = True')
+  end
 
-  # it "CDocBuilderValue | IsInt method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_int.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsInt method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_int.py')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Content is int = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('ElementsCount is int = True')
+  end
 
-  # it "CDocBuilderValue | IsNull method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_null.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsNull method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_null.py')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Text is null = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('Style is null = True')
+  end
 
   it 'CDocBuilderValue | IsObject method' do
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_object.py')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq('Global API is object = True')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Paragraph is object = True')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('IsTrackRevisions is object = False')
   end
 
   it 'CDocBuilderValue | IsString method' do
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_string.py')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('GetText is string = True')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('ClassType is string = True')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('Charts is string = False')
   end
 
-  # it "CDocBuilderValue | IsUndefined method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_undefined.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | IsUndefined method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_undefined.py')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('Images[0] is undefined = False')
+    expect(docx.elements.first.nonempty_runs[3].text).to eq('Images[1] is undefined = True')
+  end
 
   it 'CDocBuilderValue | Set method' do
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/set.py')
@@ -93,15 +100,15 @@ describe 'CDocBuilderValue tests', :critical do
     expect(docx.elements.first.nonempty_runs[2].text).to eq('Delete result = True')
   end
 
-  # it "CDocBuilderValue | ToDouble method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_double.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | ToDouble method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_double.py')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('Width = 2160000.0')
+  end
 
-  # it "CDocBuilderValue | ToInt method" do
-  #   docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_int.py')
-  #   expect('').to eq('')
-  # end
+  it 'CDocBuilderValue | ToInt method' do
+    docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_int.py')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('ElementsCount = 1')
+  end
 
   it 'CDocBuilderValue | ToString method' do
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_string.py')

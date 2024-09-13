@@ -8,16 +8,10 @@ api = globalObj["Api"]
 
 document = api.Call("GetDocument")
 paragraph = document.Call("GetElement", 0)
-paragraph.Call("AddText", "Some text")
-paragraph.Call("AddComment", "Comment one", "John", "uid-1")
-
-comments = document.Call("GetAllComments")
-text = comments[0].Call("GetText")
-delete = comments[0].Call("Delete")
+track_revisions = document.Call("IsTrackRevisions")
+paragraph.Call("AddText", f"Paragraph is bool = {paragraph.IsBool()}")
 paragraph.Call("AddLineBreak")
-paragraph.Call("AddText", f"Text IsBool = {text.IsBool()}")
-paragraph.Call("AddLineBreak")
-paragraph.Call("AddText", f"Delete result IsBool = {delete.IsBool()}")
+paragraph.Call("AddText", f"IsTrackRevisions is bool = {track_revisions.IsBool()}")
 
-builder.SaveFile("docx", "IsArray.docx")
+builder.SaveFile("docx", "IsBool.docx")
 builder.CloseFile()

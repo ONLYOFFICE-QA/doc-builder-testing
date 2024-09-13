@@ -16,5 +16,5 @@ delete = comments[0].Call("Delete")
 paragraph.Call("AddLineBreak")
 paragraph.Call("AddText", f"Delete result = {delete.ToBool()}")
 
-builder.SaveFile("docx", "IsArray.docx")
+builder.SaveFile("docx", "ToBool.docx")
 builder.CloseFile()
