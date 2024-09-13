@@ -27,8 +27,7 @@ class DocBuilderPythonWrapper
 
   # Build document and parse it
   # @param script_file [String] path to script file
-  # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
-  # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
+  # @return [OnlyofficePdfParser::PdfStructure, OoxmlParser::Parser, nil] parsed file if file is Ooxml or structure if file is PDF
   def build_and_parse(script_file)
     temp_script_data = build_file(script_file)
     parse(temp_script_data)
