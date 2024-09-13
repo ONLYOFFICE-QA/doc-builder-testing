@@ -7,6 +7,7 @@ describe 'CDocBuilderValue tests', :critical do
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is Call method check')
   end
 
+  # Clears CDocBuilderValue object, sets empty value
   it 'CDocBuilderValue | Clear method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/clear.py')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('before clear: False')
@@ -47,6 +48,7 @@ describe 'CDocBuilderValue tests', :critical do
     expect(docx.elements.first.nonempty_runs[3].text).to eq('LockValue is double = False')
   end
 
+  # Wrapper method, CDocBuilderValue can be empty if call is incorrect or object is cleared (Clear method)
   it 'CDocBuilderValue | IsEmpty method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_empty.py')
     expect(docx.elements.first.nonempty_runs[0].text).to eq('Right call is empty = False')

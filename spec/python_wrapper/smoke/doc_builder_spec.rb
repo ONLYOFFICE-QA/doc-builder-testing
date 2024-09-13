@@ -62,6 +62,7 @@ describe 'CDocBuilder tests', :critical do
     expect(docx.elements[1].nonempty_runs.first.text).to eq('This is a paragraph for RunText')
   end
 
+  # Is only applied once, before creating the document (CreateFile method)
   it 'CDocBuilder | SetProperty method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/set_property.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Some SetProperty value')

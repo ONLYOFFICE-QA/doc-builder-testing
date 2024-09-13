@@ -18,6 +18,7 @@ describe 'CDocBuilderContext tests', :critical do
   #   expect('').to eq('')
   # end
 
+  # Creates context scope for script, at least one scope must be open
   it 'CDocBuilderContext | CreateScope method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_context/create_scope.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq("Without CreateScope script doesn't works")
