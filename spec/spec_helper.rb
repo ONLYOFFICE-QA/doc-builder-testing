@@ -31,7 +31,6 @@ def web_builder?
   builder_platform == 'WEB'
 end
 
-
 # Settings for import docbuilder.py in test scripts
 ENV['PYTHONPATH'] = Dir.pwd
 
