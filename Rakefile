@@ -30,8 +30,3 @@ desc 'run project spec'
 task :project_spec do
   system('bundle exec parallel_rspec project_spec')
 end
-
-desc 'run python spec'
-task :python_spec do
-  system('bundle exec parallel_rspec python_spec')
-end
