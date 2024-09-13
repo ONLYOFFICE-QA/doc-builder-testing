@@ -2,10 +2,6 @@
 
 require 'spec_helper'
 describe 'CDocBuilder tests', :critical do
-  # it 'CDocBuilder | CreateFile method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/create_file.py')
-  # end
-
   it 'CDocBuilder | OpenFile method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/open_file.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('It’s-a me, Mario!')
@@ -17,35 +13,10 @@ describe 'CDocBuilder tests', :critical do
     expect(File.exist?(temp_script_data[:output_file])).to be(true)
   end
 
-  # it 'CDocBuilder | CloseFile method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/close_file.py')
-  # end
-  #
-  # it 'CDocBuilder | Initialize method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/initialize.py')
-  # end
-  #
-  # it 'CDocBuilder | Dispose method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/dispose.py')
-  # end
-  #
-  # it 'CDocBuilder | IsSaveWithDoctrendererMode method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/is_save_with_doctrenderer_mode.py')
-  # end
-  #
-  # it 'CDocBuilder | SetTmpFolder method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/set_tmp_folder.py')
-  # end
-
   it 'CDocBuilder | ExecuteCommand method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/execute_command.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Some ExecuteCommand value')
   end
-
-  # it 'CDocBuilder | GetContext method' do
-  #   docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/get_context.py')
-  #   expect().to eq()
-  # end
 
   it 'CDocBuilder | GetVersion method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/get_version.py')

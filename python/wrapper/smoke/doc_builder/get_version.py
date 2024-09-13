@@ -14,7 +14,7 @@ paragraph.Call("AddText", version.decode())
 
 content = context.CreateArray(1)
 content[0] = paragraph
-
 document.Call("InsertContent", content)
+
 builder.SaveFile("docx", "GetVersion.docx")
 builder.CloseFile()

@@ -13,7 +13,7 @@ paragraph.Call("AddText", "Hello, World!")
 
 content = context.CreateArray(1)
 content[0] = paragraph
-
 document.Call("InsertContent", content)
+
 builder.SaveFile("docx", "BaseExample.docx")
 builder.CloseFile()
