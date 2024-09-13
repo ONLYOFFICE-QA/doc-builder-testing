@@ -12,8 +12,9 @@ paragraph.Call("AddText", "Some text")
 paragraph.Call("AddComment", "Comment one", "John", "uid-1")
 
 comments = document.Call("GetAllComments")
+comment = comments.Get(0)
 paragraph.Call("AddLineBreak")
-paragraph.Call("AddText", f"Comment text is {comments.Get(0).Call("GetText").ToString()}")
+paragraph.Call("AddText", f'Comment text is {comment.Call("GetText").ToString()}')
 
 builder.SaveFile("docx", "Get.docx")
 builder.CloseFile()

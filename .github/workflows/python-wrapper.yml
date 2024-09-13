@@ -1,0 +1,26 @@
+name: python-wrapper
+on: [push, pull_request]
+jobs:
+  run_python_spec_in_default_docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Running units
+        run: |
+          docker build -t doc-builder-python-wrapper .
+          docker run -t doc-builder-python-wrapper python_spec
+  run_python_spec_in_all_dockerfiles:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        dockerfiles:
+          - "dockerfiles/rockylinux-latest/Dockerfile"
+          - "dockerfiles/debian-develop/Dockerfile"
+          - "dockerfiles/debian-next-release/Dockerfile"
+      fail-fast: false
+    steps:
+      - uses: actions/checkout@v4
+      - name: Dockerfile ${{ matrix.dockerfiles }}
+        run: |
+          docker build -t doc-builder-python-wrapper -f ${{ matrix.dockerfiles }} .
+          docker run -t doc-builder-python-wrapper python_spec

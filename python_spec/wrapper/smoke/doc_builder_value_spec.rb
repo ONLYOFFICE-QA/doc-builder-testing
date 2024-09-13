@@ -97,7 +97,7 @@ describe 'CDocBuilderValue tests', :critical do
 
   it 'CDocBuilderValue | ToBool method' do
     docx = builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_bool.py')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('Delete result = True')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('IsTrackRevisions = False')
   end
 
   it 'CDocBuilderValue | ToDouble method' do
