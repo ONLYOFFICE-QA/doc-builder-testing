@@ -1,5 +1,5 @@
 name: python-wrapper
-on: [push, pull_request]
+on: [push]
 jobs:
   run_python_spec_in_default_docker:
     runs-on: ubuntu-latest
