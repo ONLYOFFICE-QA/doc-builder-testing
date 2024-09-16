@@ -100,7 +100,7 @@ GEM
     strscan (3.1.0)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     yard (0.9.36)
 
 PLATFORMS
