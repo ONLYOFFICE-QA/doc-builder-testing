@@ -35,6 +35,7 @@ describe 'CDocBuilderContext tests', :critical do
   end
 
   it 'CDocBuilderContext | IsError method' do
-    expect { python_builder.build('python/wrapper/smoke/doc_builder_context/is_error.py') }.to raise_error(include('TypeError: Api.GetParagraph is not a function'))
+    temp_script_data = python_builder.change_output_file('python/wrapper/smoke/doc_builder_context/is_error.py')
+    expect { python_builder.build(temp_script_data[:temp_script_file].path) }.to raise_error(include('TypeError: Api.GetParagraph is not a function'))
   end
 end
