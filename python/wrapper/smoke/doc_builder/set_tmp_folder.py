@@ -1,4 +1,6 @@
 from python.docbuilder import builder
+
+builder.SetTmpFolder("tmp/folder")
 builder.CreateFile("docx")
 
 context = builder.GetContext()
@@ -7,8 +9,6 @@ globalObj = context.GetGlobal()
 api = globalObj["Api"]
 
 document = api.Call("GetDocument")
-paragraph = document.Call("GetElement", 0)
-paragraph.Call("AddText", "Without CreateScope script doesn't work")
-
-builder.SaveFile("docx", "CreateScope.docx")
-builder.CloseFile()
+paragraph = api.Call("CreateParagraph")
+scope.Close()
+paragraph.Call("AddText", "Hello, World!")

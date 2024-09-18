@@ -13,9 +13,33 @@ describe 'CDocBuilder tests', :critical do
     expect(File.exist?(temp_script_data[:output_file])).to be(true)
   end
 
+  it 'CDocBuilder | IsSaveWithDoctrendererMode method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=70286')
+    docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/is_save_with_doctrenderer_mode.py')
+    expect(docx.elements.first.nonempty_runs.first.text).to be('IsSaveWithDoctrendererMode = True')
+  end
+
+  it 'CDocBuilder | SetTmpFolder method' do
+    script_file = 'python/wrapper/smoke/doc_builder/set_tmp_folder.py'
+    tmpdir = Dir.mktmpdir('tmp_folder')
+    expect(Dir.empty?(tmpdir)).to be(true)
+    script_file_content = File.read(script_file)
+    script_file_content.gsub!('tmp/folder', tmpdir.to_s)
+    temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
+    temp_script_file.write(script_file_content)
+    temp_script_file.close
+    python_builder.build(temp_script_file.path)
+    expect(Dir.empty?(tmpdir)).to be(false)
+  end
+
   it 'CDocBuilder | ExecuteCommand method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/execute_command.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Some ExecuteCommand value')
+  end
+
+  it 'CDocBuilder | GetContext method' do
+    docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/get_context.py')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('If this paragraph is here, GetContext works')
   end
 
   it 'CDocBuilder | GetVersion method' do

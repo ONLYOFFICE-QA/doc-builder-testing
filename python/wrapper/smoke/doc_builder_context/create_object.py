@@ -8,7 +8,8 @@ api = globalObj["Api"]
 
 document = api.Call("GetDocument")
 paragraph = document.Call("GetElement", 0)
-paragraph.Call("AddText", "Without CreateScope script doesn't work")
+value = context.CreateObject()
+paragraph.Call("AddText", f"Value is object = {value.IsObject()}")
 
-builder.SaveFile("docx", "CreateScope.docx")
+builder.SaveFile("docx", "CreateObject.docx")
 builder.CloseFile()

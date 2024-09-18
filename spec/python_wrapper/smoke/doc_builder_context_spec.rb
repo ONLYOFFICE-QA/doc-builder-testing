@@ -13,10 +13,15 @@ describe 'CDocBuilderContext tests', :critical do
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Value is null = True')
   end
 
+  it 'CDocBuilderContext | CreateObject method' do
+    docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_context/create_object.py')
+    expect(docx.elements.first.nonempty_runs.first.text).to eq('Value is object = True')
+  end
+
   # Creates context scope for script, at least one scope must be open
   it 'CDocBuilderContext | CreateScope method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_context/create_scope.py')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq("Without CreateScope script doesn't works")
+    expect(docx.elements.first.nonempty_runs.first.text).to eq("Without CreateScope script doesn't work")
   end
 
   it 'CDocBuilderContext | CreateUndefined method' do
@@ -27,5 +32,9 @@ describe 'CDocBuilderContext tests', :critical do
   it 'CDocBuilderContext | GetGlobal method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_context/get_global.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('If this paragraph is here, GetGlobal works')
+  end
+
+  it 'CDocBuilderContext | IsError method' do
+    expect { python_builder.build('python/wrapper/smoke/doc_builder_context/is_error.py') }.to raise_error(include('TypeError: Api.GetParagraph is not a function'))
   end
 end
