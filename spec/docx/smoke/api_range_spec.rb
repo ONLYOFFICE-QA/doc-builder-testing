@@ -46,7 +46,7 @@ describe 'ApiRange section tests' do
       expect(docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
     end
 
-    it 'Check method with parameters 0, 15' do
+    it 'Check method with parameters 0, 17' do
       docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 0, end_pos: 17)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(2)
@@ -57,7 +57,7 @@ describe 'ApiRange section tests' do
       expect(docx.elements[0].nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new)
     end
 
-    it 'Check method with parameters 6, 10' do
+    it 'Check method with parameters 10, 24' do
       docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 10, end_pos: 24)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(3)
