@@ -37,6 +37,8 @@ describe 'CDocBuilder tests', :critical do
     expect(docx.elements.first.nonempty_runs.first.text).to eq('Some ExecuteCommand value')
   end
 
+  # By default, calls CreateScope internally and creates a context
+  # If scope is to be created separately, the method is called with the False parameter
   it 'CDocBuilder | GetContext method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/get_context.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('If this paragraph is here, GetContext works')
