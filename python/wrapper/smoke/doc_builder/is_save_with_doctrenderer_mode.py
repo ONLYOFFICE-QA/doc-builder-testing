@@ -4,7 +4,6 @@ builder.SetProperty('--use-doctrenderer-scheme', 'true')
 builder.CreateFile("docx")
 
 context = builder.GetContext()
-scope = context.CreateScope()
 globalObj = context.GetGlobal()
 api = globalObj["Api"]
 

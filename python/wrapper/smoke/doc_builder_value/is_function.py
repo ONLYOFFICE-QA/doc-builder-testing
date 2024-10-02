@@ -2,7 +2,6 @@ from python.docbuilder import builder
 builder.CreateFile("docx")
 
 context = builder.GetContext()
-scope = context.CreateScope()
 globalObj = context.GetGlobal()
 api = globalObj["Api"]
 obj = globalObj['Object']

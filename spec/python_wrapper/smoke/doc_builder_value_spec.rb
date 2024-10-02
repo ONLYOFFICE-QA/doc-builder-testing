@@ -36,10 +36,9 @@ describe 'CDocBuilderValue tests', :critical do
   end
 
   it 'CDocBuilderValue | IsBool method' do
-    skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=70046'
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/is_bool.py')
-    expect(docx.elements.first.nonempty_runs[0].text).to eq('Text IsBool = False')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('Delete result IsBool = True')
+    expect(docx.elements.first.nonempty_runs[0].text).to eq('Paragraph is bool = False')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq('IsTrackRevisions is bool = True')
   end
 
   it 'CDocBuilderValue | IsDouble method' do

@@ -4,7 +4,6 @@ builder.SetProperty("--argument", json.dumps({"some key": "Some SetProperty valu
 builder.CreateFile("docx")
 
 context = builder.GetContext()
-scope = context.CreateScope()
 globalObj = context.GetGlobal()
 api = globalObj["Api"]
 
