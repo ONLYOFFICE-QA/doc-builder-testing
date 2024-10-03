@@ -1,6 +1,6 @@
 from python.docbuilder import builder
 
-builder.SetTmpFolder("tmp/folder")
+builder.SetTmpFolder("/tmp/folder")
 builder.CreateFile("docx")
 
 context = builder.GetContext(False)

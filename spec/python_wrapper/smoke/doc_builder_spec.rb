@@ -26,7 +26,7 @@ describe 'CDocBuilder tests', :critical do
     tmpdir = Dir.mktmpdir('tmp_folder')
     expect(Dir.empty?(tmpdir)).to be(true)
     script_file_content = File.read(script_file)
-    script_file_content.gsub!('tmp/folder', tmpdir.to_s)
+    script_file_content.gsub!('/tmp/folder', tmpdir.to_s)
     temp_script_file = Tempfile.new([File.basename(script_file), File.extname(script_file)])
     temp_script_file.write(script_file_content)
     temp_script_file.close
