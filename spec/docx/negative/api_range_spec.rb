@@ -4,7 +4,7 @@ require 'spec_helper'
 describe 'ApiRange section negative tests' do
   describe 'ApiRange | GetRange method' do
     let(:style) { OoxmlParser::FontStyle.new }
-    let(:file_path) { 'js/docx/negative/api_range/get_range.js' }
+    let(:file_path) { 'js/docx/smoke/api_range/get_range_with_params.js' }
 
     it 'Check method with wrong parameters 0, -1' do
       docx = builder.build_and_parse(file_path, start_pos: 0, end_pos: -1)

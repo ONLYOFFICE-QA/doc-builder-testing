@@ -45,5 +45,42 @@ describe 'ApiRange section tests' do
       expect(docx.elements[1].nonempty_runs[1].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
     end
+
+    it 'Check method with parameters 0, 17' do
+      docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 0, end_pos: 17)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements[0].nonempty_runs.size).to eq(2)
+
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.0')
+        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder')
+        expect(docx.elements[0].nonempty_runs[1].text).to eq(' check GetRange method')
+      else
+        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder ')
+        expect(docx.elements[0].nonempty_runs[1].text).to eq('check GetRange method')
+      end
+      expect(docx.elements[0].nonempty_runs[0].font_style).to eq(OoxmlParser::FontStyle.new(true))
+      expect(docx.elements[0].nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new)
+    end
+
+    it 'Check method with parameters 10, 24' do
+      docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 10, end_pos: 24)
+      expect(docx.elements.size).to eq(1)
+      expect(docx.elements[0].nonempty_runs.size).to eq(3)
+
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.0')
+        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document ')
+        expect(docx.elements[0].nonempty_runs[1].text).to eq('Builder check ')
+        expect(docx.elements[0].nonempty_runs[2].text).to eq('GetRange method')
+      else
+        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document B')
+        expect(docx.elements[0].nonempty_runs[1].text).to eq('uilder check G')
+        expect(docx.elements[0].nonempty_runs[2].text).to eq('etRange method')
+      end
+      expect(docx.elements[0].nonempty_runs[0].font_style).to eq(OoxmlParser::FontStyle.new)
+      expect(docx.elements[0].nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new(true))
+      expect(docx.elements[0].nonempty_runs[2].font_style).to eq(OoxmlParser::FontStyle.new)
+    end
   end
 end
