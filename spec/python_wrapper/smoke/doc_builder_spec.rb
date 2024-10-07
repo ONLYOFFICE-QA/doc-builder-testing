@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'CDocBuilder tests', :critical do
+describe 'CDocBuilder tests' do
   before { skip 'incompatible changes' if builder.semver < Semantic::Version.new('8.2.0') }
 
   it 'CDocBuilder | OpenFile method' do

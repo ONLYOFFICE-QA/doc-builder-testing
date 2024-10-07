@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-describe 'CDocBuilderContextScope tests', :critical do
+describe 'CDocBuilderContextScope tests' do
   before { skip 'incompatible changes' if builder.semver < Semantic::Version.new('8.2.0') }
 
   it 'CDocBuilderContextScope | Close method' do
