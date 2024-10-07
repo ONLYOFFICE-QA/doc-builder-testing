@@ -1,19 +1,14 @@
 from python.docbuilder import builder
+
+builder.SetTmpFolder("/tmp/folder")
 builder.CreateFile("docx")
 
-context = builder.GetContext()
+context = builder.GetContext(False)
 scope = context.CreateScope()
 globalObj = context.GetGlobal()
 api = globalObj["Api"]
 
 document = api.Call("GetDocument")
 paragraph = api.Call("CreateParagraph")
-paragraph.Call("SetSpacingAfter", 1000, False)
+scope.Close()
 paragraph.Call("AddText", "Hello, World!")
-
-content = context.CreateArray(1)
-content[0] = paragraph
-
-document.Call("InsertContent", content)
-builder.SaveFile("docx", "result.docx")
-builder.CloseFile()

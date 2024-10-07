@@ -1,0 +1,4 @@
+var oDocument = Api.GetDocument();
+var oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is a paragraph for Run");
+oDocument.Push(oParagraph);
