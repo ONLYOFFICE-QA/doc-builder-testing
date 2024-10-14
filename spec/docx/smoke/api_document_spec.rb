@@ -168,4 +168,47 @@ describe 'ApiDocument section tests' do
     end
     expect(comments_text.join(', ')).to eq(docx.elements.last.nonempty_runs.first.text)
   end
+
+  describe 'ApiDocument | AddMathEquation method' do
+    let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/add_math_equation.js') }
+
+    it 'Check with sFormat="unicode"' do
+      expect(docx.elements.first.nonempty_runs[0].class).to eq(OoxmlParser::DocxFormula)
+      expect(docx.elements.first.nonempty_runs[0].formula_run[0].numerator.formula_run[0].text).to eq('dx')
+      expect(docx.elements.first.nonempty_runs[0].formula_run[0].denominator.formula_run[0].text).to eq('dy')
+    end
+
+    it 'Check with sFormat="latex"' do
+      expect(docx.elements.first.nonempty_runs[2].class).to eq(OoxmlParser::DocxFormula)
+      expect(docx.elements.first.nonempty_runs[2].formula_run[0].text).to eq('dx/dy')
+    end
+  end
+
+  describe 'ApiDocument | GetCurrentWord method' do
+    let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/get_current_word.js') }
+
+    it 'Check without sWordPart' do
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('word is GetCurrentWord')
+    end
+
+    it 'Check with sWordPart="before"' do
+      expect(docx.elements[2].nonempty_runs.first.text).to eq('before cursor: GetCur')
+    end
+
+    it 'Check with sWordPart="after"' do
+      expect(docx.elements[3].nonempty_runs.first.text).to eq('after cursor: rentWord')
+    end
+  end
+
+  describe 'ApiDocument | ReplaceCurrentWord method' do
+    let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/replace_current_word.js') }
+
+    it 'Check without sWordPart' do
+      expect(docx.elements.first.nonempty_runs[1].text).to eq('Replace ')
+    end
+
+    it 'Check with sWordPart="before"/"after"' do
+      expect(docx.elements.first.nonempty_runs[2].text).to eq('CurrentWord')
+    end
+  end
 end
