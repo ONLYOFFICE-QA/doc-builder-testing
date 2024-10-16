@@ -4,16 +4,16 @@ jobs:
   code-style:
     runs-on: ubuntu-latest
     steps:
+      - name: Setup system requirements
+        run: |
+          sudo apt-get -y update
+          sudo apt-get -y install imagemagick \
+                                  libmagickwand-dev
       - uses: actions/checkout@v4
-      - name: Set up Ruby 3.2
-        uses: ruby/setup-ruby@v1
+      - uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
-      - name: Install gem dependencies
-        run: |
-          gem install bundler
-          bundle config set with 'development'
-          bundle install --jobs 4 --retry 3
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run RuboCop check
         run: rubocop
       - name: Check that code 100% documented
