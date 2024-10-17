@@ -4,10 +4,16 @@ require 'spec_helper'
 describe 'ApiRange section tests' do
   it 'ApiRange | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/to_json.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
     json = JSON.parse(docx.elements[0].nonempty_runs.first.text)
     expect(json['type']).to eq('document')
-    expect(json['content'][0]['content'][1]['content'][0]).to eq('ONLYOFFICE')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.0')
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
+      expect(json['content'][0]['content'][1]['content'][0]).to eq('ONLYOFFICE')
+    else
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE ')
+      expect(json['content'][0]['content'][0]['content'][0]).to eq('ONLYOFFICE ')
+    end
   end
 
   describe 'ApiRange | GetRange method' do
