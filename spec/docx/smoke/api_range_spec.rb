@@ -4,14 +4,21 @@ require 'spec_helper'
 describe 'ApiRange section tests' do
   it 'ApiRange | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/to_json.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
     json = JSON.parse(docx.elements[0].nonempty_runs.first.text)
     expect(json['type']).to eq('document')
-    expect(json['content'][0]['content'][0]['content'][0]).to eq('ONLYOFFICE')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.0')
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
+      expect(json['content'][0]['content'][1]['content'][0]).to eq('ONLYOFFICE')
+    else
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE ')
+      expect(json['content'][0]['content'][0]['content'][0]).to eq('ONLYOFFICE ')
+    end
   end
 
   describe 'ApiRange | GetRange method' do
     let(:style) { OoxmlParser::FontStyle.new(true, true) }
+    let(:file_path) { 'js/docx/smoke/api_range/get_range_with_params.js' }
     let(:docx) { builder.build_and_parse('js/docx/smoke/api_range/get_range.js') }
 
     it 'Check document structure' do
@@ -47,7 +54,8 @@ describe 'ApiRange section tests' do
     end
 
     it 'Check method with parameters 0, 17' do
-      docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 0, end_pos: 17)
+      skip('Fix after moving to sending the script as a static file')
+      docx = builder.build_and_parse(file_path, start_pos: 0, end_pos: 17)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(2)
 
@@ -64,7 +72,8 @@ describe 'ApiRange section tests' do
     end
 
     it 'Check method with parameters 10, 24' do
-      docx = builder.build_and_parse('js/docx/smoke/api_range/get_range_with_params.js', start_pos: 10, end_pos: 24)
+      skip('Fix after moving to sending the script as a static file')
+      docx = builder.build_and_parse(file_path, start_pos: 10, end_pos: 24)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(3)
 

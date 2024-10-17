@@ -34,7 +34,12 @@ describe 'All tests numbering object' do
 
   it 'Cross-reference to bookmarks' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_bookmark_cross_ref.js')
-    expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.0')
+      expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
+    else
+      expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph ')
+    end
     expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
     # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58898'
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')

@@ -61,7 +61,11 @@ describe 'ApiDocumentContent section tests' do
     expect(docx.elements[2].properties.table_style.name).to eq('CustomTableStyle')
     json = JSON.parse(docx.elements[5].nonempty_runs.first.text)
     expect(json['type']).to eq('docContent')
-    expect(json['content'][0]['content'][2]['type']).to eq('hyperlink')
+    if builder.semver >= Semantic::Version.new('8.2.0')
+      expect(json['content'][0]['content'][1]['type']).to eq('hyperlink')
+    else
+      expect(json['content'][0]['content'][2]['type']).to eq('hyperlink')
+    end
     expect(json['content'][1]['type']).to eq('blockLvlSdt')
     expect(json['content'][2]['type']).to eq('table')
   end

@@ -9,7 +9,7 @@ builder.CreateFile("docx");
 // Add Hyperlink
         oParagraph = oDocContent.GetElement(0);
         oParagraph.AddText('Hyperlink');
-    var oRange = oParagraph.GetRange(0, 8);
+    var oRange = oParagraph.GetRange(0, 10);
         oRange.AddHyperlink('https://api.onlyoffice.com')
 // Add BlockLvlSdt
     var oBlockLvlSdt = Api.CreateBlockLvlSdt();
