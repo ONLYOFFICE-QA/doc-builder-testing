@@ -69,7 +69,7 @@ describe 'ApiMaster section tests' do
     expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[1].class).to eq(OoxmlParser::GraphicFrame)
     slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
     expect(slide_elements.first.text_body.paragraphs.first.runs[0].text).to eq('Drawings count: 2')
-    expect(slide_elements.first.text_body.paragraphs.first.runs[1].text).to eq('Types: drawing, drawing')
+    expect(slide_elements.first.text_body.paragraphs.first.runs[1].text).to eq('Types: image, oleObject')
   end
 
   it 'ApiMaster | GetAllImages method' do
