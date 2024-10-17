@@ -13,6 +13,7 @@ describe 'Conversion tests from Pptx' do
   end
 
   it 'Conversion | Pptx to Pdf', :critical do
+    skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=71025'
     output_file = builder.build_file('js/conversion/pptx/pptx_to_pdf.js')
     expect(builder).not_to be_file_empty(output_file)
   end
