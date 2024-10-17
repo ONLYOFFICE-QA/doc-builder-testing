@@ -61,7 +61,7 @@ describe 'ApiDocumentContent section tests' do
     expect(docx.elements[2].properties.table_style.name).to eq('CustomTableStyle')
     json = JSON.parse(docx.elements[5].nonempty_runs.first.text)
     expect(json['type']).to eq('docContent')
-    expect(json['content'][0]['content'][2]['type']).to eq('hyperlink')
+    expect(json['content'][0]['content'][1]['type']).to eq('hyperlink')
     expect(json['content'][1]['type']).to eq('blockLvlSdt')
     expect(json['content'][2]['type']).to eq('table')
   end
