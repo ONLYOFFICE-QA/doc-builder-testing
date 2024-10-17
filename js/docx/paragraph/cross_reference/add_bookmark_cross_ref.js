@@ -2,7 +2,7 @@ builder.CreateFile("docx");
 let oDocument = Api.GetDocument();
 let oParagraph = oDocument.GetElement(0);
     oParagraph.AddText("Paragraph with bookmark");
-let oRange = oDocument.GetRange(0, 9);
+let oRange = oDocument.GetRange(0, 10);
     oRange.AddBookmark("Bookmark");
 
 let oParagraph1 = Api.CreateParagraph();
