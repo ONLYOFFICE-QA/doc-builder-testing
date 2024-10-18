@@ -2,7 +2,7 @@ builder.CreateFile("docx");
     var oDocument = Api.GetDocument();
     var oParagraph = oDocument.GetElement(0);
         oParagraph.AddText("ONLYOFFICE Document Builder");
-    var oRange = Api.CreateRange(oParagraph, 0, 10);
+    var oRange = Api.CreateRange(oParagraph, 0, 11);
     var json = oRange.ToJSON(true, true);
 GlobalVariable["JSON"] = json;
 builder.CloseFile();
