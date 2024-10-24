@@ -4,16 +4,10 @@ require 'spec_helper'
 describe 'ApiRange section tests' do
   it 'ApiRange | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/to_json.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
     json = JSON.parse(docx.elements[0].nonempty_runs.first.text)
     expect(json['type']).to eq('document')
-    # TODO: 'check after release'
-    if builder.semver >= Semantic::Version.new('8.2.0')
-      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE')
-      expect(json['content'][0]['content'][1]['content'][0]).to eq('ONLYOFFICE')
-    else
-      expect(docx.elements[1].nonempty_runs.first.text).to eq('ONLYOFFICE ')
-      expect(json['content'][0]['content'][0]['content'][0]).to eq('ONLYOFFICE ')
-    end
+    expect(json['content'][0]['content'][1]['content'][0]).to eq('ONLYOFFICE')
   end
 
   describe 'ApiRange | GetRange method' do
@@ -59,15 +53,9 @@ describe 'ApiRange section tests' do
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(2)
 
-      # TODO: 'check after release'
-      if builder.semver >= Semantic::Version.new('8.2.0')
-        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder')
-        expect(docx.elements[0].nonempty_runs[1].text).to eq(' check GetRange method')
-      else
-        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder ')
-        expect(docx.elements[0].nonempty_runs[1].text).to eq('check GetRange method')
-      end
+      expect(docx.elements[0].nonempty_runs[0].text).to eq('Document Builder')
       expect(docx.elements[0].nonempty_runs[0].font_style).to eq(OoxmlParser::FontStyle.new(true))
+      expect(docx.elements[0].nonempty_runs[1].text).to eq(' check GetRange method')
       expect(docx.elements[0].nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new)
     end
 
@@ -77,18 +65,11 @@ describe 'ApiRange section tests' do
       expect(docx.elements.size).to eq(1)
       expect(docx.elements[0].nonempty_runs.size).to eq(3)
 
-      # TODO: 'check after release'
-      if builder.semver >= Semantic::Version.new('8.2.0')
-        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document ')
-        expect(docx.elements[0].nonempty_runs[1].text).to eq('Builder check ')
-        expect(docx.elements[0].nonempty_runs[2].text).to eq('GetRange method')
-      else
-        expect(docx.elements[0].nonempty_runs[0].text).to eq('Document B')
-        expect(docx.elements[0].nonempty_runs[1].text).to eq('uilder check G')
-        expect(docx.elements[0].nonempty_runs[2].text).to eq('etRange method')
-      end
+      expect(docx.elements[0].nonempty_runs[0].text).to eq('Document ')
       expect(docx.elements[0].nonempty_runs[0].font_style).to eq(OoxmlParser::FontStyle.new)
+      expect(docx.elements[0].nonempty_runs[1].text).to eq('Builder check ')
       expect(docx.elements[0].nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new(true))
+      expect(docx.elements[0].nonempty_runs[2].text).to eq('GetRange method')
       expect(docx.elements[0].nonempty_runs[2].font_style).to eq(OoxmlParser::FontStyle.new)
     end
   end
