@@ -314,12 +314,7 @@ describe 'ApiParagraph section tests' do
 
       caption = docx.elements[8]
       expect(caption.nonempty_runs.size).to eq(4)
-      # TODO: 'check after release'
-      if builder.semver >= Semantic::Version.new('8.2.0')
-        check_caption(caption, ['1', ':', 'A', ' caption text '])
-      else
-        check_caption(caption, ['1', ':', '1', ' caption text '])
-      end
+      check_caption(caption, ['1', ':', 'A', ' caption text '])
     end
 
     it 'Check AddCaption with bBefore: true' do
@@ -328,12 +323,7 @@ describe 'ApiParagraph section tests' do
 
       caption = docx.elements[9]
       expect(caption.nonempty_runs.size).to eq(4)
-      # TODO: 'check after release'
-      if builder.semver >= Semantic::Version.new('8.2.0')
-        check_caption(caption, ['Equation ', '1.1', '-', 'a'])
-      else
-        check_caption(caption, ['Equation ', '1.1', '-', '1'])
-      end
+      check_caption(caption, ['Equation ', '1.1', '-', 'a'])
     end
 
     it 'Check AddCaption with nHeadingLvl: 3' do
@@ -342,12 +332,7 @@ describe 'ApiParagraph section tests' do
 
       caption = docx.elements[12]
       expect(caption.nonempty_runs.size).to eq(4)
-      # TODO: 'check after release'
-      if builder.semver >= Semantic::Version.new('8.2.0')
-        check_caption(caption, ['Table ', '1.1.1', '—', 'II'])
-      else
-        check_caption(caption, ['Table ', '1.1.1', '—', '2'])
-      end
+      check_caption(caption, ['Table ', '1.1.1', '—', 'II'])
     end
   end
 end

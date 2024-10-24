@@ -173,9 +173,6 @@ describe 'ApiDocument section tests' do
   describe 'ApiDocument | AddMathEquation method' do
     let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/add_math_equation.js') }
 
-    # TODO: 'check after release'
-    before { skip('New methods') if builder.semver < Semantic::Version.new('8.2.0') }
-
     it 'Check with sFormat="unicode"' do
       expect(docx.elements.first.nonempty_runs[0].class).to eq(OoxmlParser::DocxFormula)
       expect(docx.elements.first.nonempty_runs[0].formula_run[0].numerator.formula_run[0].text).to eq('dx')
@@ -190,9 +187,6 @@ describe 'ApiDocument section tests' do
 
   describe 'ApiDocument | GetCurrentWord method' do
     let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/get_current_word.js') }
-
-    # TODO: 'check after release'
-    before { skip('New methods') if builder.semver < Semantic::Version.new('8.2.0') }
 
     it 'Check without sWordPart' do
       expect(docx.elements[1].nonempty_runs.first.text).to eq('word is GetCurrentWord')
@@ -210,9 +204,6 @@ describe 'ApiDocument section tests' do
   describe 'ApiDocument | ReplaceCurrentWord method' do
     let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/replace_current_word.js') }
 
-    # TODO: 'check after release'
-    before { skip('New methods') if builder.semver < Semantic::Version.new('8.2.0') }
-
     it 'Check without sWordPart' do
       expect(docx.elements.first.nonempty_runs[1].text).to eq('replace ')
     end
@@ -223,17 +214,12 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | SelectCurrentWord method' do
-    # TODO: 'check after release'
-    skip('New methods') if builder.semver < Semantic::Version.new('8.2.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/select_current_word.js')
     expect(docx.elements[1].nonempty_runs[0].text).to eq('selected text is SelectCurrentWord')
   end
 
   describe 'ApiDocument | GetCurrentSentence method' do
     let(:docx) { builder.build_and_parse('js/docx/smoke/api_document/get_current_sentence.js') }
-
-    # TODO: 'check after release'
-    before { skip('New methods') if builder.semver < Semantic::Version.new('8.2.0') }
 
     it 'Check without sWordPart' do
       expect(docx.elements[1].nonempty_runs.first.text).to eq('sentence is For check GetCurrentSentence.')
@@ -249,8 +235,6 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | ReplaceCurrentSentence method' do
-    # TODO: 'check after release'
-    skip('New methods') if builder.semver < Semantic::Version.new('8.2.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/replace_current_sentence.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is text. for check.  Replace current sentence')
   end
