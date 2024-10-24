@@ -1,7 +1,6 @@
 {
   "Text document API": {
     "api": [
-      "AddComment",
       "attachEvent",
       "ConvertDocument",
       "CreateOleObject",
@@ -18,9 +17,6 @@
       "Save"
     ],
     "apiblocklvlsdt": [
-      "AddCaption",
-      "AddComment",
-      "Delete",
       "GetAlias",
       "GetAllContentControls",
       "GetAllDrawingObjects",
@@ -79,7 +75,6 @@
       "GetFormKey",
       "GetFormType",
       "GetRadioGroup",
-      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsChecked",
@@ -104,7 +99,6 @@
       "GetFormKey",
       "GetFormType",
       "GetListValues",
-      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsEditable",
@@ -117,7 +111,6 @@
       "SetListValues",
       "SetPlaceholderText",
       "SetRequired",
-      "SetText",
       "SetTextPr",
       "SetTipText",
       "ToFixed",
@@ -127,19 +120,13 @@
 
     ],
     "apicommentreply": [
-      "GetAuthorName",
-      "GetText",
-      "GetUserId",
-      "SetAuthorName",
-      "SetText",
-      "SetUserId"
+
     ],
     "apicomplexform": [
       "Clear",
       "Copy",
       "GetFormKey",
       "GetFormType",
-      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -162,21 +149,17 @@
       "GetParent"
     ],
     "apicontentcontrollistentry": [
-      "Delete",
       "GetIndex",
       "GetParent",
-      "GetText",
       "GetValue",
       "MoveDown",
       "MoveUp",
       "Select",
       "SetIndex",
-      "SetText",
       "SetValue"
     ],
     "apidocument": [
       "AcceptAllRevisionChanges",
-      "AddComment",
       "AddDrawingToPage",
       "AddEndnote",
       "AddFootnote",
@@ -188,7 +171,6 @@
       "GetAllBookmarksNames",
       "GetAllCaptionParagraphs",
       "GetAllCharts",
-      "GetAllComments",
       "GetAllContentControls",
       "GetAllDrawingObjects",
       "GetAllForms",
@@ -246,7 +228,6 @@
     "apidrawing": [
       "AddBreak",
       "Copy",
-      "Delete",
       "GetLockValue",
       "GetNextDrawing",
       "GetParentContentControl",
@@ -273,7 +254,6 @@
       "Copy",
       "GetFormKey",
       "GetFormType",
-      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -304,9 +284,7 @@
       "GetPrevImage"
     ],
     "apiinlinelvlsdt": [
-      "AddComment",
       "Copy",
-      "Delete",
       "GetAlias",
       "GetDropdownList",
       "GetLabel",
@@ -340,13 +318,11 @@
     "apiparagraph": [
       "AddBookmarkCrossRef",
       "AddCaptionCrossRef",
-      "AddComment",
       "AddEndnoteCrossRef",
       "AddFootnoteCrossRef",
       "AddHeadingCrossRef",
       "AddNumberedCrossRef",
       "Copy",
-      "Delete",
       "GetAllCharts",
       "GetAllContentControls",
       "GetAllDrawingObjects",
@@ -370,7 +346,6 @@
       "GetSpacingBefore",
       "GetSpacingLineRule",
       "GetSpacingLineValue",
-      "GetText",
       "InsertInContentControl",
       "InsertParagraph",
       "Last",
@@ -400,7 +375,6 @@
       "GetImage",
       "GetPicturePosition",
       "GetScaleFlag",
-      "GetText",
       "GetTipText",
       "GetWrapperShape",
       "IsFixed",
@@ -427,12 +401,9 @@
     ],
     "ApiRange": [
       "AddBookmark",
-      "AddComment",
-      "Delete",
       "ExpandTo",
       "GetAllParagraphs",
       "GetParagraph",
-      "GetText",
       "IntersectWith",
       "Select",
       "SetTextPr"
@@ -441,9 +412,7 @@
 
     ],
     "apirun": [
-      "AddComment",
       "Copy",
-      "Delete",
       "GetBold",
       "GetCaps",
       "GetColor",
@@ -462,7 +431,6 @@
       "GetSmallCaps",
       "GetSpacing",
       "GetStrikeout",
-      "GetText",
       "GetUnderline",
       "GetVertAlign",
       "Select",
@@ -491,11 +459,9 @@
     ],
     "apitable": [
       "AddColumns",
-      "AddComment",
       "AddRows",
       "Clear",
       "Copy",
-      "Delete",
       "GetNext",
       "GetParentContentControl",
       "GetParentTable",
@@ -586,18 +552,15 @@
       "GetImageURL",
       "GetImageWidth",
       "GetOpacity",
-      "GetText",
       "SetDirection",
       "SetImageSize",
       "SetImageURL",
       "SetOpacity",
-      "SetText",
       "SetTextPr"
     ]
   },
   "Spreadsheet API": {
     "api": [
-      "AddComment",
       "AddCustomFunction",
       "AddDefName",
       "attachEvent",
@@ -605,7 +568,6 @@
       "CreateNewHistoryPoint",
       "CreateTextPr",
       "detachEvent",
-      "GetAllComments",
       "GetCommentById",
       "GetComments",
       "GetDefName",
@@ -636,7 +598,6 @@
       "GetCaption",
       "GetFont",
       "GetParent",
-      "GetText",
       "Insert",
       "SetCaption",
       "SetText"
@@ -680,12 +641,10 @@
     ],
     "apicomment": [
       "AddReply",
-      "GetAuthorName",
       "GetId",
       "GetQuoteText",
       "GetRepliesCount",
       "GetReply",
-      "GetText",
       "GetTime",
       "GetTimeUTC",
       "GetUserId",
@@ -699,8 +658,6 @@
       "SetUserId"
     ],
     "apicommentreply": [
-      "GetAuthorName",
-      "GetText",
       "GetTime",
       "GetTimeUTC",
       "GetUserId",
@@ -790,7 +747,6 @@
 
     ],
     "apirange": [
-      "AddComment",
       "AutoFit",
       "Clear",
       "Copy",
@@ -806,7 +762,6 @@
       "GetFillColor",
       "GetFormula",
       "GetOrientation",
-      "GetText",
       "GetValue2",
       "GetWorksheet",
       "Insert",
@@ -905,9 +860,6 @@
     "api": [
       "attachEvent",
       "CreateGroup",
-      "CreateLayout",
-      "CreateMaster",
-      "CreateOleObject",
       "CreatePlaceholder",
       "CreateTextPr",
       "CreateTheme",
@@ -916,7 +868,6 @@
       "CreateThemeFormatScheme",
       "CreateWordArt",
       "detachEvent",
-      "FromJSON",
       "GetFullName",
       "ReplaceTextSmart",
       "Save"
@@ -965,11 +916,9 @@
     ],
     "apicomment": [
       "AddReply",
-      "Delete",
       "GetAuthorName",
       "GetQuoteText",
       "GetRepliesCount",
-      "GetText",
       "GetTime",
       "GetTimeUTC",
       "IsSolved",
@@ -983,7 +932,6 @@
     ],
     "apicommentreply": [
       "GetAuthorName",
-      "GetText",
       "SetAuthorName",
       "SetText",
       "SetUserId"
@@ -995,8 +943,6 @@
 
     ],
     "ApiDrawing": [
-      "Copy",
-      "Delete",
       "GetLockValue",
       "GetParent",
       "GetParentLayout",
@@ -1004,8 +950,7 @@
       "GetParentSlide",
       "GetPlaceholder",
       "SetLockValue",
-      "SetPlaceholder",
-      "ToJSON"
+      "SetPlaceholder"
     ],
     "ApiFill": [
 
@@ -1017,40 +962,12 @@
 
     ],
     "ApiLayout": [
-      "ClearBackground",
-      "Copy",
-      "Delete",
-      "Duplicate",
       "FollowMasterBackground",
-      "GetAllCharts",
-      "GetAllDrawings",
-      "GetAllImages",
-      "GetAllOleObjects",
-      "GetAllShapes",
-      "GetMaster",
       "MoveTo",
-      "RemoveObject",
-      "SetName",
-      "ToJSON"
+      "SetName"
     ],
     "ApiMaster": [
-      "AddLayout",
-      "ClearBackground",
-      "Copy",
-      "Delete",
-      "Duplicate",
-      "GetAllCharts",
-      "GetAllDrawings",
-      "GetAllImages",
-      "GetAllOleObjects",
-      "GetAllShapes",
-      "GetLayout",
-      "GetLayoutsCount",
-      "GetTheme",
-      "RemoveLayout",
-      "RemoveObject",
-      "SetTheme",
-      "ToJSON"
+
     ],
     "ApiOleObject": [
       "GetApplicationId",
@@ -1059,8 +976,6 @@
       "SetData"
     ],
     "ApiParagraph": [
-      "Copy",
-      "Delete",
       "GetIndFirstLine",
       "GetIndLeft",
       "GetIndRight",
@@ -1070,8 +985,7 @@
       "GetSpacingAfter",
       "GetSpacingBefore",
       "GetSpacingLineRule",
-      "GetSpacingLineValue",
-      "SetHighlight"
+      "GetSpacingLineValue"
     ],
     "ApiParaPr": [
       "GetIndFirstLine",
@@ -1087,18 +1001,13 @@
       "SetType"
     ],
     "ApiPresentation": [
-      "AddMaster",
       "ApplyTheme",
       "CreateNewHistoryPoint",
-      "GetAllComments",
-      "GetMaster",
-      "GetMastersCount",
       "GetSlidesCount",
       "RemoveSlides",
       "ReplaceCurrentImage",
       "SetLanguage",
-      "SlidesToJSON",
-      "ToJSON"
+      "SlidesToJSON"
     ],
     "ApiPresetColor": [
 
@@ -1107,8 +1016,6 @@
 
     ],
     "apirun": [
-      "Copy",
-      "Delete",
       "GetBold",
       "GetCaps",
       "GetDoubleStrikeout",
@@ -1125,7 +1032,6 @@
       "GetTextFill",
       "GetUnderline",
       "SetColor",
-      "SetHighlight",
       "SetLanguage",
       "SetOutLine",
       "SetStyle",
@@ -1141,33 +1047,18 @@
     "apislide": [
       "ApplyLayout",
       "ApplyTheme",
-      "ClearBackground",
-      "Copy",
-      "Delete",
-      "Duplicate",
       "FollowLayoutBackground",
       "FollowMasterBackground",
-      "GetAllCharts",
-      "GetAllDrawings",
-      "GetAllImages",
-      "GetAllOleObjects",
-      "GetAllShapes",
-      "GetLayout",
       "GetSlideIndex",
-      "GetTheme",
       "GetVisible",
       "MoveTo",
-      "RemoveObject",
-      "SetVisible",
-      "ToJSON"
+      "SetVisible"
     ],
     "ApiStroke": [
 
     ],
     "ApiTable": [
-      "Copy",
-      "Select",
-      "ToJSON"
+      "Select"
     ],
     "ApiTableCell": [
 
@@ -1190,39 +1081,28 @@
       "GetStrikeout",
       "GetTextFill",
       "GetUnderline",
-      "SetHighlight",
       "SetOutLine",
       "SetTextFill"
     ],
     "ApiTheme": [
       "GetColorScheme",
-      "GetFontScheme",
       "GetFormatScheme",
-      "GetMaster",
       "SetColorScheme",
-      "SetFontScheme",
       "SetFormatScheme"
     ],
     "ApiThemeColorScheme": [
       "ChangeColor",
-      "Copy",
-      "SetSchemeName",
-      "ToJSON"
+      "SetSchemeName"
     ],
     "ApiThemeFontScheme": [
-      "Copy",
-      "SetFonts",
-      "SetSchemeName",
-      "ToJSON"
+      "SetSchemeName"
     ],
     "ApiThemeFormatScheme": [
       "ChangeBgFillStyles",
       "ChangeEffectStyles",
       "ChangeFillStyles",
       "ChangeLineStyles",
-      "Copy",
-      "SetSchemeName",
-      "ToJSON"
+      "SetSchemeName"
     ],
     "ApiUniColor": [
 
