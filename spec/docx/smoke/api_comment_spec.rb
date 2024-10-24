@@ -11,8 +11,7 @@ describe 'ApiComment section tests' do
   it 'ApiComment | Delete method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/delete.js')
     expect(docx.comments).to be_nil
-    # TODO: 'check after release'
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true') if builder.semver >= Semantic::Version.new('8.2.0')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Deleted: true')
   end
 
   it 'ApiComment | GetAuthorName method' do
@@ -66,8 +65,6 @@ describe 'ApiComment section tests' do
   end
 
   it 'ApiComment | GetUserId method' do
-    # TODO: 'check after release'
-    skip 'bug https://bugzilla.onlyoffice.com/show_bug.cgi?id=69149' if builder.semver < Semantic::Version.new('8.2.0')
     docx = builder.build_and_parse('js/docx/smoke/api_comment/get_user_id.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('User ID: uid-5')
   end
