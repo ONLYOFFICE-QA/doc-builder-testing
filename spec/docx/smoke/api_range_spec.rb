@@ -73,4 +73,28 @@ describe 'ApiRange section tests' do
       expect(docx.elements[0].nonempty_runs[2].font_style).to eq(OoxmlParser::FontStyle.new)
     end
   end
+
+  it 'ApiRange | GetStartPos method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_range/get_start_pos.js')
+    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 start pos = 1')
+    expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 start pos = 14')
+    expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 start pos = 39')
+  end
+
+  it 'ApiRange | GetEndPos method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_range/get_end_pos.js')
+    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 end pos = 14')
+    expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 end pos = 34')
+    expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 end pos = 49')
+  end
+
+  it 'ApiRange | SetStartPos method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_range/set_start_pos.js')
+    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run start pos = 6')
+  end
+
+  it 'ApiRange | SetEndPos method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_range/set_end_pos.js')
+    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run end pos = 26')
+  end
 end
