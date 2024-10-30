@@ -36,13 +36,23 @@ describe 'ApiRange section tests' do
       expect(docx.elements[1].nonempty_runs[0].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
 
-      expect(docx.elements[1].nonempty_runs[2].text).to eq('nge ')
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.1')
+        expect(docx.elements[1].nonempty_runs[2].text).to eq('nge ')
+      else
+        expect(docx.elements[1].nonempty_runs[2].text).to eq('ge ')
+      end
       expect(docx.elements[1].nonempty_runs[2].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[2].font_color).to eq(OoxmlParser::Color.new)
     end
 
     it 'Check method for another range' do
-      expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.1')
+        expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
+      else
+        expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRan')
+      end
       expect(docx.elements[1].nonempty_runs[1].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
     end
