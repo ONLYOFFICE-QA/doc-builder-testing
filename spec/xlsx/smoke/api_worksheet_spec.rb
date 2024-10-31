@@ -21,6 +21,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | AddImage method' do
+    # TODO: replace link after fix
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_image.js')
     expect(xlsx.worksheets.first.drawings.first.picture.path_to_image.file_reference.content.length).to be >= 1_000
     expect(xlsx.worksheets.first.drawings.first.picture.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(60 * 36_000, :emu))

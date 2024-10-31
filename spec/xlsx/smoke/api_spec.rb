@@ -3,6 +3,7 @@
 require 'spec_helper'
 describe 'Api section tests' do
   it 'Api | CreateBlipFill method' do
+    # TODO: replace link after fix
     xlsx = builder.build_and_parse('js/xlsx/smoke/api/create_blip_fill.js')
     fill_color = xlsx.worksheets.first.drawings
                      .first.shape.properties
