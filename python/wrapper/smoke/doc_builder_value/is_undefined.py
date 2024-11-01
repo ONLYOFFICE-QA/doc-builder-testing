@@ -8,7 +8,7 @@ api = globalObj["Api"]
 document = api.Call("GetDocument")
 paragraph = document.Call("GetElement", 0)
 image = api.Call("CreateImage",
-                 "https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png",
+                 "https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png",
                  60 * 36000, 35 * 36000)
 paragraph.Call("AddDrawing", image)
 images = paragraph.Call("GetAllImages")
