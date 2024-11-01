@@ -1,7 +1,7 @@
 builder.CreateFile("docx");
     var oDocument = Api.GetDocument();
     var oParagraph = oDocument.GetElement(0);
-    var oHyperlink = Api.CreateHyperlink("https://api.onlyoffice.com/", "ONLYOFFICE Document Builder", "ONLYOFFICE for developers");
+    var oHyperlink = Api.CreateHyperlink("https://legacy-api.onlyoffice.com/", "ONLYOFFICE Document Builder", "ONLYOFFICE for developers");
         oParagraph.Push(oHyperlink)
     let json = oHyperlink.ToJSON(true);
 GlobalVariable["JSON"] = json;

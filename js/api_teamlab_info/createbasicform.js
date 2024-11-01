@@ -13,7 +13,7 @@ oDocument.Push(oParagraph);
 oParagraph = Api.CreateParagraph();
 var oTextForm = Api.CreateTextForm({"key": "First name", "tip": "Enter your first name", "required": false, "placeholder": "First name", "comb": true, "maxCharacters": 13, "cellWidth": 3, "multiLine": false, "autoFit": false});
 oParagraph.AddElement(oTextForm);
-oPictureForm.SetImage("https://api.onlyoffice.com/content/img/docbuilder/examples/user-profile.png");
+oPictureForm.SetImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/user-profile.png");
 oDocument.Push(oParagraph);
 
 Api.Save();

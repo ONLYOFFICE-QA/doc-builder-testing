@@ -1,7 +1,7 @@
 builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oParagraph = oDocument.GetElement(0);
-var oDrawing = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+var oDrawing = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
 oParagraph.AddDrawing(oDrawing);
 oDrawing.SetSize(4 * 547200, 4 * 346500);
 var oFirstParagraph = Api.CreateParagraph();
