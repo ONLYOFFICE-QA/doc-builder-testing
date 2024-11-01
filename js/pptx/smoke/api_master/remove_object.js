@@ -12,7 +12,7 @@ var oShape = Api.CreateShape("flowChartMagneticTape", 300 * 36000, 130 * 36000, 
 oShape.SetPosition(608400, 1267200);
 oShape.SetSize(300 * 36000, 130 * 36000);
 oMaster.AddObject(oShape);
-var oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+var oImage = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
 oMaster.AddObject(oImage);
 
 oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);

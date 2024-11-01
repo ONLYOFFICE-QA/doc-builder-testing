@@ -6,7 +6,7 @@ oSlide.RemoveAllObjects();
 var oMaster = Api.CreateMaster();
 oPresentation.AddMaster(1, oMaster);
 
-var oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+var oImage = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
 oMaster.AddObject(oImage);
 var aImages = oMaster.GetAllImages();
 

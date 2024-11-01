@@ -2,7 +2,7 @@ builder.CreateFile("pptx");
 var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
-oImage = Api.CreateImage("https://api.onlyoffice.com/content/img/docbuilder/examples/step2_1.png", 100 * 36000, 50 * 36000);
+oImage = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/step2_1.png", 100 * 36000, 50 * 36000);
 oSlide.AddObject(oImage);
 oSchemeColor = Api.CreateSchemeColor("accent6");
 oGs1 = Api.CreateGradientStop(oSchemeColor, 0);
