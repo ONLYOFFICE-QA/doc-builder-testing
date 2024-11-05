@@ -1,10 +1,6 @@
 builder.OpenFile("assets/api_document_files/DocumentWithReview.docx");
 var oDocument = Api.GetDocument();
-var report = oDocument.GetReviewReport();
-report['Dart Bridges'].forEach((item, index) => {
-    item['ReviewedElement'] = null;
-});
-GlobalVariable["ReviewReport"] = report;
+GlobalVariable["ReviewReport"] = oDocument.GetReviewReport();
 builder.CloseFile();
 
 builder.CreateFile("docx");
