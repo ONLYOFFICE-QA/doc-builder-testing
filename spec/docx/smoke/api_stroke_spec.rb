@@ -8,7 +8,6 @@ describe 'ApiStroke section tests' do
   end
 
   it 'ApiStroke | ToJSON method' do
-    # TODO: replace link after fix
     docx = builder.build_and_parse('js/docx/smoke/api_stroke/to_json.js')
     type = TestData.fill_types
     docx.elements[1..6].each_with_index do |el, i|

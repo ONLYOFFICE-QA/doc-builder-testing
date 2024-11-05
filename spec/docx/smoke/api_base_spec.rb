@@ -3,7 +3,6 @@
 require 'spec_helper'
 describe 'Api section tests', :critical do
   it 'Api | CreateBlipFill method' do
-    # TODO: replace link after fix
     docx = builder.build_and_parse('js/docx/smoke/api/create_blip_fill.js')
     graphic = docx.elements.first.nonempty_runs
                   .first.alternate_content
@@ -46,7 +45,6 @@ describe 'Api section tests', :critical do
   end
 
   it 'Api | CreateImage method' do
-    # TODO: replace link after fix
     docx = builder.build_and_parse('js/docx/smoke/api/create_image.js')
     drawing = docx.elements.first.nonempty_runs.first.drawing
     drawing ||= docx.elements.first.nonempty_runs.first.alternate_content.office2010_content

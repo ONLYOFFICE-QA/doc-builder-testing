@@ -2,7 +2,7 @@ builder.CreateFile("docx");
     var oGs1 = Api.CreateGradientStop(Api.CreateRGBColor(255, 213, 191), 0);
     var oGs2 = Api.CreateGradientStop(Api.CreateRGBColor(255, 111, 61), 100000);
     var arr = []
-        arr.push(Api.CreateBlipFill("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png", "tile"));
+        arr.push(Api.CreateBlipFill("https://api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png", "tile"));
         arr.push(Api.CreateSolidFill(Api.CreateRGBColor(102, 0, 204)))
         arr.push(Api.CreateLinearGradientFill([oGs1, oGs2], 5400000))
         arr.push(Api.CreateNoFill())
