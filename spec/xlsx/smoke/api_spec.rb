@@ -164,4 +164,61 @@ describe 'Api section tests' do
     expect(xlsx.worksheets.first.rows_raw[1].cells_raw.first.raw_text).to eq('Mark Potato:This is another comment.')
     expect(xlsx.worksheets.first.rows_raw[2].cells_raw.first.raw_text).to eq('James:Comment for range')
   end
+
+  describe 'Api | AddCustomFunction method' do
+    it 'Check base call' do
+      skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71568')
+      xlsx = builder.build_and_parse('js/xlsx/smoke/api/add_custom_function/base_function.js')
+      expect(xlsx.worksheets.first.rows_raw.size).to eq(1)
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.size).to eq(1)
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.first.reference).to eq('A1')
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.first.raw_text).to eq('3')
+    end
+
+    it 'Check call with spaces' do
+      skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71401')
+      xlsx = builder.build_and_parse('js/xlsx/smoke/api/add_custom_function/with_spaces.js')
+      expect(xlsx.worksheets.first.rows_raw.size).to eq(1)
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.size).to eq(1)
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.first.reference).to eq('A1')
+      expect(xlsx.worksheets.first.rows_raw.first.cells_raw.first.raw_text).to eq('3')
+    end
+
+    it 'Check call without tag @customfunction' do
+      path = 'js/xlsx/smoke/api/add_custom_function/without_desc_tag.js'
+      expect { builder.build_and_parse(path) }.to raise_error(web_builder? ? WebDocBuilderError : DocBuilderError)
+    end
+  end
+
+  it 'Api | RemoveCustomFunction method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71568')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api/remove_custom_function.js')
+    expect(xlsx.worksheets.first.rows_raw.size).to eq(2)
+
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw.size).to eq(1)
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw.first.reference).to eq('A1')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw.first.raw_text).to eq('3')
+
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw.size).to eq(1)
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw.first.reference).to eq('A2')
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw.first.raw_text).to eq('#NAME?')
+  end
+
+  it 'Api | ClearCustomFunctions method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71568')
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api/clear_custom_functions.js')
+    expect(xlsx.worksheets.first.rows_raw.size).to eq(2)
+
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw.size).to eq(2)
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[0].reference).to eq('A1')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[0].raw_text).to eq('3')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[1].reference).to eq('B1')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[1].raw_text).to eq('1')
+
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw.size).to eq(2)
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw[0].reference).to eq('A2')
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw[0].raw_text).to eq('#NAME?')
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw[1].reference).to eq('B2')
+    expect(xlsx.worksheets.first.rows_raw[1].cells_raw[1].raw_text).to eq('#NAME?')
+  end
 end
