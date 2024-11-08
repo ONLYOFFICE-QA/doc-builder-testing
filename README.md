@@ -7,6 +7,13 @@ Framework for QA of `onlyoffice-documentbuilder`
 `WEB_BUILDER_URL` - Set via Environmental Variables.
   Used to changed default url of Web Document Builder
 
+## Conversion test coverage matrix
+
+| Input format | Output format |       |      |      |      |      |     |      |     |     |     |      |     |     |
+|--------------|---------------|-------|------|------|------|------|-----|------|-----|-----|-----|------|-----|-----|
+|              | docx          | docxf | docm | dotm | dotx | epub | fb2 | html | odt | ott | pdf | pdfa | rtf | txt |
+| docx         | *             | *     | *    | *    | *    | *    | *   | *    | *   | *   | *   | *    | *   | *   |
+
 ## Project Information
 
 [Official website](https://www.onlyoffice.com)
