@@ -9,7 +9,7 @@ var oRange1 = oDocument.GetRange();
 oRange1.SetBold(true);
 var oRange2 = oParagraph.GetRange(0, 15);
 oRange2.SetItalic(true);
-var oRange3 = oRange2.GetRange(6, 10);
+var oRange3 = oRange2.GetRange(6, 11);
 oRange3.SetColor(255, 0, 0);
 builder.SaveFile("docx", "GetRange.docx");
 builder.CloseFile();
