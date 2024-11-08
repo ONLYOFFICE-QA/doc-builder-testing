@@ -13,7 +13,7 @@ end
 desc 'run parallel_rspec on builder in documentserver'
 task :web do
   ENV['BUILDER_PLATFORM'] = 'WEB'
-  sh 'bundle exec parallel_rspec spec'
+  sh 'bundle exec parallel_rspec --exclude-pattern "spec/python_wrapper/**" spec'
 end
 
 desc 'run only critical tests'
@@ -24,4 +24,9 @@ end
 desc 'run rspec via windows'
 task :win do
   system('rspec --tag win')
+end
+
+desc 'run project spec'
+task :project_spec do
+  system('bundle exec parallel_rspec project_spec')
 end

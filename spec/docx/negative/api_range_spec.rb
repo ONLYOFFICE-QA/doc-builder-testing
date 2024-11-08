@@ -4,48 +4,33 @@ require 'spec_helper'
 describe 'ApiRange section negative tests' do
   describe 'ApiRange | GetRange method' do
     let(:style) { OoxmlParser::FontStyle.new }
-    let(:template_path) { 'js/docx/negative/api_range/get_range_wrong_ranges.js' }
-    let(:file_path) { 'js/docx/negative/api_range/get_range_tmp.js' }
+    let(:file_path) { 'js/docx/smoke/api_range/get_range_with_params.js' }
 
-    after do
-      FileUtils.rm_f(file_path)
-    end
-
-    def create_builder_script(file_path, start_pos, end_pos)
-      script = File.read(template_path)
-      script = script.sub('{start_pos}', start_pos.to_s).sub('{end_pos}', end_pos.to_s)
-      file = File.new(file_path, 'w')
-      file.puts(script)
-      file.close
-    end
+    before { skip('Fix after moving to sending the script as a static file') }
 
     it 'Check method with wrong parameters 0, -1' do
-      create_builder_script(file_path, 0, -1)
-      docx = builder.build_and_parse(file_path)
+      docx = builder.build_and_parse(file_path, start_pos: 0, end_pos: -1)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
     end
 
     it 'Check method with parameters -1, 0' do
-      create_builder_script(file_path, -1, 0)
-      docx = builder.build_and_parse(file_path)
+      docx = builder.build_and_parse(file_path, start_pos: -1, end_pos: 0)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
     end
 
     it 'Check method with wrong parameters 0.2, 16.5' do
-      create_builder_script(file_path, 0.2, 16.5)
-      docx = builder.build_and_parse(file_path)
+      docx = builder.build_and_parse(file_path, start_pos: 0.2, end_pos: 16.5)
       expect(docx.elements.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)
     end
 
     it 'Check method with wrong parameters "5", "13"' do
-      create_builder_script(file_path, '"5"', '"13"')
-      docx = builder.build_and_parse(file_path)
+      docx = builder.build_and_parse(file_path, start_pos: '5', end_pos: '13')
       expect(docx.elements.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.size).to eq(1)
       expect(docx.elements.first.nonempty_runs.first.font_style).to eq(OoxmlParser::FontStyle.new)

@@ -21,6 +21,7 @@ class WebDocBuilderWrapper
     @jwt_key = args.fetch(:jwt_key, 'doc-linux')
     @jwt_header = args.fetch(:jwt_header, 'AuthorizationJwt')
     @jwt_prefix = 'Bearer'
+    @payload_params = { payload: {} }
   end
 
   # @return [String] Url for default location of DocBuilder
@@ -30,10 +31,11 @@ class WebDocBuilderWrapper
 
   # Send script for building and parse it
   # @param script_file [String] path to script file
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
   # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
-  def build_and_parse(script_file)
-    output_file = build_file(script_file)
+  def build_and_parse(script_file, **kwargs)
+    output_file = build_file(script_file, **kwargs)
     parse(output_file)
   end
 
@@ -46,17 +48,20 @@ class WebDocBuilderWrapper
 
   # Build file from script file
   # @param script_file [String] path to file with script
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] path to build file
-  def build_file(script_file)
+  def build_file(script_file, **kwargs)
     temp_script_data = change_output_file(script_file)
     @temp_script_data = temp_script_data
-    link_to_file = build(temp_script_data[:temp_script_file].path)
+    link_to_file = build(temp_script_data[:temp_script_file].path, **kwargs)
     download_file(link_to_file, temp_script_data[:output_file])
     temp_script_data[:output_file]
   end
 
+  # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] link to file after building
-  def build(script_file)
+  def build(script_file, **kwargs)
+    add_payload_params(argument: kwargs) if kwargs != {}
     @request_data.body = read_script_file(script_file)
     add_jwt_data(@request_data)
     response = @http.request(@request_data)
@@ -64,12 +69,20 @@ class WebDocBuilderWrapper
     JSON.parse(response.body)['urls'].values.first
   end
 
+  # Add payload params to @payload_params
+  # @param kwargs [Hash] parameters to add
+  # @return [nil]
+  def add_payload_params(**kwargs)
+    kwargs.each do |key, value|
+      @payload_params[:payload][key] = value
+    end
+  end
+
   # Add jwt data to request
   # @param request [Net::HTTP::Post] to add
   # @return [Net::HTTP::Post] with added jwt
   def add_jwt_data(request)
-    payload_to_encode = { 'payload' => '{}' }
-    jwt_encoded = JWT.encode payload_to_encode, @jwt_key
+    jwt_encoded = JWT.encode @payload_params, @jwt_key
     request[@jwt_header] = "#{@jwt_prefix} #{jwt_encoded}"
   end
 

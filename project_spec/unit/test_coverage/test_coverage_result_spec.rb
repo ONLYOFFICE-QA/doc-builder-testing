@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
-require_relative '../spec_helper'
+require_relative '../../spec_helper'
 
 describe TestCoverageResult do
   let(:bad) { 'https://raw.githubusercontent.com/ONLYOFFICE-QA' }
 
   it 'aborted if bad address' do
     expect { described_class.new(address: bad) }
-      .to raise_error.with_message(/Failed to download the file. HTTP status code: .*/)
+      .to raise_error(/Failed to download the file. HTTP status code: .*/)
   end
 
   describe TestCoverageResult do

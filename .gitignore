@@ -11,3 +11,4 @@ doc
 
 # other
 .vscode
+__pycache__

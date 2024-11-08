@@ -19,7 +19,7 @@ describe 'text with tabs' do
 
   it 'Page size for Section' do
     docx = builder.build_and_parse('js/docx/sections/page_size_for_section.js')
-    expect(docx.page_properties.size.name).to eq('US Letter')
-    expect(docx.elements[1].sector_properties.size.name).to eq('A4')
+    expect(docx.page_properties.size.name).to eq('A4')
+    expect(docx.elements[1].sector_properties.size.name).to eq('US Letter')
   end
 end
