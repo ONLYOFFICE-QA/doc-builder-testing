@@ -33,7 +33,7 @@ module DocBuilderHelper
   # @param file_name [String] path to file
   # @return [Nothing]
   def wait_file_creation(file_name)
-    creation_timeout = 5
+    creation_timeout = 15
     (0..creation_timeout).each do |_|
       return true if File.exist?(file_name)
 
