@@ -66,12 +66,7 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | GetTextPr method' do
     docx = builder.build_and_parse('js/docx/smoke/api_run/get_text_pr.js')
-    expect(docx.elements.first.nonempty_runs[1]
-               .run_properties.run_style.referenced
-               .run_properties.font).to eq('Calibri Light')
-    expect(docx.elements.first.nonempty_runs[1]
-               .run_properties.run_style.referenced
-               .run_properties.caps).to eq(:caps)
+    expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to have_no_empty_string_values
   end
 
   it 'ApiRun | SetBold method' do
@@ -166,8 +161,11 @@ describe 'ApiRun section tests' do
   it 'ApiRun | SetStyle method' do
     docx = builder.build_and_parse('js/docx/smoke/api_run/set_style.js')
     expect(docx.elements.first.nonempty_runs[1]
-               .run_properties.run_style
-               .referenced.name).to eq('My New Run Style')
+               .run_properties.run_style.referenced
+               .run_properties.font).to eq('Calibri Light')
+    expect(docx.elements.first.nonempty_runs[1]
+               .run_properties.run_style.referenced
+               .run_properties.caps).to eq(:caps)
   end
 
   it 'ApiRun | SetUnderline method' do
