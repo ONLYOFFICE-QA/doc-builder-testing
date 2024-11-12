@@ -34,7 +34,6 @@
       "MoveCursorOutside",
       "ReplaceByElement",
       "Search",
-      "Select",
       "SetLabel",
       "SetLock",
       "SetPlaceholderText",
@@ -116,12 +115,8 @@
       "ToFixed",
       "ToInline"
     ],
-    "apicomment": [
-
-    ],
-    "apicommentreply": [
-
-    ],
+    "apicomment": [],
+    "apicommentreply": [],
     "apicomplexform": [
       "Clear",
       "Copy",
@@ -154,7 +149,6 @@
       "GetValue",
       "MoveDown",
       "MoveUp",
-      "Select",
       "SetIndex",
       "SetValue"
     ],
@@ -190,7 +184,6 @@
       "GetFormsByTag",
       "GetFormsData",
       "GetPageCount",
-      "GetRangeBySelect",
       "GetSections",
       "GetSelectedDrawings",
       "GetStatistics",
@@ -239,16 +232,13 @@
       "InsertParagraph",
       "ScaleHeight",
       "ScaleWidth",
-      "Select",
       "SetDrawingPrFromDrawing",
       "SetHorFlip",
       "SetLockValue",
       "SetOutLine",
       "SetVertFlip"
     ],
-    "ApiFill": [
-
-    ],
+    "ApiFill": [],
     "apiformbase": [
       "Clear",
       "Copy",
@@ -268,9 +258,7 @@
       "ToFixed",
       "ToInline"
     ],
-    "ApiGradientStop": [
-
-    ],
+    "ApiGradientStop": [],
     "ApiHyperlink": [
       "GetDisplayedText",
       "GetLinkedText",
@@ -303,12 +291,8 @@
       "SetTag",
       "SetTextPr"
     ],
-    "ApiNumbering": [
-
-    ],
-    "ApiNumberingLevel": [
-
-    ],
+    "ApiNumbering": [],
+    "ApiNumberingLevel": [],
     "ApiOleObject": [
       "GetApplicationId",
       "GetData",
@@ -341,7 +325,6 @@
       "GetPosInParent",
       "GetPrevious",
       "GetSection",
-      "GetShd",
       "GetSpacingAfter",
       "GetSpacingBefore",
       "GetSpacingLineRule",
@@ -351,7 +334,6 @@
       "Last",
       "ReplaceByElement",
       "Search",
-      "Select",
       "SetSection",
       "SetTextPr",
       "WrapInMailMergeField"
@@ -361,7 +343,6 @@
       "GetIndLeft",
       "GetIndRight",
       "GetJc",
-      "GetShd",
       "GetSpacingAfter",
       "GetSpacingBefore",
       "GetSpacingLineRule",
@@ -396,50 +377,26 @@
       "ToFixed",
       "ToInline"
     ],
-    "ApiPresetColor": [
-
-    ],
+    "ApiPresetColor": [],
     "ApiRange": [
       "AddBookmark",
       "ExpandTo",
       "GetAllParagraphs",
       "GetParagraph",
       "IntersectWith",
-      "Select",
       "SetTextPr"
     ],
-    "ApiRGBColor": [
-
-    ],
+    "ApiRGBColor": [],
     "apirun": [
       "Copy",
-      "GetBold",
-      "GetCaps",
-      "GetColor",
-      "GetDoubleStrikeout",
-      "GetFontFamily",
       "GetFontNames",
-      "GetFontSize",
-      "GetHighlight",
-      "GetItalic",
-      "GetLanguage",
       "GetParentContentControl",
       "GetParentTable",
       "GetParentTableCell",
-      "GetPosition",
-      "GetShd",
-      "GetSmallCaps",
-      "GetSpacing",
-      "GetStrikeout",
-      "GetUnderline",
-      "GetVertAlign",
-      "Select",
       "SetTextPr",
       "WrapInMailMergeField"
     ],
-    "apischemecolor": [
-
-    ],
+    "apischemecolor": [],
     "apisection": [
       "GetNext",
       "GetPageHeight",
@@ -451,12 +408,8 @@
       "GetPrevShape",
       "SetPaddings"
     ],
-    "ApiStroke": [
-
-    ],
-    "ApiStyle": [
-
-    ],
+    "ApiStroke": [],
+    "ApiStyle": [],
     "apitable": [
       "AddColumns",
       "AddRows",
@@ -474,7 +427,6 @@
       "InsertInContentControl",
       "ReplaceByElement",
       "Search",
-      "Select",
       "SetHAlign",
       "SetPaddings",
       "SetTableTitle",
@@ -497,9 +449,7 @@
       "SetTextPr",
       "Split"
     ],
-    "ApiTableCellPr": [
-
-    ],
+    "ApiTableCellPr": [],
     "ApiTablePr": [
       "GetTableDescription",
       "GetTableTitle",
@@ -516,36 +466,13 @@
       "Search",
       "SetTextPr"
     ],
-    "ApiTableRowPr": [
-
-    ],
-    "ApiTableStylePr": [
-
-    ],
-    "apitextpr": [
-      "GetBold",
-      "GetCaps",
-      "GetColor",
-      "GetDoubleStrikeout",
-      "GetFontFamily",
-      "GetFontSize",
-      "GetHighlight",
-      "GetItalic",
-      "GetLanguage",
-      "GetPosition",
-      "GetShd",
-      "GetSmallCaps",
-      "GetSpacing",
-      "GetStrikeout",
-      "GetUnderline",
-      "GetVertAlign"
-    ],
+    "ApiTableRowPr": [],
+    "ApiTableStylePr": [],
+    "apitextpr": [],
     "apiunicolor": [
       "GetRGB"
     ],
-    "ApiUnsupported": [
-
-    ],
+    "ApiUnsupported": [],
     "apiwatermarksettings": [
       "GetDirection",
       "GetImageHeight",
@@ -591,9 +518,7 @@
       "GetItem",
       "GetParent"
     ],
-    "ApiBullet": [
-
-    ],
+    "ApiBullet": [],
     "apicharacters": [
       "GetCaption",
       "GetFont",
@@ -667,21 +592,15 @@
       "SetTimeUTC",
       "SetUserId"
     ],
-    "ApiDocument": [
-
-    ],
-    "ApiDocumentContent": [
-
-    ],
+    "ApiDocument": [],
+    "ApiDocumentContent": [],
     "apidrawing": [
       "GetHeight",
       "GetLockValue",
       "GetWidth",
       "SetLockValue"
     ],
-    "ApiFill": [
-
-    ],
+    "ApiFill": [],
     "apifont": [
       "GetBold",
       "GetColor",
@@ -703,12 +622,8 @@
       "FreezeRows",
       "GetLocation"
     ],
-    "ApiGradientStop": [
-
-    ],
-    "ApiImage": [
-
-    ],
+    "ApiGradientStop": [],
+    "ApiImage": [],
     "ApiName": [
       "GetRefersTo",
       "GetRefersToRange",
@@ -743,9 +658,7 @@
       "GetSpacingLineRule",
       "GetSpacingLineValue"
     ],
-    "ApiPresetColor": [
-
-    ],
+    "ApiPresetColor": [],
     "apirange": [
       "AutoFit",
       "Clear",
@@ -771,9 +684,7 @@
       "SetOrientation",
       "SetSort"
     ],
-    "ApiRGBColor": [
-
-    ],
+    "ApiRGBColor": [],
     "apirun": [
       "Copy",
       "GetBold",
@@ -799,16 +710,12 @@
       "SetTextFill",
       "SetTextPr"
     ],
-    "ApiSchemeColor": [
-
-    ],
+    "ApiSchemeColor": [],
     "ApiShape": [
       "GetContent",
       "SetPaddings"
     ],
-    "ApiStroke": [
-
-    ],
+    "ApiStroke": [],
     "apitextpr": [
       "GetBold",
       "GetCaps",
@@ -826,9 +733,7 @@
       "SetOutLine",
       "SetTextFill"
     ],
-    "ApiUniColor": [
-
-    ],
+    "ApiUniColor": [],
     "apiworksheet": [
       "AddDefName",
       "AddOleObject",
@@ -872,9 +777,7 @@
       "ReplaceTextSmart",
       "Save"
     ],
-    "ApiBullet": [
-
-    ],
+    "ApiBullet": [],
     "ApiChart": [
       "ApplyChartStyle",
       "RemoveSeria",
@@ -936,12 +839,8 @@
       "SetText",
       "SetUserId"
     ],
-    "ApiDocument": [
-
-    ],
-    "ApiDocumentContent": [
-
-    ],
+    "ApiDocument": [],
+    "ApiDocumentContent": [],
     "ApiDrawing": [
       "GetLockValue",
       "GetParent",
@@ -952,23 +851,15 @@
       "SetLockValue",
       "SetPlaceholder"
     ],
-    "ApiFill": [
-
-    ],
-    "ApiGradientStop": [
-
-    ],
-    "apiimage": [
-
-    ],
+    "ApiFill": [],
+    "ApiGradientStop": [],
+    "apiimage": [],
     "ApiLayout": [
       "FollowMasterBackground",
       "MoveTo",
       "SetName"
     ],
-    "ApiMaster": [
-
-    ],
+    "ApiMaster": [],
     "ApiOleObject": [
       "GetApplicationId",
       "GetData",
@@ -1009,12 +900,8 @@
       "SetLanguage",
       "SlidesToJSON"
     ],
-    "ApiPresetColor": [
-
-    ],
-    "ApiRGBColor": [
-
-    ],
+    "ApiPresetColor": [],
+    "ApiRGBColor": [],
     "apirun": [
       "GetBold",
       "GetCaps",
@@ -1038,12 +925,8 @@
       "SetTextFill",
       "SetTextPr"
     ],
-    "ApiSchemeColor": [
-
-    ],
-    "ApiShape": [
-
-    ],
+    "ApiSchemeColor": [],
+    "ApiShape": [],
     "apislide": [
       "ApplyLayout",
       "ApplyTheme",
@@ -1054,18 +937,12 @@
       "MoveTo",
       "SetVisible"
     ],
-    "ApiStroke": [
-
-    ],
+    "ApiStroke": [],
     "ApiTable": [
       "Select"
     ],
-    "ApiTableCell": [
-
-    ],
-    "ApiTableRow": [
-
-    ],
+    "ApiTableCell": [],
+    "ApiTableRow": [],
     "apitextpr": [
       "GetBold",
       "GetCaps",
@@ -1104,9 +981,7 @@
       "ChangeLineStyles",
       "SetSchemeName"
     ],
-    "ApiUniColor": [
-
-    ]
+    "ApiUniColor": []
   },
   "Form API": {
     "api": [
