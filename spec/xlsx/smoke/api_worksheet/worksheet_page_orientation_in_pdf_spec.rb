@@ -7,9 +7,13 @@ describe 'ApiWorksheet page orientation in pdf' do
   end
 
   it 'ApiWorksheet | SetPageOrientation method' do
-    skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=71025'
     pdf = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_page_orientation.js')
-    expect(pdf.page_size).to eq('Landscape A4')
+    # https://bugzilla.onlyoffice.com/show_bug.cgi?id=71025
+    if builder.semver >= Semantic::Version.new('8.2.0')
+      expect(pdf.page_size).to eq('Landscape US Letter')
+    else
+      expect(pdf.page_size).to eq('Landscape A4')
+    end
   end
 
   it 'ApiWorksheet | PageOrientation property' do
