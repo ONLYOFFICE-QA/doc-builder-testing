@@ -56,7 +56,6 @@ describe 'ApiWorksheet section tests' do
     expect(xlsx.worksheets.first.protected_ranges[0]).to be_a(Object)
   end
 
-
   it 'ApiWorksheet | FormatAsTable method', :critical do
     column_names = %w[A B C D E]
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/format_as_table.js')
