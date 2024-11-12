@@ -737,7 +737,6 @@
     "apiworksheet": [
       "AddDefName",
       "AddOleObject",
-      "AddProtectedRange",
       "AddWordArt",
       "GetActiveCell",
       "GetAllCharts",
