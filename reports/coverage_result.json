@@ -488,10 +488,8 @@
   },
   "Spreadsheet API": {
     "api": [
-      "AddCustomFunction",
       "AddDefName",
       "attachEvent",
-      "ClearCustomFunctions",
       "CreateNewHistoryPoint",
       "CreateTextPr",
       "detachEvent",
@@ -506,7 +504,6 @@
       "GetWorksheetFunction",
       "Intersect",
       "RecalculateAllFormulas",
-      "RemoveCustomFunction",
       "ReplaceTextSmart",
       "Save",
       "SetFreezePanesType",
