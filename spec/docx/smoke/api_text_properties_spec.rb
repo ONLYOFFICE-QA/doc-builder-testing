@@ -52,6 +52,13 @@ describe 'ApiTextPr section tests' do
     expect(docx.styles.document_defaults.run_properties_default.run_properties.language.value).to eq('en-CA')
   end
 
+  it 'ApiTextPr | GetLanguage method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_text_pr/get_language.js')
+    expect(docx.styles.document_defaults.run_properties_default.run_properties.language.value).to eq('en-US')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Language: en-CA')
+    expect(docx.elements[0].nonempty_runs[1].run_properties.language.value).to eq('en-CA')
+  end
+
   it 'ApiTextPr | SetPosition method' do
     docx = builder.build_and_parse('js/docx/smoke/api_text_pr/set_position.js')
     expect(docx.styles.document_defaults.run_properties_default.run_properties.position.value).to eq(OoxmlParser::OoxmlSize.new(10, :half_point))

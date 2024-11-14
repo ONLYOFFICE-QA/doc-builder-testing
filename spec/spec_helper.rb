@@ -5,6 +5,7 @@ require 'rspec'
 require 'test_data'
 require 'bundler/setup'
 require_relative '../lib/doc_builder_testing'
+require_relative '../lib/custom_matchers'
 
 # ENV['BUILDER_PLATFORM'] = 'WEB'
 # ENV['WEB_BUILDER_URL'] = 'https://kim.teamlab.info/'
