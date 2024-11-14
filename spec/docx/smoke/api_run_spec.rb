@@ -66,7 +66,7 @@ describe 'ApiRun section tests' do
 
   it 'ApiRun | GetTextPr method' do
     docx = builder.build_and_parse('js/docx/smoke/api_run/get_text_pr.js')
-    expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to have_no_empty_string_values
+    expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to hash_have_no_empty_string_values
   end
 
   it 'ApiRun | SetBold method' do

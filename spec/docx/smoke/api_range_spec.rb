@@ -111,7 +111,7 @@ describe 'ApiRange section tests' do
   it 'ApiRange | GetTextPr method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/get_text_pr.js')
     skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=68619' if builder.semver <= Semantic::Version.new('8.2.0')
-    expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to have_no_empty_string_values
+    expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to hash_have_no_empty_string_values
   end
 
   it 'ApiRange | SetStartPos method' do
