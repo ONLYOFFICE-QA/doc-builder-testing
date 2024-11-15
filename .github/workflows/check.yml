@@ -46,4 +46,4 @@ jobs:
       - name: Dockerfile ${{ matrix.dockerfiles }}
         run: |
           docker build -t doc-builder-testing -f ${{ matrix.dockerfiles }} .
-          docker run doc-builder-testing
+          docker run doc-builder-testing rspec_critical
