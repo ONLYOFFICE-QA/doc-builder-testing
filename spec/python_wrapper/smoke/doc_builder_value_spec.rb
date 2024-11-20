@@ -117,4 +117,9 @@ describe 'CDocBuilderValue tests' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_string.py')
     expect(docx.elements.first.nonempty_runs[2].text).to eq('GetText ToString = This is ToString method check')
   end
+
+  it 'CDocBuilderValue | ToString with empty value' do
+    docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/to_string_with_empty_value.py')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('GetText ToString = ')
+  end
 end

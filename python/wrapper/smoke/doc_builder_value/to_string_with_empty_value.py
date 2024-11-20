@@ -7,7 +7,7 @@ api = globalObj["Api"]
 
 document = api.Call("GetDocument")
 paragraph = document.Call("GetElement", 0)
-run = paragraph.Call("AddText", "This is ToString method check")
+run = paragraph.Call('GetElement', 0)
 paragraph.Call("AddLineBreak")
 paragraph.Call("AddText", f'GetText ToString = {run.Call("GetText").ToString()}')
 
