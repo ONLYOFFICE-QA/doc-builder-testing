@@ -18,4 +18,10 @@ describe 'ApiDrawing section tests' do
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))
     expect(pptx.slides.first.elements.first.shape_properties.shape_size.extent.y).to eq(OoxmlParser::OoxmlSize.new(130 * 36_000, :emu))
   end
+
+  it 'ApiDrawing | Select method' do
+    # TODO need to update test script after adding new method for check selected objects
+    pptx = builder.build_and_parse('js/pptx/smoke/api_drawing/select.js')
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.size).to eq(1)
+  end
 end
