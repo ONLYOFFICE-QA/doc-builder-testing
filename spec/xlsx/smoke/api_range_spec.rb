@@ -170,4 +170,10 @@ describe 'ApiRange section tests' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/get_address.js')
     expect(xlsx.worksheets.first.rows[0].cells[0].text).to eq('A1')
   end
+
+  it 'ApiRange | Cut method' do
+    xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/cut.js')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[0].reference).to eq('A2')
+    expect(xlsx.worksheets.first.rows_raw[0].cells_raw[0].text).to eq('Text which is cut from A1 and pasted to A2')
+  end
 end

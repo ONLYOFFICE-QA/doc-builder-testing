@@ -1,0 +1,11 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddLineBreak();
+oParagraph.AddText("This is text for Search method");
+var oSearch = oParagraph.Search("search");
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText(oSearch[0].GetText());
+oDocument.Push(oParagraph);
+builder.SaveFile("docx", "Search.docx");
+builder.CloseFile();

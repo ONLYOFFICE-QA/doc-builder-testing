@@ -262,6 +262,11 @@ describe 'ApiParagraph section tests' do
     expect(docx.elements[5].orphan_control).to be_truthy
   end
 
+  it 'ApiParagraph | Search method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_paragraph/search.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Search')
+  end
+
   it 'ApiParagraph | ToJSON method' do
     docx = builder.build_and_parse('js/docx/smoke/api_paragraph/to_json.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('This is a paragraph')
