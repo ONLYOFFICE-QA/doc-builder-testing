@@ -37,6 +37,6 @@ task :in_modified_specs do
   files = modified_files.split
   files -= %w[spec/spec_helper.rb spec/test_data.rb]
   if files.all? { |element| element =~ %r{^spec/.*\.rb} }
-    files.empty? ? print('No tests to run') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+    files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
   end
 end
