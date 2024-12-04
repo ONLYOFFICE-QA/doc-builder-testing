@@ -30,3 +30,13 @@ desc 'run project spec'
 task :project_spec do
   system('bundle exec parallel_rspec project_spec')
 end
+
+desc 'run tests in modified specs'
+task :in_modified_specs do
+  modified_files = `git diff --name-only origin/master -- spec`
+  files = modified_files.split
+  files -= %w[spec/spec_helper.rb spec/test_data.rb]
+  if files.all? { |element| element =~ %r{^spec/.*\.rb} }
+    files.empty? ? print('No tests to run') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+  end
+end
