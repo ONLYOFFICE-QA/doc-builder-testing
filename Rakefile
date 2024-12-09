@@ -35,7 +35,7 @@ desc 'run tests in modified specs'
 task :in_modified_specs do
   env_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile`
   if env_diff.empty?
-    scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} ./spec`
+    scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} spec`
     spec_diff = `git diff --name-only origin/master -- spec ':!spec/spec_helper.rb' ':!spec/test_data.rb'`
     files = spec_diff.split | scripts_diff.split
     if files.all? { |element| element =~ %r{^spec/.*\.rb} }
