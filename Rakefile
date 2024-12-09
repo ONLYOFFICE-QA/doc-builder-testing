@@ -33,10 +33,18 @@ end
 
 desc 'run tests in modified specs'
 task :in_modified_specs do
-  modified_files = `git diff --name-only origin/master -- spec`
-  files = modified_files.split
-  files -= %w[spec/spec_helper.rb spec/test_data.rb]
-  if files.all? { |element| element =~ %r{^spec/.*\.rb} }
-    files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+  env_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile`
+  if env_diff.empty?
+    scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} ./spec`
+    spec_diff = `git diff --name-only origin/master -- spec ':!spec/spec_helper.rb' ':!spec/test_data.rb'`
+    files = spec_diff.split | scripts_diff.split
+    if files.all? { |element| element =~ %r{^spec/.*\.rb} }
+      files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+    else
+      print("An incorrect file type for rspec has been detected: #{files}")
+      Rake::Task['default'].invoke
+    end
+  else
+    Rake::Task['default'].invoke
   end
 end
