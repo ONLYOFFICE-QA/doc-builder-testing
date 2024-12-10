@@ -30,3 +30,24 @@ desc 'run project spec'
 task :project_spec do
   system('bundle exec parallel_rspec project_spec')
 end
+
+desc 'run tests in modified specs'
+task :in_modified_specs do
+  # get changes in framework
+  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile`
+  if lib_diff.empty?
+    # get changes in scripts and find them in spec
+    scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} spec`
+    # get changes in spec
+    spec_diff = `git diff --name-only origin/master -- spec ':!spec/spec_helper.rb' ':!spec/test_data.rb'`
+    files = spec_diff.split | scripts_diff.split
+    if files.all? { |element| element =~ %r{^spec/.*\.rb} }
+      files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+    else
+      print("An incorrect file type for rspec has been detected: #{files}")
+      Rake::Task['default'].invoke
+    end
+  else
+    Rake::Task['default'].invoke
+  end
+end
