@@ -34,8 +34,8 @@ end
 desc 'run tests in modified specs'
 task :in_modified_specs do
   # get changes in framework
-  env_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile`
-  if env_diff.empty?
+  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile`
+  if lib_diff.empty?
     # get changes in scripts and find them in spec
     scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} spec`
     # get changes in spec
