@@ -24,6 +24,11 @@ class WebDocBuilderWrapper
     @payload_params = { payload: {} }
   end
 
+  # @return [String] Url of DocBuilder
+  def builder_url
+    @uri
+  end
+
   # @return [String] Url for default location of DocBuilder
   def default_web_builder_url
     ENV.fetch('WEB_BUILDER_URL', 'https://doc-linux.teamlab.info')
@@ -104,6 +109,20 @@ class WebDocBuilderWrapper
   end
 
   private
+
+  # Possible error codes and their description for /command
+  # @return [Hash]
+  def command_codes
+    {
+      0 => 'No errors.',
+      1 => 'Document key is missing or no document with such key could be found.',
+      2 => 'Callback url not correct.',
+      3 => 'Internal server error.',
+      4 => 'No changes were applied to the document before the forcesave command was received.',
+      5 => 'Command not correct.',
+      6 => 'Invalid token.'
+    }
+  end
 
   # Raise errors if response somehow wrong
   # @param response [Net::HTTPResponse] response to check error
