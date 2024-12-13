@@ -24,8 +24,8 @@ class WebDocBuilderWrapper
     @payload_params = { payload: {} }
   end
 
-  # @return [String] Url of DocBuilder
-  def builder_url
+  # @return [String] Url of DocBuilder server
+  def server_url
     @uri
   end
 
