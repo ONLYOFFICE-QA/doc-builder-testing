@@ -24,6 +24,11 @@ class WebDocBuilderWrapper
     @payload_params = { payload: {} }
   end
 
+  # @return [String] Url of DocBuilder server
+  def server_url
+    @uri
+  end
+
   # @return [String] Url for default location of DocBuilder
   def default_web_builder_url
     ENV.fetch('WEB_BUILDER_URL', 'https://doc-linux.teamlab.info')
