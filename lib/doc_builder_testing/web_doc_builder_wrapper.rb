@@ -12,6 +12,8 @@ class WebDocBuilderWrapper
   include DocBuilderHelper
   include DocBuilderVersionHelper
 
+  attr_reader :uri
+
   def initialize(**args)
     @uri = URI(args.fetch(:documentserver_path, default_web_builder_url))
     @http = Net::HTTP.new(@uri.host, @uri.port)
@@ -22,11 +24,6 @@ class WebDocBuilderWrapper
     @jwt_header = args.fetch(:jwt_header, 'AuthorizationJwt')
     @jwt_prefix = 'Bearer'
     @payload_params = { payload: {} }
-  end
-
-  # @return [String] Url of DocBuilder server
-  def server_url
-    @uri
   end
 
   # @return [String] Url for default location of DocBuilder
