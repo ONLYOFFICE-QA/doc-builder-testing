@@ -51,5 +51,6 @@ task :in_modified_specs do
     print("An incorrect file type for rspec has been detected: #{files}")
     run_default = true
   end
+
   Rake::Task['default'].invoke if run_default
 end
