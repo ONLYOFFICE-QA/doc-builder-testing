@@ -3,8 +3,7 @@ var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 // oPresentation.GetMaster(0).Delete();
 oSlide.RemoveAllObjects();
-var oMaster = Api.CreateMaster();
-oPresentation.AddMaster(1, oMaster);
+var oMaster = oPresentation.GetMaster(0);
 var oLayout = Api.CreateLayout();
 oMaster.AddLayout(0, oLayout);
 

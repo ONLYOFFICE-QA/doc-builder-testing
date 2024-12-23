@@ -30,10 +30,10 @@ describe 'ApiLayout section tests' do
     expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Layouts before: 11, after: 12')
   end
 
-  # it 'ApiLayout | FollowMasterBackground method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/follow_master_background.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | FollowMasterBackground method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/follow_master_background.js')
+    expect(pptx.slide_layouts.first.common_slide_data.background.fill.color).to eq(OoxmlParser::Color.new(255, 111, 61))
+  end
 
   it 'ApiLayout | GetAllCharts method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_charts.js')
@@ -43,39 +43,48 @@ describe 'ApiLayout section tests' do
 
   it 'ApiLayout | GetAllDrawings method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_drawings.js')
-    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::GraphicFrame)
-    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Charts count: 1, type: chart')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements.size).to eq(2)
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[0].class).to eq(OoxmlParser::DocxPicture)
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[1].class).to eq(OoxmlParser::GraphicFrame)
+    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
+    expect(slide_elements.first.text_body.paragraphs.first.runs[0].text).to eq('Drawings count: 2')
+    expect(slide_elements.first.text_body.paragraphs.first.runs[1].text).to eq('Types: image, oleObject')
   end
 
-  # it 'ApiLayout | GetAllImages method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_images.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | GetAllImages method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_images.js')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::DocxPicture)
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Images count: 1, type: image')
+  end
 
-  # it 'ApiLayout | GetAllOleObjects method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_ole_objects.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | GetAllOleObjects method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_ole_objects.js')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::GraphicFrame)
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('OleObjects count: 1, type: oleObject')
+  end
 
-  # it 'ApiLayout | GetAllShapes method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_shapes.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | GetAllShapes method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_shapes.js')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements.size).to eq(6)
+    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
+    expect(slide_elements.first.text_body.paragraphs.first.runs[0].text).to eq('Shapes count: 5')
+    expect(slide_elements.first.text_body.paragraphs.first.runs[1].text).to eq('Types: shape, shape, shape, shape, shape')
+  end
 
   it 'ApiLayout | GetClassType method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_class_type.js')
     expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('GetClassType type: layout')
   end
 
-  # it 'ApiLayout | GetDrawingsByPlaceholderType method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_drawings_by_placeholder_type.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | GetDrawingsByPlaceholderType method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_drawings_by_placeholder_type.js')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('Drawings with placeholder subTitle count: 1')
+  end
 
-  # it 'ApiLayout | GetMaster method' do
-  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_master.js')
-  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  # end
+  it 'ApiLayout | GetMaster method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_master.js')
+    expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('GetMaster type: master')
+  end
 
   # it 'ApiLayout | MoveTo method' do
   #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/move_to.js')

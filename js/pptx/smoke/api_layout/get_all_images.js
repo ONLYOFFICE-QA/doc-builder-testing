@@ -3,10 +3,11 @@ var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
 var oMaster = oPresentation.GetMaster(0);
+var oLayout = oMaster.GetLayout(0);
 
 var oImage = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
-oMaster.AddObject(oImage);
-var aImages = oMaster.GetAllImages();
+oLayout.AddObject(oImage);
+var aImages = oLayout.GetAllImages();
 
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();

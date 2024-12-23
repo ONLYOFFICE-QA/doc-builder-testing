@@ -1,10 +1,8 @@
 builder.CreateFile("pptx");
 var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
-// oPresentation.GetMaster(0).Delete();
 oSlide.RemoveAllObjects();
-var oMaster = Api.CreateMaster();
-oPresentation.AddMaster(1, oMaster);
+var oMaster = oPresentation.GetMaster(0);
 
 var oChart = Api.CreateChart("bar3D", [
     [200, 240, 280],
