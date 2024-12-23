@@ -7,8 +7,7 @@ describe 'ApiMaster section tests' do
     # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # expect(pptx.slide_masters.size).to eq(1)
     # expect(pptx.slide_layouts.size).to eq(1)
-    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
-    expect(slide_elements.first.text_body.paragraphs.first.runs.first.text).to eq('Layouts before: 0, after: 1')
+    expect(pptx.slide_layouts[3].common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Layouts before: 0, after: 1')
   end
 
   it 'ApiMaster | AddObject method' do
@@ -27,11 +26,9 @@ describe 'ApiMaster section tests' do
   end
 
   it 'ApiMaster | Copy method' do
-    skip('Fixed since v8.1.1') if builder.semver <= Semantic::Version.new('8.1.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/copy.js')
     expect(pptx.slide_masters.size).to eq(2)
-    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
-    expect(slide_elements.first.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
+    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
   end
 
   it 'ApiMaster | Delete method' do
@@ -39,16 +36,13 @@ describe 'ApiMaster section tests' do
     # TODO: https://bugzilla.onlyoffice.com/show_bug.cgi?id=69619
     # заменить удаление второго мастера на первый
     expect(pptx.slide_masters.size).to eq(1)
-    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
-    expect(slide_elements.first.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 2, after: 1')
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 2, after: 1')
   end
 
   it 'ApiMaster | Duplicate method' do
-    skip('Fixed since v8.1.1') if builder.semver <= Semantic::Version.new('8.1.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/duplicate.js')
     expect(pptx.slide_masters.size).to eq(2)
-    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
-    expect(slide_elements.first.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
   end
 
   it 'ApiMaster | GetAllCharts method' do
@@ -166,7 +160,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | ToJSON method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/to_json.js')
-    slide_elements = pptx.slides.first.common_slide_data.shape_tree.elements
-    expect(slide_elements.first.text_body.paragraphs.first.runs[0].text).to eq('sType: master')
+    expect(pptx.slide_masters.size).to eq(2)
+    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('sType: master')
   end
 end
