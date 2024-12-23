@@ -23,14 +23,23 @@ jobs:
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
 
-  run_all_specs_in_default_docker:
+  run_modified_files_in_default_docker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
-          docker run -t doc-builder-testing
+          docker run -t doc-builder-testing in_modified_specs
+
+  run_critical_in_default_docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Running test inside doc-builder-testing
+        run: |
+          docker build -t doc-builder-testing .
+          docker run -t doc-builder-testing rspec_critical
 
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
