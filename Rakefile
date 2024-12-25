@@ -45,11 +45,13 @@ task :in_modified_specs do
   spec_diff = `git diff --name-only origin/master -- spec ':!spec/spec_helper.rb' ':!spec/test_data.rb'`
   files = spec_diff.split | scripts_diff.split
 
-  if files.all? { |element| element =~ %r{^spec/.*\.rb} }
-    files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
-  else
-    print("An incorrect file type for rspec has been detected: #{files}")
-    run_default = true
+  unless run_default
+    if files.all? { |element| element =~ %r{^spec/.*\.rb} }
+      files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+    else
+      print("An incorrect file type for rspec has been detected: #{files}")
+      run_default = true
+    end
   end
 
   Rake::Task['default'].invoke if run_default
