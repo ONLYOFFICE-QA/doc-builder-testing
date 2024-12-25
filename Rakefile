@@ -36,7 +36,7 @@ task :in_modified_specs do
   run_default = false
 
   # get changes in framework
-  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile Gemfile Gemfile.lock`
+  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile Gemfile Gemfile.lock 2>&1`
   run_default = true if !lib_diff.empty? || lib_diff.include?('fatal:')
 
   # get changes in scripts and find them in spec
