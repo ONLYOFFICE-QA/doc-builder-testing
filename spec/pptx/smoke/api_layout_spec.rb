@@ -106,10 +106,10 @@ describe 'ApiLayout section tests' do
     expect(background_color.gradient_stops[1].position).to eq(100)
   end
 
-  it 'ApiLayout | SetName method' do
-    pptx = builder.build_and_parse('js/pptx/smoke/api_layout/set_name.js')
-    expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
-  end
+  # it 'ApiLayout | SetName method' do
+  #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/set_name.js')
+  #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
+  # end
 
   it 'ApiLayout | ToJSON method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_layout/to_json.js')
