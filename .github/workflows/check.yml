@@ -26,14 +26,12 @@ jobs:
   run_modified_files_in_default_docker:
     runs-on: ubuntu-latest
     steps:
-      # pull current branch
+      # Pull current branch
       - name: Checkout HEAD
         uses: actions/checkout@v4
-      # pull master to run git diff command
-      - name: Checkout master
-        uses: actions/checkout@v4
-        with:
-          ref: master
+      # Fetch master branch to run git diff command
+      - name: Fetch master branch
+        run: git fetch origin master
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
