@@ -26,7 +26,12 @@ jobs:
   run_modified_files_in_default_docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout HEAD
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch the full history to access other branches
+      - name: Fetch master branch
+        run: git fetch origin master  # Fetch the master branch
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
