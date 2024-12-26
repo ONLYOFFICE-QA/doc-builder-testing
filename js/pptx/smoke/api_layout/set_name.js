@@ -4,6 +4,6 @@ var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
 var oMaster = oPresentation.GetMaster(0);
 var oLayout = oMaster.GetLayout(0);
-oLayout.SetName("SetName layout");
+oLayout.SetName("ApiLayout.SetName");
 builder.SaveFile("pptx", "SetName.pptx");
 builder.CloseFile();

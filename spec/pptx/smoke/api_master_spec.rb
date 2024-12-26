@@ -16,7 +16,7 @@ describe 'ApiMaster section tests' do
     # expect(pptx.slide_masters.size).to eq(1)
     shape_element = pptx.slide_masters[1].common_slide_data.shape_tree.elements.first
     expect(shape_element.class).to eq(OoxmlParser::DocxShape)
-    expect(shape_element.text_body.paragraphs.first.runs.first.text).to eq('before: 0, after: 1')
+    expect(shape_element.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 0, after: 1')
   end
 
   it 'ApiMaster | ClearBackground method' do
@@ -28,7 +28,7 @@ describe 'ApiMaster section tests' do
   it 'ApiMaster | Copy method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/copy.js')
     expect(pptx.slide_masters.size).to eq(2)
-    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
+    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.last.text_body.paragraphs.first.runs.first.text).to eq('Masters before: 1, after: 2')
   end
 
   it 'ApiMaster | Delete method' do
@@ -47,7 +47,7 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllCharts method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_charts.js')
-    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::GraphicFrame)
+    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements.last.class).to eq(OoxmlParser::GraphicFrame)
     expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Charts count: 1, type: chart')
   end
 
@@ -65,13 +65,13 @@ describe 'ApiMaster section tests' do
 
   it 'ApiMaster | GetAllImages method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_images.js')
-    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::DocxPicture)
+    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements.last.class).to eq(OoxmlParser::DocxPicture)
     expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Images count: 1, type: image')
   end
 
   it 'ApiMaster | GetAllOleObjects method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/get_all_ole_objects.js')
-    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements[5].class).to eq(OoxmlParser::GraphicFrame)
+    expect(pptx.slide_masters.first.common_slide_data.shape_tree.elements.last.class).to eq(OoxmlParser::GraphicFrame)
     expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('OleObjects count: 1, type: oleObject')
   end
 
@@ -148,6 +148,6 @@ describe 'ApiMaster section tests' do
   it 'ApiMaster | ToJSON method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_master/to_json.js')
     expect(pptx.slide_masters.size).to eq(2)
-    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements[5].text_body.paragraphs.first.runs.first.text).to eq('sType: master')
+    expect(pptx.slide_masters[1].common_slide_data.shape_tree.elements.last.text_body.paragraphs.first.runs.first.text).to eq('sType: master')
   end
 end

@@ -21,7 +21,7 @@ var aCharts = oMaster.GetAllCharts();
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('Charts count: ' + aCharts.length + ', type: ' + aCharts[0].GetClassType());
+oParagraph.AddText("Charts count: " + aCharts.length + ", type: " + aCharts[0].GetClassType());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
 builder.SaveFile("pptx", "GetAllCharts.pptx");

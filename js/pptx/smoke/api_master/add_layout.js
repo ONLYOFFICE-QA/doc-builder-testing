@@ -14,7 +14,7 @@ var nCountAfter = oMaster.GetLayoutsCount();
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('Layouts before: ' + nCountBefore + ', after: ' + nCountAfter);
+oParagraph.AddText("Layouts before: " + nCountBefore + ", after: " + nCountAfter);
 oParagraph.SetHighlight("black");
 oLayout.AddObject(oShape);
 builder.SaveFile("pptx", "AddLayout.pptx");

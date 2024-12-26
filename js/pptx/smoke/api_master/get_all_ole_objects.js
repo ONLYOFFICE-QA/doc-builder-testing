@@ -13,7 +13,7 @@ var aOleObjects = oMaster.GetAllOleObjects();
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('OleObjects count: ' + aOleObjects.length + ', type: ' + aOleObjects[0].GetClassType());
+oParagraph.AddText("OleObjects count: " + aOleObjects.length + ", type: " + aOleObjects[0].GetClassType());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
 builder.SaveFile("pptx", "GetAllOleObjects.pptx");

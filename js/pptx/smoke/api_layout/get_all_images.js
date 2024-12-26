@@ -12,7 +12,7 @@ var aImages = oLayout.GetAllImages();
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('Images count: ' + aImages.length + ', type: ' + aImages[0].GetClassType());
+oParagraph.AddText("Images count: " + aImages.length + ", type: " + aImages[0].GetClassType());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
 builder.SaveFile("pptx", "GetAllImages.pptx");

@@ -12,7 +12,7 @@ var sType = oLayoutFromJSON.GetClassType();
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('sType: ' + sType);
+oParagraph.AddText("sType: " + sType);
 oParagraph.SetHighlight("black");
 oLayoutFromJSON.AddObject(oShape);
 builder.SaveFile("pptx", "ToJSON.pptx");

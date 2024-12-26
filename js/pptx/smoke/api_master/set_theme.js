@@ -12,9 +12,9 @@ var result = oMaster.SetTheme(oTheme)
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText('SetTheme result: ' + result);
+oParagraph.AddText("SetTheme result: " + result);
 oParagraph.AddLineBreak();
-oParagraph.AddText('Fonts: ' + oTheme.GetFontScheme().ToJSON());
+oParagraph.AddText("Fonts: " + oTheme.GetFontScheme().ToJSON());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
 builder.SaveFile("pptx", "SetTheme.pptx");
