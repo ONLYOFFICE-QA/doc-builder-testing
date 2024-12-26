@@ -106,6 +106,7 @@ describe 'ApiLayout section tests' do
     expect(background_color.gradient_stops[1].position).to eq(100)
   end
 
+  # TODO: no method to check, will be added in 8.3
   # it 'ApiLayout | SetName method' do
   #   pptx = builder.build_and_parse('js/pptx/smoke/api_layout/set_name.js')
   #   expect(pptx.slides.first.elements.last.text_body.paragraphs.last.characters.first.text).to eq('Class Type = image')
