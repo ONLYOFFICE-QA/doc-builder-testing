@@ -3,12 +3,13 @@ var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
 var oMaster = oPresentation.GetMaster(0);
+var oLayout = oMaster.GetLayout(0);
 
 var oOleObject = Api.CreateOleObject("https://i.ytimg.com/vi_webp/SKGz4pmnpgY/sddefault.webp", 130 * 36000, 90 * 36000, "https://youtu.be/SKGz4pmnpgY", "asc.{38E022EA-AD92-45FC-B22B-49DF39746DB4}");
 oOleObject.SetSize(200 * 36000, 130 * 36000);
 oOleObject.SetPosition(70 * 36000, 30 * 36000);
-oMaster.AddObject(oOleObject);
-var aOleObjects = oMaster.GetAllOleObjects();
+oLayout.AddObject(oOleObject);
+var aOleObjects = oLayout.GetAllOleObjects();
 
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();

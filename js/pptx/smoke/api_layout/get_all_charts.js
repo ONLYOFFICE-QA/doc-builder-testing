@@ -3,6 +3,7 @@ var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
 var oMaster = oPresentation.GetMaster(0);
+var oLayout = oMaster.GetLayout(0);
 
 var oChart = Api.CreateChart("bar3D", [
     [200, 240, 280],
@@ -15,8 +16,8 @@ oChart.SetShowDataLabels(false, false, true, false);
 oChart.SetTitle("Financial Overview", 13);
 oChart.SetSize(300 * 36000, 130 * 36000);
 oChart.SetPosition(608400, 1267200);
-oMaster.AddObject(oChart);
-var aCharts = oMaster.GetAllCharts();
+oLayout.AddObject(oChart);
+var aCharts = oLayout.GetAllCharts();
 
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
