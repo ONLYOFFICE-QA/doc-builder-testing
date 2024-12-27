@@ -8,6 +8,7 @@ GEM
     bigdecimal (3.1.9)
     childprocess (5.1.0)
       logger (~> 1.5)
+    csv (3.3.2)
     diff-lcs (1.5.1)
     hashery (2.1.2)
     image_size (3.4.0)
@@ -106,7 +107,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  csv (~> 3)
   jwt
+  logger (~> 1.6)
   onlyoffice_pdf_parser
   ooxml_parser
   overcommit
@@ -120,5 +123,8 @@ DEPENDENCIES
   semantic
   yard
 
+RUBY VERSION
+   ruby 3.4.1p0
+
 BUNDLED WITH
-   2.3.24
+   2.6.2

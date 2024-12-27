@@ -1,4 +1,4 @@
-FROM ruby:3.3
+FROM ruby:3.4
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
 ENV VERSION="99.99.99"

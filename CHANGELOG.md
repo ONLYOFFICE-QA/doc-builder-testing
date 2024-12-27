@@ -12,6 +12,7 @@
 * Ability to set Web Builder url via `WEB_BUILDER_URL`
 * Add `yamllint` check in CI
 * Add `dependabot` check for `GitHub Actions`
+* Use `ruby-3.4` as project base
 
 ### Changes
 
