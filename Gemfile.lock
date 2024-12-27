@@ -109,6 +109,7 @@ PLATFORMS
 DEPENDENCIES
   csv (~> 3)
   jwt
+  logger (~> 1.6)
   onlyoffice_pdf_parser
   ooxml_parser
   overcommit

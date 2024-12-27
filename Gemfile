@@ -6,6 +6,7 @@ ruby '>= 3.4.0'
 
 gem 'csv', '~> 3'
 gem 'jwt'
+gem 'logger', '~> 1'
 gem 'onlyoffice_pdf_parser'
 gem 'ooxml_parser'
 gem 'parallel_tests'
