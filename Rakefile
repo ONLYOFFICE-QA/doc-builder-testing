@@ -41,8 +41,9 @@ task :in_modified_specs do
   run_default = false
 
   # get changes in framework
-  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile Gemfile Gemfile.lock`
-  run_default = true unless lib_diff.empty?
+  lib_diff = `git diff --name-only origin/master -- lib dockerfiles Dockerfile Gemfile Gemfile.lock 2>&1`
+  # check of comparison results/errors
+  run_default = true if !lib_diff.empty? || lib_diff.include?('fatal:')
 
   # get changes in scripts and find them in spec
   scripts_diff = `git diff --name-only origin/master -- js python | xargs -I {} grep -Rl {} spec`
@@ -50,11 +51,13 @@ task :in_modified_specs do
   spec_diff = `git diff --name-only origin/master -- spec ':!spec/spec_helper.rb' ':!spec/test_data.rb'`
   files = spec_diff.split | scripts_diff.split
 
-  if files.all? { |element| element =~ %r{^spec/.*\.rb} }
-    files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
-  else
-    print("An incorrect file type for rspec has been detected: #{files}")
-    run_default = true
+  unless run_default
+    if files.all? { |element| element =~ %r{^spec/.*\.rb} }
+      files.empty? ? print('NO TESTS TO RUN.') : sh("bundle exec parallel_rspec #{files.join(' ')}")
+    else
+      print("An incorrect file type for rspec has been detected: #{files}")
+      run_default = true
+    end
   end
 
   Rake::Task['default'].invoke if run_default

@@ -36,8 +36,8 @@ class WebDocBuilderWrapper
   # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [OoxmlParser::CommonDocumentStructure] parsed file if file is Ooxml
   # @return [OnlyofficePdfParser::PdfStructure] parsed structure if file is PDF
-  def build_and_parse(script_file, **kwargs)
-    output_file = build_file(script_file, **kwargs)
+  def build_and_parse(script_file, **)
+    output_file = build_file(script_file, **)
     parse(output_file)
   end
 
@@ -52,10 +52,10 @@ class WebDocBuilderWrapper
   # @param script_file [String] path to file with script
   # @param kwargs [Hash] build arguments passed to script in key=value format
   # @return [String] path to build file
-  def build_file(script_file, **kwargs)
+  def build_file(script_file, **)
     temp_script_data = change_output_file(script_file)
     @temp_script_data = temp_script_data
-    link_to_file = build(temp_script_data[:temp_script_file].path, **kwargs)
+    link_to_file = build(temp_script_data[:temp_script_file].path, **)
     download_file(link_to_file, temp_script_data[:output_file])
     temp_script_data[:output_file]
   end
