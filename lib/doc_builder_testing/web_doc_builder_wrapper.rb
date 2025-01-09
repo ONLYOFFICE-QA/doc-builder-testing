@@ -12,6 +12,8 @@ class WebDocBuilderWrapper
   include DocBuilderHelper
   include DocBuilderVersionHelper
 
+  attr_reader :uri
+
   def initialize(**args)
     @uri = URI(args.fetch(:documentserver_path, default_web_builder_url))
     @http = Net::HTTP.new(@uri.host, @uri.port)
