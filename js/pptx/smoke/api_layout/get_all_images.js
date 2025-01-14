@@ -3,19 +3,17 @@ var oPresentation = Api.GetPresentation();
 var oSlide = oPresentation.GetSlideByIndex(0);
 oSlide.RemoveAllObjects();
 var oMaster = oPresentation.GetMaster(0);
-var oTheme = oMaster.GetTheme();
-var oFonts = oTheme.GetFontScheme();
-oFonts.SetFonts("Times New Roman");
-oTheme.SetFontScheme(oFonts);
-var result = oMaster.SetTheme(oTheme)
+var oLayout = oMaster.GetLayout(0);
+
+var oImage = Api.CreateImage("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/coordinate_aspects.png", 60 * 36000, 35 * 36000);
+oLayout.AddObject(oImage);
+var aImages = oLayout.GetAllImages();
 
 var oShape = Api.CreateShape("rect", 100 * 36000, 50 * 36000);
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
-oParagraph.AddText("SetTheme result: " + result);
-oParagraph.AddLineBreak();
-oParagraph.AddText("Fonts: " + oTheme.GetFontScheme().ToJSON());
+oParagraph.AddText("Images count: " + aImages.length + ", type: " + aImages[0].GetClassType());
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
-builder.SaveFile("pptx", "SetTheme.pptx");
+builder.SaveFile("pptx", "GetAllImages.pptx");
 builder.CloseFile();
