@@ -18,7 +18,7 @@ var nCountAfter = oMaster.GetAllShapes().length;
 var oDocContent = oShape.GetDocContent();
 var oParagraph = oDocContent.GetElement(0);
 var oRun = Api.CreateRun();
-oRun.AddText('before: ' + nCountBefore + ', after: ' + nCountAfter);
+oRun.AddText("Masters before: " + nCountBefore + ", after: " + nCountAfter);
 oParagraph.AddElement(oRun);
 builder.SaveFile("pptx", "AddObject.pptx");
 builder.CloseFile();

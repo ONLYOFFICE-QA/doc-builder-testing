@@ -23,7 +23,7 @@ var aDrawingsTypes = []
 for (var i=0; i<aDrawings.length; i++){
     aDrawingsTypes.push(aDrawings[i].GetClassType());
 }
-oParagraph.AddText('Types: ' + aDrawingsTypes.join(', '));
+oParagraph.AddText("Types: " + aDrawingsTypes.join(", "));
 oParagraph.SetHighlight("black");
 oSlide.AddObject(oShape);
 builder.SaveFile("pptx", "GetAllDrawings.pptx");
