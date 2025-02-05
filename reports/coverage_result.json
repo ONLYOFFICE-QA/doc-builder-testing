@@ -33,7 +33,6 @@
       "GetTag",
       "MoveCursorOutside",
       "ReplaceByElement",
-      "Search",
       "SetLabel",
       "SetLock",
       "SetPlaceholderText",
@@ -198,7 +197,6 @@
       "RemoveWatermark",
       "ReplaceCurrentImage",
       "ReplaceDrawing",
-      "Search",
       "SearchAndReplace",
       "SetControlsHighlight",
       "SetFormsData",
@@ -333,7 +331,6 @@
       "InsertParagraph",
       "Last",
       "ReplaceByElement",
-      "Search",
       "SetSection",
       "SetTextPr",
       "WrapInMailMergeField"
@@ -426,7 +423,6 @@
       "GetTableTitle",
       "InsertInContentControl",
       "ReplaceByElement",
-      "Search",
       "SetHAlign",
       "SetPaddings",
       "SetTableTitle",
@@ -444,7 +440,6 @@
       "GetParentTable",
       "GetPrevious",
       "GetRowIndex",
-      "Search",
       "SetColumnBackgroundColor",
       "SetTextPr",
       "Split"
@@ -463,7 +458,6 @@
       "GetParentTable",
       "GetPrevious",
       "Remove",
-      "Search",
       "SetTextPr"
     ],
     "ApiTableRowPr": [],
@@ -660,7 +654,6 @@
       "AutoFit",
       "Clear",
       "Copy",
-      "Cut",
       "End",
       "Find",
       "FindNext",
@@ -850,11 +843,7 @@
     "ApiFill": [],
     "ApiGradientStop": [],
     "apiimage": [],
-    "ApiLayout": [
-      "FollowMasterBackground",
-      "MoveTo",
-      "SetName"
-    ],
+    "ApiLayout": [],
     "ApiMaster": [],
     "ApiOleObject": [
       "GetApplicationId",
@@ -927,16 +916,12 @@
       "ApplyLayout",
       "ApplyTheme",
       "FollowLayoutBackground",
-      "FollowMasterBackground",
       "GetSlideIndex",
       "GetVisible",
-      "MoveTo",
       "SetVisible"
     ],
     "ApiStroke": [],
-    "ApiTable": [
-      "Select"
-    ],
+    "ApiTable": [],
     "ApiTableCell": [],
     "ApiTableRow": [],
     "apitextpr": [
