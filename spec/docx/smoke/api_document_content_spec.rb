@@ -69,4 +69,10 @@ describe 'ApiDocumentContent section tests' do
     expect(json['content'][1]['type']).to eq('blockLvlSdt')
     expect(json['content'][2]['type']).to eq('table')
   end
+
+  it 'ApiDocumentContent | getText method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document_content/get_text.js')
+    expect(docx.elements[0].sdt_content).to be_truthy
+    expect(docx.elements[1].nonempty_runs[0].text).to include('%paragraph%')
+  end
 end
