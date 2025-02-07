@@ -18,7 +18,7 @@ task :web do
 
   server = doclinux.semver > kim.semver ? doclinux : kim
   ENV['WEB_BUILDER_URL'] = server.uri
-  puts "Run on #{server.uri}, build #{server.version_with_build}"
+  puts "Run on #{server.uri}, version #{server.version_with_build}"
 
   sh 'bundle exec parallel_rspec --exclude-pattern "spec/python_wrapper/**" spec'
 end
