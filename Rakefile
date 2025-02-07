@@ -16,7 +16,9 @@ task :web do
   doclinux = WebDocBuilderWrapper.new(documentserver_path: 'https://doc-linux.teamlab.info')
   kim = WebDocBuilderWrapper.new(documentserver_path: 'https://kim.teamlab.info')
 
-  ENV['WEB_BUILDER_URL'] = doclinux.semver > kim.semver ? doclinux.uri : kim.uri
+  server = doclinux.semver > kim.semver ? doclinux : kim
+  ENV['WEB_BUILDER_URL'] = server.uri
+  puts "Run on #{server.uri}, version #{server.version_with_build}"
 
   sh 'bundle exec parallel_rspec --exclude-pattern "spec/python_wrapper/**" spec'
 end
