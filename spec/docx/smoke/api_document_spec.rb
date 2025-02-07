@@ -237,4 +237,25 @@ describe 'ApiDocument section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_document/replace_current_sentence.js')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is text. for check.  Replace current sentence')
   end
+
+  it 'ApiDocument | GetAllBookmarksNames method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/get_all_bookmarks_names.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Bookmark names: Bookmark 1, Bookmark 2')
+  end
+
+  it 'ApiDocument | GetBookmark method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Bookmark name: Bookmark, text: ONLYOFFICE')
+  end
+
+  it 'ApiDocument | GetBookmarkRange method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark_range.js')
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('ONLYOFFICE')
+    expect(docx.elements.first.nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new(true))
+  end
+
+  it 'ApiDocument | DeleteBookmark method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/delete_bookmark.js')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Delete result: true, GetBookmark result: null')
+  end
 end
