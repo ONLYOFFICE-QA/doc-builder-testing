@@ -41,11 +41,14 @@ class WebDocBuilderWrapper
     parse(output_file)
   end
 
-  # @return [String] command of version
+  # @return [String] version
   def version
-    starting_lines = `curl --compressed -m 10 --insecure -r 0-300 #{@uri}/sdkjs/word/sdk-all.js 2>/dev/null`
-    trimmed_lines = starting_lines[0..300]
-    trimmed_lines[/\d(\.)\d(\.)\d/]
+    sdk_description[/\d(\.)\d(\.)\d/]
+  end
+
+  # @return [String] version with build
+  def version_with_build
+    sdk_description[/\d(\.)\d(\.)\d.*(build:\d*)./]
   end
 
   # Build file from script file
@@ -106,6 +109,12 @@ class WebDocBuilderWrapper
   end
 
   private
+
+  # @return [String] command for get sdk description
+  def sdk_description
+    starting_lines = `curl --compressed -m 10 --insecure -r 0-300 #{@uri}/sdkjs/word/sdk-all.js 2>/dev/null`
+    starting_lines[0..300]
+  end
 
   # Raise errors if response somehow wrong
   # @param response [Net::HTTPResponse] response to check error
