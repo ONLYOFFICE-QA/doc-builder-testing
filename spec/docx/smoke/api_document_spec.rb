@@ -257,6 +257,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | DeleteBookmark method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/delete_bookmark.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Delete result: true, GetBookmark result: null')
   end
