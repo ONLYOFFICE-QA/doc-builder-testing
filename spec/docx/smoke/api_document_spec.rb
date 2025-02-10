@@ -244,11 +244,13 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetBookmark method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Bookmark name: Bookmark, text: ONLYOFFICE')
   end
 
   it 'ApiDocument | GetBookmarkRange method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark_range.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('ONLYOFFICE')
     expect(docx.elements.first.nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new(true))
