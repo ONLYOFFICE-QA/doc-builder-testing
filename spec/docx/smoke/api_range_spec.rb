@@ -133,4 +133,25 @@ describe 'ApiRange section tests' do
       expect(docx.elements[1].nonempty_runs[0].text).to eq('Run end pos = 25')
     end
   end
+
+  it 'ApiRange | AddBookmark method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_range/add_bookmark.js')
+    expect(docx.elements.first.nonempty_runs[0].class).to eq(OoxmlParser::BookmarkStart)
+    expect(docx.elements.first.nonempty_runs[0].name).to eq('Bookmark 1')
+    expect(docx.elements.first.nonempty_runs[1].class).to eq(OoxmlParser::DocxParagraphRun)
+    expect(docx.elements.first.nonempty_runs[1].text).to eq('ONLYOFFICE')
+    expect(docx.elements.first.nonempty_runs[2].class).to eq(OoxmlParser::BookmarkEnd)
+
+    expect(docx.elements.first.nonempty_runs[3].class).to eq(OoxmlParser::DocxParagraphRun)
+    expect(docx.elements.first.nonempty_runs[3].text).to eq(' Document ')
+
+    expect(docx.elements.first.nonempty_runs[4].class).to eq(OoxmlParser::BookmarkStart)
+    expect(docx.elements.first.nonempty_runs[4].name).to eq('Bookmark 2')
+    expect(docx.elements.first.nonempty_runs[5].class).to eq(OoxmlParser::DocxParagraphRun)
+    expect(docx.elements.first.nonempty_runs[5].text).to eq('Build')
+    expect(docx.elements.first.nonempty_runs[6].class).to eq(OoxmlParser::BookmarkEnd)
+
+    expect(docx.elements.first.nonempty_runs[7].class).to eq(OoxmlParser::DocxParagraphRun)
+    expect(docx.elements.first.nonempty_runs[7].text).to eq('er')
+  end
 end
