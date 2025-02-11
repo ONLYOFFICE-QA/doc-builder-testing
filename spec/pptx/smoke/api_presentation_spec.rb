@@ -46,4 +46,21 @@ describe 'ApiPresentation section tests' do
     slide_data = pptx.slides[0].common_slide_data.shape_tree
     expect(comments_text.join(', ')).to eq(slide_data.elements[0].text_body.paragraphs[0].runs[0].text)
   end
+
+  it 'ApiPresentation | GetAllSlideMasters method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_presentation/get_all_slide_masters.js')
+    slide_data = pptx.slides[0].common_slide_data.shape_tree
+    expect(slide_data.elements[0].text_body.paragraphs[0].runs[0].text).to eq('master count: 2')
+    expect(slide_data.elements[0].text_body.paragraphs[0].runs[1].text).to eq('array slide masters: 2')
+  end
+
+  it 'ApiPresentation | GetAllSlides method' do
+    pptx = builder.build_and_parse('js/pptx/smoke/api_presentation/get_all_slides.js')
+    expect(pptx.slides.first.class.to_s).to eq('OoxmlParser::Slide')
+    slide_data = pptx.slides[0].common_slide_data.shape_tree
+    expect(slide_data.elements[0].text_body.paragraphs[0].runs[0].text).to eq('length: 2')
+    json = slide_data.elements[1].text_body.paragraphs[0].runs[0].text
+    json = JSON.parse(json)
+    expect(json['show']).to be(true)
+  end
 end
