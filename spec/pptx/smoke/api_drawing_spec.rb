@@ -20,8 +20,7 @@ describe 'ApiDrawing section tests' do
   end
 
   it 'ApiDrawing | Select method' do
-    # TODO: need to update test script after adding new method for check selected objects
     pptx = builder.build_and_parse('js/pptx/smoke/api_drawing/select.js')
-    expect(pptx.slides.first.common_slide_data.shape_tree.elements.size).to eq(1)
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements[1].text_body.paragraphs.first.runs.first.text).to eq('Selection: true')
   end
 end

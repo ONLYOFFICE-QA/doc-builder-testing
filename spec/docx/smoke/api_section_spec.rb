@@ -79,4 +79,10 @@ describe 'ApiSection section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_section/set_type.js')
     expect(docx.page_properties.type).to eq('continuous')
   end
+
+  it 'ApiSection | GetStartPageNumber method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_section/get_start_page_number.js')
+    expect(docx.notes[0].elements.first.nonempty_runs.first.text).to eq('GetStartPageNumber: -1')
+    expect(docx.notes[1].elements.first.nonempty_runs.first.text).to eq('GetStartPageNumber: 3')
+  end
 end
