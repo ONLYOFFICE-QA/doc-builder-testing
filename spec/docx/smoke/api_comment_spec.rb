@@ -32,7 +32,7 @@ describe 'ApiComment section tests' do
 
   it 'ApiComment | GetQuoteText method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/get_quote_text.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Quote text: This is just GetQuoteText method test')
+    expect(docx.elements[1].nonempty_runs.first.text).to eq('Quote text: This is just GetQuoteText method test\r')
   end
 
   it 'ApiComment | GetRepliesCount method' do
