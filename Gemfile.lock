@@ -31,7 +31,7 @@ GEM
     ooxml_decrypt (1.0.0)
       nokogiri (~> 1.10)
       ruby-ole (~> 1.2)
-    ooxml_parser (0.37.1)
+    ooxml_parser (0.38.0)
       nokogiri (~> 1)
       ooxml_decrypt (~> 1)
       rubyzip (~> 2)
