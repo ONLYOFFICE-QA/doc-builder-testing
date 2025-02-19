@@ -16,6 +16,8 @@ jobs:
       - name: Install gem dependencies
         run: |
           gem install bundler
+          rm -rf vendor/cache
+          bundle install --path vendor/bundle
           bundle config set with 'development'
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop check
