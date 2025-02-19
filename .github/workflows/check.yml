@@ -12,14 +12,14 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.4.1'
+          ruby-version: '3.4'
       - name: Install gem dependencies
         run: |
           gem install bundler
           bundle config set with 'development'
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop check
-        run: rubocop
+        run: rubocop --debug
       - name: Check that code 100% documented
         run: yardoc . | grep -q '100.00% documented'
 
