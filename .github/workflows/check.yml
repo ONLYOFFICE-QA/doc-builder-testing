@@ -15,9 +15,7 @@ jobs:
           ruby-version: '3.4'
       - name: Install gem dependencies
         run: |
-          rm -rf vendor/cache
           gem install bundler
-          bundle config set path 'vendor/bundle'
           bundle config set with 'development'
           bundle install --jobs 4 --retry 3
       - name: Run RuboCop check
