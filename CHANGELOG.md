@@ -36,3 +36,4 @@
 ### Fixes
 
 * Fix centos 8 dockerfile
+* Run `rubocop` in CI through `bundle exec`
