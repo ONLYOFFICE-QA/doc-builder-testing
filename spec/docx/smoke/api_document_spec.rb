@@ -261,4 +261,18 @@ describe 'ApiDocument section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_document/delete_bookmark.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Delete result: true, GetBookmark result: null')
   end
+
+  it 'ApiDocument | Search method' do
+    docx = builder.build_and_parse('js/docx/smoke/api_document/search.js')
+    expect(docx.elements[0].nonempty_runs[1].text).to eq('Search')
+    expect(docx.elements[0].nonempty_runs[1].highlight).to eq('green')
+
+    expect(docx.elements[1].nonempty_runs[0].link).not_to be_nil
+    expect(docx.elements[1].nonempty_runs[2].link).not_to be_nil
+    # TODO: 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=73240'
+    # expect(docx.elements[1].nonempty_runs[3].text).to eq('Search')
+    expect(docx.elements[1].nonempty_runs[3].highlight).to eq('green')
+
+    # expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
+  end
 end

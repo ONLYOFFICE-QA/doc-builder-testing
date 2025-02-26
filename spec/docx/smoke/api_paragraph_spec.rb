@@ -264,7 +264,15 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | Search method' do
     docx = builder.build_and_parse('js/docx/smoke/api_paragraph/search.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq('Search')
+    expect(docx.elements[0].nonempty_runs[1].text).to eq('Search')
+    expect(docx.elements[0].nonempty_runs[1].highlight).to eq('green')
+
+    expect(docx.elements[0].nonempty_runs[4].link).not_to be_nil
+    # TODO: 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=73240'
+    # expect(docx.elements[0].nonempty_runs[6].text).to eq('Search')
+    expect(docx.elements[0].nonempty_runs[6].highlight).to eq('green')
+
+    # expect(docx.elements[1].nonempty_runs.first.text).to eq('Search, Search')
   end
 
   it 'ApiParagraph | ToJSON method' do
