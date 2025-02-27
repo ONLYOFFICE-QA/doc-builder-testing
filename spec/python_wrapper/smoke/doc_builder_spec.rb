@@ -2,8 +2,6 @@
 
 require 'spec_helper'
 describe 'CDocBuilder tests' do
-  before { skip 'incompatible changes' if builder.semver < Semantic::Version.new('8.2.0') }
-
   it 'CDocBuilder | OpenFile method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder/open_file.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('It’s-a me, Mario!')

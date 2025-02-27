@@ -36,6 +36,7 @@ describe 'ApiLayout section tests' do
   end
 
   it 'ApiLayout | GetAllCharts method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73379') if builder.semver > Semantic::Version.new('8.3.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_layout/get_all_charts.js')
     expect(pptx.slide_layouts.first.common_slide_data.shape_tree.elements.last.class).to eq(OoxmlParser::GraphicFrame)
     expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Charts count: 1, type: chart')

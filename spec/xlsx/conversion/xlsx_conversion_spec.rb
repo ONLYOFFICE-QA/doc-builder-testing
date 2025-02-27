@@ -13,7 +13,6 @@ describe 'Conversion tests from Xlsx', :critical do
   end
 
   it 'Conversion | Xlsx to Pdf' do
-    skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=71025' if builder.semver >= Semantic::Version.new('8.2.0')
     output_file = builder.build_file('js/conversion/xlsx/xlsx_to_pdf.js')
     expect(builder).not_to be_file_empty(output_file)
   end

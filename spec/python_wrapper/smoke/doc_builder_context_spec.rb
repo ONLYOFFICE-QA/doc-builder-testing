@@ -2,8 +2,6 @@
 
 require 'spec_helper'
 describe 'CDocBuilderContext tests' do
-  before { skip 'incompatible changes' if builder.semver < Semantic::Version.new('8.2.0') }
-
   it 'CDocBuilderContext | CreateArray method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_context/create_array.py')
     expect(docx.elements[0].nonempty_runs[0].text).to eq('CreateArray')

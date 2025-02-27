@@ -2,8 +2,6 @@
 
 require 'spec_helper'
 describe 'CDocBuilderValue tests' do
-  before { skip 'incompatible changes' if builder.semver < Semantic::Version.new('8.2.0') }
-
   it 'CDocBuilderValue | Call method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/call.py')
     expect(docx.elements.first.nonempty_runs.first.text).to eq('This is Call method check')
@@ -18,7 +16,12 @@ describe 'CDocBuilderValue tests' do
 
   it 'CDocBuilderValue | Get method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/get.py')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('Text is Some text for Get method')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.3.0')
+      expect(docx.elements.first.nonempty_runs[2].text).to eq("Text is Some text for Get method\r")
+    else
+      expect(docx.elements.first.nonempty_runs[2].text).to eq('Text is Some text for Get method')
+    end
   end
 
   it 'CDocBuilderValue | GetLength method' do
