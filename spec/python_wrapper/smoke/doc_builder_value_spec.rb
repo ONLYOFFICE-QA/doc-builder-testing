@@ -16,7 +16,7 @@ describe 'CDocBuilderValue tests' do
 
   it 'CDocBuilderValue | Get method' do
     docx = python_builder.build_and_parse('python/wrapper/smoke/doc_builder_value/get.py')
-    expect(docx.elements.first.nonempty_runs[2].text).to eq('Text is Some text for Get method')
+    expect(docx.elements.first.nonempty_runs[2].text).to eq("Text is Some text for Get method\r")
   end
 
   it 'CDocBuilderValue | GetLength method' do

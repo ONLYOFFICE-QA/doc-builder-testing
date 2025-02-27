@@ -266,10 +266,9 @@ describe 'ApiDocument section tests' do
 
     expect(docx.elements[1].nonempty_runs[0].link).not_to be_nil
     expect(docx.elements[1].nonempty_runs[2].link).not_to be_nil
-    # TODO: 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=73240'
-    # expect(docx.elements[1].nonempty_runs[3].text).to eq('Search')
-    expect(docx.elements[1].nonempty_runs[3].highlight).to eq('green')
+    expect(docx.elements[1].nonempty_runs[4].text).to eq('Search')
+    expect(docx.elements[1].nonempty_runs[4].highlight).to eq('green')
 
-    # expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
+    expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
   end
 end
