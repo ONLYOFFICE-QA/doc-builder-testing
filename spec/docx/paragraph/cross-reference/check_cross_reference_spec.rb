@@ -39,16 +39,16 @@ describe 'All tests numbering object' do
   it 'Cross-reference to bookmarks' do
     docx = builder.build_and_parse('js/docx/paragraph/cross_reference/add_bookmark_cross_ref.js')
     expect(docx.elements[1].nonempty_runs[1].text).to eq('Paragraph')
-    # TODO: 'check after release'
-    index = builder.semver >= Semantic::Version.new('8.3.0') ? 2 : 1
-    expect(docx.elements[1].runs[index].instruction_text.value).to eq(' REF Bookmark  \\h')
-    expect(docx.elements[2].runs[index].instruction_text.value).to eq(' PAGEREF Bookmark \\h')
-    expect(docx.elements[3].runs[index].instruction_text.value).to eq(' REF Bookmark \\r  \\h')
+    expect(docx.elements[1].runs[2].instruction_text.value).to eq(' REF Bookmark  \\h')
+    expect(docx.elements[2].runs[2].instruction_text.value).to eq(' PAGEREF Bookmark \\h')
+    expect(docx.elements[3].runs[2].instruction_text.value).to eq(' REF Bookmark \\r  \\h')
 
     # TODO: bug 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=58290'
     # expect(docx.elements[2].nonempty_runs[1].text).to eq('1')
     expect(docx.elements[3].nonempty_runs[1].text).to eq('0')
     expect(docx.elements[4].nonempty_runs.first.text).to eq('above')
+    # TODO: 'check after release'
+    index = builder.semver >= Semantic::Version.new('8.3.0') ? 2 : 1
     expect(docx.elements[4].runs[index].instruction_text.value).to eq(' REF Bookmark \\p  \\h')
   end
 

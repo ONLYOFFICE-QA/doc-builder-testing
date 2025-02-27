@@ -270,7 +270,7 @@ describe 'ApiDocument section tests' do
     expect(docx.elements[1].nonempty_runs[0].link).not_to be_nil
     expect(docx.elements[1].nonempty_runs[2].link).not_to be_nil
     # TODO: 'check after release'
-    if builder.semver < Semantic::Version.new('8.3.0')
+    if builder.semver >= Semantic::Version.new('8.3.0')
       expect(docx.elements[1].nonempty_runs[4].text).to eq('Search')
       expect(docx.elements[1].nonempty_runs[4].highlight).to eq('green')
       expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
