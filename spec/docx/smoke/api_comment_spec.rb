@@ -32,7 +32,12 @@ describe 'ApiComment section tests' do
 
   it 'ApiComment | GetQuoteText method' do
     docx = builder.build_and_parse('js/docx/smoke/api_comment/get_quote_text.js')
-    expect(docx.elements[1].nonempty_runs.first.text).to eq("Quote text: This is just GetQuoteText method test\r")
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.3.0')
+      expect(docx.elements[1].nonempty_runs.first.text).to eq("Quote text: This is just GetQuoteText method test\r")
+    else
+      expect(docx.elements[1].nonempty_runs.first.text).to eq('Quote text: This is just GetQuoteText method test')
+    end
   end
 
   it 'ApiComment | GetRepliesCount method' do

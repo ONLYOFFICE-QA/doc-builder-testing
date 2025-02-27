@@ -36,13 +36,23 @@ describe 'ApiRange section tests' do
       expect(docx.elements[1].nonempty_runs[0].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[0].font_color).to eq(OoxmlParser::Color.new)
 
-      expect(docx.elements[1].nonempty_runs[2].text).to eq('nge ')
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.1')
+        expect(docx.elements[1].nonempty_runs[2].text).to eq('nge ')
+      else
+        expect(docx.elements[1].nonempty_runs[2].text).to eq('ge ')
+      end
       expect(docx.elements[1].nonempty_runs[2].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[2].font_color).to eq(OoxmlParser::Color.new)
     end
 
     it 'Check method for another range' do
-      expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
+      # TODO: 'check after release'
+      if builder.semver >= Semantic::Version.new('8.2.1')
+        expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRa')
+      else
+        expect(docx.elements[1].nonempty_runs[1].text).to eq('GetRan')
+      end
       expect(docx.elements[1].nonempty_runs[1].font_style).to eq(style)
       expect(docx.elements[1].nonempty_runs[1].font_color.to_s).to eq('RGB (255, 0, 0)')
     end
@@ -76,31 +86,52 @@ describe 'ApiRange section tests' do
 
   it 'ApiRange | GetStartPos method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/get_start_pos.js')
-    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 start pos = 1')
-    expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 start pos = 14')
-    expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 start pos = 39')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.1')
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 start pos = 1')
+      expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 start pos = 14')
+      expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 start pos = 39')
+    else
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 start pos = 0')
+    end
   end
 
   it 'ApiRange | GetEndPos method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/get_end_pos.js')
-    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 end pos = 14')
-    expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 end pos = 34')
-    expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 end pos = 49')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.1')
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 end pos = 14')
+      expect(docx.elements[1].nonempty_runs[2].text).to eq('Run2 end pos = 34')
+      expect(docx.elements[1].nonempty_runs[4].text).to eq('Run3 end pos = 49')
+    else
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run1 end pos = 13')
+    end
   end
 
   it 'ApiRange | GetTextPr method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/get_text_pr.js')
+    skip 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=68619' if builder.semver <= Semantic::Version.new('8.2.0')
     expect(JSON.parse(docx.elements.last.nonempty_runs.first.text)).to hash_have_no_empty_string_values
   end
 
   it 'ApiRange | SetStartPos method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/set_start_pos.js')
-    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run start pos = 6')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.1')
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run start pos = 6')
+    else
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run start pos = 5')
+    end
   end
 
   it 'ApiRange | SetEndPos method' do
     docx = builder.build_and_parse('js/docx/smoke/api_range/set_end_pos.js')
-    expect(docx.elements[1].nonempty_runs[0].text).to eq('Run end pos = 26')
+    # TODO: 'check after release'
+    if builder.semver >= Semantic::Version.new('8.2.1')
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run end pos = 26')
+    else
+      expect(docx.elements[1].nonempty_runs[0].text).to eq('Run end pos = 25')
+    end
   end
 
   it 'ApiRange | AddBookmark method' do

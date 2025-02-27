@@ -2,6 +2,8 @@
 
 require 'spec_helper'
 describe 'ApiBookmark section tests' do
+  before { skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0') }
+
   it 'ApiChart | GoTo method' do
     docx = builder.build_and_parse('js/docx/smoke/api_bookmark/go_to.js')
     expect(docx.elements.first.nonempty_runs[1].class).to eq(OoxmlParser::BookmarkStart)

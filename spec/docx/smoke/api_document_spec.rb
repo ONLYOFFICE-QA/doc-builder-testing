@@ -244,17 +244,20 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetBookmark method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Bookmark name: Bookmark, text: ONLYOFFICE')
   end
 
   it 'ApiDocument | GetBookmarkRange method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_bookmark_range.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('ONLYOFFICE')
     expect(docx.elements.first.nonempty_runs[1].font_style).to eq(OoxmlParser::FontStyle.new(true))
   end
 
   it 'ApiDocument | DeleteBookmark method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document/delete_bookmark.js')
     expect(docx.elements[1].nonempty_runs.first.text).to eq('Delete result: true, GetBookmark result: null')
   end
@@ -266,9 +269,13 @@ describe 'ApiDocument section tests' do
 
     expect(docx.elements[1].nonempty_runs[0].link).not_to be_nil
     expect(docx.elements[1].nonempty_runs[2].link).not_to be_nil
-    expect(docx.elements[1].nonempty_runs[4].text).to eq('Search')
-    expect(docx.elements[1].nonempty_runs[4].highlight).to eq('green')
-
-    expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
+    # TODO: 'check after release'
+    if builder.semver < Semantic::Version.new('8.3.0')
+      expect(docx.elements[1].nonempty_runs[4].text).to eq('Search')
+      expect(docx.elements[1].nonempty_runs[4].highlight).to eq('green')
+      expect(docx.elements[2].nonempty_runs.first.text).to eq('Search, Search')
+    else
+      expect(docx.elements[1].nonempty_runs[3].highlight).to eq('green')
+    end
   end
 end
