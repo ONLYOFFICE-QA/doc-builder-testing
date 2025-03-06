@@ -106,7 +106,7 @@ describe 'ApiRun section tests' do
   end
 
   it 'ApiRun | SetHighlight method' do
-    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=62996')
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=62996') if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_run/set_highlight.js')
     expect(docx.elements.first.nonempty_runs[1].text).to eq('This is a text run with the text highlighted with yellow color.')
     expect(docx.elements.first.nonempty_runs[1].highlight).to eq('yellow')
