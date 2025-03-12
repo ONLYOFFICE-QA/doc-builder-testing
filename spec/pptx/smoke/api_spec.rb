@@ -14,6 +14,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | CreateChart method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73379') if builder.semver > Semantic::Version.new('8.3.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api/create_chart.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.type).to eq(:bar_3d)
     points = pptx.slides.first.elements.first.graphic_data.first.series[0]
@@ -137,6 +138,7 @@ describe 'Api section tests' do
   end
 
   it 'Api | GetPresentation method' do
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73379') if builder.semver > Semantic::Version.new('8.3.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api/get_presentation.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.text).to eq('Financial Overview')
   end

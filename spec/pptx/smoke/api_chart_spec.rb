@@ -2,6 +2,8 @@
 
 require 'spec_helper'
 describe 'ApiChart section tests' do
+  before { skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73379') if builder.semver > Semantic::Version.new('8.3.0') }
+
   it 'ApiChart | GetClassType method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_chart/get_class_type.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.text).to eq('Financial Overview: Class Type = chart')
