@@ -1,0 +1,12 @@
+builder.CreateFile("docx");
+var oDocument = Api.GetDocument();
+var oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("The current page index is: " + oDocument.GetCurrentPage());
+oParagraph.AddPageBreak();
+oParagraph.AddPageBreak();
+var oRun =  oParagraph.AddText("Move to new page");
+oRun.MoveCursorToPos();
+oParagraph.AddLineBreak();
+oParagraph.AddText("The current page index is: " + oDocument.GetCurrentPage());
+builder.SaveFile("docx", "GetCurrentPage.docx");
+builder.CloseFile();
