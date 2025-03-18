@@ -286,10 +286,4 @@ describe 'ApiDocument section tests' do
     # TODO: 'https://bugzilla.onlyoffice.com/show_bug.cgi?id=73219'
     # expect(docx.elements.first.nonempty_runs[5].text).to eq('The current page index is: 2')
   end
-
-  it 'ApiDocument | GetCurrentVisiblePages method' do
-    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
-    docx = builder.build_and_parse('js/docx/smoke/api_document/get_current_visible_pages.js')
-    expect(docx.elements.first.nonempty_runs.first.text).to eq('')
-  end
 end

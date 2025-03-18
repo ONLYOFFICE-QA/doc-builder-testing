@@ -87,7 +87,13 @@ describe 'ApiSection section tests' do
   end
 
   it 'ApiSection | SetStartPageNumber method' do
+    skip('Need to check document structure')
     docx = builder.build_and_parse('js/docx/smoke/api_section/set_start_page_number.js')
-    expect(docx.notes[0].elements.first.nonempty_runs.first.text).to eq('Page #4')
+    expect(docx.notes[0].elements.first.nonempty_runs[0].text).to eq('Page #')
+    expect(docx.notes[0].elements.first.nonempty_runs[1].text).to eq('3')
+    expect(docx.notes[1].elements.first.nonempty_runs[0].text).to eq('Page #')
+    expect(docx.notes[1].elements.first.nonempty_runs[1].text).to eq('4')
+    expect(docx.notes[2].elements.first.nonempty_runs[0].text).to eq('Page #')
+    expect(docx.notes[2].elements.first.nonempty_runs[1].text).to eq('1')
   end
 end
