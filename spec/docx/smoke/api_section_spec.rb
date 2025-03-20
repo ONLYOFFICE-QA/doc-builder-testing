@@ -81,6 +81,7 @@ describe 'ApiSection section tests' do
   end
 
   it 'ApiSection | GetStartPageNumber method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_section/get_start_page_number.js')
     expect(docx.notes[0].elements.first.nonempty_runs.first.text).to eq('GetStartPageNumber: -1')
     expect(docx.notes[1].elements.first.nonempty_runs.first.text).to eq('GetStartPageNumber: 3')
