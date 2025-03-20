@@ -71,6 +71,7 @@ describe 'ApiDocumentContent section tests' do
   end
 
   it 'ApiDocumentContent | GetText method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
     docx = builder.build_and_parse('js/docx/smoke/api_document_content/get_text.js')
     expect(docx.elements[0].sdt_content).to be_truthy
     expect(docx.elements[1].nonempty_runs[0].text).to include('%paragraph%')
