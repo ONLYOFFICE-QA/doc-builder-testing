@@ -1,0 +1,24 @@
+builder.CreateFile("docx");
+let oDocument = Api.GetDocument();
+let oParagraph = oDocument.GetElement(0);
+oParagraph.AddText("First section");
+oParagraph.AddPageBreak();
+oParagraph.AddText("New page");
+let oSection = oDocument.CreateSection(oParagraph);
+oSection.SetStartPageNumber(3);
+let oHeader = oSection.GetHeader("default", true);
+oParagraph = oHeader.GetElement(0);
+oParagraph.AddText("Page #");
+oParagraph.AddPageNumber();
+
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("Second section");
+oDocument.Push(oParagraph);
+oSection = oDocument.GetFinalSection();
+oSection.SetStartPageNumber(1);
+oHeader = oSection.GetHeader("default", true);
+oParagraph = oHeader.GetElement(0);
+oParagraph.AddText("Page #");
+oParagraph.AddPageNumber();
+builder.SaveFile("docx", "SetStartPageNumber.docx");
+builder.CloseFile();

@@ -148,4 +148,10 @@ describe 'Api section tests' do
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.count).to eq(2)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.count).to eq(2)
   end
+
+  it 'Api | GetSelection method' do
+    skip 'new methods' if builder.semver < Semantic::Version.new('8.3.0')
+    pptx = builder.build_and_parse('js/pptx/smoke/api/get_selection.js')
+    expect(pptx.slides.first.common_slide_data.shape_tree.elements.first.text_body.paragraphs.first.runs.first.text).to eq('Selection: slides')
+  end
 end
