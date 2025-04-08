@@ -13,10 +13,8 @@ end
 desc 'run parallel_rspec on builder in documentserver'
 task :web do
   ENV['BUILDER_PLATFORM'] = 'WEB'
-  doclinux = WebDocBuilderWrapper.new(documentserver_path: 'https://doc-linux.teamlab.info')
-  kim = WebDocBuilderWrapper.new(documentserver_path: 'https://kim.teamlab.info')
-
-  server = doclinux.semver > kim.semver ? doclinux : kim
+  server = WebDocBuilderWrapper.new(documentserver_path: 'https://doc-linux.teamlab.info')
+  # server = WebDocBuilderWrapper.new(documentserver_path: 'https://kim.teamlab.info')
   ENV['WEB_BUILDER_URL'] = server.uri
   puts "Run on #{server.uri}, version #{server.version_with_build}"
 
