@@ -2,6 +2,7 @@
 
 # Helpers method for document builder
 module DocBuilderHelper
+  # Actual verison: 7.2.2
   # [Hash] list of minimal file size by formats
   MINIMAL_FILESIZE = { '.odt' => 3656,
                        '.rtf' => 976,
@@ -9,7 +10,12 @@ module DocBuilderHelper
                        '.txt' => 5,
                        '.odp' => 3933,
                        '.ods' => 3351,
-                       '.csv' => 1 }.freeze
+                       '.csv' => 1,
+                       '.epub' => 1758,
+                       '.fb2' => 498,
+                       '.ott' => 272,
+                       '.html' => 4234,
+                       '.pdfa' => 4999 }.freeze
 
   # Parse file
   # @param path [String] file to path
