@@ -32,9 +32,13 @@ jobs:
           fetch-depth: 0  # Fetch the full history to access other branches
       - name: Fetch master branch
         run: git fetch origin master  # Fetch the master branch
+        env:
+          DOCBUILDER_LICENSE: ${{ secrets.DOCUMENT_BUILDER_LICENSE }}
       - name: Create folder and license file
         run: |
-          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > $HOME/secret
+          mkdir $HOME/secret/
+          touch $HOME/secret/license.xml
+          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > $HOME/secret/license.xml
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
@@ -46,9 +50,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Create folder and license file
-        run: |
-          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > $HOME/secret
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
