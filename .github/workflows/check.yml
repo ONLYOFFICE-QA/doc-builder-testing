@@ -54,7 +54,7 @@ jobs:
           docker build -t doc-builder-testing .
       - name: Run Docker container with license file mounted
         run: |
-          docker run -v $HOME/secret:/secret doc-builder-testing rpec_critical
+          docker run -v $HOME/secret:/secret doc-builder-testing rspec_critical
 
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
