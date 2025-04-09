@@ -1,0 +1,5 @@
+docker build -t doc-builder-testing .
+
+docker run --rm \
+  -v "$(pwd)/license/license.xml:/secrets/license.xml:ro" \
+  doc-builder-testing

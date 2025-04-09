@@ -34,14 +34,13 @@ jobs:
         run: git fetch origin master  # Fetch the master branch
       - name: Create folder and license file
         run: |
-          mkdir -p /secret
-          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > /secret/license.xml
+          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > $HOME/secret
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
       - name: Run Docker container with license file mounted
         run: |
-          docker run -v /secret:/secret doc-builder-testing in_modified_specs
+          docker run -v $HOME/secret:/secret doc-builder-testing in_modified_specs
 
   run_critical_in_default_docker:
     runs-on: ubuntu-latest
@@ -49,14 +48,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Create folder and license file
         run: |
-          mkdir -p /secret
-          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > /secret/license.xml
+          echo ${{ secrets.DOCUMENT_BUILDER_LICENSE }} > $HOME/secret
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
       - name: Run Docker container with license file mounted
         run: |
-          docker run -v /secret:/secret doc-builder-testing rpec_critical
+          docker run -v $HOME/secret:/secret doc-builder-testing rpec_critical
 
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
