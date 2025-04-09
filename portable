@@ -8,14 +8,14 @@ DOWNLOADED_FILE=$(basename $URL)
 
 # Download and verify SHA256
 echo "Downloading $URL..."
-curl -L $URL --output ./$DOWNLOADED_FILE
+curl -L $URL --output ./"$DOWNLOADED_FILE"
 
-if sha256sum ./$DOWNLOADED_FILE | grep -q $SHA256; then
+if sha256sum ./"$DOWNLOADED_FILE" | grep -q $SHA256; then
     echo "Verification succeeded (exit code: $?)"
 
 	# Extract the archive
     echo "Extracting $DOWNLOADED_FILE..."
-    tar -xvf $DOWNLOADED_FILE || { echo "Extraction failed"; exit 1; }
+    tar -xvf "$DOWNLOADED_FILE" || { echo "Extraction failed"; exit 1; }
 
     # Copy binary to system
     echo "Installing binary..."
@@ -38,7 +38,7 @@ if sha256sum ./$DOWNLOADED_FILE | grep -q $SHA256; then
 
     # Clean up
     echo "Cleaning up..."
-    rm -rf $DOWNLOADED_FILE ./opt ./usr
+    rm -rf "$DOWNLOADED_FILE" ./opt ./usr
     CLEANUP_STATUS=$?
     echo "Cleanup status: $CLEANUP_STATUS"
     
