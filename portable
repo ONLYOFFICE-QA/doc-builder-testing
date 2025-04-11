@@ -28,7 +28,7 @@ if sha256sum ./"$DOWNLOADED_FILE" | grep -q $SHA256; then
     
 	# Copy data files
     echo "Installing data files..."
-    cp -r ./opt/onlyoffice/documentbuilder /opt/onlyoffice/documentbuilder || { echo "Data files installation failed"; exit 1; }
+    cp -rf ./opt/onlyoffice/documentbuilder /opt/onlyoffice/documentbuilder || { echo "Data files installation failed"; exit 1; }
     echo "Verifying data files installation..."
     ls /opt/onlyoffice/documentbuilder > /dev/null || { echo "Data files verification failed"; exit 1; }
 
