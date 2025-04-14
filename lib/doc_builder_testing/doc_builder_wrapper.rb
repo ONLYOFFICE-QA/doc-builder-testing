@@ -21,7 +21,7 @@ class DocBuilderWrapper
   def default_builder_location
     return 'C:\ONLYOFFICE\DocumentBuilder\docbuilder.exe' if Gem.win_platform?
 
-    '/usr/bin/documentbuilder'
+    '/usr/bin/onlyoffice-documentbuilder'
   end
 
   # @param kwargs_json [String] build arguments in json string format
