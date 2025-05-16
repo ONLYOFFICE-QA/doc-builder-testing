@@ -13,7 +13,10 @@ oRun.AddText("This is just a sample run. Nothing special.");
 oParagraph.AddElement(oRun);
 oRun.AddComment("Comment for run", "James", "uid-3");
 
-var oRange = oRun.GetRange(28, 44);
+oParagraph = Api.CreateParagraph();
+oParagraph.AddText("This is a paragraph for range.");
+oDocument.Push(oParagraph);
+var oRange = oParagraph.GetRange(20, 29);
 oRange.AddComment("Comment for range", "Julia", "uid-4");
 
 var oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
