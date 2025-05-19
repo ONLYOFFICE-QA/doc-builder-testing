@@ -32,18 +32,24 @@ Framework for QA of `onlyoffice-documentbuilder`
 
 1. **Local testing:**
 
-   Create environment variable with absolute path to license file:
+    Create environment variable with absolute path to license file:
 
-   ```bash
-     ONLYOFFICE_BUILDER_LICENSE=abs_path_to_licence.xml
-   ```
+    ```bash
+      ONLYOFFICE_BUILDER_LICENSE=abs_path_to_licence.xml
+    ```
 
 2. **Docker testing:**
 
-   Mount license file as a volume:
+    Build
 
-   ```bash
+    ```bash
+    docker buildx build --load -t doc-builder-testing .
+    ```
+
+    Mount license file as a volume:
+
+    ```bash
     docker run --rm \
-      -v "$(pwd)/license/license.xml:/secrets/license.xml:ro" \
-      doc-builder-testing
-   ```
+    -v "$(pwd)/license/license.xml:/secrets/license.xml:ro" \
+    doc-builder-testing
+    ```
