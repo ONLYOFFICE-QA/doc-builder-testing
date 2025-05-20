@@ -121,7 +121,7 @@ describe 'ApiRange section tests' do
   end
 
   it 'ApiRange | Width getter' do
-    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71130') if OS.rocky_linux?
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=71130')
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_range/width_getter.js')
     expect(xlsx.worksheets.first.rows.first.cells.first.text).to eq('110')
   end

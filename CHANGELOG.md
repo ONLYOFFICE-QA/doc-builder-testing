@@ -13,6 +13,8 @@
 * Add `yamllint` check in CI
 * Add `dependabot` check for `GitHub Actions`
 * Use `ruby-3.4` as project base
+* Add portable version with license to secret
+* Add ShellCheck linting in CI
 
 ### Changes
 
@@ -32,8 +34,17 @@
 * Move docker images from `onlyofficeqa` org to `onlyoffice`
 * Add `gcc-c++` to `centos-7` dockerfile to fix compatibility with `rmagick-v5.4.1`
 * Add script build arguments to `build_and_parse` method
+* Change default builder location to '/usr/bin/onlyoffice-documentbuilder'
 
 ### Fixes
 
 * Fix centos 8 dockerfile
 * Run `rubocop` in CI through `bundle exec`
+* Fix license checker warnings
+* Fix issue where echo breaks XML formatting
+* Fix using secrets in Debian environment
+* Fix force overwrite of builder in portable installation
+* Fix secret storage location to use $HOME/secret
+* Fix spell checker in bash scripts
+* Fix linting configuration to run on every push
+* Fix rspec_critical command typo

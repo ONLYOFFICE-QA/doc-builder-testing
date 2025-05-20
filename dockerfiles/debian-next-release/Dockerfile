@@ -1,7 +1,7 @@
 FROM ruby:3.4
 
 MAINTAINER Pavel.Lobashov "shockwavenn@gmail.com"
-ENV VERSION="8.3.3"
+ENV VERSION="9.0.0"
 ENV DIST="stable"
 
 RUN apt-get update && apt-get -y -q install git \

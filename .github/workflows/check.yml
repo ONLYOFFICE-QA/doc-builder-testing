@@ -32,10 +32,25 @@ jobs:
           fetch-depth: 0  # Fetch the full history to access other branches
       - name: Fetch master branch
         run: git fetch origin master  # Fetch the master branch
+      - name: Create folder and license file
+        env:
+          DOCUMENT_BUILDER_LICENSE: ${{ secrets.DOCUMENT_BUILDER_LICENSE }}
+        run: |
+          mkdir $HOME/secrets/
+          printf "%s" "$DOCUMENT_BUILDER_LICENSE" > "$HOME/secrets/license.xml"
+      - name: Debug license file
+        run: |
+          echo "--- license.xml content ---"
+          cat "$HOME/secrets/license.xml"
+          echo "--- end ---"
+      - name: Check license file length
+        run: wc -c "$HOME/secrets/license.xml"
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
-          docker run -t doc-builder-testing in_modified_specs
+      - name: Run Docker container with license file mounted
+        run: |
+          docker run -v $HOME/secrets/license.xml:/secrets/license.xml:ro doc-builder-testing in_modified_specs
 
   run_critical_in_default_docker:
     runs-on: ubuntu-latest
@@ -44,7 +59,9 @@ jobs:
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
-          docker run -t doc-builder-testing rspec_critical
+      - name: Run Docker container with license file mounted
+        run: |
+          docker run doc-builder-testing rspec_critical
 
   run_critical_in_all_dockerfiles:
     runs-on: ubuntu-latest
