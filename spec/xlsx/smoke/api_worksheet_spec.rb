@@ -103,9 +103,11 @@ describe 'ApiWorksheet section tests' do
 
   it 'ApiWorksheet | SetHyperlink method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/set_hyperlink.js')
-    expect(xlsx.worksheets[1].hyperlinks[0].url.list).to eq('Sheet1')
-    expect(xlsx.worksheets[1].hyperlinks[1].url.list).to eq('Sheet1')
-    expect(xlsx.worksheets[1].hyperlinks[2].url).to eq('https://google.com')
+    expect(xlsx.worksheets[1].hyperlinks[0].url).to eq('https://google.com')
+    expect(xlsx.worksheets[1].hyperlinks[1].url).to eq(OoxmlParser::Coordinates.new(1, 'A', 'Sheet1'))
+    expect(xlsx.worksheets[1].hyperlinks[2].url.list).to eq('Sheet1')
+    expect(xlsx.worksheets[1].hyperlinks[3].url).to eq(OoxmlParser::Coordinates.new(2, 'A', 'Sheet2'))
+    expect(xlsx.worksheets[1].hyperlinks[4].url.list).to eq('Sheet2')
   end
 
   it 'ApiWorksheet | getter Name' do
