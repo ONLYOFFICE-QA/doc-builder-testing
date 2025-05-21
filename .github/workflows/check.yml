@@ -74,7 +74,20 @@ jobs:
       fail-fast: false
     steps:
       - uses: actions/checkout@v4
+      - name: Create folder and license file
+        env:
+          DOCUMENT_BUILDER_LICENSE: ${{ secrets.DOCUMENT_BUILDER_LICENSE }}
+        run: |
+          mkdir $HOME/secrets/
+          printf "%s" "$DOCUMENT_BUILDER_LICENSE" > "$HOME/secrets/license.xml"
+      - name: Debug license file
+        run: |
+          echo "--- license.xml content ---"
+          cat "$HOME/secrets/license.xml"
+          echo "--- end ---"
+      - name: Check license file length
+        run: wc -c "$HOME/secrets/license.xml"
       - name: Dockerfile ${{ matrix.dockerfiles }}
         run: |
           docker build -t doc-builder-testing -f ${{ matrix.dockerfiles }} .
-          docker run doc-builder-testing rspec_critical
+          docker run -v $HOME/secrets/license.xml:/secrets/license.xml:ro doc-builder-testing rspec_critical
