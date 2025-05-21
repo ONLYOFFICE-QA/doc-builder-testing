@@ -2,13 +2,8 @@
 
 set -e  # Exit immediately if a command exits with non-zero status
 
-# Check if .env file exists before sourcing
-if [ -f .env ]; then
-    source .env
-else
-    echo "Missing .env file"
-    exit 1
-fi
+URL='https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/builder/mac/generic/onlyoffice-documentbuilder-9.0.0-116-x86_64.tar.xz'
+SHA256='3ad5d32ee3c08ceadedeb4c1759050e3d3bf2f75b99eae6553c0648e8331b08f'
 
 DOWNLOADED_FILE=$(basename "$URL")
 
