@@ -2,18 +2,19 @@
 
 set -e  # Exit immediately if a command exits with non-zero status
 
-source .env
+URL='https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/builder/linux/generic/onlyoffice-documentbuilder-9.0.0-116-x86_64.tar.xz'
+SHA256='8d42db4d2e06b78b9dd23778285657c52276804f52c1290d7f546cbf6d04b3ce'
 
-DOWNLOADED_FILE=$(basename $URL)
+DOWNLOADED_FILE=$(basename "$URL")
 
 # Download and verify SHA256
 echo "Downloading $URL..."
-curl -L $URL --output ./"$DOWNLOADED_FILE"
+curl -L "$URL" --output "./$DOWNLOADED_FILE"
 
-if sha256sum ./"$DOWNLOADED_FILE" | grep -q $SHA256; then
+if sha256sum "./$DOWNLOADED_FILE" | grep -q "$SHA256"; then
     echo "Verification succeeded (exit code: $?)"
 
-	# Extract the archive
+    # Extract the archive
     echo "Extracting $DOWNLOADED_FILE..."
     tar -xvf "$DOWNLOADED_FILE" || { echo "Extraction failed"; exit 1; }
 
@@ -23,10 +24,10 @@ if sha256sum ./"$DOWNLOADED_FILE" | grep -q $SHA256; then
     echo "Verifying binary installation..."
     cat /usr/bin/onlyoffice-documentbuilder > /dev/null || { echo "Binary verification failed"; exit 1; }
 
-	# Before copying files, create the parent directory structure
-	mkdir -p /opt/onlyoffice/
-    
-	# Copy data files
+    # Create the parent directory structure before copying files
+    mkdir -p /opt/onlyoffice/
+
+    # Copy data files
     echo "Installing data files..."
     cp -rf ./opt/onlyoffice/documentbuilder /opt/onlyoffice/documentbuilder || { echo "Data files installation failed"; exit 1; }
     echo "Verifying data files installation..."
@@ -41,9 +42,9 @@ if sha256sum ./"$DOWNLOADED_FILE" | grep -q $SHA256; then
     rm -rf "$DOWNLOADED_FILE" ./opt ./usr
     CLEANUP_STATUS=$?
     echo "Cleanup status: $CLEANUP_STATUS"
-    
+
     echo "Installation completed successfully!"
 else
     echo "Verification failed (exit code: $?)"
-	exit 1
+    exit 1
 fi
