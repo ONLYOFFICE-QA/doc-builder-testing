@@ -7,19 +7,18 @@ task default: %w[desktop]
 desc 'run parallel_rspec on builder in desktop'
 task :desktop do
   ENV['BUILDER_PLATFORM'] = 'DESKTOP'
+  server = DocBuilderWrapper.new
+  puts "Run on version #{server.version}"
   sh 'bundle exec parallel_rspec spec'
 end
 
 desc 'run parallel_rspec on builder in documentserver'
 task :web do
   ENV['BUILDER_PLATFORM'] = 'WEB'
-  doclinux = WebDocBuilderWrapper.new(documentserver_path: 'https://doc-linux.teamlab.info')
-  kim = WebDocBuilderWrapper.new(documentserver_path: 'https://kim.teamlab.info')
-
-  server = doclinux.semver > kim.semver ? doclinux : kim
+  server = WebDocBuilderWrapper.new(documentserver_path: 'https://doc-linux.teamlab.info')
+  # server = WebDocBuilderWrapper.new(documentserver_path: 'https://kim.teamlab.info')
   ENV['WEB_BUILDER_URL'] = server.uri
   puts "Run on #{server.uri}, version #{server.version_with_build}"
-
   sh 'bundle exec parallel_rspec --exclude-pattern "spec/python_wrapper/**" spec'
 end
 
