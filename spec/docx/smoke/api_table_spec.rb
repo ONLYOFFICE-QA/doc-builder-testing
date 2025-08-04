@@ -185,7 +185,11 @@ describe 'ApiTable section tests' do
     docx = builder.build_and_parse('js/docx/smoke/api_table/to_json.js')
     json = JSON.parse(docx.elements[0].nonempty_runs[0].text)
     expect(json['type']).to eq('table')
-    expect(docx.elements[1].properties.table_style.name).to eq(json['styles']['95']['name'])
+    if builder.semver >= Semantic::Version.new('9.0.4')
+      expect(docx.elements[1].properties.table_style.name).to eq(json['styles']['96']['name'])
+    else
+      expect(docx.elements[1].properties.table_style.name).to eq(json['styles']['95']['name'])
+    end
   end
 
   describe 'ApiTable | AddCaption method' do
