@@ -4,6 +4,7 @@ LABEL maintainer="Pavel.Lobashov <shockwavenn@gmail.com>"
 
 ENV VERSION="99.99.99" \
     DIST="stable"
+ENV ONLYOFFICE_BUILDER_LICENSE="/secrets/license.xml"
 
 RUN apt-get update && apt-get install -y -q \
     git \
