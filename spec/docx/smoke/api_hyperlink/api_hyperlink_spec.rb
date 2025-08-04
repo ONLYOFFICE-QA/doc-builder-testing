@@ -10,6 +10,10 @@ describe 'ApiHyperlink tests' do
     expect(json['type']).to eq('hyperlink')
     expect(json['value']).to eq('https://legacy-api.onlyoffice.com/')
     expect(json['tooltip']).to eq('ONLYOFFICE for developers')
-    expect(json['styles']['187']['name']).to eq('Hyperlink')
+    if builder.semver >= Semantic::Version.new('9.0.4')
+      expect(json['styles']['187']['name']).to eq('Hyperlink')
+    else
+      expect(json['styles']['186']['name']).to eq('Hyperlink')
+    end
   end
 end
