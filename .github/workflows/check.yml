@@ -9,7 +9,7 @@ jobs:
           sudo apt-get -y update
           sudo apt-get -y install imagemagick \
                                   libmagickwand-dev
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.4'
@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout HEAD
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0  # Fetch the full history to access other branches
       - name: Fetch master branch
@@ -55,7 +55,7 @@ jobs:
   run_critical_in_default_docker:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Running test inside doc-builder-testing
         run: |
           docker build -t doc-builder-testing .
@@ -73,7 +73,7 @@ jobs:
           - "dockerfiles/debian-next-release/Dockerfile"
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Create folder and license file
         env:
           DOCUMENT_BUILDER_LICENSE: ${{ secrets.DOCUMENT_BUILDER_LICENSE }}
