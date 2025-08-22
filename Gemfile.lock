@@ -105,7 +105,7 @@ GEM
     semantic (1.6.1)
     ttfunk (1.8.0)
       bigdecimal (~> 3.1)
-    unicode-display_width (3.1.4)
+    unicode-display_width (3.1.5)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     yard (0.9.37)
