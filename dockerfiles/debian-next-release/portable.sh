@@ -2,8 +2,8 @@
 
 set -e  # Exit immediately if a command exits with non-zero status
 
-URL='https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/builder/linux/generic/onlyoffice-documentbuilder-9.1.0-88-x86_64.tar.xz'
-SHA256='d93844a39491487de073fd45837159e398dc208d48b1b45cd3d0b2c3440841b5'
+URL='https://s3.eu-west-1.amazonaws.com/repo-doc-onlyoffice-com/builder/linux/generic/onlyoffice-documentbuilder-9.1.0-109-x86_64.tar.xz'
+SHA256='278f23f4a76d5e96658eae48f804e2163c9cfdc332a86eb6ca2da88e2f979852'
 
 DOWNLOADED_FILE=$(basename "$URL")
 
