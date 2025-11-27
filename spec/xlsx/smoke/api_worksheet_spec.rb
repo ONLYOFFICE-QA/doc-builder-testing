@@ -51,7 +51,7 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | AddProtectedRange method' do
-    skip 'https://github.com/ONLYOFFICE-QA/ooxml_parser/issues/1403'
+    # skip 'https://github.com/ONLYOFFICE-QA/ooxml_parser/issues/1403'
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/add_protected_range.js')
     expect(xlsx.worksheets.first.protected_ranges[0]).to be_a(Object)
   end
