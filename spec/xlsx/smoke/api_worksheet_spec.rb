@@ -208,7 +208,8 @@ describe 'ApiWorksheet section tests' do
   end
 
   it 'ApiWorksheet | ActiveCell property' do
-    pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
+    # pending('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
+    skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=36752')
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_worksheet/active_cell_property.js')
     expect(xlsx.worksheets.first.rows[12].cells[3].text).to eq('60')
   end
