@@ -54,6 +54,7 @@ describe 'ApiSlide section tests' do
 
   it 'ApiSlide | Select' do
     # skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73191')
+    skip('not implemented') if builder.semver < Semantic::Version.new('8.3.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_slide/select.js')
     slide_data = pptx.slides[0].common_slide_data.shape_tree
     expect(slide_data.elements[0].text_body.paragraphs[0].runs[0].text).to eq('is empty: false')
