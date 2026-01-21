@@ -1,0 +1,6 @@
+{
+  "MD013": false,  // Disables the line length rule completely
+  // Or to customize it:
+  "MD013": { "line_length": 120 }  // Changes max line length to 120
+}
+
