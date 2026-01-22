@@ -186,7 +186,7 @@ describe 'Api section tests' do
 
     it 'Check call without tag @customfunction' do
       path = 'js/xlsx/smoke/api/add_custom_function/without_desc_tag.js'
-      if builder.semver >= Semantic::Version.new('9.0.3')
+      if builder.semver >= Semantic::Version.new('9.0.3') && builder.semver < Semantic::Version.new('9.3.0')
         xlsx = builder.build_and_parse(path)
         expect(xlsx.worksheets.first.rows_raw[0].cells_raw.first.raw_text).to eq('#NAME?')
       else
