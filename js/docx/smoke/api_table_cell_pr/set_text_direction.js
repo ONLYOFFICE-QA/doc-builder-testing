@@ -7,12 +7,16 @@ oTable = Api.CreateTable(3, 3);
 oTable.SetWidth("percent", 100);
 oTableRow = oTable.GetRow(0);
 oTableRow.SetHeight("atLeast", 1440);
-oTableCellPr = oTableStyle.GetTableCellPr();
-oTableCellPr.SetTextDirection("btlr");
+
 oCell = oTable.GetRow(0).GetCell(0);
 oParagraph = oCell.GetContent().GetElement(0);
 oParagraph.AddText("btlr");
+let tableCellPr = Api.CreateTableCellPr();
+tableCellPr.SetTextDirection("btlr");
+oCell.SetCellPr(tableCellPr);
+
 oTable.SetStyle(oTableStyle);
+
 oDocument.Push(oTable);
 builder.SaveFile("docx", "SetTextDirection.docx");
 builder.CloseFile();
