@@ -71,6 +71,7 @@ describe 'ApiTableCellPr section tests' do
   end
 
   it 'ApiTableCellPr | SetTextDirection method' do
+    skip('Api.CreateTableCellPr is not a function') if builder.semver < Semantic::Version.new('9.1.0')
     docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/set_text_direction.js')
     expect(docx.elements[1].rows.first.cells.first.properties.text_direction).to eq(:bottom_to_top_left_to_right)
   end
