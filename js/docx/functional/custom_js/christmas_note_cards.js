@@ -1,7 +1,6 @@
 builder.CreateFile("docx");
 var oParaPr, oRun, oHeading1Style, oTextPr, oNoSpacingStyle, oNormalStyle;
 var oTable, oDocument, oParagraph, oDrawing;
-var Api = editor;
 var oTableInner, oCellInner, oRowInner, oParagraphInner;
 
 oDocument = Api.GetDocument();
