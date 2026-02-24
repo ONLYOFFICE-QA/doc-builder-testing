@@ -1,9 +1,9 @@
 builder.CreateFile("pptx");
     var oPresentation = Api.GetPresentation();
-        Api.pluginMethod_AddComment({"UserName": "John Smith", "Text": "This is a comment."});
-        Api.pluginMethod_AddComment({"UserName": "Mark Potato", "Text": "This is another comment."});
     var oSlide = oPresentation.GetSlideByIndex(0);
         oSlide.RemoveAllObjects();
+    oSlide.AddComment(0, 0, "This is a comment.", "John Smith");
+    oSlide.AddComment(10 * 36000, 20 * 36000, "This is another comment.", "Mark Potato");
     var oShape = Api.CreateShape("rect", 300 * 36000, 130 * 36000);
     var oDocContent = oShape.GetDocContent();
     var oParagraph = oDocContent.GetElement(0);
