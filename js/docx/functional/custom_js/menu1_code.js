@@ -3,8 +3,6 @@ var oParaPr, oRun, oTextPr;
 var oTable, oDocument, oParagraph, oDrawing;
 var oTableInner, oCellInner, oRowInner, oParagraphInner;
 
-var Api = editor;
-
 oDocument = Api.GetDocument();
 
 
