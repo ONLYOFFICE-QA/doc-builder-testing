@@ -1,5 +1,4 @@
 builder.CreateFile("docx");
-var Api = editor;
 var oDocument = Api.GetDocument();
 oDocument.CreateNewHistoryPoint();
 var oParagraph = Api.CreateParagraph();
