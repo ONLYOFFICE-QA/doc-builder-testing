@@ -41,6 +41,7 @@ describe 'ApiPresentation section tests' do
   end
 
   it 'ApiPresentation | GetAllComments method' do
+    skip 'disable plugin methods in office-api' if builder.semver < Semantic::Version.new('9.3.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_presentation/get_all_comments.js')
     comments_text = pptx.comments.list.map(&:text)
     slide_data = pptx.slides[0].common_slide_data.shape_tree
