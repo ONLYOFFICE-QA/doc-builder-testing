@@ -55,6 +55,7 @@ describe 'ApiDocumentContent section tests' do
   end
 
   it 'ApiDocumentContent | ToJSON method' do
+    skip('Bug #80571') if (builder.semver >= Semantic::Version.new('9.4.0')) && (builder.semver < Semantic::Version.new('9.5.0'))
     docx = builder.build_and_parse('js/docx/smoke/api_document_content/to_json.js')
     expect(docx.elements[0].hyperlink.action.to_s).to eq('external_link')
     expect(docx.elements[1].sdt_content.elements[1].character_style_array[0].text).to eq('oBlockLvlSdt')
