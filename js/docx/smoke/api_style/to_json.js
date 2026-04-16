@@ -19,8 +19,8 @@ builder.CreateFile("docx");
                     "Caption",
                     "Header",
                     "Footer",
-                    "Footnote text",
-                    "Endnote text"]
+                    "footnote text",
+                    "endnote text"]
     var result_json = {}
     arr_def_styles.forEach(el => {
         let st = odoc.GetStyle(el);
