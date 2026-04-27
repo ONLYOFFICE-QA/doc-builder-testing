@@ -21,7 +21,7 @@ for (var sUserName in oReviewReport)
     nRows += oReviewReport[sUserName].length;
 }
 nCols = 4;
-oTable = Api.CreateTable(nCols, nRows);
+oTable = Api.CreateTable(nRows, nCols);
 oDocument.Push(oTable);
 function privateFillCell(nCurRow, nCurCol, sText)
 {

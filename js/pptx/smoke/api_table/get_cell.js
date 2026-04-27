@@ -1,7 +1,7 @@
 builder.CreateFile("pptx");
 var Presentation = Api.GetPresentation();
 var Slide = Presentation.GetSlideByIndex(0);
-var Table = Api.CreateTable(3,1);
+var Table = Api.CreateTable(1, 3);
 Slide.AddObject(Table);
 var cell1 = Table.GetRow(0).GetCell(0);
 var cell2= Table.GetRow(0).GetCell(1);

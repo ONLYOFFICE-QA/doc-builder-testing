@@ -114,7 +114,7 @@ oParagraph.SetStyle(oNoSpacingStyle);
 
 
 // second table
-oTable = Api.CreateTable(2, 3);
+oTable = Api.CreateTable(3, 2);
 applyTableStyle(1440 * 0.1, 1440 * 0, "fixed");
 
 // top left cell
@@ -176,7 +176,7 @@ oParagraph.SetStyle(oNoSpacingStyle);
 
 
 // third table
-oTable = Api.CreateTable(2, 3);
+oTable = Api.CreateTable(3, 2);
 applyTableStyle(1440 * 0.1, 1440 * 0, "fixed");
 
 // top left cell
@@ -238,7 +238,7 @@ oParagraph.SetStyle(oNoSpacingStyle);
 
 
 // fourth table
-oTable = Api.CreateTable(2, 1);
+oTable = Api.CreateTable(1, 2);
 applyTableStyle(1440 * 0.1, 1440 * 0, "fixed");
 
 // left cell
@@ -268,7 +268,7 @@ oParagraph.SetStyle(oNoSpacingStyle);
 
 
 // fifth table
-oTable = Api.CreateTable(2, 1);
+oTable = Api.CreateTable(1, 2);
 applyTableStyle(1440 * 0.1, 1440 * 0, "fixed");
 
 // left cell
