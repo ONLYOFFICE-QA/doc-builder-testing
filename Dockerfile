@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y -q \
       | gpg --dearmor -o /usr/share/keyrings/onlyoffice.gpg \
     && echo "deb [signed-by=/usr/share/keyrings/onlyoffice.gpg] http://download.onlyoffice.com/repo/debian squeeze main" \
       > /etc/apt/sources.list.d/onlyoffice.list \
-    && apt-get update && apt-get install -y onlyoffice-documentbuilder \
+#    && apt-get update && apt-get install -y onlyoffice-documentbuilder \
     && rm -rf /var/lib/apt/lists/*
 
 RUN gem install bundler
@@ -21,5 +21,7 @@ COPY . /doc-builder-testing
 WORKDIR /doc-builder-testing
 
 RUN bundle config set without 'development' && bundle install
+
+RUN ./dockerfiles/debian-next-release/portable.sh
 
 ENTRYPOINT ["rake"]
