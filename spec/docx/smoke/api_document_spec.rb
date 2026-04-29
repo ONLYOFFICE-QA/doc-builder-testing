@@ -96,6 +96,7 @@ describe 'ApiDocument section tests' do
   end
 
   it 'ApiDocument | GetReviewReport method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     skip('Cannot use OpenFile in web version') if web_builder?
     docx = builder.build_and_parse('js/docx/smoke/api_document/get_review_report.js')
     expect(docx.elements[3].rows[1].cells[2].elements
