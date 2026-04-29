@@ -54,7 +54,6 @@ jobs:
 
   run_critical_in_default_docker:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v5
       - name: Running test inside doc-builder-testing
