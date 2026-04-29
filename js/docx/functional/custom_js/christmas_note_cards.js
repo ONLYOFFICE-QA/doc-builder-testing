@@ -50,7 +50,7 @@ oParaPr.SetSpacingBefore(440);
 
 
 // table 1
-oTable = Api.CreateTable(4, 1);
+oTable = Api.CreateTable(1, 4);
 oParagraph = oDocument.Push(oTable);
 oDocument.RemoveElement(0);
 
@@ -110,7 +110,7 @@ oParagraph.AddDrawing(oDrawing);
 
 
 // table 1
-oTable = Api.CreateTable(4, 2);
+oTable = Api.CreateTable(2, 4);
 oParagraph = oDocument.Push(oTable);
 oDocument.RemoveElement(1);
 
@@ -154,7 +154,7 @@ oCell = oTable.GetRow(1).GetCell(0);
 oCell.SetWidth("twips", 7056);
 
 // inner table 1
-oTableInner = Api.CreateTable(1, 2);
+oTableInner = Api.CreateTable(2, 1);
 oCell.GetContent().Push(oTableInner);
 oCell.GetContent().RemoveElement(0);
 
@@ -203,7 +203,7 @@ oCell.SetWidth("twips", 7056);
 oCell.SetVerticalAlign("bottom");
 
 // inner table 2
-oTableInner = Api.CreateTable(1, 2);
+oTableInner = Api.CreateTable(2, 1);
 oCell.GetContent().Push(oTableInner);
 oCell.GetContent().RemoveElement(0);
 

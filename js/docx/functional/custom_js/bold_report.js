@@ -174,7 +174,7 @@ oDocument.Push(oParagraph);
 
 
 // table
-oTable = Api.CreateTable(4, 3);
+oTable = Api.CreateTable(3, 4);
 
 oTable.SetStyle(oTableStyle);
 oTable.SetTableLayout("autofit");

@@ -8,18 +8,21 @@ describe 'Api Table section tests' do
   end
 
   it 'Api | GetRow method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/get_row.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.text_body.paragraphs[0].runs.first.text).to eq('row1')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[2].cells.first.text_body.paragraphs[0].runs.first.text).to eq('row2')
   end
 
   it 'Api | GetCell method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/get_cell.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[0].cells[0].text_body.paragraphs[0].runs.first.text).to eq('cell1')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[0].cells[1].text_body.paragraphs[0].runs.first.text).to eq('cell2')
   end
 
   it 'Api | GetCellsCount method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/get_cells_count.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows[0].cells[0].text_body.paragraphs[0].runs.first.text).to eq('3')
   end
@@ -31,6 +34,7 @@ describe 'Api Table section tests' do
   end
 
   it 'Api | RemoveRow method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/remove_row.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.count).to eq(2)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.count).to eq(1)
@@ -42,6 +46,7 @@ describe 'Api Table section tests' do
   end
 
   it 'Api | RemoveColumn method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table/remove_column.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.count).to eq(2)
   end

@@ -58,6 +58,7 @@ describe 'Api Table Cell section tests' do
   end
 
   it 'Api | SetVerticalAlign method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_vertical_align.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.anchor).to eq(:top)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.anchor).to eq(:center)
@@ -65,6 +66,7 @@ describe 'Api Table Cell section tests' do
   end
 
   it 'Api | SetTextDirection method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_text_direction.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.text_direction).to eq(:horz)
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells[1].properties.text_direction).to eq(:eaVert)

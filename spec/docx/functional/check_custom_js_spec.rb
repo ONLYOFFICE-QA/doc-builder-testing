@@ -3,16 +3,19 @@
 require 'spec_helper'
 describe 'javascript code injection', :critical do
   it 'check add type of value | bold_report' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/functional/custom_js/bold_report.js')
     expect(docx).to be_with_data
   end
 
   it 'check add type of value | christmas_note_cards' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/functional/custom_js/christmas_note_cards.js')
     expect(docx).to be_with_data
   end
 
   it 'check add type of value | fax_cover' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/functional/custom_js/fax_cover.js')
     expect(docx).to be_with_data
   end
@@ -28,6 +31,7 @@ describe 'javascript code injection', :critical do
   end
 
   it 'check add type of value | rsvp_cards' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/functional/custom_js/rsvp_cards.js')
     expect(docx).to be_with_data
   end

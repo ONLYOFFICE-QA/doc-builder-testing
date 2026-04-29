@@ -91,7 +91,7 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oCell.SetWidth("twips", 4752);
 
 	// table 3rd cell
-	oTable2 = Api.CreateTable(1, 2);
+	oTable2 = Api.CreateTable(2, 1);
 	oTable2.SetTableCellMarginRight(0);
 	oTable2.SetTableCellMarginLeft(0);
 
@@ -134,7 +134,7 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oTable2.GetRow(1).GetCell(0).GetContent().Push(oParagraph);
 
 	// table 3
-	oTable3 = Api.CreateTable(1, 2);
+	oTable3 = Api.CreateTable(2, 1);
 	oTable3.SetTableCellMarginRight(0);
 	oTable3.SetTableCellMarginLeft(0);
 	oTable3.SetWidth("twips", 4032);
@@ -178,7 +178,7 @@ for (var nRow = 0; nRow <= 2; nRow += 2) {
 	oParagraph.AddElement(oRun);
 
 	// table 4
-	oTable4 = Api.CreateTable(4, 1);
+	oTable4 = Api.CreateTable(1, 4);
 	oTable4.SetTableCellMarginRight(0);
 	oTable4.SetTableCellMarginLeft(0);
 	oTable4.SetWidth("twips", 3456);

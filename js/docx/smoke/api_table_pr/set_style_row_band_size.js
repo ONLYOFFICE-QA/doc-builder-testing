@@ -3,7 +3,7 @@ var oDocument = Api.GetDocument();
 var oParagraph, oTable, oTableStyle, oTablePr;
 oDocument.RemoveAllElements();
 oTableStyle = oDocument.CreateStyle("CustomTableStyle", "table");
-oTable = Api.CreateTable(2, 4);
+oTable = Api.CreateTable(4, 2);
 oTable.SetWidth("percent", 100);
 oTable.SetStyle(oTableStyle);
 oTablePr = oTableStyle.GetTablePr();

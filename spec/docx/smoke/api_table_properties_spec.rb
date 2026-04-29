@@ -24,11 +24,13 @@ describe 'ApiTablePr section tests' do
   end
 
   it 'ApiTablePr | SetStyleColBandSize method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/smoke/api_table_pr/set_style_col_band_size.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_style_column_band_size.value).to eq(2)
   end
 
   it 'ApiTablePr | SetStyleRowBandSize method' do
+    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/smoke/api_table_pr/set_style_row_band_size.js')
     expect(docx.elements[1].properties.table_style.table_properties.table_style_row_band_size.value).to eq(2)
   end
