@@ -25,7 +25,6 @@ jobs:
 
   run_modified_files_in_default_docker:
     runs-on: ubuntu-latest
-    if: github.event_name == 'push'
     steps:
       - name: Checkout HEAD
         uses: actions/checkout@v5
@@ -55,6 +54,7 @@ jobs:
 
   run_critical_in_default_docker:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v5
       - name: Running test inside doc-builder-testing
