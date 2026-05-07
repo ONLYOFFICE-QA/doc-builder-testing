@@ -167,7 +167,16 @@ describe 'ApiDocument section tests' do
     docx.comments.comments_array.reverse_each do |item|
       comments_text.append(item.paragraphs.first.nonempty_runs.first.text)
     end
-    expect(comments_text.join(', ')).to eq(docx.elements.last.nonempty_runs.first.text)
+    expect(comments_text.join(', ')).to eq([
+      'This is a comment.',
+      'This is another comment.',
+      'Comment for paragraph',
+      'Comment for run',
+      'Comment for range',
+      'Comment for table',
+      'Comment for block content control',
+      'Comment for inline content control'
+    ].join(', '))
   end
 
   describe 'ApiDocument | AddMathEquation method' do
