@@ -8,6 +8,7 @@ describe 'ApiRGBColor section tests' do
   end
 
   it 'ApiRGBColor | ToJSON method' do
+    skip('Usign new method Api.RGB') if builder.semver < Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/smoke/api_rgb_color/to_json.js')
     json = JSON.parse(docx.elements[1].nonempty_runs.first.text)
     rgba = json['graphic']['spPr']['fill']['fill']['gsLst'][0]['color']['color']['rgba']
