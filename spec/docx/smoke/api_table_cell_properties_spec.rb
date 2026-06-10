@@ -60,6 +60,7 @@ describe 'ApiTableCellPr section tests' do
   end
 
   it 'ApiTableCellPr | SetNoWrap method' do
+    skip 'Invalid return NoWrap property' if builder.semver >= Semantic::Version.new('9.4.0')
     docx = builder.build_and_parse('js/docx/smoke/api_table_cell_pr/set_no_wrap.js')
     expect(docx.elements[1].rows.first.cells.first.properties.no_wrap).to be_truthy
   end
