@@ -34,24 +34,28 @@ describe 'Api Table Cell section tests' do
   end
 
   it 'Api | SetCellBorderBottom method' do
+    skip 'new version ApiTableCell.SetCellBorderBottom' if builder.semver < Semantic::Version.new('9.5.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_cell_border_bottom.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.bottom.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.bottom.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
 
   it 'Api | SetCellBorderLeft method' do
+    skip 'new version ApiTableCell.SetCellBorderLeft' if builder.semver < Semantic::Version.new('9.5.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_cell_border_left.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.left.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.left.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
 
   it 'Api | SetCellBorderRight method' do
+    skip 'new version ApiTableCell.SetCellBorderRight' if builder.semver < Semantic::Version.new('9.5.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_cell_border_right.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.right.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.right.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
   end
 
   it 'Api | SetCellBorderTop method' do
+    skip 'new version ApiTableCell.SetCellBorderTop' if builder.semver < Semantic::Version.new('9.5.0')
     pptx = builder.build_and_parse('js/pptx/smoke/api_table_cell/set_cell_border_top.js')
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.top.width).to eq(OoxmlParser::OoxmlSize.new(0.5, :centimeter))
     expect(pptx.slides.first.elements.last.graphic_data.first.rows.first.cells.first.properties.borders.top.fill.color).to eq(OoxmlParser::Color.new(255, 0, 0))
