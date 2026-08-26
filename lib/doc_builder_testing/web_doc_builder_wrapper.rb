@@ -43,12 +43,12 @@ class WebDocBuilderWrapper
 
   # @return [String] version
   def version
-    sdk_description[/\d(\.)\d(\.)\d/]
+    sdk_description[/\d+(\.)\d+(\.)\d+/]
   end
 
   # @return [String] version with build
   def version_with_build
-    sdk_description[/\d(\.)\d(\.)\d.*(build:\d*)./]
+    sdk_description[/\d+(\.)\d+(\.)\d+.*(build:\d*)./]
   end
 
   # Build file from script file
