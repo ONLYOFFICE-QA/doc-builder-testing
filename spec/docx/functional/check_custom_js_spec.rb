@@ -3,7 +3,8 @@
 require 'spec_helper'
 describe 'javascript code injection', :critical do
   it 'check add type of value | bold_report' do
-    skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
+    # skip 'new version Api.CreateTable' if builder.semver < Semantic::Version.new('9.4.0')
+    skip 'bug83824'
     docx = builder.build_and_parse('js/docx/functional/custom_js/bold_report.js')
     expect(docx).to be_with_data
   end
