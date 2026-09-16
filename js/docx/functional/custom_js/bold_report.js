@@ -110,7 +110,7 @@ oParaPr.SetSpacingLine(240, "auto");
 
 
 // table heading text style
-var oTableHeadingStyle = oDocument.CreateStyle("Bold Report heading");
+var oTableHeadingStyle = oDocument.CreateStyle("Bold Report heading", "run");
 
 oTextPr = oTableHeadingStyle.GetTextPr();
 oTextPr.SetFontSize(24);
