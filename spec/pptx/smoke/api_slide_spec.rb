@@ -5,21 +5,21 @@ describe 'ApiSlide section tests' do
   it 'ApiSlide | AddObject method' do
     skip('https://bugzilla.onlyoffice.com/show_bug.cgi?id=73379') if builder.semver > Semantic::Version.new('8.3.0') && builder.semver < Semantic::Version.new('8.3.2')
     pptx = builder.build_and_parse('js/pptx/smoke/api_slide/add_object.js')
+    less10 = builder.semver < Semantic::Version.new('10.0.0')
     expect(pptx.slides.first.elements.first.graphic_data.first.type).to eq(:bar_3d)
     expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.text).to eq('Financial Overview')
-    expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.properties.font_size).to eq(13)
-
+    expect(pptx.slides.first.elements.first.graphic_data.first.title.elements.first.runs.first.properties.font_size).to eq(less10 ? 13 : 6.5)
     expect(pptx.slides.first.elements.first.graphic_data.first.display_labels.show_category_name).to be false
     expect(pptx.slides.first.elements.first.graphic_data.first.display_labels.show_legend_key).to be false
     expect(pptx.slides.first.elements.first.graphic_data.first.display_labels.show_series_name).to be false
     expect(pptx.slides.first.elements.first.graphic_data.first.display_labels.show_values).to be true
     expect(pptx.slides.first.elements.first.graphic_data.first.legend.position).to eq(:bottom)
-
     expect(pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.text).to eq('Year')
-    expect(pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11)
+    expect(
+      pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size
+    ).to eq(less10 ? 11 : 5.5)
     expect(pptx.slides.first.elements.first.graphic_data.first.axises[1].title.elements.first.runs.first.text).to eq('USD In Hundred Thousands')
-    expect(pptx.slides.first.elements.first.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10)
-
+    expect(pptx.slides.first.elements.first.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size).to eq(less10 ? 10 : 5)
     expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.offset.x).to eq(OoxmlParser::OoxmlSize.new(608_400, :emu))
     expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.offset.y).to eq(OoxmlParser::OoxmlSize.new(1_267_200, :emu))
     expect(pptx.slides.first.elements.first.graphic_data.first.shape_properties.shape_size.extent.x).to eq(OoxmlParser::OoxmlSize.new(300 * 36_000, :emu))

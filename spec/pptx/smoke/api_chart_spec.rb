@@ -14,7 +14,9 @@ describe 'ApiChart section tests' do
   it 'Api | SetHorAxisTitle method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_chart/set_hor_axis_title.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.text).to eq('Year')
-    expect(pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11)
+    expect(
+      pptx.slides.first.elements.first.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 11 : 5.5)
   end
 
   it 'Api | SetLegendPos method' do
@@ -37,6 +39,8 @@ describe 'ApiChart section tests' do
   it 'Api | SetVerAxisTitle method' do
     pptx = builder.build_and_parse('js/pptx/smoke/api_chart/set_ver_axis_title.js')
     expect(pptx.slides.first.elements.first.graphic_data.first.axises.last.title.elements.first.runs.first.text).to eq('USD In Hundred Thousands')
-    expect(pptx.slides.first.elements.first.graphic_data.first.axises.last.title.elements.first.runs.first.properties.font_size).to eq(10)
+    expect(
+      pptx.slides.first.elements.first.graphic_data.first.axises.last.title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 10 : 5)
   end
 end

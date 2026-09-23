@@ -10,7 +10,11 @@ describe 'ApiChart section tests' do
   it 'ApiChart | SetHorAxisTitle method' do
     docx = builder.build_and_parse('js/docx/smoke/api_chart/set_hor_axis_title.js')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.text).to eq('Year')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11.0)
+    expect(
+      docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size
+    ).to eq(
+      builder.semver < Semantic::Version.new('10.0.0') ? 11.0 : 5.5
+    )
   end
 
   it 'ApiChart | SetLegendPos method' do
@@ -21,19 +25,27 @@ describe 'ApiChart section tests' do
   it 'ApiChart | SetShowDataLabels method' do
     docx = builder.build_and_parse('js/docx/smoke/api_chart/set_show_data_labels.js')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.text).to eq('Year')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11)
+    expect(
+      docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size
+    ).to eq(
+      builder.semver < Semantic::Version.new('10.0.0') ? 11 : 5.5
+    )
   end
 
   it 'ApiChart | SetTitle method' do
     docx = builder.build_and_parse('js/docx/smoke/api_chart/set_title.js')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.title.elements.first.runs.first.text).to eq('Financial Overview')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.title.elements.first.runs.first.properties.font_size).to eq(13.0)
+    expect(
+      docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 13.0 : 6.5)
   end
 
   it 'ApiChart | SetVerAxisTitle method' do
     docx = builder.build_and_parse('js/docx/smoke/api_chart/set_ver_axis_title.js')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises[1].title.elements.first.runs.first.text).to eq('USD In Hundred Thousands')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10)
+    expect(
+      docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises[1].title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 10 : 5)
   end
 
   it 'ApiChart | SetStyle methods | #54039' do

@@ -12,9 +12,10 @@ describe 'ApiParagraph section tests' do
 
   it 'ApiParagraph | AddDrawing method' do
     docx = builder.build_and_parse('js/docx/smoke/api_paragraph/add_drawing.js')
+    less10 = builder.semver < Semantic::Version.new('10.0.0')
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.type).to eq(:chart)
     expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.text).to eq('Year')
-    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11.0)
+    expect(docx.elements.first.nonempty_runs.first.drawings.first.graphic.data.axises.first.title.elements.first.runs.first.properties.font_size).to eq(less10 ? 11.0 : 5.5)
     points = docx.elements.first.nonempty_runs.first
                  .drawings.first.graphic.data.series[0]
                  .values.number_reference.cache.points
