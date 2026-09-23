@@ -25,7 +25,9 @@ describe 'ApiChart section tests' do
   it 'ApiChart | SetHorAxisTitle method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_chart/set_hor_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises.first.title.elements.first.runs.first.text).to eq('Horizontal Title')
-    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size).to eq(11.0)
+    expect(
+      xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises.first.title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 11.0 : 5.5)
   end
 
   it 'ApiChart | SetLegendPos method' do
@@ -55,7 +57,9 @@ describe 'ApiChart section tests' do
   it 'ApiChart | SetVerAxisTitle method' do
     xlsx = builder.build_and_parse('js/xlsx/smoke/api_chart/set_ver_axis_title.js')
     expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.text).to eq('Vertical Title')
-    expect(xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size).to eq(10.0)
+    expect(
+      xlsx.worksheets.first.drawings.first.graphic_frame.graphic_data.first.axises[1].title.elements.first.runs.first.properties.font_size
+    ).to eq(builder.semver < Semantic::Version.new('10.0.0') ? 10.0 : 5.0)
   end
 
   it 'ApiChart | SetVertAxisTickLabelPosition method' do
