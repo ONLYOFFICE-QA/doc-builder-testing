@@ -2,7 +2,7 @@ builder.CreateFile("docx");
 var oDocument = Api.GetDocument();
 var oFill, oStroke, oDrawing, oParagraph;
 oParagraph = oDocument.GetElement(0);
-oFill = Api.CreateBlipFill("https://legacy-api.onlyoffice.com/content/img/docbuilder/examples/icon_DocumentEditors.png", "tile");
+oFill = Api.CreateBlipFill("https://static.onlyoffice.com/assets/docs/samples/img/onlyoffice_logo.png", "tile");
 oStroke = Api.CreateStroke(0, Api.CreateNoFill());
 oDrawing = Api.CreateShape("star10", 5930900, 595605, oFill, oStroke);
 oParagraph.AddDrawing(oDrawing);
