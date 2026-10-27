@@ -9,6 +9,8 @@ require_relative '../lib/custom_matchers'
 
 # ENV['BUILDER_PLATFORM'] = 'WEB'
 # ENV['WEB_BUILDER_URL'] = 'https://kim.teamlab.info/'
+# ENV['WEB_BUILDER_URL'] = 'https://saul.teamlab.info'
+# ENV['WEB_BUILDER_URL'] = 'https://doc-linux.teamlab.info'
 
 # Get either DocBuilder of WebDocBuilder
 # depending of env var
@@ -39,4 +41,29 @@ ENV['PYTHONPATH'] = Dir.pwd
 # @return [DocBuilderPythonWrapper]
 def python_builder
   @python_builder ||= DocBuilderPythonWrapper.new
+end
+
+# Print builder environment info after rspec summary
+class BuilderInfoListener
+  # @param _notification [RSpec::Core::Notifications::SummaryNotification]
+  # @return [nil]
+  def dump_summary(_notification)
+    puts "BUILDER_PLATFORM: #{builder_platform}"
+    puts "WEB_BUILDER_URL: #{builder.uri}" if web_builder?
+    puts "Builder version: #{builder_version}"
+  end
+
+  private
+
+  # @return [String] version of builder used in tests
+  def builder_version
+    version = web_builder? ? builder.version_with_build : builder.version
+    version.to_s.strip
+  rescue StandardError => e
+    "unknown (#{e.message})"
+  end
+end
+
+RSpec.configure do |config|
+  config.reporter.register_listener(BuilderInfoListener.new, :dump_summary)
 end
